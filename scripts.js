@@ -1,24 +1,9 @@
 /**
- * ferjeruta.no js code backend
+ * rFerjelistaWeb // ferjeruta.no // js code backend
  * jon@tungland.org // www.runnane.no // 2013
- * LGPL
- * version 0.01-2014011501
- * 
- * Requires jquery + jquery mobile
  *
- * Changelog
- * 0.01 - 2014-01-15 - jon@tungland.org - initial version
+ * https://bitbucket.org/runnane/rferjelistaweb/
  *
- * 
- * TODO: 
- * (bug) when loading page with anchor, unable to refresh/create dom. https://projects.runnane.no/rFerjelistaWeb/#pageLocations -> Uncaught Error: cannot call methods on listview prior to initialization; attempted to call method 'refresh'. Throw this and handle, or automatic load into last used route?
- * (feature) settings
- * (feature) alerts
- * (feature) show previous
- * (feature) progressbar? something something
- * (feature) show info about the individual ferries
- * (major change) support 3+ departurepoints
- * 
  **/
  
 /**
