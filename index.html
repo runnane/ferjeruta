@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ferjeruta.no</title>
+<link rel="stylesheet" href="jqm/jquery.mobile-1.4.0.min.css" />
+<link rel="stylesheet" href="jqm/jquery.mobile.icons.min.css" />
+<script src="jqm/jquery-2.0.3.min.js"></script>
+<script src="jqm/jquery.mobile-1.4.0.min.js"></script>
+<script src="scripts.js"></script>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<div id="pageMainview" data-role="page" data-theme="a" data-position="fixed">
+
+  <div data-role="header">
+  	<a href="#" id="btnRefresh" data-icon="refresh">Oppfrisk</a>
+    <h1>Ferjeruta</h1>
+    <a href="#" class="ui-right daycontents"></a>
+  </div>
+  
+  <div data-role="content">
+  	<div id="debugougput"></div>
+    <ul id="lvMainview" data-role="listview"></ul>
+  </div>
+  
+  <div data-role="footer" data-tap-toggle="false" data-id="panelMainNavBar" data-position="fixed"> 
+    <div data-role="navbar" >
+        <ul>
+          <li><a href="#pageMainview" data-prefetch="true" data-transition="none" class="ui-btn-active ui-state-persist" data-icon="home">Oversikt</a></li>
+          <li><a href="#pageSettings" data-prefetch="true" data-transition="none" data-icon="gear">Innstillinger</a></li>
+          <li><a href="#pageAlerts" data-prefetch="true" data-transition="none" data-icon="alert">Varsler</a></li>
+        </ul>
+    </div>
+  </div>
+  
+</div>
+
+<div data-role="page" id="pageLocations">
+
+  <div data-role="header">
+  	<a href="#mainview" data-icon="back" data-rel="back" data-transition="slide">Tilbake</a>
+    <h1>Ferjeruta</h1>
+    <a href="#" class="ui-right daycontents"></a>
+  </div>
+  
+  <div data-role="content">
+  	<ul id="lvLocations" data-role="listview"></ul>
+  </div>
+  
+  <div data-role="footer" data-tap-toggle="false" data-id="panelMainNavBar" data-position="fixed"> 
+    <div data-role="navbar" >
+        <ul>
+          <li><a href="#pageMainview" data-prefetch="true" data-transition="none" class="ui-btn-active ui-state-persist" data-icon="home">Oversikt</a></li>
+          <li><a href="#pageSettings" data-prefetch="true" data-transition="none" data-icon="gear">Innstillinger</a></li>
+          <li><a href="#pageAlerts" data-prefetch="true" data-transition="none" data-icon="alert">Varsler</a></li>
+        </ul>
+    </div>
+  </div>
+  
+</div>
+
+<div data-role="page" id="pageDays">
+
+  <div data-role="header">
+  	<a href="#locations" data-icon="back" data-rel="back" data-transition="slide">Tilbake</a>
+    <h1>Ferjeruta</h1>
+    <a href="#" class="ui-right daycontents"></a>
+  </div>
+  
+  <div data-role="content">
+  	<ul id="lvDays" data-role="listview"></ul>
+  </div>
+  
+  <div data-role="footer" data-tap-toggle="false" data-id="panelMainNavBar" data-position="fixed"> 
+    <div data-role="navbar" >
+        <ul>
+          <li><a href="#pageMainview" data-prefetch="true" data-transition="none" class="ui-btn-active ui-state-persist" data-icon="home">Oversikt</a></li>
+          <li><a href="#pageSettings" data-prefetch="true" data-transition="none" data-icon="gear">Innstillinger</a></li>
+          <li><a href="#pageAlerts" data-prefetch="true" data-transition="none" data-icon="alert">Varsler</a></li>
+        </ul>
+    </div>
+  </div>
+  
+</div>
+
+<div data-role="page" id="pageDepartures">
+
+  <div data-role="header">
+  	<a href="#days" data-icon="back" data-rel="back" data-transition="slide">Tilbake</a>
+    <h1>Ferjeruta</h1>
+    <a href="#" class="ui-right daycontents"></a>
+  </div>
+  
+  <div data-role="content">
+  	<ul id="lvDepartures" data-role="listview"></ul>
+  </div>
+  
+  <div data-role="footer" data-tap-toggle="false" data-id="panelMainNavBar" data-position="fixed"> 
+    <div data-role="navbar" >
+        <ul>
+          <li><a href="#pageMainview" data-prefetch="true" data-transition="none" class="ui-btn-active ui-state-persist" data-icon="home">Oversikt</a></li>
+          <li><a href="#pageSettings" data-prefetch="true" data-transition="none" data-icon="gear">Innstillinger</a></li>
+          <li><a href="#pageAlerts" data-prefetch="true" data-transition="none" data-icon="alert">Varsler</a></li>
+        </ul>
+    </div>
+  </div>
+  
+</div>
+
+<div id="pageSettings" data-role="page">
+
+  <div data-role="header">
+  	<a href="#" data-icon="back" data-rel="back" data-transition="slide">Tilbake</a>
+    <h1>Innstillinger</h1>
+  </div>
+  
+  <div data-role="content">
+  	her kan vi legge noen innstillinger..
+  </div>
+  
+  <div data-role="footer" data-tap-toggle="false" data-id="panelMainNavBar" data-position="fixed"> 
+    <div data-role="navbar" >
+        <ul>
+          <li><a href="#pageMainview" data-prefetch="true" data-transition="none" data-icon="home">Oversikt</a></li>
+          <li><a href="#pageSettings" data-prefetch="true" data-transition="none" class="ui-btn-active ui-state-persist" data-icon="gear">Innstillinger</a></li>
+          <li><a href="#pageAlerts" data-prefetch="true" data-transition="none" data-icon="alert">Varsler</a></li>
+        </ul>
+    </div>
+  </div>
+  
+</div>
+
+<div id="pageAlerts" data-role="page">
+
+  <div data-role="header">
+  	<a href="#" data-icon="back" data-rel="back" data-transition="slide">Tilbake</a>
+    <h1>Varsler</h1>
+  </div>
+  
+  <div data-role="content">
+ 	 her kan vi legge noen varsler..
+  </div>
+  
+  <div data-role="footer" data-tap-toggle="false" data-id="panelMainNavBar" data-position="fixed"> 
+    <div data-role="navbar" >
+        <ul>
+          <li><a href="#pageMainview" data-prefetch="true" data-transition="none"  data-icon="home">Oversikt</a></li>
+          <li><a href="#pageSettings" data-prefetch="true" data-transition="none" data-icon="gear">Innstillinger</a></li>
+          <li><a href="#pageAlerts" data-prefetch="true" data-transition="none" class="ui-btn-active ui-state-persist" data-icon="alert">Varsler</a></li>
+        </ul>
+    </div>
+  </div>
+  
+</div>
+
+</body>
+</html>
