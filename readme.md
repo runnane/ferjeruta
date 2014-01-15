@@ -1,7 +1,7 @@
 rFerjelistaWeb
 =========
 
-rFerjelistaWeb is the backend for ferjelista.no
+rFerjelistaWeb is the backend for ferjeruta.no
 
 Known Issues
 ----
