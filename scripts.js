@@ -1,8 +1,8 @@
 /**
- * rFerjelistaWeb // ferjeruta.no // js code backend
- * jon@tungland.org // www.runnane.no // 2013
+ * ferjeruta.no // js code backend
+ * jon@tungland.org // www.runnane.no // 2014
  *
- * https://bitbucket.org/runnane/rferjelistaweb/
+ * https://bitbucket.org/runnane/ferjelista
  *
  **/
  
