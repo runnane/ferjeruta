@@ -1218,6 +1218,7 @@
 				<departure time="18:40" comments="Om Matre, 18:55" />
 				<departure time="19:50" />
 				<departure time="21:00" />
+				<departure time="21:50" />
 			</weekday>
 			<weekday day="7" desc="Lørdag">
 				<departure time="07:00" />
