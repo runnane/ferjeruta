@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--* Betyr at bussen går til Tungland -->
 <routes serial="2014011501">
 	<route name="Tausambandet" location1="Stavanger" location2="Tau"
 		validfrom="2014-01-01" validto="2014-04-30" serial="2013121701" time="35" ticketzone="15" operator="norled" routeid="1022">
@@ -12,87 +13,87 @@
 				<departure time="00:00" rute="1" />
 				<departure time="01:20" rute="1" />
 				<departure time="03:00" rute="1" />
-				<departure time="04:30" rute="1" />
+				<departure time="04:30" rute="1" comments="Buss går 05:40" />
 				<departure time="05:15" rute="2" />
-				<departure time="06:00" rute="1" />
-				<departure time="06:40" rute="2" />
-				<departure time="07:20" rute="1" />
-				<departure time="07:40" rute="3" comments="Ingen servering" />
-				<departure time="08:00" rute="2" />
-				<departure time="08:40" rute="1" />
-				<departure time="09:20" rute="2" />
-				<departure time="10:00" rute="1" />
-				<departure time="10:40" rute="2" />
-				<departure time="11:20" rute="1" />
-				<departure time="12:00" rute="2" />
-				<departure time="12:40" rute="1" />
-				<departure time="13:20" rute="2" />
-				<departure time="14:00" rute="1" />
-				<departure time="14:15" rute="3" comments="Ingen servering" />
-				<departure time="14:40" rute="2" />
-				<departure time="15:20" rute="1" />
-				<departure time="15:45" rute="3" comments="Ingen servering" />
-				<departure time="16:00" rute="2" />
-				<departure time="16:40" rute="1" />
-				<departure time="17:20" rute="2" />
-				<departure time="18:00" rute="1" />
-				<departure time="18:40" rute="2" />
-				<departure time="19:20" rute="1" />
-				<departure time="20:00" rute="1" />
-				<departure time="21:20" rute="1" />
-				<departure time="22:40" rute="1" />
+				<departure time="06:00" rute="1" comments="Buss*, ikke om Førland." />
+				<departure time="06:40" rute="2" comments="Buss*, ikke om Førland." />
+				<departure time="07:20" rute="1" comments="Buss, ikke om Førland." />
+				<departure time="07:40" rute="3" comments="Buss, ikke om Førland. Ingen servering." />
+				<departure time="08:00" rute="2" comments="Buss*, ikke om Førland." />
+				<departure time="08:40" rute="1" comments="Buss, ikke om Førland." />
+				<departure time="09:20" rute="2" comments="Buss*, ikke om Førland." />
+				<departure time="10:00" rute="1" comments="Buss, ikke om Førland." />
+				<departure time="10:40" rute="2" comments="Buss*, ikke om Førland." />
+				<departure time="11:20" rute="1" comments="Buss, ikke om Førland." />
+				<departure time="12:00" rute="2" comments="Buss*" />
+				<departure time="12:40" rute="1" comments="Buss" />
+				<departure time="13:20" rute="2" comments="Buss*" />
+				<departure time="14:00" rute="1" comments="Buss" />
+				<departure time="14:15" rute="3" comments="Buss. Ingen servering" />
+				<departure time="14:40" rute="2" comments="Buss*" />
+				<departure time="15:20" rute="1" comments="Buss*" />
+				<departure time="15:45" rute="3" comments="Buss går 16:37* Ingen servering" />
+				<departure time="16:00" rute="2" comments="Buss*" />
+				<departure time="16:40" rute="1" comments="Buss*" />
+				<departure time="17:20" rute="2" comments="Buss*" />
+				<departure time="18:00" rute="1" comments="Buss*" />
+				<departure time="18:40" rute="2" comments="Buss" />
+				<departure time="19:20" rute="1" comments="Buss" />
+				<departure time="20:00" rute="1" comments="Buss*" />
+				<departure time="21:20" rute="1" comments="Buss" />
+				<departure time="22:40" rute="1" comments="Buss*" />
 			</weekday>
 			<weekday day="7" desc="Lørdag">
-				<departure time="00:00" rute="1" />
-				<departure time="01:20" rute="1" />
+				<departure time="00:00" rute="1" comments="Buss*" />
+				<departure time="01:20" rute="1" comments="Nattbuss*" />
 				<departure time="03:00" rute="1" />
 				<departure time="06:00" rute="1" />
 				<departure time="06:45" rute="2" />
 				<departure time="07:30" rute="1" />
-				<departure time="08:15" rute="2" />
+				<departure time="08:15" rute="2" comments="Buss*, ikke om Førland" />
 				<departure time="09:00" rute="1" />
-				<departure time="09:45" rute="2" />
+				<departure time="09:45" rute="2" comments="Buss, ikke om Førland" />
 				<departure time="10:30" rute="1" />
-				<departure time="11:15" rute="2" />
+				<departure time="11:15" rute="2" comments="Buss*, ikke om Førland" />
 				<departure time="12:00" rute="1" />
-				<departure time="12:45" rute="2" />
+				<departure time="12:45" rute="2" comments="Buss" />
 				<departure time="13:30" rute="1" />
-				<departure time="14:15" rute="2" />
+				<departure time="14:15" rute="2" comments="Buss*" />
 				<departure time="15:00" rute="1" />
-				<departure time="15:45" rute="2" />
+				<departure time="15:45" rute="2" comments="Buss" />
 				<departure time="16:30" rute="1" />
-				<departure time="17:15" rute="2" />
+				<departure time="17:15" rute="2" comments="Buss*" />
 				<departure time="18:00" rute="1" />
 				<departure time="18:45" rute="2" />
-				<departure time="19:20" rute="1" />
-				<departure time="20:40" rute="1" />
-				<departure time="22:00" rute="1" />
+				<departure time="19:20" rute="1" comments="Buss*" />
+				<departure time="20:40" rute="1" comments="Buss" />
+				<departure time="22:00" rute="1" comments="Buss*" />
 			</weekday>
 			<weekday day="1" desc="Søndag">
-				<departure time="00:00" rute="1" />
-				<departure time="01:20" rute="1" />
+				<departure time="00:00" rute="1" comments="Buss" />
+				<departure time="01:20" rute="1" comments="Nattbuss*" />
 				<departure time="03:00" rute="1" />
 				<departure time="06:00" rute="1" />
 				<departure time="07:30" rute="1" />
-				<departure time="09:00" rute="1" />
+				<departure time="09:00" rute="1" comments="Buss*, ikke om Førland" />
 				<departure time="10:00" rute="2" />
-				<departure time="10:40" rute="1" />
+				<departure time="10:40" rute="1" comments="Buss, ikke om Førland" />
 				<departure time="11:20" rute="2" />
-				<departure time="12:00" rute="1" />
+				<departure time="12:00" rute="1" comments="Buss*" />
 				<departure time="12:40" rute="2" />
-				<departure time="13:20" rute="1" />
+				<departure time="13:20" rute="1" comments="Buss" />
 				<departure time="14:00" rute="2" />
-				<departure time="14:40" rute="1" />
+				<departure time="14:40" rute="1" comments="Buss*" />
 				<departure time="15:20" rute="2" />
-				<departure time="16:00" rute="1" />
+				<departure time="16:00" rute="1" comments="Buss" />
 				<departure time="16:40" rute="2" />
-				<departure time="17:20" rute="1" />
+				<departure time="17:20" rute="1" comments="Buss*" />
 				<departure time="18:00" rute="2" />
-				<departure time="18:40" rute="1" />
+				<departure time="18:40" rute="1" comments="Buss" />
 				<departure time="19:20" rute="2" />
-				<departure time="20:00" rute="1" />
-				<departure time="21:20" rute="1" />
-				<departure time="22:40" rute="1" />
+				<departure time="20:00" rute="1" comments="Buss*" />
+				<departure time="21:20" rute="1" comments="Buss" />
+				<departure time="22:40" rute="1" comments="Buss*" />
 			</weekday>
 		</departurepoint>
 		<departurepoint location="Tau">
