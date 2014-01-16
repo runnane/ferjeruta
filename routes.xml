@@ -1201,7 +1201,7 @@
 		</departurepoint>
 	</route>
 	<route name="Utåker-Matre-Skånevik" location1="Utåker" location2="Skånevik"
-		validfrom="2014-01-01" validto="" serial="" time="20, 50 om Matre," ticketzone="" operator="norled" routeid="">
+		validfrom="2013-01-01" validto="2014-12-31" serial="2014011601" time="20, 50 om Matre," ticketzone="4/6/8" operator="norled" routeid="1005">
 		<departurepoint location="Utåker">
 			<weekday day="2,3,4,5,6" desc="Ukedager">
 				<departure time="05:45" />
