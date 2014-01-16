@@ -1026,7 +1026,7 @@
 	</route>
 	
 	<route name="Hjelmeland-Nesvik" location1="Hjelmeland" location2="Nesvik" 
-		validfrom="2012-05-01" validto="2013-04-30" serial="2012070501" time="15" ticketzone="3" operator="norled" routeid="1027">
+		validfrom="2013-05-01" validto="2014-04-30" serial="2014011601" time="15" ticketzone="3" operator="norled" routeid="1027">
 		<departurepoint location="Hjelmeland">
 			<weekday day="2,3,4,5,6,7" desc="Ukedager, Lørdag">
 				<departure time="00:30" />
@@ -1084,17 +1084,17 @@
 			<weekday day="2,3,4,5,6,7" desc="Ukedager, Lørdag">
 				<departure time="00:45" />
 				<departure time="06:05" />
-				<departure time="06:30" />
+				<departure time="06:30" comments="T/R Ombo" />
 				<departure time="07:05" />
 				<departure time="07:35" />
-				<departure time="08:05" />
+				<departure time="08:05" comments="T/R Ombo"  />
 				<departure time="08:40" />
 				<departure time="09:15" />
 				<departure time="09:45" />
 				<departure time="10:45" />
 				<departure time="11:15" />
 				<departure time="11:45" />
-				<departure time="12:15" />
+				<departure time="12:15" comments="T/R Ombo"  />
 				<departure time="12:45" />
 				<departure time="13:20" />
 				<departure time="14:30" />
@@ -1114,14 +1114,14 @@
 			<weekday day="1" desc="Søndag">
 				<departure time="00:45" />
 				<departure time="07:35" />
-				<departure time="08:05" />
+				<departure time="08:05" comments="T/R Ombo"  />
 				<departure time="08:40" />
 				<departure time="09:15" />
 				<departure time="09:45" />
 				<departure time="10:35" />
 				<departure time="11:15" />
 				<departure time="12:15" />
-				<departure time="13:00" />
+				<departure time="13:00" comments="T/R Ombo"  />
 				<departure time="13:35" />
 				<departure time="14:15" />
 				<departure time="15:15" />
