@@ -352,13 +352,92 @@ var coreFerjelista = function () {
 
 		$(".daycontents")
 			.text(str);
+
 		$(this.serviceList)
 			.each(function (i) {
 				var ferryline = this;
+				
+				var coll = $("<div />");
+				coll.append($("<h3 />").text(ferryline.Name));
+				
+				$(ferryline.timeTableList)
+					.each(function (j) {
+						var location = this;
+						var next = location.GetNextDeparture();
+						var minstodep = parseInt(next.MinutesUntil(), 10);
+						
+						if(minstodep <= 5) {
+							cls = "Red"
+						} else if(minstodep <=
+							30) {
+							cls = "Green"
+						} else {
+							cls = "Orange"
+						}
+						var minutestodeptxt = $(
+							"<span />")
+							.text(next.HowLongUntil())
+							.addClass("text" + cls);						
+						
+						var ul = $("<ul />");
+						var li = $("<li />");
+						
+						var a = $("<a />").attr("href","#");
+						
+						var spacer = " - ";
+						var string1 = "Neste fra " + location.from + " om ";
+					
+						var next2 = next.Next();
+						var next3 = next2.Next();
+						var next4 = next3.Next();
+						var next5 = next4.Next();
+					
+						var string2 = next.Output() +
+							spacer + next2.Output() +
+							spacer + next3.Output() +
+							spacer + next4.Output() +
+							spacer + next5.Output();
+							
+						a
+						.append($("<h2 />")
+								.text(string1)
+									.append(minutestodeptxt)
+								)
+							
+						.append($("<p />")
+							.append($("<strong />")
+								.text(string2)));
+						
+
+						ul.append(li.append(a));
+						$(ul)
+						.listview();
+						coll.append(ul);
+						
+						a
+						.click(function (e) {
+							ferjelista.SelectDeparturepoint(location);
+						});
+						
+					});
+					
+				
+				$("#lvMainCollSet").append(coll);
+				coll.collapsible();
+				
+			}); // each servicelist
+		$("#lvMainCollSet")
+			.collapsibleset("refresh");
+
+		/*
+		$(this.serviceList)
+			.each(function (i) {
+				var ferryline = this;
+				
 				var slink = $("<a />");
 				slink.text(ferryline.Name)
 					.attr("href", "#");
-
+		
 				$(ferryline.timeTableList)
 					.each(function (j) {
 						var location = this;
@@ -409,11 +488,15 @@ var coreFerjelista = function () {
 							ferjelista.SelectService(ferryline);
 						}) // click on page1
 				); // listview1row
+				
 				$("#lvMainview")
 					.append(listview1Row);
+					
 			}); // each servicelist
+			
 		$("#lvMainview")
 			.listview("refresh");
+			*/
 	};
 
 	this.SelectService = function (ferryline) {
