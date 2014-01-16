@@ -1,3 +1,11 @@
+/**
+ * ferjeruta.no // js code backend
+ * jon@tungland.org // www.runnane.no // 2014
+ *
+ * https://bitbucket.org/runnane/ferjelista
+ *
+ **/
+
 //////////// FerryService
 var FerryService = function (sn, loc1,	loc2, valfr, valto, pricezone, time, serial, operator, routeid) {
 	this.timeTableList = new Array();
