@@ -1,7 +1,7 @@
-rFerjelistaWeb
+ferjeruta
 =========
 
-rFerjelistaWeb is the backend for ferjeruta.no
+ferjeruta is the backend for ferjeruta.no
 
 Known Issues
 ----
