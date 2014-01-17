@@ -2,7 +2,7 @@
  * ferjeruta.no // js code backend
  * jon@tungland.org // www.runnane.no // 2014
  *
- * https://bitbucket.org/runnane/ferjelista
+ * https://bitbucket.org/runnane/ferjeruta
  *
  **/
 
