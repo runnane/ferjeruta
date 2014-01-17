@@ -82,7 +82,6 @@ var ferjeLista;
 
 $(document)
 	.ready(function (e) {
-		
 		// Set up page
 		ferjelista = new coreFerjelista();
 		ferjelista.Initialize();

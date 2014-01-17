@@ -162,6 +162,7 @@ var coreFerjelista = function () {
 				$("#lvMainview")
 					.append(listview1Row);
 			}); // each servicelist
+			
 		$("#lvMainview")
 			.listview("refresh");
 	};
@@ -206,6 +207,7 @@ var coreFerjelista = function () {
 				$("#lvLocations")
 					.append(litem);
 			});
+			
 		$("#lvLocations")
 			.listview("refresh");
 	};
@@ -231,6 +233,7 @@ var coreFerjelista = function () {
 				$("#lvDays")
 					.append(litem);
 			});
+			
 		$("#lvDays")
 			.listview("refresh");
 	};
@@ -256,6 +259,7 @@ var coreFerjelista = function () {
 				$("#lvDepartures")
 					.append(litem);
 			}); //each departure
+			
 		$("#lvDepartures")
 			.listview("refresh");
 	};
