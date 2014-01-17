@@ -82,6 +82,11 @@ var ferjeLista;
 
 $(document)
 	.ready(function (e) {
+		
+		if(window.location.hash){
+			$.mobile.changePage("#pageMainview", {transition: "none"});
+		}
+	
 		// Set up page
 		ferjelista = new coreFerjelista();
 		ferjelista.Initialize();
