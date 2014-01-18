@@ -20,18 +20,7 @@ var coreFerjeruta = function () {
 			console.log("[debug] coreFerjeruta::Initialize() got xml");
 			$("route", xml)
 				.each(function (i) {
-					var samband = pobj.AddSamband(
-						$(this).attr("name"), 
-						$(this).attr("location1"), 
-						$(this).attr("location2"), 
-						$(this).attr("validfrom"),
-						$(this).attr("validto"), 
-						$(this).attr("ticketzone"), 
-						$(this).attr("time"), 
-						$(this).attr("serial"),
-						$(this).attr("operator"),
-						$(this).attr("routeid")
-					);
+					var samband = pobj.AddSamband(this);
 					$("departurepoint", this)
 						.each(function (j) {
 							var departurepoint = $(this).attr("location");
@@ -59,8 +48,8 @@ var coreFerjeruta = function () {
 		}); // http get
 	}; // Initialize
 
-	this.AddSamband = function (name, location1, location2, validfrom, validto, pricezone, time, serial, operator, routeid) {
-		var fr = new FerryService(name, location1, location2, validfrom, validto, pricezone, time, serial, operator, routeid);
+	this.AddSamband = function (sambandXmlNode) {
+		var fr = new FerryService(sambandXmlNode);
 		this.serviceList.push(fr);
 		return fr;
 	};

@@ -10,18 +10,19 @@
  */
  
 //////////// FerryService
-var FerryService = function (sn, loc1,	loc2, valfr, valto, pricezone, time, serial, operator, routeid) {
+var FerryService = function (sambandXmlNode) {
 	this.timeTableList = new Array();
-	this.Name = sn;
-	this.Location1 = loc1;
-	this.Location2 = loc2;
-	this.ValidFrom = valfr;
-	this.ValidTo = valto;
-	this.PriceZone = pricezone;
-	this.TripTime = time;
-	this.Serial = serial;
-	this.Operator = operator;
-	this.RouteId = routeid;
+
+	this.Name = 		$(sambandXmlNode).attr("name");
+	this.Location1 = 	$(sambandXmlNode).attr("location1");
+	this.Location2 = 	$(sambandXmlNode).attr("location2");
+	this.ValidFrom = 	$(sambandXmlNode).attr("validfrom");
+	this.ValidTo = 		$(sambandXmlNode).attr("validto");
+	this.PriceZone = 	$(sambandXmlNode).attr("ticketzone");
+	this.TripTime = 	$(sambandXmlNode).attr("time");
+	this.Serial = 		$(sambandXmlNode).attr("serial");
+	this.Operator = 	$(sambandXmlNode).attr("operator");
+	this.RouteId = 		$(sambandXmlNode).attr("routeid");
 };
 FerryService.prototype.AddRute = function (pos) {
 		this.timeTableList.push(new TimeTable(pos));
