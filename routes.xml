@@ -1209,14 +1209,14 @@
 				<departure time="07:00" />
 				<departure time="08:10" />
 				<departure time="09:20" />
-				<departure time="10:35" comments="om Matre, 10:50" />
+				<departure time="10:35" comments="Om Matre, 10:50" />
 				<departure time="11:45" />
-				<departure time="12:35" comments="om Matre, 12:50" />
+				<departure time="12:35" comments="Om Matre, 12:50" />
 				<departure time="13:55" />
-				<departure time="15:00" comments="om Matre, 15:15" />
-				<departure time="16:15" comments="om Matre, 16:30" />
+				<departure time="15:00" comments="Om Matre, 15:15" />
+				<departure time="16:15" comments="Om Matre, 16:30" />
 				<departure time="17:30" />
-				<departure time="18:40" comments="om Matre, 18:55" />
+				<departure time="18:40" comments="Om Matre, 18:55" />
 				<departure time="19:50" />
 				<departure time="21:00" />
 				<departure time="21:50" />
@@ -1225,14 +1225,14 @@
 				<departure time="07:00" />
 				<departure time="08:10" />
 				<departure time="09:20" />
-				<departure time="10:35" comments="om Matre, 10:50" />
+				<departure time="10:35" comments="Om Matre, 10:50" />
 				<departure time="11:45" />
-				<departure time="12:35" comments="om Matre, 12:50" />
+				<departure time="12:35" comments="Om Matre, 12:50" />
 				<departure time="13:55" />
-				<departure time="15:00" comments="om Matre, 15:15" />
-				<departure time="16:15" comments="om Matre, 16:30" />
+				<departure time="15:00" comments="Om Matre, 15:15" />
+				<departure time="16:15" comments="Om Matre, 16:30" />
 				<departure time="17:30" />
-				<departure time="18:40" comments="om Matre, 18:55" />
+				<departure time="18:40" comments="Om Matre, 18:55" />
 				<departure time="19:50" />
 				<departure time="21:00" />
 			</weekday>
@@ -1303,7 +1303,7 @@
 		</departurepoint>
 	</route>
 	<route name="Fodnes-Manheller" location1="Fodnes" location2="Manheller"
-		validfrom="2014-01-02" validto="2014-04-30" serial="" time="15" ticketzone="4" operator="Fjord1 AS" routeid="" 
+		validfrom="2014-01-02" validto="2014-04-30" serial="2014011801" time="15" ticketzone="4" operator="Fjord1 AS" routeid="14-107" 
 		url="http://reise2.fjord1.no/Fjord1IISStaticTables/Tables/ruter/t/14-107.htm">
 		<departurepoint location="Fodnes">
 			<weekday day="2,3,4,5,6" desc="Ukedager">
@@ -1644,7 +1644,7 @@
 		</departurepoint>
 	</route>
 	<route name="Utne-Kvanndal" location1="Utne" location2="Kvanndal"
-		validfrom="2014-01-01" validto="2014-12-31" serial="" time="15" ticketzone="6" operator="norled" routeid="" 
+		validfrom="2014-01-01" validto="2014-12-31" serial="2014011801" time="15" ticketzone="6" operator="norled" routeid="1001" 
 		url="http://www.norled.no/uploads/documents/Ferjeruter/2014_Hordaland/Ferge_Vinterrute_Kinsarvik_Utne_Kvanndal_3siders.pdf">
 		<departurepoint location="Utne">
 			<weekday day="2,3,4,5" desc="mandag, tirsdag, onsdag, torsdag">
