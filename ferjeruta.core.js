@@ -66,12 +66,14 @@ var coreFerjeruta = function () {
 		return ret;
 	};
 
+	/*
 	this.GetFirst = function (ferryline, departurepoint, dayofweek) {
 		return this.GetSamband(ferryline)
 			.GetRute(departurepoint)
 			.fTimeTable.GetDay(dayofweek)
 			.GetFirst();
 	};
+	*/
 
 	this.GetNext = function (ferryline, departurepoint, dayofweek, hour, minute) {
 		return this.GetSamband(ferryline)
@@ -99,7 +101,7 @@ var coreFerjeruta = function () {
 				slink.text(ferryline.Name)
 					.attr("href", "#");
 
-				$(ferryline.timeTableList)
+				$(ferryline.DeparturePoints)
 					.each(function (j) {
 						var location = this;
 						var next = location.GetNextDeparture();
@@ -182,7 +184,7 @@ var coreFerjeruta = function () {
 			.append(headerLvitem);
 
 		// do functions for transition to page 2
-		$(ferryline.timeTableList)
+		$(ferryline.DeparturePoints)
 			.each(function (j) {
 				var departurepoint = this;
 				var litem = $("<li />")

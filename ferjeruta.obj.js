@@ -11,8 +11,7 @@
  
 //////////// FerryService
 var FerryService = function (sambandXmlNode) {
-	this.timeTableList = new Array();
-
+	this.DeparturePoints = new Array();
 	this.Name = 		$(sambandXmlNode).attr("name");
 	this.Location1 = 	$(sambandXmlNode).attr("location1");
 	this.Location2 = 	$(sambandXmlNode).attr("location2");
@@ -25,11 +24,11 @@ var FerryService = function (sambandXmlNode) {
 	this.RouteId = 		$(sambandXmlNode).attr("routeid");
 };
 FerryService.prototype.AddRute = function (pos) {
-		this.timeTableList.push(new TimeTable(pos));
+		this.DeparturePoints.push(new DeparturePoint(pos));
 };
 FerryService.prototype.GetRute = function (name) {
 		var ret;
-		$(this.timeTableList)
+		$(this.DeparturePoints)
 			.each(function (i) {
 				if(this.Name == name) {
 					ret = this;
@@ -39,14 +38,14 @@ FerryService.prototype.GetRute = function (name) {
 		return ret;
 };
 
-/////////// TimeTable
-var TimeTable = function (pos,parent) {
+/////////// DeparturePoint
+var DeparturePoint = function (pos,parent) {
 	this.Name = pos;
 	this.DepartureDays = new Array();
 	this.ParentService = parent;
 };
 
-TimeTable.prototype.GetDay = function (day) {
+DeparturePoint.prototype.GetDay = function (day) {
 	var ret;
 	day = parseInt(day, 10);
 	if(day < 1 || day > 7) {
@@ -66,7 +65,7 @@ TimeTable.prototype.GetDay = function (day) {
 	return ret;
 };
 
-TimeTable.prototype.AddAvgang = function (days, time, rute, comments) {
+DeparturePoint.prototype.AddAvgang = function (days, time, rute, comments) {
 		var parts = days.split(",");
 		var tt = this;
 		$(parts)
@@ -76,7 +75,7 @@ TimeTable.prototype.AddAvgang = function (days, time, rute, comments) {
 			});
 };
 
-TimeTable.prototype.GetNextDeparture = function (dayofweek, hour, minute) {
+DeparturePoint.prototype.GetNextDeparture = function (dayofweek, hour, minute) {
 		if(dayofweek == undefined) {
 			var now = new Date();
 			dayofweek = (now.getDay() + 1);
@@ -91,7 +90,7 @@ TimeTable.prototype.GetNextDeparture = function (dayofweek, hour, minute) {
 var ServiceDay = function (day, timetabl) {
 	this.DayOfWeek = parseInt(day, 10);
 	this.Departures = new Array();
-	this.ParentTimeTable = timetabl;
+	this.ParentDeparturePoint = timetabl;
 };
 
 ServiceDay.prototype.AddAvgang = function (time, rute, comments) {
@@ -103,9 +102,12 @@ ServiceDay.prototype.GetNextDeparture = function (hour, minute) {
 		minute = parseInt(minute, 10);
 		var dep;
 		
-		// Currently have two methods of finding next departure. One flexible without requiring sorting, and one quick.
-		/*
+		// Currently have two methods of finding next departure. 
+		// One flexible without requiring sorting, and one quick.
+		// We are using method 2
+		
 		//Method 1, iterate through all, in case deaparture times are not sorted
+		/*
 		$(this.Departures).each(function(i){
 			var departure = this;
 			if (departure.Hour == 0 && departure.Minute == 0) {
@@ -139,7 +141,7 @@ ServiceDay.prototype.GetNextDeparture = function (hour, minute) {
 		if(dep == undefined) {
 			var day = this.DayOfWeek == 7 ? 1 :
 				(this.DayOfWeek + 1);
-			dep = this.ParentTimeTable.GetDay(day)
+			dep = this.ParentDeparturePoint.GetDay(day)
 				.GetFirstDeparture();
 		}
 
