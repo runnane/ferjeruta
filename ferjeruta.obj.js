@@ -23,8 +23,8 @@ var FerryService = function (sambandXmlNode) {
 	this.Operator = 	$(sambandXmlNode).attr("operator");
 	this.RouteId = 		$(sambandXmlNode).attr("routeid");
 };
-FerryService.prototype.AddDeparturePoint = function (pos) {
-		this.DeparturePoints.push(new DeparturePoint(pos, this));
+FerryService.prototype.AddDeparturePoint = function (departurep) {
+		this.DeparturePoints.push(new DeparturePoint(departurep, this));
 };
 FerryService.prototype.GetDeparturePoint = function (name) {
 		var ret;
@@ -40,7 +40,7 @@ FerryService.prototype.GetDeparturePoint = function (name) {
 
 /////////// DeparturePoint
 var DeparturePoint = function (pos, parentservice) {
-	this.Name = pos;
+	this.Name = $(pos).attr("location");
 	this.DepartureDays = new Array();
 	this.ParentService = parentservice;
 };
@@ -65,13 +65,14 @@ DeparturePoint.prototype.GetDay = function (day) {
 	return ret;
 };
 
-DeparturePoint.prototype.AddAvgang = function (days, time, rute, comments) {
+//DeparturePoint.prototype.AddAvgang = function (days, time, rute, comments) {
+DeparturePoint.prototype.AddAvgang = function (days, departureXml) {
 		var parts = days.split(",");
 		var tt = this;
 		$(parts)
 			.each(function (i) {
 				tt.GetDay(this)
-					.AddAvgang(time, rute, comments);
+					.AddAvgang(departureXml);
 			});
 };
 
@@ -93,8 +94,8 @@ var ServiceDay = function (day, timetabl) {
 	this.ParentDeparturePoint = timetabl;
 };
 
-ServiceDay.prototype.AddAvgang = function (time, rute, comments) {
-		this.Departures.push(new Departure(time, rute, comments, this));
+ServiceDay.prototype.AddAvgang = function (departureXml) {
+		this.Departures.push(new Departure(departureXml, this));
 };
 
 ServiceDay.prototype.GetNextDeparture = function (hour, minute) {
@@ -156,13 +157,13 @@ ServiceDay.prototype.GetFirstDeparture = function () {
 };
 
 ////////////// Departure
-var Departure = function (time, rute, comments, day) {
-	this.TimeOfDay = time;
-	this.Rute = rute;
-	this.Comments = comments;
-	this.ParentDay = day;
+var Departure = function (departureXml, day) {
+	this.TimeOfDay 	= $(departureXml).attr("time");
+	this.Rute		= $(departureXml).attr("rute");
+	this.Comments 	= $(departureXml).attr("comments");
+	this.ParentDay 	= day;
 
-	var parts = time.split(":");
+	var parts = this.TimeOfDay.split(":");
 	this.Hour = parseInt(parts[0], 10);
 	this.Minute = parseInt(parts[1], 10);
 };

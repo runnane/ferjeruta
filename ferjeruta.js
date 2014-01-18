@@ -92,9 +92,8 @@ $(document)
 	
 		// Set up page
 		ferjeRutaMainObject = new coreFerjeruta();
-		ferjeRutaMainObject.isLive == (location.pathname == "/");
-		
 		ferjeRutaMainObject.Initialize();
+		
 		$("#btnRefresh")
 			.click(function (f) {
 				ferjeRutaMainObject.RefreshServices();

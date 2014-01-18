@@ -33,7 +33,7 @@ var coreFerjeruta = function () {
 					$("departurepoint", this)
 						.each(function (j) {
 							var departurepoint = $(this).attr("location");
-							service.AddDeparturePoint(departurepoint);
+							service.AddDeparturePoint(this);
 							$("weekday", this)
 								.each(function (k) {
 									var weekdays = $(this).attr("day");
@@ -41,12 +41,7 @@ var coreFerjeruta = function () {
 										.each(function (l) {
 												service
 													.GetDeparturePoint(departurepoint)
-													.AddAvgang(
-														weekdays,
-														$(this).attr("time"),
-														$(this).attr("rute"),
-														$(this).attr("comments")
-													);
+													.AddAvgang(weekdays, this);
 											});
 								});
 						});
