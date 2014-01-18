@@ -71,6 +71,17 @@ Date.prototype.toNorwString = function () {
 	return this.getDate() + "." + (this.getMonth() + 1) + "." + this.getFullYear();
 };
 
+var CreateSimpleLi = function(str, header){
+	if(header == undefined){
+		return $('<li />').text(str);
+	}
+	
+	var li = $('<li />');
+	li.append($('<h1 />').text(header));
+	li.append($('<p />').text(str));
+	return li
+}
+
 ////// Start webpage
 var ferjeRutaMainObject;
 $(document)

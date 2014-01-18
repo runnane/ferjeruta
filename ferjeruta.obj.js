@@ -23,10 +23,10 @@ var FerryService = function (sambandXmlNode) {
 	this.Operator = 	$(sambandXmlNode).attr("operator");
 	this.RouteId = 		$(sambandXmlNode).attr("routeid");
 };
-FerryService.prototype.AddRute = function (pos) {
-		this.DeparturePoints.push(new DeparturePoint(pos));
+FerryService.prototype.AddDeparturePoint = function (pos) {
+		this.DeparturePoints.push(new DeparturePoint(pos, this));
 };
-FerryService.prototype.GetRute = function (name) {
+FerryService.prototype.GetDeparturePoint = function (name) {
 		var ret;
 		$(this.DeparturePoints)
 			.each(function (i) {
@@ -39,10 +39,10 @@ FerryService.prototype.GetRute = function (name) {
 };
 
 /////////// DeparturePoint
-var DeparturePoint = function (pos,parent) {
+var DeparturePoint = function (pos, parentservice) {
 	this.Name = pos;
 	this.DepartureDays = new Array();
-	this.ParentService = parent;
+	this.ParentService = parentservice;
 };
 
 DeparturePoint.prototype.GetDay = function (day) {
@@ -161,6 +161,7 @@ var Departure = function (time, rute, comments, day) {
 	this.Rute = rute;
 	this.Comments = comments;
 	this.ParentDay = day;
+
 	var parts = time.split(":");
 	this.Hour = parseInt(parts[0], 10);
 	this.Minute = parseInt(parts[1], 10);

@@ -20,18 +20,18 @@ var coreFerjeruta = function () {
 			console.log("[debug] coreFerjeruta::Initialize() got xml");
 			$("route", xml)
 				.each(function (i) {
-					var samband = pobj.AddSamband(this);
+					var service = pobj.AddSamband(this);
 					$("departurepoint", this)
 						.each(function (j) {
 							var departurepoint = $(this).attr("location");
-							samband.AddRute(departurepoint);
+							service.AddDeparturePoint(departurepoint);
 							$("weekday", this)
 								.each(function (k) {
 									var weekdays = $(this).attr("day");
 									$("departure",this)
 										.each(function (l) {
-												samband
-													.GetRute(departurepoint)
+												service
+													.GetDeparturePoint(departurepoint)
 													.AddAvgang(
 														weekdays,
 														$(this).attr("time"),
@@ -66,18 +66,9 @@ var coreFerjeruta = function () {
 		return ret;
 	};
 
-	/*
-	this.GetFirst = function (ferryline, departurepoint, dayofweek) {
-		return this.GetSamband(ferryline)
-			.GetRute(departurepoint)
-			.fTimeTable.GetDay(dayofweek)
-			.GetFirst();
-	};
-	*/
-
 	this.GetNext = function (ferryline, departurepoint, dayofweek, hour, minute) {
 		return this.GetSamband(ferryline)
-			.GetRute(departurepoint)
+			.GetDeparturePoint(departurepoint)
 			.GetDay(dayofweek)
 			.GetNextDeparture(hour, minute);
 	};
@@ -210,6 +201,7 @@ var coreFerjeruta = function () {
 		$.mobile.changePage("#pageDays", {transition: "none"});
 		$("#lvDays")
 			.empty();
+		$("#lvDays").append(CreateSimpleLi(" fra " + departurepoint.Name, departurepoint.ParentService.Name));
 		$(departurepoint.DepartureDays)
 			.each(function (k) {
 				var weekday = this;
@@ -235,6 +227,8 @@ var coreFerjeruta = function () {
 		$.mobile.changePage("#pageDepartures", {transition: "none"});
 		$("#lvDepartures")
 			.empty();
+		
+		$("#lvDepartures").append(CreateSimpleLi(" fra " + weekday.ParentDeparturePoint.Name + ", " + GetDayName(weekday.DayOfWeek).toLowerCase(), weekday.ParentDeparturePoint.ParentService.Name));
 		$(weekday.Departures)
 			.each(function (l) {
 				var departure = this;
