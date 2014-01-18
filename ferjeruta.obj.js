@@ -24,7 +24,9 @@ var FerryService = function (sambandXmlNode) {
 	this.RouteId = 		$(sambandXmlNode).attr("routeid");
 };
 FerryService.prototype.AddDeparturePoint = function (departurep) {
-		this.DeparturePoints.push(new DeparturePoint(departurep, this));
+	this.DeparturePoints.push(new DeparturePoint(departurep, this));
+	return this.DeparturePoints[this.DeparturePoints.length-1]
+	//return departurep;
 };
 FerryService.prototype.GetDeparturePoint = function (name) {
 		var ret;

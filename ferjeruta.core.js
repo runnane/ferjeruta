@@ -21,7 +21,6 @@ var coreFerjeruta = function () {
 		}
 	}; //Log
 
-
 	this.Initialize = function () {
 		ferjeRutaMainObject.Log("[debug] coreFerjeruta::Initialize() starting");
 		var pobj = this;
@@ -32,16 +31,13 @@ var coreFerjeruta = function () {
 					var service = pobj.AddSamband(this);
 					$("departurepoint", this)
 						.each(function (j) {
-							var departurepoint = $(this).attr("location");
-							service.AddDeparturePoint(this);
+							var dp = service.AddDeparturePoint(this);
 							$("weekday", this)
 								.each(function (k) {
 									var weekdays = $(this).attr("day");
 									$("departure",this)
 										.each(function (l) {
-												service
-													.GetDeparturePoint(departurepoint)
-													.AddAvgang(weekdays, this);
+												dp.AddAvgang(weekdays, this);
 											});
 								});
 						});
