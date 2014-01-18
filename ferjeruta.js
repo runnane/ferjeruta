@@ -1,10 +1,13 @@
 /**
- * ferjeruta.no // js code backend
- * jon@tungland.org // www.runnane.no // 2014
+ * ferjeruta.no 
+ * ferjeruta.js - main js code for init and minor functions
+ * (c) 2014 Jon Tungland (jon@tungland.org)
+ * Released under the GNU General Public License 2.0
+ * See gpl-2.0.txt
  *
- * https://bitbucket.org/runnane/ferjeruta
+ * Project page: https://bitbucket.org/runnane/ferjeruta
  *
- **/
+ */
  
 ////// Helper functions
 var TimeBetweenTwoTimes = function (fm,	fs, lm, ls) {

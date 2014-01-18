@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<!--
+/**
+ * ferjeruta.no 
+ * routes.xml - route information
+ * (c) 2014 Jon Tungland (jon@tungland.org)
+ * Released under the GNU General Public License 2.0
+ * See gpl-2.0.txt
+ *
+ * Project page: https://bitbucket.org/runnane/ferjeruta
+ *
+ */
+-->
 <routes serial="2014011602">
 	<route name="Tausambandet" location1="Stavanger" location2="Tau"
 		validfrom="2014-01-01" validto="2014-04-30" serial="2013121701" time="35" ticketzone="15" operator="norled" routeid="1022">
