@@ -1,7 +1,7 @@
 /**
  * ferjeruta.no 
  * ferjeruta.obj.js - Classes for the ferryservice object tree
- * (c) 2014 Jon Tungland (jon@tungland.org)
+ * (c) 2014 Jon Tungland (jon@tungland.org) - http://runnane.no/
  * Released under the GNU General Public License 2.0
  * See gpl-2.0.txt
  *

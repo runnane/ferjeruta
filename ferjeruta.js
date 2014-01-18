@@ -1,7 +1,7 @@
 /**
  * ferjeruta.no 
  * ferjeruta.js - main js code for init and minor functions
- * (c) 2014 Jon Tungland (jon@tungland.org)
+ * (c) 2014 Jon Tungland (jon@tungland.org) - http://runnane.no/
  * Released under the GNU General Public License 2.0
  * See gpl-2.0.txt
  *
@@ -59,6 +59,7 @@ var strpad = function (str, maxm) {
 	return str.length < maxm ? strpad("0" + str, maxm) : str;
 }
 
+// Compare times
 var isEarlier = function (h1, m1, h2, m2) {
 	if(h1 < h2 || (h1 == h2 && m1 < m2)) {
 		return true;
@@ -71,6 +72,7 @@ Date.prototype.toNorwString = function () {
 	return this.getDate() + "." + (this.getMonth() + 1) + "." + this.getFullYear();
 };
 
+// Helper function for creating headers, breadcrumbs etc
 var CreateSimpleLi = function(str, header){
 	if(header == undefined){
 		return $('<li />').text(str);
@@ -85,6 +87,7 @@ var CreateSimpleLi = function(str, header){
 var ferjeRutaMainObject;
 $(document)
 	.ready(function (e) {
+		
 		// Load main page if hash is set when loading page (cannot refresh inactive page)
 		if(window.location.hash){
 			$.mobile.changePage("#pageMainview", {transition: "none"});
@@ -92,8 +95,9 @@ $(document)
 	
 		// Set up page
 		ferjeRutaMainObject = new coreFerjeruta();
-		ferjeRutaMainObject.Initialize();
+		ferjeRutaMainObject.Initialize(true);
 		
+		// Init refesh button
 		$("#btnRefresh")
 			.click(function (f) {
 				ferjeRutaMainObject.RefreshServices();

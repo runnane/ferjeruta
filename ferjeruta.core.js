@@ -1,14 +1,13 @@
 /**
  * ferjeruta.no 
  * ferjeruta.core.js - Core object for ferjeruta
- * (c) 2014 Jon Tungland (jon@tungland.org)
+ * (c) 2014 Jon Tungland (jon@tungland.org) - http://runnane.no/
  * Released under the GNU General Public License 2.0
  * See gpl-2.0.txt
  *
  * Project page: https://bitbucket.org/runnane/ferjeruta
  *
  **/
-
 
 var coreFerjeruta = function () {
 	this.serviceList = new Array();
@@ -21,11 +20,11 @@ var coreFerjeruta = function () {
 		}
 	}; //Log
 
-	this.Initialize = function () {
-		ferjeRutaMainObject.Log("[debug] coreFerjeruta::Initialize() starting");
+	this.Initialize = function (refreshwhendone) {
 		var pobj = this;
+		pobj.Log("[debug] coreFerjeruta::Initialize() starting");
 		$.get("routes.xml", function (xml) {
-			ferjeRutaMainObject.Log("[debug] coreFerjeruta::Initialize() got xml");
+			pobj.Log("[debug] coreFerjeruta::Initialize() got xml");
 			$("route", xml)
 				.each(function (i) {
 					var service = pobj.AddSamband(this);
@@ -43,8 +42,10 @@ var coreFerjeruta = function () {
 						});
 					//return false;
 				}); // each route
-			ferjeRutaMainObject.Log("[debug] coreFerjeruta::Initialize() route table views populated");
-			pobj.RefreshServices();
+			pobj.Log("[debug] coreFerjeruta::Initialize() route table views populated");
+			if(refreshwhendone == true){
+				pobj.RefreshServices();
+			}
 		}); // http get
 	}; // Initialize
 
@@ -249,5 +250,4 @@ var coreFerjeruta = function () {
 		$("#lvDepartures")
 			.listview("refresh");
 	};
-
 };
