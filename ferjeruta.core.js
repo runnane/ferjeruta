@@ -9,18 +9,15 @@
  *
  **/
 
-//////////// coreFerjelista
-// main function prototype base page
-////////////
 
-var coreFerjelista = function () {
+var coreFerjeruta = function () {
 	this.serviceList = new Array();
 
 	this.Initialize = function () {
-		console.log("[debug] coreFerjelista::Initialize() starting");
+		console.log("[debug] coreFerjeruta::Initialize() starting");
 		var pobj = this;
 		$.get("routes.xml", function (xml) {
-			console.log("[debug] coreFerjelista::Initialize() got xml");
+			console.log("[debug] coreFerjeruta::Initialize() got xml");
 			$("route", xml)
 				.each(function (i) {
 					var samband = pobj.AddSamband(
@@ -57,7 +54,7 @@ var coreFerjelista = function () {
 						});
 					//return false;
 				}); // each route
-			console.log("[debug] coreFerjelista::Initialize() route table views populated");
+			console.log("[debug] coreFerjeruta::Initialize() route table views populated");
 			pobj.RefreshServices();
 		}); // http get
 	}; // Initialize
@@ -95,9 +92,10 @@ var coreFerjelista = function () {
 	};
 
 	this.RefreshServices = function () {
-		console.log("[debug] coreFerjelista::RefreshServices() refreshing view");
+		console.log("[debug] coreFerjeruta::RefreshServices() refreshing view");
 		$("#lvMainview")
 			.empty();
+		var pobj = this;
 		var now = new Date();
 		var str = GetDayName(now.getDay(),1) 
 			+ " " + strpad(now.getHours(),2) 
@@ -159,7 +157,7 @@ var coreFerjelista = function () {
 				var listview1Row = $("<li />")
 					.append(slink
 						.click(function (e) {
-							ferjelista.SelectService(ferryline);
+							pobj.SelectService(ferryline);
 						}) // click on page1
 				); // listview1row
 				$("#lvMainview")
@@ -171,7 +169,7 @@ var coreFerjelista = function () {
 	};
 
 	this.SelectService = function (ferryline) {
-		console.log("[debug] coreFerjelista::SelectService()");
+		console.log("[debug] coreFerjeruta::SelectService()");
 		var pobj = this;
 		$.mobile.changePage("#pageLocations", {transition: "none"});
 		$("#lvLocations")
@@ -216,7 +214,7 @@ var coreFerjelista = function () {
 	};
 
 	this.SelectDeparturepoint = function (departurepoint) {
-		console.log("[debug] coreFerjelista::SelectDeparturepoint()");
+		console.log("[debug] coreFerjeruta::SelectDeparturepoint()");
 		var pobj = this;
 		$.mobile.changePage("#pageDays", {transition: "none"});
 		$("#lvDays")
@@ -242,7 +240,7 @@ var coreFerjelista = function () {
 	};
 
 	this.SelectDay = function (weekday) {
-		console.log("[debug] coreFerjelista::SelectDay()");
+		console.log("[debug] coreFerjeruta::SelectDay()");
 		$.mobile.changePage("#pageDepartures", {transition: "none"});
 		$("#lvDepartures")
 			.empty();

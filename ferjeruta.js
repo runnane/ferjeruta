@@ -72,7 +72,7 @@ Date.prototype.toNorwString = function () {
 };
 
 ////// Start webpage
-var ferjeLista;
+var ferjeRutaMainObject;
 $(document)
 	.ready(function (e) {
 		
@@ -82,16 +82,16 @@ $(document)
 		}
 	
 		// Set up page
-		ferjelista = new coreFerjelista();
-		ferjelista.Initialize();
+		ferjeRutaMainObject = new coreFerjeruta();
+		ferjeRutaMainObject.Initialize();
 		$("#btnRefresh")
 			.click(function (f) {
-				ferjelista.RefreshServices();
+				ferjeRutaMainObject.RefreshServices();
 			});
 	
 		// Add refresh when showing main page
 		$( "#pageMainview" )
 			.on( "pagebeforeshow", function( event ) {
-				ferjelista.RefreshServices();
+				ferjeRutaMainObject.RefreshServices();
 			});
 	});
