@@ -47,8 +47,8 @@
     <div data-role="navbar" >
         <ul>
           <li><a href="#pageMainview" data-prefetch="true" data-transition="none" class="ui-btn-active ui-state-persist" data-icon="home">Oversikt</a></li>
-          <li><a href="#pageSettings" data-prefetch="true" data-transition="none" data-icon="gear">Innstillinger</a></li>
           <li><a href="#pageAlerts" data-prefetch="true" data-transition="none" data-icon="alert">Varsler</a></li>
+          <li><a href="#pageSettings" data-prefetch="true" data-transition="none" data-icon="gear">Innstillinger</a></li>
         </ul>
     </div>
   </div>
@@ -71,8 +71,8 @@
     <div data-role="navbar" >
         <ul>
           <li><a href="#pageMainview" data-prefetch="true" data-transition="none" class="ui-btn-active ui-state-persist" data-icon="home">Oversikt</a></li>
-          <li><a href="#pageSettings" data-prefetch="true" data-transition="none" data-icon="gear">Innstillinger</a></li>
           <li><a href="#pageAlerts" data-prefetch="true" data-transition="none" data-icon="alert">Varsler</a></li>
+          <li><a href="#pageSettings" data-prefetch="true" data-transition="none" data-icon="gear">Innstillinger</a></li>
         </ul>
     </div>
   </div>
@@ -95,8 +95,8 @@
     <div data-role="navbar" >
         <ul>
           <li><a href="#pageMainview" data-prefetch="true" data-transition="none" class="ui-btn-active ui-state-persist" data-icon="home">Oversikt</a></li>
-          <li><a href="#pageSettings" data-prefetch="true" data-transition="none" data-icon="gear">Innstillinger</a></li>
           <li><a href="#pageAlerts" data-prefetch="true" data-transition="none" data-icon="alert">Varsler</a></li>
+          <li><a href="#pageSettings" data-prefetch="true" data-transition="none" data-icon="gear">Innstillinger</a></li>
         </ul>
     </div>
   </div>
@@ -119,31 +119,8 @@
     <div data-role="navbar" >
         <ul>
           <li><a href="#pageMainview" data-prefetch="true" data-transition="none" class="ui-btn-active ui-state-persist" data-icon="home">Oversikt</a></li>
+          <li><a href="#pageAlerts" data-prefetch="true" data-transition="none" data-icon="alert">Varsler</a></li>
           <li><a href="#pageSettings" data-prefetch="true" data-transition="none" data-icon="gear">Innstillinger</a></li>
-          <li><a href="#pageAlerts" data-prefetch="true" data-transition="none" data-icon="alert">Varsler</a></li>
-        </ul>
-    </div>
-  </div>
-  
-</div>
-
-<div id="pageSettings" data-role="page">
-
-  <div data-role="header">
-  	<a href="#" data-icon="back" data-rel="back" data-transition="slide">Tilbake</a>
-    <h1>Innstillinger</h1>
-  </div>
-  
-  <div data-role="content">
- 	 Her kan vi legge noen innstillinger, ikke implementert enda.
-  </div>
-  
-  <div data-role="footer" data-tap-toggle="false" data-id="panelMainNavBar" data-position="fixed"> 
-    <div data-role="navbar" >
-        <ul>
-          <li><a href="#pageMainview" data-prefetch="true" data-transition="none" data-icon="home">Oversikt</a></li>
-          <li><a href="#pageSettings" data-prefetch="true" data-transition="none" class="ui-btn-active ui-state-persist" data-icon="gear">Innstillinger</a></li>
-          <li><a href="#pageAlerts" data-prefetch="true" data-transition="none" data-icon="alert">Varsler</a></li>
         </ul>
     </div>
   </div>
@@ -158,20 +135,59 @@
   </div>
   
   <div data-role="content">
- 	 Her kan vi legge noen varsler, ikke implementert enda.
+  	<h1>Varsler</h1>
+    <p>(ikke implementert)</p>
+ 	<p>Varsler fra Norled, Fjord1 og eventuellt andre operatører kan dersom ønsket hentes inn her.</p>
   </div>
   
   <div data-role="footer" data-tap-toggle="false" data-id="panelMainNavBar" data-position="fixed"> 
     <div data-role="navbar" >
         <ul>
           <li><a href="#pageMainview" data-prefetch="true" data-transition="none"  data-icon="home">Oversikt</a></li>
-          <li><a href="#pageSettings" data-prefetch="true" data-transition="none" data-icon="gear">Innstillinger</a></li>
           <li><a href="#pageAlerts" data-prefetch="true" data-transition="none" class="ui-btn-active ui-state-persist" data-icon="alert">Varsler</a></li>
+          <li><a href="#pageSettings" data-prefetch="true" data-transition="none" data-icon="gear">Innstillinger</a></li>
         </ul>
     </div>
   </div>
   
 </div>
+
+<div id="pageSettings" data-role="page">
+
+  <div data-role="header">
+  	<a href="#" data-icon="back" data-rel="back" data-transition="slide">Tilbake</a>
+    <h1>Innstillinger</h1>
+  </div>
+  
+  <div data-role="content">
+ 	 <h1>Innstillinger</h1>
+        <p>(ikke implementert)</p>
+     <p>Her kan vi legge noen innstillinger. Tenkte innstillinger er: </p>
+     <ul>
+     	<li>Vis/skjul ruter</li>
+        <li>Automatisk oppdatering</li>
+        <li>Andre forslag?</li>
+     </ul>
+     <h1>om ferjeruta.no</h1>
+     <p>
+     	ferjelista.no bygger på androidappen "ferjelista", omskrevet til js.<br />
+     	Vi anbefaler at du legger den til på startskjermen på din mobil, slik at du alltid har tilgang til ferjerutene. Den skal støtte de fleste nyere nettlesere, og er optimalisert for bruk på mobil.
+     </p>
+     <p>versjon 0.1-a</p>
+  </div>
+  
+  <div data-role="footer" data-tap-toggle="false" data-id="panelMainNavBar" data-position="fixed"> 
+    <div data-role="navbar" >
+        <ul>
+          <li><a href="#pageMainview" data-prefetch="true" data-transition="none" data-icon="home">Oversikt</a></li>
+          <li><a href="#pageAlerts" data-prefetch="true" data-transition="none" data-icon="alert">Varsler</a></li>
+          <li><a href="#pageSettings" data-prefetch="true" data-transition="none" class="ui-btn-active ui-state-persist" data-icon="gear">Innstillinger</a></li>
+        </ul>
+    </div>
+  </div>
+  
+</div>
+
 <!-- Piwik -->
 <script type="text/javascript">
   var _paq = _paq || [];

@@ -5,6 +5,8 @@
  * https://bitbucket.org/runnane/ferjeruta
  *
  **/
+ 
+// Classes for the ferryservice object tree
 
 //////////// FerryService
 var FerryService = function (sn, loc1,	loc2, valfr, valto, pricezone, time, serial, operator, routeid) {
@@ -98,12 +100,12 @@ ServiceDay.prototype.GetNextDeparture = function (hour, minute) {
 		hour = parseInt(hour, 10);
 		minute = parseInt(minute, 10);
 		var dep;
-
+		
+		// Currently have two methods of finding next departure. One flexible without requiring sorting, and one quick.
 		/*
 		//Method 1, iterate through all, in case deaparture times are not sorted
 		$(this.Departures).each(function(i){
 			var departure = this;
-			dprint("dep='"+departure.Hour+"':'"+departure.Minute+"' ("+departure.TimeOfDay+") to now='"+hour+"':'"+minute+"'");
 			if (departure.Hour == 0 && departure.Minute == 0) {
 				// skip it, if this is firs this day, we gonna have a bad time
 			} else {
@@ -143,7 +145,6 @@ ServiceDay.prototype.GetNextDeparture = function (hour, minute) {
 			// Still not able to find next departure
 			throw "Critical: Unable to find next departure.";
 		}
-		//dprint("done for this day..");
 		return dep;
 };
 ServiceDay.prototype.GetFirstDeparture = function () {

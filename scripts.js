@@ -6,10 +6,7 @@
  *
  **/
  
-/**
- * helper functions
- **/
- 
+////// Helper functions
 var TimeBetweenTwoTimes = function (fm,	fs, lm, ls) {
 	var date1 = new Date(2000, 0, 1, fm, fs);
 	var date2 = new Date(2000, 0, 1, lm, ls);
@@ -59,11 +56,6 @@ var strpad = function (str, maxm) {
 	return str.length < maxm ? strpad("0" + str, maxm) : str;
 }
 
-var dprint = function (text) {
-	//	var v = $("#debugougput").html();
-	//	$("#debugougput").html(v + "<br />" + text);
-};
-
 var isEarlier = function (h1, m1, h2, m2) {
 	if(h1 < h2 || (h1 == h2 && m1 < m2)) {
 		return true;
@@ -71,18 +63,21 @@ var isEarlier = function (h1, m1, h2, m2) {
 	return false;
 };
 
-// extend internal function
+// Extend internal date object
 Date.prototype.toNorwString = function () {
 	return this.getDate() + "." + (this.getMonth() + 1) + "." + this.getFullYear();
 };
 
-/////////////////////////////// Init
-
+////// Start webpage
 var ferjeLista;
-
 $(document)
 	.ready(function (e) {
 		
+		// Load main page if hash is set when loading page (cannot refresh inactive page)
+		if(window.location.hash){
+			$.mobile.changePage("#pageMainview", {transition: "none"});
+		}
+	
 		// Set up page
 		ferjelista = new coreFerjelista();
 		ferjelista.Initialize();
@@ -90,14 +85,8 @@ $(document)
 			.click(function (f) {
 				ferjelista.RefreshServices();
 			});
-		/*	
-		var strVCkey = "fl_refresh_count";
-		var visits = localStorage.getItem(strVCkey);
-		visits++;
-		localStorage.setItem(strVCkey,visits);
-		*/
-		
-		// Add refresh when showing main view
+	
+		// Add refresh when showing main page
 		$( "#pageMainview" )
 			.on( "pagebeforeshow", function( event ) {
 				ferjelista.RefreshServices();
