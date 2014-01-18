@@ -12,12 +12,21 @@
 
 var coreFerjeruta = function () {
 	this.serviceList = new Array();
+	this.isLive=(location.pathname == "/");
+
+	this.Log = function (str){
+		// Don't debug if we are live on ferjeruta.no
+		if(!this.isLive){
+			console.log(str);	
+		}
+	}; //Log
+
 
 	this.Initialize = function () {
-		console.log("[debug] coreFerjeruta::Initialize() starting");
+		ferjeRutaMainObject.Log("[debug] coreFerjeruta::Initialize() starting");
 		var pobj = this;
 		$.get("routes.xml", function (xml) {
-			console.log("[debug] coreFerjeruta::Initialize() got xml");
+			ferjeRutaMainObject.Log("[debug] coreFerjeruta::Initialize() got xml");
 			$("route", xml)
 				.each(function (i) {
 					var service = pobj.AddSamband(this);
@@ -43,7 +52,7 @@ var coreFerjeruta = function () {
 						});
 					//return false;
 				}); // each route
-			console.log("[debug] coreFerjeruta::Initialize() route table views populated");
+			ferjeRutaMainObject.Log("[debug] coreFerjeruta::Initialize() route table views populated");
 			pobj.RefreshServices();
 		}); // http get
 	}; // Initialize
@@ -74,7 +83,7 @@ var coreFerjeruta = function () {
 	};
 
 	this.RefreshServices = function () {
-		console.log("[debug] coreFerjeruta::RefreshServices() refreshing view");
+		ferjeRutaMainObject.Log("[debug] coreFerjeruta::RefreshServices() refreshing view");
 		$("#lvMainview")
 			.empty();
 		var pobj = this;
@@ -151,7 +160,7 @@ var coreFerjeruta = function () {
 	};
 
 	this.SelectService = function (ferryline) {
-		console.log("[debug] coreFerjeruta::SelectService()");
+		ferjeRutaMainObject.Log("[debug] coreFerjeruta::SelectService()");
 		var pobj = this;
 		$.mobile.changePage("#pageLocations", {transition: "none"});
 		$("#lvLocations")
@@ -196,7 +205,7 @@ var coreFerjeruta = function () {
 	};
 
 	this.SelectDeparturepoint = function (departurepoint) {
-		console.log("[debug] coreFerjeruta::SelectDeparturepoint()");
+		ferjeRutaMainObject.Log("[debug] coreFerjeruta::SelectDeparturepoint()");
 		var pobj = this;
 		$.mobile.changePage("#pageDays", {transition: "none"});
 		$("#lvDays")
@@ -223,7 +232,7 @@ var coreFerjeruta = function () {
 	};
 
 	this.SelectDay = function (weekday) {
-		console.log("[debug] coreFerjeruta::SelectDay()");
+		ferjeRutaMainObject.Log("[debug] coreFerjeruta::SelectDay()");
 		$.mobile.changePage("#pageDepartures", {transition: "none"});
 		$("#lvDepartures")
 			.empty();

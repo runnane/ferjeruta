@@ -75,7 +75,6 @@ var CreateSimpleLi = function(str, header){
 	if(header == undefined){
 		return $('<li />').text(str);
 	}
-	
 	var li = $('<li />');
 	li.append($('<h1 />').text(header));
 	li.append($('<p />').text(str));
@@ -86,7 +85,6 @@ var CreateSimpleLi = function(str, header){
 var ferjeRutaMainObject;
 $(document)
 	.ready(function (e) {
-		
 		// Load main page if hash is set when loading page (cannot refresh inactive page)
 		if(window.location.hash){
 			$.mobile.changePage("#pageMainview", {transition: "none"});
@@ -94,6 +92,8 @@ $(document)
 	
 		// Set up page
 		ferjeRutaMainObject = new coreFerjeruta();
+		ferjeRutaMainObject.isLive == (location.pathname == "/");
+		
 		ferjeRutaMainObject.Initialize();
 		$("#btnRefresh")
 			.click(function (f) {

@@ -190,5 +190,5 @@ Departure.prototype.Output = function (verbose) {
 };
 
 Departure.prototype.HowLongUntil = function () {
-		return MinsToString(this.MinutesUntil());
+	return MinsToString(this.MinutesUntil());
 };
