@@ -1,15 +1,15 @@
 .textRed {
-	color: red;
+	color: red !important;
 }
 
 .textOrange {
-	color: #C14E00;
+	color: #C14E00 !important;
 }
 
 .textGreen {
-	color: #008C00;
+	color: #008C00 !important;
 }
 
 .textBold {
-	font-weight:bold;	
+	font-weight:bold !important;
 }

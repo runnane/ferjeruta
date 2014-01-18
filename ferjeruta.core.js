@@ -75,7 +75,7 @@ var coreFerjeruta = function () {
 	};
 
 	this.RefreshServices = function () {
-		ferjeRutaMainObject.Log("[debug] coreFerjeruta::RefreshServices() refreshing view");
+		this.Log("[debug] coreFerjeruta::RefreshServices() refreshing view");
 		$("#lvMainview")
 			.empty();
 		var pobj = this;
@@ -83,6 +83,7 @@ var coreFerjeruta = function () {
 		var str = GetDayName(now.getDay(),1) 
 			+ " " + strpad(now.getHours(),2) 
 			+ ":" + strpad(now.getMinutes(),2);
+		this.Today = now.getDay()+1;
 
 		$(".daycontents")
 			.text(str);
@@ -152,7 +153,7 @@ var coreFerjeruta = function () {
 	};
 
 	this.SelectService = function (ferryline) {
-		ferjeRutaMainObject.Log("[debug] coreFerjeruta::SelectService()");
+		this.Log("[debug] coreFerjeruta::SelectService()");
 		var pobj = this;
 		$.mobile.changePage("#pageLocations", {transition: "none"});
 		$("#lvLocations")
@@ -197,7 +198,7 @@ var coreFerjeruta = function () {
 	};
 
 	this.SelectDeparturepoint = function (departurepoint) {
-		ferjeRutaMainObject.Log("[debug] coreFerjeruta::SelectDeparturepoint()");
+		this.Log("[debug] coreFerjeruta::SelectDeparturepoint()");
 		var pobj = this;
 		$.mobile.changePage("#pageDays", {transition: "none"});
 		$("#lvDays")
@@ -206,15 +207,17 @@ var coreFerjeruta = function () {
 		$(departurepoint.DepartureDays)
 			.each(function (k) {
 				var weekday = this;
-				var litem = $("<li />")
-					.append(
-						$("<a />")
+				var daylink = $("<a />")
 						.text(GetDayName(weekday.DayOfWeek))
 						.attr("href", "#")
 						.click(function (e) {
 							pobj.SelectDay(weekday);
-						}) //click
-				) //append
+						}); //click
+				if(weekday.DayOfWeek == pobj.Today){
+					daylink.addClass("textOrange")
+				}
+				var litem = $("<li />")
+					.append(daylink);
 				$("#lvDays")
 					.append(litem);
 			});
@@ -224,7 +227,7 @@ var coreFerjeruta = function () {
 	};
 
 	this.SelectDay = function (weekday) {
-		ferjeRutaMainObject.Log("[debug] coreFerjeruta::SelectDay()");
+		this.Log("[debug] coreFerjeruta::SelectDay()");
 		$.mobile.changePage("#pageDepartures", {transition: "none"});
 		$("#lvDepartures")
 			.empty();
