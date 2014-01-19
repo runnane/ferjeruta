@@ -11,9 +11,9 @@
  *
  */
 -->
-<routes serial="2014011602">
+<routes serial="2014011901">
 	<route name="Tausambandet" location1="Stavanger" location2="Tau"
-		validfrom="2014-01-01" validto="2014-04-30" serial="2013121701" time="35" ticketzone="15" operator="norled" routeid="1022" url="http://norled.no/uploads/documents/Ferjeruter/2013_Rogaland/Tau_des_2013.pdf">
+		validfrom="2014-01-01" validto="2014-04-30" serial="2013121701" time="35" ticketzone="15" operator="norled" routeid="1022" url="http://norled.no/uploads/documents/Ferjeruter/2013_Rogaland/Tau_des_2013.pdf" areaCode="Rogaland">
 		
 		<rutes>
 			<rute id="1" name="Stavanger" phonenumber="0" type="ferry" comments="" />
@@ -208,7 +208,7 @@
 	</route>
 
 	<route name="Høgsfjordsambandet" location1="Lauvik" location2="Oanes"
-		validfrom="2012-05-01" validto="2013-04-30" serial="2012070501" time="10" ticketzone="3" operator="norled" routeid="1024" url="http://norled.no/uploads/documents/Ferjeruter/2013_Rogaland/Oanes_Lauvik_2013_2014.pdf">
+		validfrom="2012-05-01" validto="2013-04-30" serial="2012070501" time="10" ticketzone="3" operator="norled" routeid="1024" url="http://norled.no/uploads/documents/Ferjeruter/2013_Rogaland/Oanes_Lauvik_2013_2014.pdf" areaCode="Rogaland">
 		<departurepoint location="Lauvik">
 			<weekday day="2,3,4,5,6" desc="Ukedager">
 				<departure time="05:45" />
@@ -359,7 +359,7 @@
 	</route>
 
 	<route name="Mortavika-Arsvågen" location1="Mortavika" location2="Arsvågen"
-		validfrom="2013-05-01" validto="2014-04-30" serial="2014011801" time="25" ticketzone="95" operator="fjord1" routeid="11-528 (1081)" url="http://reise2.fjord1.no/Fjord1IISStaticTables/Tables/ruter/t/11-528.htm">
+		validfrom="2013-05-01" validto="2014-04-30" serial="2014011801" time="25" ticketzone="95" operator="fjord1" routeid="11-528 (1081)" url="http://reise2.fjord1.no/Fjord1IISStaticTables/Tables/ruter/t/11-528.htm" areaCode="Rogaland">
 		
 		<rutes>
 			<rute id="1" name="MF Boknafjord" phonenumber="0" type="ferry" comments="" />
@@ -632,7 +632,7 @@
 	</route>
 	
 	<route name="Halhjemsambandet" location1="Sandvikvåg" location2="Halhjem"
-		validfrom="2013-05-01" validto="2014-04-30" serial="2014011801" time="40" ticketzone="96" operator="fjord1" routeid="12-143 (1000)" url="http://reise2.fjord1.no/Fjord1IISStaticTables/Tables/ruter/t/12-143.htm">
+		validfrom="2013-05-01" validto="2014-04-30" serial="2014011801" time="40" ticketzone="96" operator="fjord1" routeid="12-143 (1000)" url="http://reise2.fjord1.no/Fjord1IISStaticTables/Tables/ruter/t/12-143.htm" areaCode="Hordaland">
 
 		<rutes>
 			<rute id="1" name="MF Bergensfjord" phonenumber="0" type="ferry" comments="" />
@@ -951,7 +951,7 @@
 	</route>
 	
 	<route name="Sand-Ropeid" location1="Sand" location2="Ropeid" 
-		validfrom="2013-05-01" validto="2014-04-30" serial="2014011801" time="10" ticketzone="3" operator="norled" routeid="1026" url="http://norled.no/uploads/documents/Ferjeruter/2013_Rogaland/Sand_Ropeid_2013_2014.pdf">
+		validfrom="2013-05-01" validto="2014-04-30" serial="2014011801" time="10" ticketzone="3" operator="norled" routeid="1026" url="http://norled.no/uploads/documents/Ferjeruter/2013_Rogaland/Sand_Ropeid_2013_2014.pdf" areaCode="Rogaland">
 		<departurepoint location="Sand">
 			<weekday day="2,3,4,5,6" desc="Ukedager">
 				<departure time="00:15" />
@@ -1162,7 +1162,7 @@
 	</route>
 	
 	<route name="Hjelmeland-Nesvik" location1="Hjelmeland" location2="Nesvik" 
-		validfrom="2013-05-01" validto="2014-04-30" serial="2014011801" time="15" ticketzone="3" operator="norled" routeid="1027" url="http://norled.no/uploads/documents/Ferjeruter/2013_Rogaland/Hjelmeland_nesvik_Ombo_2013_2014.pdf">
+		validfrom="2013-05-01" validto="2014-04-30" serial="2014011801" time="15" ticketzone="3" operator="norled" routeid="1027" url="http://norled.no/uploads/documents/Ferjeruter/2013_Rogaland/Hjelmeland_nesvik_Ombo_2013_2014.pdf" areaCode="Rogaland">
 		<departurepoint location="Hjelmeland">
 			<weekday day="2,3,4,5,6,7" desc="Ukedager, Lørdag">
 				<departure time="00:30" />
@@ -1277,7 +1277,7 @@
 	</route>
 	
 	<route name="Mekjarvik-Kvitsøy" location1="Mekjarvik" location2="Kvitsøy" 
-		validfrom="2013-12-20" validto="2014-04-30" serial="2014011801" time="40" ticketzone="14" operator="norled" routeid="1023" url="http://norled.no/uploads/documents/Ferjeruter/2014_Rogaland/Kvistoy_Mekjarvik.pdf">
+		validfrom="2013-12-20" validto="2014-04-30" serial="2014011801" time="40" ticketzone="14" operator="norled" routeid="1023" url="http://norled.no/uploads/documents/Ferjeruter/2014_Rogaland/Kvistoy_Mekjarvik.pdf" areaCode="Rogaland">
 	
 		<departurepoint location="Mekjarvik">
 			<weekday day="2,3,4,5,6" desc="Ukedager">
@@ -1338,7 +1338,7 @@
 	</route>
 	<route name="Utåker-Matre-Skånevik" location1="Utåker" location2="Skånevik"
 		validfrom="2014-01-01" validto="2014-12-31" serial="2014011601" time="20, 50 om Matre" ticketzone="4/6/8" operator="norled" routeid="1005" 
-		url="http://norled.no/uploads/documents/Ferjeruter/2013_Hordaland/Ferjehefte_01jan2013_web_s40.pdf">
+		url="http://norled.no/uploads/documents/Ferjeruter/2013_Hordaland/Ferjehefte_01jan2013_web_s40.pdf" areaCode="Hordaland">
 		<departurepoint location="Utåker">
 			<weekday day="2,3,4,5,6" desc="Ukedager">
 				<departure time="05:45" />
@@ -1440,7 +1440,7 @@
 	</route>
 	<route name="Fodnes-Manheller" location1="Fodnes" location2="Manheller"
 		validfrom="2014-01-02" validto="2014-04-30" serial="2014011801" time="15" ticketzone="4" operator="Fjord1 AS" routeid="14-107" 
-		url="http://reise2.fjord1.no/Fjord1IISStaticTables/Tables/ruter/t/14-107.htm">
+		url="http://reise2.fjord1.no/Fjord1IISStaticTables/Tables/ruter/t/14-107.htm" areaCode="Hordaland">
 		<departurepoint location="Fodnes">
 			<weekday day="2,3,4,5,6" desc="Ukedager">
 				<departure time="00:00" comments="A" />
@@ -1781,7 +1781,7 @@
 	</route>
 	<route name="Utne-Kvanndal" location1="Utne" location2="Kvanndal"
 		validfrom="2014-01-01" validto="2014-12-31" serial="2014011801" time="15" ticketzone="6" operator="norled" routeid="1001" 
-		url="http://www.norled.no/uploads/documents/Ferjeruter/2014_Hordaland/Ferge_Vinterrute_Kinsarvik_Utne_Kvanndal_3siders.pdf">
+		url="http://www.norled.no/uploads/documents/Ferjeruter/2014_Hordaland/Ferge_Vinterrute_Kinsarvik_Utne_Kvanndal_3siders.pdf" areaCode="Hordaland">
 		<departurepoint location="Utne">
 			<weekday day="2,3,4,5" desc="mandag, tirsdag, onsdag, torsdag">
 				<departure time="06:25" />

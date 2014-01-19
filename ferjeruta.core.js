@@ -11,7 +11,14 @@
 
 var coreFerjeruta = function () {
 	this.serviceList = new Array();
-	this.isLive=(location.pathname == "/");
+	this.isLive = (location.pathname == "/");
+	this.AutoRefreshInterval = 60*1000; // 60 sec
+	// Settings
+	this.userSettings = {
+		"AutoRefresh" : { type:"bool", defValue: false, onChange: function(val){ if(val==true){ferjeRutaMainObject.StartAutoRefresh(ferjeRutaMainObject.AutoRefreshInterval);}} },
+		"ShowRogaland" : { type:"bool", defValue: true },
+		"ShowHordaland" : { type:"bool", defValue: true }
+	};
 
 	this.Log = function (str){
 		// Don't debug if we are live on ferjeruta.no
@@ -19,10 +26,48 @@ var coreFerjeruta = function () {
 			console.log(str);	
 		}
 	}; //Log
+	
+	this.GetSetting = function(settingName){
+		return $.jStorage.get(settingName, this.userSettings[settingName].defValue);
+	};
+	this.SetSetting = function(settingName,value){
+		return $.jStorage.set(settingName, value);
+	};
+	
+	this.StartAutoRefresh = function(interval){
+		this.AutoRefreshProcId = setInterval(function(){ ferjeRutaMainObject.AutoRefreshTimer(interval); }, interval);
+		return this.AutoRefreshProcId;
+	}
+	this.StopAutoRefresh = function(){
+		clearInterval(this.AutoRefreshProcId);
+		this.AutoRefreshProcId=0;
+	}
 
+	
+	this.AutoRefreshTimer = function(timeoutval){
+		this.Log("[debug] coreFerjeruta::AutoRefreshTimer() spawning, id="+this.AutoRefreshProcId);
+		var id = this.AutoRefreshProcId;
+		if(!this.GetSetting("AutoRefresh")){
+			this.Log("[debug] coreFerjeruta::AutoRefreshTimer() stopping interval due to autorefresh disabled");
+			this.StopAutoRefresh();
+			return;
+		}
+		if(this.AutoRefreshProcId<1){
+			this.Log("[debug] coreFerjeruta::AutoRefreshTimer() stopping interval due to unknown procid");
+			this.StopAutoRefresh();
+			return;
+		}
+		if( $('#pageMainview').is(':hidden') ) {
+			this.Log("[debug] coreFerjeruta::AutoRefreshTimer() not spawning refresh, due to mainpanel not being active");
+			return;
+		}
+		this.Log("[debug] coreFerjeruta::AutoRefreshTimer() spawning refresh");
+		this.RefreshServices();
+	}
+	
 	this.Initialize = function (refreshwhendone) {
 		var pobj = this;
-		pobj.Log("[debug] coreFerjeruta::Initialize() starting");
+		this.Log("[debug] coreFerjeruta::Initialize() starting");
 		$.get("routes.xml", function (xml) {
 			pobj.Log("[debug] coreFerjeruta::Initialize() got xml");
 			$("route", xml)
@@ -37,10 +82,9 @@ var coreFerjeruta = function () {
 									$("departure",this)
 										.each(function (l) {
 												dp.AddAvgang(weekdays, this);
-											});
-								});
-						});
-					//return false;
+											});// each departure
+								});// each weekday
+						}); //each departurepoint
 				}); // each route
 			pobj.Log("[debug] coreFerjeruta::Initialize() route table views populated");
 			if(refreshwhendone == true){
@@ -85,69 +129,81 @@ var coreFerjeruta = function () {
 			+ ":" + strpad(now.getMinutes(),2);
 		this.Today = now.getDay()+1;
 
+		var show = {
+			"Rogaland": this.GetSetting("ShowRogaland"),
+			"Hordaland": this.GetSetting("ShowHordaland")
+			};
+
 		$(".daycontents")
 			.text(str);
+		var numberShown = 0;
 		$(this.serviceList)
 			.each(function (i) {
 				var ferryline = this;
-				var slink = $("<a />");
-				slink.text(ferryline.Name)
-					.attr("href", "#");
-
-				$(ferryline.DeparturePoints)
-					.each(function (j) {
-						var location = this;
-						var next = location.GetNextDeparture();
-						var minstodep = parseInt(next.MinutesUntil(), 10);
-						var cls;
-
-						if(minstodep <= 5) {
-							cls = "Red"
-						} else if(minstodep <=
-							30) {
-							cls = "Green"
-						} else {
-							cls = "Orange"
-						}
-						var minutestodeptxt = $(
-							"<span />")
-							.text(next.HowLongUntil())
-							.addClass("text" + cls)
-							.addClass("textBold");
-						var spacer = " - ";
-						var string1 = "Neste fra " + location.Name + " om ";
-
-						var next2 = next.Next();
-						var next3 = next2.Next();
-						var next4 = next3.Next();
-						var next5 = next4.Next();
-
-						var string2 = next.Output() +
-							spacer + next2.Output() +
-							spacer + next3.Output() +
-							spacer + next4.Output() +
-							spacer + next5.Output();
-
-						slink
-							.append($("<p />")
-								.append($("<strong />")
-									.text(string1))
-								.append(
-									minutestodeptxt))
-							.append($("<p />")
-								.text(string2));
-					});
-
-				var listview1Row = $("<li />")
-					.append(slink
-						.click(function (e) {
-							pobj.SelectService(ferryline);
-						}) // click on page1
-				); // listview1row
-				$("#lvMainview")
-					.append(listview1Row);
+				if(show[ferryline.AreaCode]){
+					var slink = $("<a />");
+					slink.text(ferryline.Name)
+						.attr("href", "#");
+	
+					$(ferryline.DeparturePoints)
+						.each(function (j) {
+							var location = this;
+							var next = location.GetNextDeparture();
+							var minstodep = parseInt(next.MinutesUntil(), 10);
+							var cls;
+	
+							if(minstodep <= 5) {
+								cls = "Red"
+							} else if(minstodep <=
+								30) {
+								cls = "Green"
+							} else {
+								cls = "Orange"
+							}
+							var minutestodeptxt = $(
+								"<span />")
+								.text(next.HowLongUntil())
+								.addClass("text" + cls)
+								.addClass("textBold");
+							var spacer = " - ";
+							var string1 = "Neste fra " + location.Name + " om ";
+	
+							var next2 = next.Next();
+							var next3 = next2.Next();
+							var next4 = next3.Next();
+							var next5 = next4.Next();
+	
+							var string2 = next.Output() +
+								spacer + next2.Output() +
+								spacer + next3.Output() +
+								spacer + next4.Output() +
+								spacer + next5.Output();
+	
+							slink
+								.append($("<p />")
+									.append($("<strong />")
+										.text(string1))
+									.append(
+										minutestodeptxt))
+								.append($("<p />")
+									.text(string2));
+						});
+	
+					var listview1Row = $("<li />")
+						.append(slink
+							.click(function (e) {
+								pobj.SelectService(ferryline);
+							}) // click on page1
+					); // listview1row
+					$("#lvMainview")
+						.append(listview1Row);
+					numberShown++;
+				} // if show ferryline
 			}); // each servicelist
-			
+		if(numberShown == 0){
+			$("#lvMainview")
+				.append(CreateSimpleLi("Har du fjernet alle i innstillinger under?","Ingen ruter aktive :'("));
+		}
 		$("#lvMainview")
 			.listview("refresh");
 	};

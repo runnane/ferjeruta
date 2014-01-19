@@ -20,6 +20,8 @@
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
 <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+<script src="http://projects.runnane.no/_lib/3rd/jquery.json-2.4.min.js"></script>
+<script src="http://projects.runnane.no/_lib/3rd/jstorage-0.4.8.min.js"></script>
 <script src="ferjeruta.js"></script>
 <script src="ferjeruta.obj.js"></script>
 <script src="ferjeruta.core.js"></script>
@@ -145,7 +147,9 @@
 <div id="pageSettings" data-role="page">
   <div data-role="content">
  	 <h2>Innstillinger</h2>
-        <p>(ikke implementert)</p>
+<label><input type="checkbox" name="s_AutoRefresh" id="s_AutoRefresh"> Automatisk oppdatering av forsiden hvert minutt </label>
+<label><input type="checkbox" name="s_ShowRogaland" id="s_ShowRogaland"> Vis ruter i Rogaland</label>
+<label><input type="checkbox" name="s_ShowHordaland" id="s_ShowHordaland"> Vis ruter i Hordaland</label>
      <p>Her kan vi legge noen innstillinger. Tenkte innstillinger er: </p>
      <ul>
      	<li>Vis/skjul ruter</li>

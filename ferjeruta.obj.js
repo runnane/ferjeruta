@@ -23,6 +23,8 @@ var FerryService = function (sambandXmlNode) {
 	this.Operator = 	$(sambandXmlNode).attr("operator");
 	this.RouteId = 		$(sambandXmlNode).attr("routeid");
 	this.Url = 			$(sambandXmlNode).attr("url");
+	this.AreaCode = 	$(sambandXmlNode).attr("areaCode");
+	
 };
 FerryService.prototype.AddDeparturePoint = function (departurep) {
 	this.DeparturePoints.push(new DeparturePoint(departurep, this));
