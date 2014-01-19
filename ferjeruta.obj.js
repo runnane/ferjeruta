@@ -50,6 +50,15 @@ var DeparturePoint = function (pos, parentservice) {
 DeparturePoint.prototype.GetDay = function (day) {
 	var ret;
 	day = parseInt(day, 10);
+	
+	// Do this to tolerate overflow etc
+	if(day == 8){
+		day = 1;	
+	}
+	if(day == 0){
+		day = 7;	
+	}
+
 	if(day < 1 || day > 7) {
 		return undefined;
 	}
@@ -94,6 +103,16 @@ var ServiceDay = function (day, timetabl) {
 	this.DayOfWeek = parseInt(day, 10);
 	this.Departures = new Array();
 	this.ParentDeparturePoint = timetabl;
+};
+
+ServiceDay.prototype.DayName = function () {
+	return GetDayName(this.DayOfWeek);
+}
+ServiceDay.prototype.NextDay = function () {
+	return this.ParentDeparturePoint.GetDay(this.DayOfWeek+1);
+};
+ServiceDay.prototype.PreviousDay = function () {
+	return this.ParentDeparturePoint.GetDay(this.DayOfWeek-1);
 };
 
 ServiceDay.prototype.AddAvgang = function (departureXml) {

@@ -228,6 +228,7 @@ var coreFerjeruta = function () {
 
 	this.SelectDay = function (weekday) {
 		this.Log("[debug] coreFerjeruta::SelectDay()");
+		var pobj = this;
 		$.mobile.changePage("#pageDepartures", {transition: "none"});
 		$("#lvDepartures")
 			.empty();
@@ -250,7 +251,38 @@ var coreFerjeruta = function () {
 					.append(litem);
 			}); //each departure
 			
+		// Bottom back/next navbar
+		var navbar = $('<div />');
+		var ul = $('<ul />');
+		
+		navbar.append(ul
+			.append($('<li />')
+				.append($('<a />')
+					.attr('href','#')
+					.text('< ' + weekday
+						.PreviousDay()
+						.DayName())
+					.click(function(e){ 
+						pobj.SelectDay( weekday.PreviousDay()); 
+					})
+				)));
+				
+		navbar.append(ul
+			.append($('<li />')
+				.append($('<a />')
+					.attr('href','#')
+					.text(weekday
+						.NextDay()
+						.DayName() + ' >')
+					.click(function(e){ 
+						pobj.SelectDay( weekday.NextDay()); 
+					})
+				)));
+		
+		$("#lvDepartures").append($('<li />').append(navbar.navbar()));
+		
 		$("#lvDepartures")
 			.listview("refresh");
+		$(window).scrollTop( 0 );
 	};
 };
