@@ -111,19 +111,13 @@ $(document)
 		
 		// Set hooks and default values to usersettings elements
 		$.each(ferjeRutaMainObject.userSettings, function(settingName, settingOptions) {
+			//ferjeRutaMainObject.Log("[debug] (ready) hooking onchange to " + settingName);
 			var el =  $("#s_" + settingName);
             el.change(function (f) {
 				var val = (el.prop('checked') == true);
 				ferjeRutaMainObject.SetSetting(settingName, val);
-				if(settingOptions.onChange != undefined){
-					settingOptions.onChange(val);
-				}
 			});
 			el.prop('checked', ferjeRutaMainObject.GetSetting(settingName)).checkboxradio('refresh');
         });
 		
-		// Check if we want AutoRefresh and setInterval
-		if(ferjeRutaMainObject.GetSetting("AutoRefresh") == true){
-			ferjeRutaMainObject.StartAutoRefresh(ferjeRutaMainObject.AutoRefreshInterval);
-		}
 	});

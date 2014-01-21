@@ -10,21 +10,25 @@
  */
  
 //////////// FerryService
-var FerryService = function (sambandXmlNode) {
-	this.DeparturePoints = new Array();
-	this.Name = 		$(sambandXmlNode).attr("name");
-	this.Location1 = 	$(sambandXmlNode).attr("location1");
-	this.Location2 = 	$(sambandXmlNode).attr("location2");
-	this.ValidFrom = 	$(sambandXmlNode).attr("validfrom");
-	this.ValidTo = 		$(sambandXmlNode).attr("validto");
-	this.PriceZone = 	$(sambandXmlNode).attr("ticketzone");
-	this.TripTime = 	$(sambandXmlNode).attr("time");
-	this.Serial = 		$(sambandXmlNode).attr("serial");
-	this.Operator = 	$(sambandXmlNode).attr("operator");
-	this.RouteId = 		$(sambandXmlNode).attr("routeid");
-	this.Url = 			$(sambandXmlNode).attr("url");
-	this.AreaCode = 	$(sambandXmlNode).attr("areaCode");
-	
+var FerryService = function (xml) {
+	this.rawXML				= xml;
+
+	this.DeparturePoints 	= new Array();
+	this.ServiceFlags 		= {};
+	this.ServiceLines 		= {};
+	this.Name 				= $(xml).attr("name");
+	this.Location1 			= $(xml).attr("location1");
+	this.Location2 			= $(xml).attr("location2");
+	this.ValidFrom 			= $(xml).attr("validfrom");
+	this.ValidTo 			= $(xml).attr("validto");
+	this.PriceZone 			= $(xml).attr("ticketzone");
+	this.TripTime 			= $(xml).attr("time");
+	this.Serial 			= $(xml).attr("serial");
+	this.Operator 			= $(xml).attr("operator");
+	this.RouteId 			= $(xml).attr("routeid");
+	this.Url				= $(xml).attr("url");
+	this.AreaCode 			= $(xml).attr("areaCode");
+	this.Comments 			= $(xml).attr("comments");
 };
 FerryService.prototype.AddDeparturePoint = function (departurep) {
 	this.DeparturePoints.push(new DeparturePoint(departurep, this));
@@ -42,11 +46,49 @@ FerryService.prototype.GetDeparturePoint = function (name) {
 		return ret;
 };
 
+FerryService.prototype.AddFlag = function(xml){
+	this.ServiceFlags[$(xml).attr("code")] = new ServiceFlag(xml, this);
+	return this.ServiceFlags[$(xml).attr("code")]
+}
+FerryService.prototype.AddLine = function(xml){
+	this.ServiceLines[$(xml).attr("id")] = new ServiceLine(xml, this);
+	return this.ServiceLines[$(xml).attr("id")]
+}
+
+
 /////////// DeparturePoint
-var DeparturePoint = function (pos, parentservice) {
-	this.Name = $(pos).attr("location");
-	this.DepartureDays = new Array();
-	this.ParentService = parentservice;
+ServiceFlag = function (xml, parent){
+	this.rawXML				= xml;
+	this.ParentService 		= parent;
+
+	this.Code				= $(xml).attr("code")
+	this.Comments			= $(xml).attr("comments")
+	this.Color				= $(xml).attr("color")
+};
+
+/////////// DeparturePoint
+ServiceLine = function (xml, parent){
+	this.rawXML				= xml;
+	this.ParentService 		= parent;
+
+	this.Id					= $(xml).attr("id")
+	this.Name				= $(xml).attr("name")
+	this.Phone				= $(xml).attr("phonenumber")
+	this.Type				= $(xml).attr("type")
+	this.Comments			= $(xml).attr("comments")
+	this.Color				= $(xml).attr("color")
+	this.Flags				= $(xml).attr("flags")
+};
+
+/////////// DeparturePoint
+var DeparturePoint = function (xml, parent) {
+	this.rawXML				= xml;
+	this.ParentService 		= parent;
+
+	this.Name 				= $(xml).attr("location");
+	this.Comments			= $(xml).attr("comments");
+	
+	this.DepartureDays 		= new Array();
 };
 
 DeparturePoint.prototype.GetDay = function (day) {
@@ -78,14 +120,13 @@ DeparturePoint.prototype.GetDay = function (day) {
 	return ret;
 };
 
-//DeparturePoint.prototype.AddAvgang = function (days, time, rute, comments) {
-DeparturePoint.prototype.AddAvgang = function (days, departureXml) {
+DeparturePoint.prototype.AddAvgang = function (days, xml) {
 		var parts = days.split(",");
 		var tt = this;
 		$(parts)
 			.each(function (i) {
 				tt.GetDay(this)
-					.AddAvgang(departureXml);
+					.AddAvgang(xml);
 			});
 };
 
@@ -101,10 +142,12 @@ DeparturePoint.prototype.GetNextDeparture = function (dayofweek, hour, minute) {
 };
 
 ////////////// ServiceDay
-var ServiceDay = function (day, timetabl) {
-	this.DayOfWeek = parseInt(day, 10);
-	this.Departures = new Array();
-	this.ParentDeparturePoint = timetabl;
+var ServiceDay = function (day, parent) {
+	//this.rawXML				= xml;
+	this.ParentDeparturePoint 	= parent;
+	
+	this.DayOfWeek 				= parseInt(day, 10);
+	this.Departures 			= new Array();
 };
 
 ServiceDay.prototype.DayName = function () {
@@ -180,15 +223,29 @@ ServiceDay.prototype.GetFirstDeparture = function () {
 };
 
 ////////////// Departure
-var Departure = function (departureXml, day) {
-	this.TimeOfDay 	= $(departureXml).attr("time");
-	this.Rute		= $(departureXml).attr("rute");
-	this.Comments 	= $(departureXml).attr("comments");
-	this.ParentDay 	= day;
+var Departure = function (xml, parent) {
+	this.rawXML				= xml;
+	this.ParentDay 			= parent;
 
-	var parts = this.TimeOfDay.split(":");
-	this.Hour = parseInt(parts[0], 10);
-	this.Minute = parseInt(parts[1], 10);
+	this.TimeOfDay 			= $(xml).attr("time");
+	this.rawLine			= $(xml).attr("line");
+	this.Comments 			= $(xml).attr("comments");
+	this.Color 				= $(xml).attr("color");
+	this.rawFlags			= $(xml).attr("flags");
+	this.Flags				= {};
+	this.Line				= this.ParentDay.ParentDeparturePoint.ParentService.ServiceLines[this.rawLine];
+
+	var parts 				= this.TimeOfDay.split(":");
+	this.Hour 				= parseInt(parts[0], 10);
+	this.Minute 			= parseInt(parts[1], 10);
+	
+	// Map Flags
+	var mObj = this;
+	if(mObj.rawFlags != undefined){
+		$.each(mObj.rawFlags.split(","),function(index, val){
+			mObj.Flags[val] = mObj.ParentDay.ParentDeparturePoint.ParentService.ServiceFlags[val];
+		});
+	}
 };
 
 Departure.prototype.MinutesUntil = function () {

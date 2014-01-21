@@ -13,36 +13,65 @@ var coreFerjeruta = function () {
 	this.serviceList = new Array();
 	this.isLive = (location.pathname == "/");
 	this.AutoRefreshInterval = 60*1000; // 60 sec
-	// Settings
+	this.AutoRefreshProcId = 0;
+	this.RouteXMLSerial = 0;
+	
+	// Settings object w/ defaults 
 	this.userSettings = {
-		"AutoRefresh" : { type:"bool", defValue: false, onChange: function(val){ if(val==true){ferjeRutaMainObject.StartAutoRefresh(ferjeRutaMainObject.AutoRefreshInterval);}} },
+		"AutoRefresh" : { type:"bool", defValue: false, 
+			onChange: function(val){ 
+				if(val==true){
+					ferjeRutaMainObject.StartAutoRefresh(); 
+				}else{
+					ferjeRutaMainObject.StopAutoRefresh();	
+				}
+			} 
+		},
 		"ShowRogaland" : { type:"bool", defValue: true },
 		"ShowHordaland" : { type:"bool", defValue: true }
 	};
 
-	this.Log = function (str){
-		// Don't debug if we are live on ferjeruta.no
-		if(!this.isLive){
-			console.log(str);	
-		}
-	}; //Log
-	
+	// Setting related functions
 	this.GetSetting = function(settingName){
 		return $.jStorage.get(settingName, this.userSettings[settingName].defValue);
 	};
-	this.SetSetting = function(settingName,value){
+	
+	this.SetSetting = function(settingName, value){
+		// Only set if different to previous value
+		var origval = this.GetSetting(settingName);
+		if(origval != value){
+			if(this.userSettings[settingName].onChange != undefined){
+				this.userSettings[settingName].onChange(value);
+			}	
+		}
 		return $.jStorage.set(settingName, value);
 	};
 	
+	// AutoRefresh handlers
 	this.StartAutoRefresh = function(interval){
-		this.AutoRefreshProcId = setInterval(function(){ ferjeRutaMainObject.AutoRefreshTimer(interval); }, interval);
+		if(interval == undefined){
+			interval = this.AutoRefreshInterval;
+		}
+		this.Log("[debug] coreFerjeruta::StartAutoRefresh() starting");
+		if(this.AutoRefreshProcId == 0){
+			this.Log("[debug] coreFerjeruta::StartAutoRefresh() spawning new timer");
+			this.AutoRefreshProcId = setInterval(function(){ ferjeRutaMainObject.AutoRefreshTimer(interval); }, interval);
+		}else{
+			this.Log("[debug] coreFerjeruta::StartAutoRefresh() timer already started ("+this.AutoRefreshProcId+")");
+		}
 		return this.AutoRefreshProcId;
 	}
+	
 	this.StopAutoRefresh = function(){
-		clearInterval(this.AutoRefreshProcId);
-		this.AutoRefreshProcId=0;
+		this.Log("[debug] coreFerjeruta::StopAutoRefresh() starting");
+		if(this.AutoRefreshProcId != 0){
+			this.Log("[debug] coreFerjeruta::StopAutoRefresh() killing timer ("+this.AutoRefreshProcId+")");
+			clearInterval(this.AutoRefreshProcId);
+			this.AutoRefreshProcId=0;
+		}else{
+			this.Log("[debug] coreFerjeruta::StopAutoRefresh() failed, empty autorefresh proc id");
+		}
 	}
-
 	
 	this.AutoRefreshTimer = function(timeoutval){
 		this.Log("[debug] coreFerjeruta::AutoRefreshTimer() spawning, id="+this.AutoRefreshProcId);
@@ -65,14 +94,32 @@ var coreFerjeruta = function () {
 		this.RefreshServices();
 	}
 	
-	this.Initialize = function (refreshwhendone) {
+	// Logging (for debug)
+	this.Log = function (str){
+		// Don't debug if we are live on ferjeruta.no
+		if(!this.isLive){
+			console.log(str);	
+		}
+	}; //Log
+	
+	// Main init operation
+	this.Initialize = function (refreshWhenDone) {
 		var pobj = this;
 		this.Log("[debug] coreFerjeruta::Initialize() starting");
-		$.get("routes.xml", function (xml) {
+		$.get("schedule.xml", function (xml) {
 			pobj.Log("[debug] coreFerjeruta::Initialize() got xml");
+			
+			pobj.RouteXMLSerial = $("routes", xml).attr("serial");
 			$("route", xml)
 				.each(function (i) {
 					var service = pobj.AddSamband(this);
+					$("flag", $(this)).each(function (i) {
+						service.AddFlag(this);
+					});
+					$("line", $(this)).each(function (i) {
+						service.AddLine(this);
+					});
+					
 					$("departurepoint", this)
 						.each(function (j) {
 							var dp = service.AddDeparturePoint(this);
@@ -87,9 +134,19 @@ var coreFerjeruta = function () {
 						}); //each departurepoint
 				}); // each route
 			pobj.Log("[debug] coreFerjeruta::Initialize() route table views populated");
-			if(refreshwhendone == true){
+			
+			// Check if we want AutoRefresh and setInterval
+			if(pobj.GetSetting("AutoRefresh") == true){
+				pobj.StartAutoRefresh();
+			}
+			
+			// Refresh
+			if(refreshWhenDone == true){
 				pobj.RefreshServices();
 			}
+			
+			$("#txtScheduleVersion").html(pobj.RouteXMLSerial);
+			
 		}); // http get
 	}; // Initialize
 
@@ -296,17 +353,64 @@ var coreFerjeruta = function () {
 				var litem = $("<li />");
 				var str = $("<strong>")
 					.text(departure.TimeOfDay);
+					
+				if(departure.Line && departure.Line.Color){
+					str.css("color",departure.Line.Color);
+				}
 				litem.append(str);
-				if(departure.Rute) {
-					litem.append(" (Rute " + departure.Rute + ")");
+				if(departure.Line) {
+					litem.append(" [" + departure.Line.Id + "] ");
+					/*$.each(departure.Line.Flags, function(idx, val){
+						if(this.Code == undefined){
+							return false;	
+						}
+						console.log(this);
+						litem.append(" (f="+this.Code+", " + this.Comments + ")");
+					});*/
+				}
+				$.each(departure.Flags, function(idx, val){
+					if(this.Code == undefined){
+						return false;	
+					}
+					litem.append(" [" + this.Code + "] ");
+				});
+				if(departure.Comments != undefined) {
+					litem.append(" " + departure.Comments + " ");
+				}
+				if(departure.Line && departure.Line.Comments) {
+					litem.append(" " + departure.Line.Comments + " ");
+				}
+				/*
+				if(departure.rawLine) {
+					litem.append(" (Rute " + departure.rawLine + ")");
 				}
 				if(departure.Comments) {
 					litem.append(" (" + departure.Comments + ")");
 				}
+				*/
 				$("#lvDepartures")
 					.append(litem);
+					
 			}); //each departure
-			
+		
+		// flags
+		var flagtext = "";
+		$.each(weekday.ParentDeparturePoint.ParentService.ServiceFlags, function(idx, val){
+			if(this.Code == undefined){
+				return false;	
+			}
+			flagtext += " " + this.Code + "=" + this.Comments + "<br />";
+		});
+		$("#lvDepartures").append($('<li />').html(flagtext));
+		// lines
+		var ferrytext = "";
+		$.each(weekday.ParentDeparturePoint.ParentService.ServiceLines, function(idx, val){
+			if(this.Id == undefined){
+				return false;	
+			}
+			ferrytext += " " + this.Id + "=" + this.Name + "<br />";
+		});
+		$("#lvDepartures").append($('<li />').html(ferrytext));
 		// Bottom back/next navbar
 		var navbar = $('<div />');
 		var ul = $('<ul />');
