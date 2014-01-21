@@ -359,7 +359,9 @@ var coreFerjeruta = function () {
 				}
 				litem.append(str);
 				if(departure.Line) {
-					litem.append(" [" + departure.Line.Id + "] ");
+					litem.append(" [");
+					litem.append($("<strong />").text(departure.Line.Id));
+					litem.append("] ");
 					/*$.each(departure.Line.Flags, function(idx, val){
 						if(this.Code == undefined){
 							return false;	
@@ -380,14 +382,7 @@ var coreFerjeruta = function () {
 				if(departure.Line && departure.Line.Comments) {
 					litem.append(" " + departure.Line.Comments + " ");
 				}
-				/*
-				if(departure.rawLine) {
-					litem.append(" (Rute " + departure.rawLine + ")");
-				}
-				if(departure.Comments) {
-					litem.append(" (" + departure.Comments + ")");
-				}
-				*/
+				
 				$("#lvDepartures")
 					.append(litem);
 					

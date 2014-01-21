@@ -77,7 +77,17 @@ ServiceLine = function (xml, parent){
 	this.Type				= $(xml).attr("type")
 	this.Comments			= $(xml).attr("comments")
 	this.Color				= $(xml).attr("color")
-	this.Flags				= $(xml).attr("flags")
+	this.rawFlags			= $(xml).attr("flags")
+	this.Flags				= {};
+	
+	// Map Flags
+	var mObj = this;
+	if(mObj.rawFlags != undefined){
+		$.each(mObj.rawFlags.split(","),function(index, val){
+			mObj.Flags[val] = mObj.ParentService.ServiceFlags[val];
+		});
+	}
+	
 };
 
 /////////// DeparturePoint
