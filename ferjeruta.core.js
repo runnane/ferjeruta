@@ -285,7 +285,23 @@ var coreFerjeruta = function () {
 				.text("Rute gyldig fra " +
 					datefrom.toNorwString() +
 					" til " +
-					dateto.toNorwString()));
+					dateto.toNorwString()))
+			/*.append(
+				$("<a />")
+					
+					.text("[Last ned PDF]")
+					.attr("href","#")
+					.button()	
+						
+					)
+					.append(
+				$("<a />")
+					
+					.text("[Last ned PDF]")
+					.attr("href","#")
+					.button()	
+						
+					)*/;
 		$("#lvLocations")
 			.append(headerLvitem);
 
