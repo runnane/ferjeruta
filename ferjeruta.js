@@ -78,8 +78,8 @@ var CreateSimpleLi = function(str, header){
 		return $('<li />').text(str);
 	}
 	var li = $('<li />');
-	li.append($('<h1 />').text(header));
-	li.append($('<p />').text(str));
+	li.append($('<h1 />').html(header));
+	li.append($('<p />').html(str));
 	return li
 }
 

@@ -273,6 +273,7 @@ var coreFerjeruta = function () {
 			.empty();
 		var datefrom = new Date(ferryline.ValidFrom);
 		var dateto = new Date(ferryline.ValidTo);
+					
 		var headerLvitem = $("<li />")
 			.append($("<h1 />")
 				.text(ferryline.Name))
@@ -285,23 +286,17 @@ var coreFerjeruta = function () {
 				.text("Rute gyldig fra " +
 					datefrom.toNorwString() +
 					" til " +
-					dateto.toNorwString()))
-			/*.append(
-				$("<a />")
-					
-					.text("[Last ned PDF]")
-					.attr("href","#")
-					.button()	
-						
-					)
-					.append(
-				$("<a />")
-					
-					.text("[Last ned PDF]")
-					.attr("href","#")
-					.button()	
-						
-					)*/;
+					dateto.toNorwString()));
+		if(ferryline.Url){
+			var pdflink = $("<span />")
+				.text("[Last ned]")
+				.attr("href","#")
+				.addClass("ui-li-aside")
+				.click(function(e) {
+					window.location=ferryline.Url;
+				});
+			headerLvitem.append(pdflink);
+		}
 		$("#lvLocations")
 			.append(headerLvitem);
 
@@ -362,7 +357,44 @@ var coreFerjeruta = function () {
 		$("#lvDepartures")
 			.empty();
 		
-		$("#lvDepartures").append(CreateSimpleLi(" fra " + weekday.ParentDeparturePoint.Name + ", " + GetDayName(weekday.DayOfWeek).toLowerCase(), weekday.ParentDeparturePoint.ParentService.Name));
+		$("#lvDepartures").append(CreateSimpleLi(" fra " + weekday.ParentDeparturePoint.Name + ", " + GetDayName(weekday.DayOfWeek).toLowerCase() + "<br />Se forklaring til fotnoter under.", weekday.ParentDeparturePoint.ParentService.Name ));
+		
+		// Back/next navbar
+		var bfbuttons = $('<li />')
+			.addClass("ui-body ui-body-b")
+			.append(
+				$("<fieldset />")
+					.addClass("ui-grid-a")
+					.append(
+						$("<div />")
+							.addClass("ui-block-a")
+							.append(
+								$("<button />")
+									.addClass("ui-btn ui-corner-all ui-btn-a ui-mini")
+									.text('< ' + weekday.PreviousDay().DayName())
+									.click(function(e) { 
+										pobj.SelectDay( weekday.PreviousDay() ); 
+									})
+							)
+					)
+					.append(
+						$("<div />")
+							.addClass("ui-block-b")
+							.append(
+								$("<button />")
+									.addClass("ui-btn ui-corner-all ui-btn-a ui-mini")
+									.text(weekday.NextDay().DayName() + ' >')
+									.click(function(e) { 
+										pobj.SelectDay( weekday.NextDay() ); 
+									})
+							)
+					)
+			);
+			
+		$("#lvDepartures")
+			.append(bfbuttons);
+		
+		
 		$(weekday.Departures)
 			.each(function (l) {
 				var departure = this;
@@ -386,13 +418,29 @@ var coreFerjeruta = function () {
 						litem.append(" (f="+this.Code+", " + this.Comments + ")");
 					});*/
 				}
+				var flags = 0;
 				$.each(departure.Flags, function(idx, val){
 					if(this.Code == undefined){
 						return false;	
 					}
-					litem.append(" [" + this.Code + "] ");
+					flags++;
+					litem.append(" " + this.Code + " ");
 				});
+				
+				if(departure.Line){
+					$.each(departure.Line.Flags, function(idx, val){
+						if(this.Code == undefined){
+							return false;	
+						}
+						flags++;
+						litem.append(" " + this.Code + " ");
+					});
+				}
+				
 				if(departure.Comments != undefined) {
+					if(flags > 0){
+						litem.append(" // ");
+					}
 					litem.append(" " + departure.Comments + " ");
 				}
 				if(departure.Line && departure.Line.Comments) {
@@ -405,7 +453,7 @@ var coreFerjeruta = function () {
 			}); //each departure
 		
 		// flags
-		var flagtext = "";
+		var flagtext = "<h1>Fotnoter</h1>";
 		$.each(weekday.ParentDeparturePoint.ParentService.ServiceFlags, function(idx, val){
 			if(this.Code == undefined){
 				return false;	
@@ -414,43 +462,17 @@ var coreFerjeruta = function () {
 		});
 		$("#lvDepartures").append($('<li />').html(flagtext));
 		// lines
-		var ferrytext = "";
+		var ferrytext = "<h1>Ferjer</h1>";
 		$.each(weekday.ParentDeparturePoint.ParentService.ServiceLines, function(idx, val){
 			if(this.Id == undefined){
 				return false;	
 			}
-			ferrytext += " " + this.Id + "=" + this.Name + "<br />";
+			ferrytext += " " + this.Id + " = " + this.Name + "<br />";
 		});
 		$("#lvDepartures").append($('<li />').html(ferrytext));
-		// Bottom back/next navbar
-		var navbar = $('<div />');
-		var ul = $('<ul />');
-		
-		navbar.append(ul
-			.append($('<li />')
-				.append($('<a />')
-					.attr('href','#')
-					.text('< ' + weekday
-						.PreviousDay()
-						.DayName())
-					.click(function(e){ 
-						pobj.SelectDay( weekday.PreviousDay()); 
-					})
-				)));
-				
-		navbar.append(ul
-			.append($('<li />')
-				.append($('<a />')
-					.attr('href','#')
-					.text(weekday
-						.NextDay()
-						.DayName() + ' >')
-					.click(function(e){ 
-						pobj.SelectDay( weekday.NextDay()); 
-					})
-				)));
-		
-		$("#lvDepartures").append($('<li />').append(navbar.navbar()));
+
+		// CLone the top navbar and add to bottom
+		$("#lvDepartures").append(bfbuttons.clone(true));
 		
 		$("#lvDepartures")
 			.listview("refresh");
