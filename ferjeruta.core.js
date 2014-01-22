@@ -103,7 +103,7 @@ var coreFerjeruta = function () {
 	}; //Log
 	
 	// Main init operation
-	this.Initialize = function (refreshWhenDone) {
+	this.Initialize = function (refreshWhenDone, onCompleteFunction) {
 		var pobj = this;
 		this.Log("[debug] coreFerjeruta::Initialize() starting");
 		$.get("schedule.xml", function (xml) {
@@ -146,6 +146,10 @@ var coreFerjeruta = function () {
 			}
 			
 			$("#txtScheduleVersion").html(pobj.RouteXMLSerial);
+			
+			if(onCompleteFunction != undefined){
+				onCompleteFunction();	
+			}
 			
 		}); // http get
 	}; // Initialize
@@ -393,7 +397,6 @@ var coreFerjeruta = function () {
 			
 		$("#lvDepartures")
 			.append(bfbuttons);
-		
 		
 		$(weekday.Departures)
 			.each(function (l) {

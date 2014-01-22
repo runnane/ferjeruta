@@ -95,7 +95,9 @@ $(document)
 	
 		// Set up page
 		ferjeRutaMainObject = new coreFerjeruta();
-		ferjeRutaMainObject.Initialize(true);
+		ferjeRutaMainObject.Initialize(true, function(){
+			
+		});
 		
 		// Init refesh button
 		$("#btnRefresh")
