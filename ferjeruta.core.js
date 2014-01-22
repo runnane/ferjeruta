@@ -410,13 +410,6 @@ var coreFerjeruta = function () {
 					litem.append(" [");
 					litem.append($("<strong />").text(departure.Line.Id));
 					litem.append("] ");
-					/*$.each(departure.Line.Flags, function(idx, val){
-						if(this.Code == undefined){
-							return false;	
-						}
-						console.log(this);
-						litem.append(" (f="+this.Code+", " + this.Comments + ")");
-					});*/
 				}
 				var flags = 0;
 				$.each(departure.Flags, function(idx, val){
