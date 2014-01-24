@@ -287,6 +287,8 @@ var coreFerjeruta = function () {
 					datefrom.toNorwString() +
 					" til " +
 					dateto.toNorwString()));
+		
+		// link to pdf			
 		if(ferryline.Url){
 			var pdflink = $("<span />")
 				.text("[Last ned]")
