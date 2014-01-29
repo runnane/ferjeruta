@@ -81,7 +81,7 @@ var CreateSimpleLi = function(str, header){
 	li.append($('<h1 />').html(header));
 	li.append($('<p />').html(str));
 	return li
-}
+};
 
 ////// Start webpage
 var ferjeRutaMainObject;
