@@ -16,7 +16,7 @@
  If multiple flags are set, and multiple of these have colors, the last one is shown.
   
 -->
-<routes serial="2014012105">
+<routes serial="2014013001">
 	<route name="Tausambandet" location1="Stavanger" location2="Tau"
 		validfrom="2014-01-01" validto="2014-04-30" serial="2014012101" time="35" ticketzone="15" operator="norled" routeid="1022" url="http://norled.no/uploads/documents/Ferjeruter/2013_Rogaland/Tau_des_2013.pdf" areaCode="Rogaland">
 		
@@ -367,7 +367,7 @@
 	</route>
 
 	<route name="Mortavika-Arsvågen" location1="Mortavika" location2="Arsvågen"
-		validfrom="2013-05-01" validto="2014-04-30" serial="2014011801" time="25" ticketzone="95" operator="fjord1" routeid="11-528 (1081)" url="http://reise2.fjord1.no/Fjord1IISStaticTables/Tables/ruter/t/11-528.htm" areaCode="Rogaland">
+		validfrom="2013-05-01" validto="2014-04-30" serial="2014011801" time="25" ticketzone="95" operator="fjord1" routeid="1130" url="http://reise2.fjord1.no/Fjord1IISStaticTables/Tables/ruter/t/11-528.htm" areaCode="Rogaland">
 		
 		<rutes>
 			<rute id="1" name="MF Boknafjord" phonenumber="0" type="ferry" comments="" />
@@ -640,7 +640,7 @@
 	</route>
 	
 	<route name="Halhjemsambandet" location1="Sandvikvåg" location2="Halhjem"
-		validfrom="2013-05-01" validto="2014-04-30" serial="2014011801" time="40" ticketzone="96" operator="fjord1" routeid="12-143 (1000)" url="http://reise2.fjord1.no/Fjord1IISStaticTables/Tables/ruter/t/12-143.htm" areaCode="Hordaland">
+		validfrom="2013-05-01" validto="2014-04-30" serial="2014011801" time="40" ticketzone="96" operator="fjord1" routeid="1131" url="http://reise2.fjord1.no/Fjord1IISStaticTables/Tables/ruter/t/12-143.htm" areaCode="Hordaland">
 
 		<rutes>
 			<rute id="1" name="MF Bergensfjord" phonenumber="0" type="ferry" comments="" />
@@ -1447,7 +1447,7 @@
 		</departurepoint>
 	</route>
 	<route name="Fodnes-Manheller" location1="Fodnes" location2="Manheller"
-		validfrom="2014-01-02" validto="2014-04-30" serial="2014011801" time="15" ticketzone="4" operator="Fjord1 AS" routeid="14-107" 
+		validfrom="2014-01-02" validto="2014-04-30" serial="2014011801" time="15" ticketzone="4" operator="fjord1" routeid="1102" 
 		url="http://reise2.fjord1.no/Fjord1IISStaticTables/Tables/ruter/t/14-107.htm" areaCode="Hordaland">
 		<departurepoint location="Fodnes">
 			<weekday day="2,3,4,5,6" desc="Ukedager">
