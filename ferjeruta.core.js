@@ -15,6 +15,8 @@ var coreFerjeruta = function () {
 	this.AutoRefreshInterval = 60*1000; // 60 sec
 	this.AutoRefreshProcId = 0;
 	this.RouteXMLSerial = 0;
+	this.LastNotificationSerial = 0;
+	this.Notifications = new Array();
 	
 	// Settings object w/ defaults 
 	this.userSettings = {
@@ -178,6 +180,21 @@ var coreFerjeruta = function () {
 			.GetDay(dayofweek)
 			.GetNextDeparture(hour, minute);
 	};
+
+	// Get updated notifications from rVarsel subsystem
+	this.RefreshNotifications = function(){
+		var pobj = this;
+		$.getJSON("http://projects.runnane.no/rVarsel/poll.php?ls=" + pobj.LastNotificationSerial, function (data) {
+			var serial = data.currentserial;
+			$.each(data.messages, function(index, value){
+				pobj.Notifications.push(value);
+				pobj.LastNotificationSerial = serial;
+			});
+		});
+	
+	};
+
+
 
 	this.RefreshServices = function () {
 		this.Log("[debug] coreFerjeruta::RefreshServices() refreshing view");

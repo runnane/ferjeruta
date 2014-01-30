@@ -99,10 +99,16 @@ $(document)
 			
 		});
 		
-		// Init refesh button
+		// Init route refresh button
 		$("#btnRefresh")
 			.click(function (f) {
 				ferjeRutaMainObject.RefreshServices();
+			});
+			
+		// Init notification refresh button
+		$("#btnRefreshNotifications")
+			.click(function (f) {
+				ferjeRutaMainObject.RefreshNotifications();
 			});
 	
 		// Add refresh when showing main page
@@ -113,7 +119,6 @@ $(document)
 		
 		// Set hooks and default values to usersettings elements
 		$.each(ferjeRutaMainObject.userSettings, function(settingName, settingOptions) {
-			//ferjeRutaMainObject.Log("[debug] (ready) hooking onchange to " + settingName);
 			var el =  $("#s_" + settingName);
             el.change(function (f) {
 				var val = (el.prop('checked') == true);
