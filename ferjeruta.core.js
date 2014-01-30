@@ -190,11 +190,28 @@ var coreFerjeruta = function () {
 				pobj.Notifications.push(value);
 				pobj.LastNotificationSerial = serial;
 			});
+			pobj.RedrawNotifications();
 		});
-	
 	};
-
-
+	
+	this.RedrawNotifications = function(){
+		$("#notificationContainer")
+			.empty();
+		var pobj = this;
+		$.each(pobj.Notifications, function(index, notice){
+			// fixme: we are not adding title yet - this is not required on every notification (fjord1)
+			var str = notice.service.name;
+			var tt = new Date(notice.time);
+			var timestr = tt.getDate() + "." + (tt.getMonth()+1) + " " + tt.getHours() + ":" + tt.getMinutes();
+			$("#notificationContainer")
+				.append(
+					$("<div />")
+				.append($("<h3 />").text(timestr + " " + str))
+				.append($("<p />").text(notice.message))
+				.collapsible({ inset: false })
+			);
+		});
+	}
 
 	this.RefreshServices = function () {
 		this.Log("[debug] coreFerjeruta::RefreshServices() refreshing view");
