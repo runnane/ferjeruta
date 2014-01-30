@@ -202,7 +202,7 @@ var coreFerjeruta = function () {
 			// fixme: we are not adding title yet - this is not required on every notification (fjord1)
 			var str = notice.service.name;
 			var tt = new Date(notice.time);
-			var timestr = tt.getDate() + "." + (tt.getMonth()+1) + " " + tt.getHours() + ":" + tt.getMinutes();
+			var timestr = tt.getDate() + "." + (tt.getMonth()+1) + " " + strpad(tt.getHours(),2) + ":" + strpad(tt.getMinutes(),2);
 			$("#notificationContainer")
 				.append(
 					$("<div />")
