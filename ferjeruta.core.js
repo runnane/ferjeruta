@@ -206,7 +206,7 @@ var coreFerjeruta = function () {
 			$("#notificationContainer")
 				.append(
 					$("<div />")
-				.append($("<h3 />").text(timestr + " " + str))
+				.append($("<h2 />").text(timestr + " " + str))
 				.append($("<p />").text(notice.message))
 				.collapsible({ inset: false })
 			);
