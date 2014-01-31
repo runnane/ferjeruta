@@ -185,12 +185,11 @@ var coreFerjeruta = function () {
 	this.RefreshNotifications = function(){
 		var pobj = this;
 		$.getJSON("http://projects.runnane.no/rVarsel/poll.php?ls=" + pobj.LastNotificationSerial, function (data) {
-			var serial = data.currentserial;
-			$.each(data.messages, function(index, value){
-				pobj.Notifications.push(value);
-				pobj.LastNotificationSerial = serial;
-			});
-			pobj.RedrawNotifications();
+			pobj.LastNotificationSerial = data.currentserial;
+			if(data.messages.length>0){
+				pobj.Notifications = pobj.Notifications.concat(data.messages, pobj.Notifications);
+				pobj.RedrawNotifications();
+			}
 		});
 	};
 	
