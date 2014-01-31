@@ -12,20 +12,51 @@
 var coreFerjeruta = function () {
 	this.serviceList = new Array();
 	this.isLive = (location.pathname == "/");
-	this.AutoRefreshInterval = 60*1000; // 60 sec
-	this.AutoRefreshProcId = 0;
+	var pobj = this;
+	this.AutoRefreshData = {
+			"Routes": {
+					Interval	: 	60*1000, // 60 sec
+					ProcId		: 0,
+					onTimer : function(){
+							pobj.Log("[debug] coreFerjeruta::onTimer(Routes) firing");
+							if( $('#pageMainview').is(':hidden') ) {
+								pobj.Log("[debug] coreFerjeruta::onTimer(Routes) aborting, due to mainpanel not being active");
+								return;
+							}
+							pobj.RefreshServices();
+						}
+				},
+			"Notifications": {
+					Interval	: 	5*60*1000, // 5 min
+					ProcId		: 0,
+					onTimer 	: function(){
+							pobj.Log("[debug] coreFerjeruta::onTimer(Notifications) firing");
+							pobj.RefreshNotifications();
+						}
+				}
+		
+		};
 	this.RouteXMLSerial = 0;
 	this.LastNotificationSerial = 0;
 	this.Notifications = new Array();
 	
 	// Settings object w/ defaults 
 	this.userSettings = {
-		"AutoRefresh" : { type:"bool", defValue: false, 
+		"AutoRefreshRoutes" : { type:"bool", defValue: false, 
 			onChange: function(val){ 
 				if(val==true){
-					ferjeRutaMainObject.StartAutoRefresh(); 
+					ferjeRutaMainObject.StartAutoRefresh("Routes"); 
 				}else{
-					ferjeRutaMainObject.StopAutoRefresh();	
+					ferjeRutaMainObject.StopAutoRefresh("Routes");	
+				}
+			} 
+		},
+		"AutoRefreshNotifications" : { type:"bool", defValue: false, 
+			onChange: function(val){ 
+				if(val==true){
+					ferjeRutaMainObject.StartAutoRefresh("Notifications"); 
+				}else{
+					ferjeRutaMainObject.StopAutoRefresh("Notifications");	
 				}
 			} 
 		},
@@ -49,51 +80,50 @@ var coreFerjeruta = function () {
 		return $.jStorage.set(settingName, value);
 	};
 	
-	// AutoRefresh handlers
-	this.StartAutoRefresh = function(interval){
+	// AutoRefreshRoutes handlers
+	this.StartAutoRefresh = function(subname, interval){
+		if(subname == undefined){
+			subname = "Routes";
+		}
 		if(interval == undefined){
-			interval = this.AutoRefreshInterval;
+			interval = this.AutoRefreshData[subname].Interval;
 		}
-		this.Log("[debug] coreFerjeruta::StartAutoRefresh() starting");
-		if(this.AutoRefreshProcId == 0){
-			this.Log("[debug] coreFerjeruta::StartAutoRefresh() spawning new timer");
-			this.AutoRefreshProcId = setInterval(function(){ ferjeRutaMainObject.AutoRefreshTimer(interval); }, interval);
+		this.Log("[debug] coreFerjeruta::StartAutoRefresh("+subname+") starting");
+		if(this.AutoRefreshData[subname].ProcId == 0){
+			this.Log("[debug] coreFerjeruta::StartAutoRefres("+subname+") spawning new timer");
+			this.AutoRefreshData[subname].ProcId = setInterval(function(){ ferjeRutaMainObject.AutoRefreshTimer(subname,interval); }, interval);
 		}else{
-			this.Log("[debug] coreFerjeruta::StartAutoRefresh() timer already started ("+this.AutoRefreshProcId+")");
+			this.Log("[debug] coreFerjeruta::StartAutoRefresh("+subname+") timer already started ("+this.AutoRefreshData[subname].ProcId+")");
 		}
-		return this.AutoRefreshProcId;
+		return this.AutoRefreshData[subname].ProcId;
 	}
 	
-	this.StopAutoRefresh = function(){
-		this.Log("[debug] coreFerjeruta::StopAutoRefresh() starting");
-		if(this.AutoRefreshProcId != 0){
-			this.Log("[debug] coreFerjeruta::StopAutoRefresh() killing timer ("+this.AutoRefreshProcId+")");
-			clearInterval(this.AutoRefreshProcId);
-			this.AutoRefreshProcId=0;
+	this.StopAutoRefresh = function(subname){
+		this.Log("[debug] coreFerjeruta::StopAutoRefresh("+subname+") starting");
+		if(this.AutoRefreshData[subname].ProcId != 0){
+			this.Log("[debug] coreFerjeruta::StopAutoRefresh("+subname+") killing timer ("+this.AutoRefreshData[subname].ProcId+")");
+			clearInterval(this.AutoRefreshData[subname].ProcId);
+			this.AutoRefreshData[subname].ProcId=0;
 		}else{
-			this.Log("[debug] coreFerjeruta::StopAutoRefresh() failed, empty autorefresh proc id");
+			this.Log("[debug] coreFerjeruta::StopAutoRefresh("+subname+") failed, empty autorefresh proc id");
 		}
 	}
 	
-	this.AutoRefreshTimer = function(timeoutval){
-		this.Log("[debug] coreFerjeruta::AutoRefreshTimer() spawning, id="+this.AutoRefreshProcId);
-		var id = this.AutoRefreshProcId;
-		if(!this.GetSetting("AutoRefresh")){
-			this.Log("[debug] coreFerjeruta::AutoRefreshTimer() stopping interval due to autorefresh disabled");
-			this.StopAutoRefresh();
+	this.AutoRefreshTimer = function(subname, timeoutval){
+		this.Log("[debug] coreFerjeruta::AutoRefreshTimer("+subname+") spawning, id="+this.AutoRefreshData[subname].ProcId);
+		var id = this.AutoRefreshData[subname].ProcId;
+		if(!this.GetSetting("AutoRefresh"+subname)){
+			this.Log("[debug] coreFerjeruta::AutoRefreshTimer("+subname+") stopping interval due to autorefresh disabled");
+			this.StopAutoRefresh(subname);
 			return;
 		}
-		if(this.AutoRefreshProcId<1){
-			this.Log("[debug] coreFerjeruta::AutoRefreshTimer() stopping interval due to unknown procid");
-			this.StopAutoRefresh();
+		if(this.AutoRefreshData[subname].ProcId<1){
+			this.Log("[debug] coreFerjeruta::AutoRefreshTimer("+subname+") stopping interval due to unknown procid");
+			this.StopAutoRefresh(subname);
 			return;
 		}
-		if( $('#pageMainview').is(':hidden') ) {
-			this.Log("[debug] coreFerjeruta::AutoRefreshTimer() not spawning refresh, due to mainpanel not being active");
-			return;
-		}
-		this.Log("[debug] coreFerjeruta::AutoRefreshTimer() spawning refresh");
-		this.RefreshServices();
+		this.Log("[debug] coreFerjeruta::AutoRefreshTimer("+subname+") spawning onTimer()");
+		this.AutoRefreshData[subname].onTimer();
 	}
 	
 	// Logging (for debug)
@@ -137,9 +167,14 @@ var coreFerjeruta = function () {
 				}); // each route
 			pobj.Log("[debug] coreFerjeruta::Initialize() route table views populated");
 			
-			// Check if we want AutoRefresh and setInterval
-			if(pobj.GetSetting("AutoRefresh") == true){
-				pobj.StartAutoRefresh();
+			// Check if we want AutoRefreshRoutes and setInterval
+			if(pobj.GetSetting("AutoRefreshRoutes") == true){
+				pobj.StartAutoRefresh("Routes");
+			}
+			
+			// Check if we want AutoRefreshNotifications and setInterval
+			if(pobj.GetSetting("AutoRefreshNotifications") == true){
+				pobj.StartAutoRefresh("Notifications");
 			}
 			
 			// Refresh
@@ -214,6 +249,7 @@ var coreFerjeruta = function () {
 
 	this.RefreshServices = function () {
 		this.Log("[debug] coreFerjeruta::RefreshServices() refreshing view");
+
 		$("#lvMainview")
 			.empty();
 		var pobj = this;
