@@ -13,9 +13,13 @@ var coreFerjeruta = function () {
 	this.serviceList = new Array();
 	this.isLive = (location.pathname == "/");
 	var pobj = this;
+	this.RouteXMLSerial = 0;
+	this.LastNotificationSerial = 0;
+	this.Notifications = new Array();
+
 	this.AutoRefreshData = {
 			"Routes": {
-					Interval	: 	60*1000, // 60 sec
+					Interval	: 60*1000, // 60 sec
 					ProcId		: 0,
 					onTimer : function(){
 							pobj.Log("[debug] coreFerjeruta::onTimer(Routes) firing");
@@ -27,7 +31,7 @@ var coreFerjeruta = function () {
 						}
 				},
 			"Notifications": {
-					Interval	: 	5*60*1000, // 5 min
+					Interval	: 5*60*1000, // 5 min
 					ProcId		: 0,
 					onTimer 	: function(){
 							pobj.Log("[debug] coreFerjeruta::onTimer(Notifications) firing");
@@ -36,9 +40,6 @@ var coreFerjeruta = function () {
 				}
 		
 		};
-	this.RouteXMLSerial = 0;
-	this.LastNotificationSerial = 0;
-	this.Notifications = new Array();
 	
 	// Settings object w/ defaults 
 	this.userSettings = {
