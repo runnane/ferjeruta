@@ -10,6 +10,8 @@
  **/
 
 var coreFerjeruta = function () {
+	// Number of notifications to show
+	this.NotificationLimit = 10;
 	this.serviceList = new Array();
 	this.isLive = (location.pathname == "/");
 	var pobj = this;
@@ -220,11 +222,18 @@ var coreFerjeruta = function () {
 	// Get updated notifications from rVarsel subsystem
 	this.RefreshNotifications = function(){
 		var pobj = this;
+		this.Log("[debug] coreFerjeruta::RefreshNotifications() triggering with serial " + pobj.LastNotificationSerial);
 		$.getJSON("http://projects.runnane.no/rVarsel/poll.php?ls=" + pobj.LastNotificationSerial, function (data) {
 			pobj.LastNotificationSerial = data.currentserial;
 			if(data.messages.length>0){
-				pobj.Notifications = pobj.Notifications.concat(data.messages, pobj.Notifications);
+				pobj.Log("[debug] coreFerjeruta::RefreshNotifications() got new messages: " + data.messages.length);
+				pobj.Notifications = new Array().concat(data.messages, pobj.Notifications);
+				while(pobj.Notifications.length > pobj.NotificationLimit){
+					pobj.Notifications.pop();	
+				}
 				pobj.RedrawNotifications();
+			}else{
+				pobj.Log("[debug] coreFerjeruta::RefreshNotifications() no new messages");
 			}
 		});
 	};
