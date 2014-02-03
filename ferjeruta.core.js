@@ -238,20 +238,23 @@ var coreFerjeruta = function () {
 		});
 	};
 	
+	// Redraw notifications from internal object
 	this.RedrawNotifications = function(){
 		$("#notificationContainer")
 			.empty();
 		var pobj = this;
 		$.each(pobj.Notifications, function(index, notice){
-			// fixme: we are not adding title yet - this is not required on every notification (fjord1)
-			var str = notice.service.name;
-			var tt = new Date(notice.time);
-			var timestr = tt.getDate() + "." + (tt.getMonth()+1) + " " + strpad(tt.getHours(),2) + ":" + strpad(tt.getMinutes(),2);
+			var notification = notice.message;
+			if(notice.title){
+				notification = notice.title + ":<br />" + notification;
+			}
+			var timenow = new Date(notice.time);
+			var timestr = timenow.getDate() + "." + (timenow.getMonth()+1) + " " + strpad(timenow.getHours(),2) + ":" + strpad(timenow.getMinutes(),2);
 			$("#notificationContainer")
 				.append(
 					$("<div />")
-				.append($("<h2 />").text(timestr + " " + str))
-				.append($("<p />").text(notice.message))
+				.append($("<h2 />").text(timestr + " " + notice.service.name))
+				.append($("<p />").html(notification))
 				.collapsible({ inset: false })
 			);
 		});
