@@ -246,7 +246,7 @@ var coreFerjeruta = function () {
 		$.each(pobj.Notifications, function(index, notice){
 			var notification = notice.message;
 			if(notice.title){
-				notification = notice.title + ":<br />" + notification;
+				notification = "<strong>" + notice.title + "</strong>" + "<br />" + notification;
 			}
 			var timenow = new Date(notice.time);
 			var timestr = timenow.getDate() + "." + (timenow.getMonth()+1) + " " + strpad(timenow.getHours(),2) + ":" + strpad(timenow.getMinutes(),2);
