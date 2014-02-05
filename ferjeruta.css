@@ -13,3 +13,12 @@
 .textBold {
 	font-weight:bold !important;
 }
+
+.ui-listview .ui-li-aside {
+	font-size: .90em;
+	cursor: pointer;
+	right: 1em;
+}
+.ui-listview .ui-li-aside:hover {
+	text-decoration:underline;
+}

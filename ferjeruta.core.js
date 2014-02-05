@@ -378,11 +378,16 @@ var coreFerjeruta = function () {
 					datefrom.toNorwString() +
 					" til " +
 					dateto.toNorwString()));
+			if(ferryline.Comments != undefined && ferryline.Comments.length > 0){
+				headerLvitem
+					.append($("<p />")
+						.text(ferryline.Comments));
+			}
 		
 		// link to pdf			
 		if(ferryline.Url){
 			var pdflink = $("<span />")
-				.text("[Last ned]")
+				.text("[Last ned PDF]")
 				.attr("href","#")
 				.addClass("ui-li-aside")
 				.click(function(e) {

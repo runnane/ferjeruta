@@ -11,9 +11,9 @@
  *
  */
 -->
-<routes serial="2014013001">
+<routes serial="2014020501">
 	<route name="Tausambandet" location1="Stavanger" location2="Tau"
-		validfrom="2014-01-01" validto="2014-04-30" serial="2014012101" time="35" ticketzone="15" operator="norled" routeid="1022" url="http://norled.no/uploads/documents/Ferjeruter/2013_Rogaland/Tau_des_2013.pdf" areaCode="Rogaland">
+		validfrom="2014-01-01" validto="2014-04-30" serial="2014012101" time="35" ticketzone="15" operator="norled" routeid="1022" url="http://norled.no/uploads/documents/Ferjeruter/2013_Rogaland/Tau_des_2013.pdf" areaCode="Rogaland" comments="">
 		
 		<lines>
 			<line id="I" name="Hardanger" phonenumber="0" type="ferry" flags="" comments="" color="" />
