@@ -72,6 +72,11 @@ Date.prototype.toNorwString = function () {
 	return this.getDate() + "." + (this.getMonth() + 1) + "." + this.getFullYear();
 };
 
+// Create dateobject from ISO 8601 datetime format
+var MakeDateFromDateTime = function(datetime){
+	return new Date(datetime.substring(0,10) + "T" + datetime.substring(11,19));
+};
+
 // Helper function for creating headers, breadcrumbs etc
 var CreateSimpleLi = function(str, header){
 	if(header == undefined){

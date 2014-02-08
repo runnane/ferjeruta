@@ -11,14 +11,18 @@
 
 var coreFerjeruta = function () {
 	// Number of notifications to show
-	this.NotificationLimit = 10;
 	this.serviceList = new Array();
 	this.isLive = (location.pathname == "/");
 	var pobj = this;
 	this.RouteXMLSerial = 0;
 	this.LastNotificationSerial = 0;
 	this.Notifications = new Array();
-
+	
+	this.Settings = { 
+		"ShowTimeOfArrival" : 0 ,
+		"NotificationLimit"	: 10
+	};
+	
 	this.AutoRefreshData = {
 			"Routes": {
 					Interval	: 60*1000, // 60 sec
@@ -231,7 +235,7 @@ var coreFerjeruta = function () {
 				if(data.messages.length>0){
 					pobj.Log("[debug] coreFerjeruta::RefreshNotifications() got new messages: " + data.messages.length);
 					pobj.Notifications = new Array().concat(data.messages, pobj.Notifications);
-					while(pobj.Notifications.length > pobj.NotificationLimit){
+					while(pobj.Notifications.length > pobj.Settings.NotificationLimit){
 						pobj.Notifications.pop();	
 					}
 					pobj.RedrawNotifications();
@@ -253,7 +257,7 @@ var coreFerjeruta = function () {
 			if(notice.title){
 				notification = "<strong>" + notice.title + "</strong>" + "<br />" + notification;
 			}
-			var timenow = new Date(notice.time);
+			var timenow = MakeDateFromDateTime(notice.time);
 			var timestr = timenow.getDate() + "." + (timenow.getMonth()+1) + " " + strpad(timenow.getHours(),2) + ":" + strpad(timenow.getMinutes(),2);
 			$("#notificationContainer")
 				.append(
@@ -535,6 +539,14 @@ var coreFerjeruta = function () {
 				}
 				if(departure.Line && departure.Line.Comments) {
 					litem.append(" " + departure.Line.Comments + " ");
+				}
+				if(pobj.Settings.ShowTimeOfArrival == 1){
+					var tript = departure.ParentDay.ParentDeparturePoint.ParentService.TripTime;
+					if(tript != undefined && tript != ""){
+						var deptime = new Date(new Date("2010-01-01T" + departure.TimeOfDay + ":00").getTime()  + tript*60000);
+	
+						litem.append(" (-> " + strpad(deptime.getHours(),2) + ":" + strpad(deptime.getMinutes(),2) + ")");	
+					}
 				}
 				
 				$("#lvDepartures")
