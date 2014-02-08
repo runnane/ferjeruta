@@ -12,7 +12,7 @@
 var coreFerjeruta = function () {
 	// Number of notifications to show
 	this.serviceList = new Array();
-	this.isLive = (location.pathname == "/");
+	this.isLive = (location.hostname == "ferjeruta.no" || location.hostname == "www.ferjeruta.no");
 	var pobj = this;
 	this.RouteXMLSerial = 0;
 	this.LastNotificationSerial = 0;
