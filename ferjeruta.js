@@ -101,7 +101,12 @@ $(document)
 		// Set up page
 		ferjeRutaMainObject = new coreFerjeruta();
 		ferjeRutaMainObject.Initialize(true, function(){
-			ferjeRutaMainObject.RefreshNotifications();
+			ferjeRutaMainObject.RefreshNotifications(function(success){
+				var interval = setInterval(function(s){
+					$.mobile.loading('hide');
+					clearInterval(interval);
+				},1);
+			});
 		});
 		
 		// Init route refresh button
@@ -133,3 +138,14 @@ $(document)
         });
 		
 	});
+	
+$(document).on('pagebeforecreate', '#pageMainview', function(){     
+   var interval = setInterval(function(){
+        $.mobile.loading('show', {
+			text: 'Laster ferjeruta',
+			textVisible: true,
+			html: ""
+		});
+        clearInterval(interval);
+    },1);  
+});

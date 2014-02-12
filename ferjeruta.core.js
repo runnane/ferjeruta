@@ -224,13 +224,14 @@ var coreFerjeruta = function () {
 	};
 
 	// Get updated notifications from rVarsel subsystem
-	this.RefreshNotifications = function(){
+	this.RefreshNotifications = function(oncomplete){
 		var pobj = this;
 		this.Log("[debug] coreFerjeruta::RefreshNotifications() triggering with serial " + pobj.LastNotificationSerial);
-		$.post(
-			"http://projects.runnane.no/rVarsel/poll.php",
-			{ls : pobj.LastNotificationSerial},
-			function (data) {
+		$.ajax({
+			type: "POST",
+			url: "http://projects.runnane.no/rVarsel/poll.php",
+			data: {ls : pobj.LastNotificationSerial},
+			success: function (data, textStatus, jqXHR) {
 				pobj.LastNotificationSerial = data.currentserial;
 				if(data.messages.length>0){
 					pobj.Log("[debug] coreFerjeruta::RefreshNotifications() got new messages: " + data.messages.length);
@@ -239,12 +240,21 @@ var coreFerjeruta = function () {
 						pobj.Notifications.pop();	
 					}
 					pobj.RedrawNotifications();
+					if(oncomplete != undefined){
+						oncomplete(true);
+					}
 				}else{
 					pobj.Log("[debug] coreFerjeruta::RefreshNotifications() no new messages");
 				}
 			},
-			"json"
-		);
+			error: function(jqXHR, textStatus, errorThrown){
+				// Todo: handle unable to fetch notifications (no service etc..)
+				if(oncomplete != undefined){
+					oncomplete(false);
+				}
+			},
+			dataType: "json"
+		});
 	};
 	
 	// Redraw notifications from internal object
