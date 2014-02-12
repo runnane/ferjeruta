@@ -136,8 +136,7 @@ $(document)
 			});
 			el.prop('checked', ferjeRutaMainObject.GetSetting(settingName)).checkboxradio('refresh');
         });
-		
-	});
+});
 	
 $(document).on('pagebeforecreate', '#pageMainview', function(){     
    var interval = setInterval(function(){

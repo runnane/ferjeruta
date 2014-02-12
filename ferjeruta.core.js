@@ -19,7 +19,6 @@ var coreFerjeruta = function () {
 	this.Notifications = new Array();
 	
 	this.Settings = { 
-		"ShowTimeOfArrival" : 0 ,
 		"NotificationLimit"	: 10
 	};
 	
@@ -68,7 +67,8 @@ var coreFerjeruta = function () {
 			} 
 		},
 		"ShowRogaland" : { type:"bool", defValue: true },
-		"ShowHordaland" : { type:"bool", defValue: true }
+		"ShowHordaland" : { type:"bool", defValue: true },
+		"ShowTimeOfArrival" : { type:"bool", defValue: false }
 	};
 
 	// Setting related functions
@@ -550,11 +550,12 @@ var coreFerjeruta = function () {
 				if(departure.Line && departure.Line.Comments) {
 					litem.append(" " + departure.Line.Comments + " ");
 				}
-				if(pobj.Settings.ShowTimeOfArrival == 1){
+				
+				// Show time of arrival if we have this setting enabled
+				if(pobj.GetSetting('ShowTimeOfArrival') == true){
 					var tript = departure.ParentDay.ParentDeparturePoint.ParentService.TripTime;
 					if(tript != undefined && tript != ""){
 						var deptime = new Date(new Date("2010-01-01T" + departure.TimeOfDay + ":00").getTime()  + tript*60000);
-	
 						litem.append(" (-> " + strpad(deptime.getHours(),2) + ":" + strpad(deptime.getMinutes(),2) + ")");	
 					}
 				}
