@@ -555,8 +555,11 @@ var coreFerjeruta = function () {
 				if(pobj.GetSetting('ShowTimeOfArrival') == true){
 					var tript = departure.ParentDay.ParentDeparturePoint.ParentService.TripTime;
 					if(tript != undefined && tript != ""){
-						var deptime = new Date(new Date("2010-01-01T" + departure.TimeOfDay + ":00").getTime()  + tript*60000);
-						litem.append(" (-> " + strpad(deptime.getHours(),2) + ":" + strpad(deptime.getMinutes(),2) + ")");	
+						// TODO: this needs to be un-hacked. Use UTC??
+						var timestr = "2010-01-01T" + departure.TimeOfDay + ":00"; // this is 1 hr off
+						var deptime = new Date(timestr);
+						var arrivaltime = new Date(deptime.getTime() - (60*60000) + (tript * 60000));
+						litem.append(" (-> " + strpad(arrivaltime.getHours(),2) + ":" + strpad(arrivaltime.getMinutes(),2) + ")");	
 					}
 				}
 				
