@@ -55,6 +55,13 @@ FerryService.prototype.AddLine = function(xml){
 	return this.ServiceLines[$(xml).attr("id")]
 }
 
+FerryService.prototype.Hide = function(){
+	var set = ferjeRutaMainObject.GetSetting("HiddenServices");
+	set[this.Name] = true;
+	ferjeRutaMainObject.SetSetting("HiddenServices", set);
+	$.mobile.changePage("#pageMainview", {transition: "none"});
+}
+
 
 /////////// DeparturePoint
 ServiceFlag = function (xml, parent){

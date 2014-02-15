@@ -68,7 +68,8 @@ var coreFerjeruta = function () {
 		},
 		"ShowRogaland" : { type:"bool", defValue: true },
 		"ShowHordaland" : { type:"bool", defValue: true },
-		"ShowTimeOfArrival" : { type:"bool", defValue: false }
+		"ShowTimeOfArrival" : { type:"bool", defValue: false },
+		"HiddenServices" : { type:"obj", defValue: {} }
 	};
 
 	// Setting related functions
@@ -279,6 +280,11 @@ var coreFerjeruta = function () {
 		});
 	}
 
+	this.ResetHiddenServices = function(){
+		ferjeRutaMainObject.SetSetting("HiddenServices", {});
+		$.mobile.changePage("#pageMainview", {transition: "none"});
+	};
+	
 	this.RefreshServices = function () {
 		this.Log("[debug] coreFerjeruta::RefreshServices() refreshing view");
 
@@ -295,6 +301,7 @@ var coreFerjeruta = function () {
 			"Rogaland": this.GetSetting("ShowRogaland"),
 			"Hordaland": this.GetSetting("ShowHordaland")
 			};
+		var HiddenServices = ferjeRutaMainObject.GetSetting("HiddenServices");
 
 		$(".daycontents")
 			.text(str);
@@ -302,65 +309,72 @@ var coreFerjeruta = function () {
 		$(this.serviceList)
 			.each(function (i) {
 				var ferryline = this;
-				if(show[ferryline.AreaCode]){
-					var slink = $("<a />");
-					slink.text(ferryline.Name)
-						.attr("href", "#");
-	
-					$(ferryline.DeparturePoints)
-						.each(function (j) {
-							var location = this;
-							var next = location.GetNextDeparture();
-							var minstodep = parseInt(next.MinutesUntil(), 10);
-							var cls;
-	
-							if(minstodep <= 5) {
-								cls = "Red"
-							} else if(minstodep <=
-								30) {
-								cls = "Green"
-							} else {
-								cls = "Orange"
-							}
-							var minutestodeptxt = $(
-								"<span />")
-								.text(next.HowLongUntil())
-								.addClass("text" + cls)
-								.addClass("textBold");
-							var spacer = " - ";
-							var string1 = "Neste fra " + location.Name + " om ";
-	
-							var next2 = next.Next();
-							var next3 = next2.Next();
-							var next4 = next3.Next();
-							var next5 = next4.Next();
-	
-							var string2 = next.Output() +
-								spacer + next2.Output() +
-								spacer + next3.Output() +
-								spacer + next4.Output() +
-								spacer + next5.Output();
-	
-							slink
-								.append($("<p />")
-									.append($("<strong />")
-										.text(string1))
-									.append(
-										minutestodeptxt))
-								.append($("<p />")
-									.text(string2));
-						});
-	
-					var listview1Row = $("<li />")
-						.append(slink
-							.click(function (e) {
-								pobj.SelectService(ferryline);
-							}) // click on page1
-					); // listview1row
-					$("#lvMainview")
-						.append(listview1Row);
-					numberShown++;
-				} // if show ferryline
+				// Specific area hidden by setting
+				if(HiddenServices[ferryline.Name] != undefined){
+					return true;	
+				}
+				
+				// Entire area hidden by option
+				if(!show[ferryline.AreaCode]){
+					return true;	
+				}
+				var slink = $("<a />");
+				slink.text(ferryline.Name)
+					.attr("href", "#");
+
+				$(ferryline.DeparturePoints)
+					.each(function (j) {
+						var location = this;
+						var next = location.GetNextDeparture();
+						var minstodep = parseInt(next.MinutesUntil(), 10);
+						var cls;
+
+						if(minstodep <= 5) {
+							cls = "Red"
+						} else if(minstodep <=
+							30) {
+							cls = "Green"
+						} else {
+							cls = "Orange"
+						}
+						var minutestodeptxt = $(
+							"<span />")
+							.text(next.HowLongUntil())
+							.addClass("text" + cls)
+							.addClass("textBold");
+						var spacer = " - ";
+						var string1 = "Neste fra " + location.Name + " om ";
+
+						var next2 = next.Next();
+						var next3 = next2.Next();
+						var next4 = next3.Next();
+						var next5 = next4.Next();
+
+						var string2 = next.Output() +
+							spacer + next2.Output() +
+							spacer + next3.Output() +
+							spacer + next4.Output() +
+							spacer + next5.Output();
+
+						slink
+							.append($("<p />")
+								.append($("<strong />")
+									.text(string1))
+								.append(
+									minutestodeptxt))
+							.append($("<p />")
+								.text(string2));
+					});
+
+				var listview1Row = $("<li />")
+					.append(slink
+						.click(function (e) {
+							pobj.SelectService(ferryline);
+						}) // click on page1
+				); // listview1row
+				$("#lvMainview")
+					.append(listview1Row);
+				numberShown++;
 			}); // each servicelist
 		if(numberShown == 0){
 			$("#lvMainview")
@@ -370,41 +384,41 @@ var coreFerjeruta = function () {
 			.listview("refresh");
 	};
 
-	this.SelectService = function (ferryline) {
+	this.SelectService = function (service) {
 		this.Log("[debug] coreFerjeruta::SelectService()");
 		var pobj = this;
 		$.mobile.changePage("#pageLocations", {transition: "none"});
 		$("#lvLocations")
 			.empty();
-		var datefrom = new Date(ferryline.ValidFrom);
-		var dateto = new Date(ferryline.ValidTo);
+		var datefrom = new Date(service.ValidFrom);
+		var dateto = new Date(service.ValidTo);
 					
 		var headerLvitem = $("<li />")
 			.append($("<h1 />")
-				.text(ferryline.Name))
+				.text(service.Name))
 			.append($("<p />")
 				.text("Overfartstid: " +
-					ferryline.TripTime +
+					service.TripTime +
 					" minutter, takststone " +
-					ferryline.PriceZone))
+					service.PriceZone))
 			.append($("<p />")
 				.text("Rute gyldig fra " +
 					datefrom.toNorwString() +
 					" til " +
 					dateto.toNorwString()));
-			if(ferryline.Comments != undefined && ferryline.Comments.length > 0){
+			if(service.Comments != undefined && service.Comments.length > 0){
 				headerLvitem
 					.append($("<p />")
-						.text(ferryline.Comments));
+						.text(service.Comments));
 			}
 		
 		// link to pdf			
-		if(ferryline.Url){
+		if(service.Url){
 			var pdflink = $("<span />")
 				.addClass("ui-li-aside")
 				.addClass("fl-custom-image-dl")
 				.click(function(e) {
-					window.location=ferryline.Url;
+					window.location=service.Url;
 				});
 			headerLvitem.append(pdflink);
 		}
@@ -412,7 +426,7 @@ var coreFerjeruta = function () {
 			.append(headerLvitem);
 
 		// do functions for transition to page 2
-		$(ferryline.DeparturePoints)
+		$(service.DeparturePoints)
 			.each(function (j) {
 				var departurepoint = this;
 				var litem = $("<li />")
@@ -423,11 +437,21 @@ var coreFerjeruta = function () {
 						.click(function (e) {
 							pobj.SelectDeparturepoint(departurepoint);
 						}) //click
-				) //append
+				); //append
 				$("#lvLocations")
 					.append(litem);
 			});
-			
+		
+			$("#lvLocations")
+				.append($("<li />")
+					.append(
+						$("<a />")
+						.text("Sjul " + service.Name)
+						.attr("href", "#")
+						.click(function (e) {
+							service.Hide();
+						}) //click
+				));
 		$("#lvLocations")
 			.listview("refresh");
 	};

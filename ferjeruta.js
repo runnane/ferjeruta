@@ -139,6 +139,10 @@ $(document)
 				ferjeRutaMainObject.RefreshServices();
 			});
 		
+		$("#btnResetHiddenServices").click(function(){
+			ferjeRutaMainObject.ResetHiddenServices();
+		});
+		
 		// Set hooks and default values to usersettings elements
 		$.each(ferjeRutaMainObject.userSettings, function(settingName, settingOptions) {
 			var el =  $("#s_" + settingName);
