@@ -401,9 +401,8 @@ var coreFerjeruta = function () {
 		// link to pdf			
 		if(ferryline.Url){
 			var pdflink = $("<span />")
-				.text("[Last ned PDF]")
-				.attr("href","#")
 				.addClass("ui-li-aside")
+				.addClass("fl-custom-image-dl")
 				.click(function(e) {
 					window.location=ferryline.Url;
 				});
@@ -517,6 +516,23 @@ var coreFerjeruta = function () {
 					str.css("color",departure.Line.Color);
 				}
 				litem.append(str);
+				
+				// Show time of arrival if we have this setting enabled
+				if(pobj.GetSetting('ShowTimeOfArrival') == true){
+					var tript = departure.ParentDay.ParentDeparturePoint.ParentService.TripTime;
+					if(tript != undefined && tript != ""){
+						// TODO: this needs to be un-hacked. Use UTC??
+						var timestr = "2010-01-01T" + departure.TimeOfDay + ":00"; // this is 1 hr off
+						var deptime = new Date(timestr);
+						var arrivaltime = new Date(deptime.getTime() - (60*60000) + (tript * 60000));
+						//litem.append($("<div />").addClass("ui-icon-location").addClass("ui-btn-icon-notext").css("display","inline"));
+						litem.append($("<span />")
+							.addClass("fl-custom-image-arrival")
+							.text(strpad(arrivaltime.getHours(),2) + ":" + strpad(arrivaltime.getMinutes(),2))
+						);
+					}
+				}		
+						
 				if(departure.Line) {
 					litem.append(" [");
 					litem.append($("<strong />").text(departure.Line.Id));
@@ -549,18 +565,6 @@ var coreFerjeruta = function () {
 				}
 				if(departure.Line && departure.Line.Comments) {
 					litem.append(" " + departure.Line.Comments + " ");
-				}
-				
-				// Show time of arrival if we have this setting enabled
-				if(pobj.GetSetting('ShowTimeOfArrival') == true){
-					var tript = departure.ParentDay.ParentDeparturePoint.ParentService.TripTime;
-					if(tript != undefined && tript != ""){
-						// TODO: this needs to be un-hacked. Use UTC??
-						var timestr = "2010-01-01T" + departure.TimeOfDay + ":00"; // this is 1 hr off
-						var deptime = new Date(timestr);
-						var arrivaltime = new Date(deptime.getTime() - (60*60000) + (tript * 60000));
-						litem.append(" (-> " + strpad(arrivaltime.getHours(),2) + ":" + strpad(arrivaltime.getMinutes(),2) + ")");	
-					}
 				}
 				
 				$("#lvDepartures")
