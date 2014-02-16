@@ -93,18 +93,6 @@ var ferjeRutaMainObject;
 $(document)
 	.ready(function (e) {
 	
-		// tracking code
-		  var _paq = _paq || [];
-		  _paq.push(['trackPageView']);
-		  _paq.push(['enableLinkTracking']);
-		  (function() {
-			var u=(("https:" == document.location.protocol) ? "https" : "http") + "://projects.runnane.no/piwik/";
-			_paq.push(['setTrackerUrl', u+'piwik.php']);
-			_paq.push(['setSiteId', 1]);
-			var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
-			g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-		  })();
-
 		// Load main page if hash is set when loading page (cannot refresh inactive page)
 		if(window.location.hash){
 			$.mobile.changePage("#pageMainview", {transition: "none"});
@@ -146,7 +134,7 @@ $(document)
 		// Set hooks and default values to usersettings elements
 		$.each(ferjeRutaMainObject.userSettings, function(settingName, settingOptions) {
 			var el =  $("#s_" + settingName);
-            el.change(function (f) {
+            		el.change(function (f) {
 				var val = (el.prop('checked') == true);
 				ferjeRutaMainObject.SetSetting(settingName, val);
 			});
