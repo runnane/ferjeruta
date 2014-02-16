@@ -442,6 +442,7 @@ var coreFerjeruta = function () {
 					.append(litem);
 			});
 		
+			/*
 			$("#lvLocations")
 				.append($("<li />")
 					.append(
@@ -452,6 +453,7 @@ var coreFerjeruta = function () {
 							service.Hide();
 						}) //click
 				));
+			*/
 		$("#lvLocations")
 			.listview("refresh");
 	};
