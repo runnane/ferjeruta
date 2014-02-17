@@ -144,7 +144,7 @@ $(document)
 				var len = $.map(HiddenServices, function(n, i) { return i; }).length;
 				if(len > 0 ){
 					$("#btnResetHiddenServices").closest('.ui-btn').show();
-					$("#btnResetHiddenServices").prop("value", "Gjennopprett " + len + " sjulte ruter");
+					$("#btnResetHiddenServices").prop("value", "Gjennopprett " + len + " skjulte ruter");
 					$("#btnResetHiddenServices").button("refresh");
 				}else{
 					$("#btnResetHiddenServices").closest('.ui-btn').hide();
