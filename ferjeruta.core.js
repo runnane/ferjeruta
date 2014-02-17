@@ -442,18 +442,22 @@ var coreFerjeruta = function () {
 					.append(litem);
 			});
 		
-			/*
 			$("#lvLocations")
 				.append($("<li />")
+					.attr("data-icon","delete")
 					.append(
 						$("<a />")
-						.text("Sjul " + service.Name)
+						.text("Skjul denne ruten")
 						.attr("href", "#")
 						.click(function (e) {
-							service.Hide();
+							comfirmDlg("Skjul rute", "Er du sikker på at du vil skjule " + service.Name, "Ja", function() {
+							  // user has confirmed, do stuff
+							  service.Hide(true);
+							});
 						}) //click
+						
 				));
-			*/
+
 		$("#lvLocations")
 			.listview("refresh");
 	};

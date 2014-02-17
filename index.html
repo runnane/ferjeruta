@@ -154,7 +154,7 @@
         <label><input type="checkbox" name="s_ShowRogaland" id="s_ShowRogaland"> Vis ruter i Rogaland</label>
         <label><input type="checkbox" name="s_ShowHordaland" id="s_ShowHordaland"> Vis ruter i Hordaland</label>
         <label><input type="checkbox" name="s_ShowTimeOfArrival" id="s_ShowTimeOfArrival"> Vis ankomsttidspunkt</label>
-	<!-- <input type="button" value="Gjenopprett sjulte ruter" id="btnResetHiddenServices"> -->
+		<input type="button" value="Gjenopprett sjulte ruter" id="btnResetHiddenServices" data-icon="refresh">
      <h2>om ferjeruta.no</h2>
      <p>
      	ferjelista.no bygger på androidappen <a href="https://play.google.com/store/apps/details?id=no.runnane.ferjelista" target="new">ferjelista</a>, omskrevet til javascript.<br />
@@ -176,6 +176,14 @@
           <li><a href="#pageSettings" data-prefetch="true" data-transition="none" class="ui-btn-active ui-state-persist" data-icon="gear">Innstillinger</a></li>
         </ul>
     </div>
+  </div>
+</div>
+<div data-role="dialog" id="confirmdlg" data-title="">
+  <div data-role="content">
+    <h3 class="questionA">???</h3>
+    <p class="questionB">???</p>
+    <a href="#" class="btnA" data-role="button">Ja</a>
+    <a href="#" class="btnB" data-role="button" data-rel="back">Nei</a>
   </div>
 </div>
 <script type="text/javascript">

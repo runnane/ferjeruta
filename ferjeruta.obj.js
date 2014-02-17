@@ -55,11 +55,13 @@ FerryService.prototype.AddLine = function(xml){
 	return this.ServiceLines[$(xml).attr("id")]
 }
 
-FerryService.prototype.Hide = function(){
+FerryService.prototype.Hide = function(ret){
 	var set = ferjeRutaMainObject.GetSetting("HiddenServices");
 	set[this.Name] = true;
 	ferjeRutaMainObject.SetSetting("HiddenServices", set);
-	$.mobile.changePage("#pageMainview", {transition: "none"});
+	if(ret != undefined && ret == true){
+		$.mobile.changePage("#pageMainview", {transition: "none"});
+	}
 }
 
 

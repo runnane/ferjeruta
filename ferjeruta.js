@@ -88,6 +88,16 @@ var CreateSimpleLi = function(str, header){
 	return li
 };
 
+function comfirmDlg(text1, text2, button, callback) {
+  $("#confirmdlg .questionA").text(text1);
+  $("#confirmdlg .questionB").text(text2);
+  $("#confirmdlg .btnA").text(button).unbind("click.confirm").on("click.confirm", function() {
+    callback();
+    $(this).off("click.confirm");
+  });
+  $.mobile.changePage("#confirmdlg");
+}
+
 ////// Start webpage
 var ferjeRutaMainObject;
 $(document)
@@ -126,6 +136,22 @@ $(document)
 			.on( "pagebeforeshow", function( event ) {
 				ferjeRutaMainObject.RefreshServices();
 			});
+
+		// Update count on settings page
+		$( "#pageSettings" )
+			.on( "pagebeforeshow", function( event ) {
+				var HiddenServices = ferjeRutaMainObject.GetSetting("HiddenServices");
+				var len = $.map(HiddenServices, function(n, i) { return i; }).length;
+				if(len > 0 ){
+					$("#btnResetHiddenServices").closest('.ui-btn').show();
+					$("#btnResetHiddenServices").prop("value", "Gjennopprett " + len + " sjulte ruter");
+					$("#btnResetHiddenServices").button("refresh");
+				}else{
+					$("#btnResetHiddenServices").closest('.ui-btn').hide();
+					//$("#btnResetHiddenServices").button("refresh");
+				}
+			});
+
 		
 		$("#btnResetHiddenServices").click(function(){
 			ferjeRutaMainObject.ResetHiddenServices();
