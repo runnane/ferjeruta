@@ -11,7 +11,7 @@
  *
  */
 -->
-<routes serial="2014020501">
+<routes serial="2014022401">
 	<route name="Tausambandet" location1="Stavanger" location2="Tau"
 		validfrom="2014-01-01" validto="2014-04-30" serial="2014012101" time="35" ticketzone="15" operator="norled" routeid="1022" url="http://norled.no/uploads/documents/Ferjeruter/2013_Rogaland/Tau_des_2013.pdf" areaCode="Rogaland" comments="">
 		
@@ -1441,347 +1441,354 @@
 			</weekday>
 		</departurepoint>
 	</route>
-	<route name="Fodnes-Manheller" location1="Fodnes" location2="Manheller"
-		validfrom="2014-01-02" validto="2014-04-30" serial="2014011801" time="15" ticketzone="4" operator="fjord1" routeid="1102" 
+	<route name="Fodnes-Mannheller" location1="Fodnes" location2="Mannheller"
+		validfrom="2013-05-01" validto="2014-04-16" serial="2014022401" time="15" ticketzone="4" operator="fjord1" routeid="1102" 
 		url="http://reise2.fjord1.no/Fjord1IISStaticTables/Tables/ruter/t/14-107.htm" areaCode="Hordaland">
+		
+		<lines>
+			<line id="A" name="M/F Årdal" phonenumber="415 36 362" type="ferry" flags="" comments="" color="" />
+			<line id="B" name="M/F Stryn" phonenumber="415 36 389" type="ferry" flags="" comments="" color="" />
+		</lines>
+				
 		<departurepoint location="Fodnes">
 			<weekday day="2,3,4,5,6" desc="Ukedager">
-				<departure time="00:00" comments="A" />
-				<departure time="00:40" comments="A" />
-				<departure time="01:30" comments="A" />
-				<departure time="02:30" comments="A" />
-				<departure time="03:30" comments="A" />
-				<departure time="04:30" comments="A" />
-				<departure time="05:30" comments="A" />
-				<departure time="06:00" comments="A" />
-				<departure time="06:30" comments="A" />
-				<departure time="07:00" comments="A" />
-				<departure time="07:30" comments="A" />
-				<departure time="08:00" comments="A" />
-				<departure time="08:20" />
-				<departure time="08:40" comments="A" />
-				<departure time="09:00" />
-				<departure time="09:20" comments="A" />
-				<departure time="09:40" />
-				<departure time="10:00" comments="A" />
-				<departure time="10:20" />
-				<departure time="10:40" comments="A" />
-				<departure time="11:00" />
-				<departure time="11:20" comments="A" />
-				<departure time="11:40" />
-				<departure time="12:00" comments="A" />
-				<departure time="12:20" />
-				<departure time="12:40" comments="A" />
-				<departure time="13:00" />
-				<departure time="13:20" comments="A" />
-				<departure time="13:40" />
-				<departure time="14:00" comments="A" />
-				<departure time="14:20" />
-				<departure time="14:40" comments="A" />
-				<departure time="15:00" />
-				<departure time="15:20" comments="A" />
-				<departure time="15:40" />
-				<departure time="16:00" comments="A" />
-				<departure time="16:20" />
-				<departure time="16:40" comments="A" />
-				<departure time="17:00" />
-				<departure time="17:20" comments="A" />
-				<departure time="17:40" />
-				<departure time="18:00" comments="A" />
-				<departure time="18:20" />
-				<departure time="18:40" comments="A" />
-				<departure time="19:00" />
-				<departure time="19:20" comments="A" />
-				<departure time="19:40" />
-				<departure time="20:00" comments="A" />
-				<departure time="20:20" />
-				<departure time="20:40" comments="A" />
-				<departure time="21:20" comments="A" />
-				<departure time="22:00" comments="A" />
-				<departure time="22:40" comments="A" />
-				<departure time="23:25" comments="A" />
+				<departure time="00:00" line="A" />
+				<departure time="00:40" line="A" />
+				<departure time="01:30" line="A" />
+				<departure time="02:30" line="A" />
+				<departure time="03:30" line="A" />
+				<departure time="04:30" line="A" />
+				<departure time="05:30" line="A" />
+				<departure time="06:00" line="A" />
+				<departure time="06:30" line="A" />
+				<departure time="07:00" line="A" />
+				<departure time="07:30" line="A" />
+				<departure time="08:00" line="A" />
+				<departure time="08:20" line="B" />
+				<departure time="08:40" line="A" />
+				<departure time="09:00" line="B" />
+				<departure time="09:20" line="A" />
+				<departure time="09:40" line="B" />
+				<departure time="10:00" line="A" />
+				<departure time="10:20" line="B" />
+				<departure time="10:40" line="A" />
+				<departure time="11:00" line="B" />
+				<departure time="11:20" line="A" />
+				<departure time="11:40" line="B" />
+				<departure time="12:00" line="A" />
+				<departure time="12:20" line="B" />
+				<departure time="12:40" line="A" />
+				<departure time="13:00" line="B" />
+				<departure time="13:20" line="A" />
+				<departure time="13:40" line="B" />
+				<departure time="14:00" line="A" />
+				<departure time="14:20" line="B" />
+				<departure time="14:40" line="A" />
+				<departure time="15:00" line="B" />
+				<departure time="15:20" line="A" />
+				<departure time="15:40" line="B" />
+				<departure time="16:00" line="A" />
+				<departure time="16:20" line="B" />
+				<departure time="16:40" line="A" />
+				<departure time="17:00" line="B" />
+				<departure time="17:20" line="A" />
+				<departure time="17:40" line="B" />
+				<departure time="18:00" line="A" />
+				<departure time="18:20" line="B" />
+				<departure time="18:40" line="A" />
+				<departure time="19:00" line="B" />
+				<departure time="19:20" line="A" />
+				<departure time="19:40" line="B" />
+				<departure time="20:00" line="A" />
+				<departure time="20:20" line="B" />
+				<departure time="20:40" line="A" />
+				<departure time="21:20" line="A" />
+				<departure time="22:00" line="A" />
+				<departure time="22:40" line="A" />
+				<departure time="23:25" line="A" />
 			</weekday>
 			<weekday day="7" desc="Lørdag">
-				<departure time="00:00" comments="A" />
-				<departure time="00:40" comments="A" />
-				<departure time="01:30" comments="A" />
-				<departure time="02:30" comments="A" />
-				<departure time="03:30" comments="A" />
-				<departure time="04:30" comments="A" />
-				<departure time="05:30" comments="A" />
-				<departure time="06:00" comments="A" />
-				<departure time="06:30" comments="A" />
-				<departure time="07:00" comments="A" />
-				<departure time="07:30" comments="A" />
-				<departure time="08:00" comments="A" />
-				<departure time="08:20" />
-				<departure time="08:40" comments="A" />
-				<departure time="09:00" />
-				<departure time="09:20" comments="A" />
-				<departure time="09:40" />
-				<departure time="10:00" comments="A" />
-				<departure time="10:20" />
-				<departure time="10:40" comments="A" />
-				<departure time="11:00" />
-				<departure time="11:20" comments="A" />
-				<departure time="11:40" />
-				<departure time="12:00" comments="A" />
-				<departure time="12:20" />
-				<departure time="12:40" comments="A" />
-				<departure time="13:00" />
-				<departure time="13:20" comments="A" />
-				<departure time="13:40" />
-				<departure time="14:00" comments="A" />
-				<departure time="14:20" />
-				<departure time="14:40" comments="A" />
-				<departure time="15:00" />
-				<departure time="15:20" comments="A" />
-				<departure time="15:40" />
-				<departure time="16:00" comments="A" />
-				<departure time="16:20" />
-				<departure time="16:40" comments="A" />
-				<departure time="17:00" />
-				<departure time="17:20" comments="A" />
-				<departure time="17:40" />
-				<departure time="18:00" comments="A" />
-				<departure time="18:20" />
-				<departure time="18:40" comments="A" />
-				<departure time="19:00" />
-				<departure time="19:20" comments="A" />
-				<departure time="19:40" />
-				<departure time="20:00" comments="A" />
-				<departure time="20:20" />
-				<departure time="20:40" comments="A" />
-				<departure time="21:20" comments="A" />
-				<departure time="22:00" comments="A" />
-				<departure time="22:40" comments="A" />
-				<departure time="23:25" comments="A" />
+				<departure time="00:00" line="A" />
+				<departure time="00:40" line="A" />
+				<departure time="01:30" line="A" />
+				<departure time="02:30" line="A" />
+				<departure time="03:30" line="A" />
+				<departure time="04:30" line="A" />
+				<departure time="05:30" line="A" />
+				<departure time="06:00" line="A" />
+				<departure time="06:30" line="A" />
+				<departure time="07:00" line="A" />
+				<departure time="07:30" line="A" />
+				<departure time="08:00" line="A" />
+				<departure time="08:20" line="B" />
+				<departure time="08:40" line="A" />
+				<departure time="09:00" line="B" />
+				<departure time="09:20" line="A" />
+				<departure time="09:40" line="B" />
+				<departure time="10:00" line="A" />
+				<departure time="10:20" line="B" />
+				<departure time="10:40" line="A" />
+				<departure time="11:00" line="B" />
+				<departure time="11:20" line="A" />
+				<departure time="11:40" line="B" />
+				<departure time="12:00" line="A" />
+				<departure time="12:20" line="B" />
+				<departure time="12:40" line="A" />
+				<departure time="13:00" line="B" />
+				<departure time="13:20" line="A" />
+				<departure time="13:40" line="B" />
+				<departure time="14:00" line="A" />
+				<departure time="14:20" line="B" />
+				<departure time="14:40" line="A" />
+				<departure time="15:00" line="B" />
+				<departure time="15:20" line="A" />
+				<departure time="15:40" line="B" />
+				<departure time="16:00" line="A" />
+				<departure time="16:20" line="B" />
+				<departure time="16:40" line="A" />
+				<departure time="17:00" line="B" />
+				<departure time="17:20" line="A" />
+				<departure time="17:40" line="B" />
+				<departure time="18:00" line="A" />
+				<departure time="18:20" line="B" />
+				<departure time="18:40" line="A" />
+				<departure time="19:00" line="B" />
+				<departure time="19:20" line="A" />
+				<departure time="19:40" line="B" />
+				<departure time="20:00" line="A" />
+				<departure time="20:20" line="B" />
+				<departure time="20:40" line="A" />
+				<departure time="21:20" line="A" />
+				<departure time="22:00" line="A" />
+				<departure time="22:40" line="A" />
+				<departure time="23:25" line="A" />
 			</weekday>
 			<weekday day="1" desc="Søndag">
-				<departure time="00:00" comments="A" />
-				<departure time="00:40" comments="A" />
-				<departure time="01:30" comments="A" />
-				<departure time="02:30" comments="A" />
-				<departure time="03:30" comments="A" />
-				<departure time="04:30" comments="A" />
-				<departure time="05:30" comments="A" />
-				<departure time="06:00" comments="A" />
-				<departure time="06:30" comments="A" />
-				<departure time="07:00" comments="A" />
-				<departure time="07:30" comments="A" />
-				<departure time="08:00" comments="A" />
-				<departure time="08:20" />
-				<departure time="08:40" comments="A" />
-				<departure time="09:00" />
-				<departure time="09:20" comments="A" />
-				<departure time="09:40" />
-				<departure time="10:00" comments="A" />
-				<departure time="10:20" />
-				<departure time="10:40" comments="A" />
-				<departure time="11:00" />
-				<departure time="11:20" comments="A" />
-				<departure time="11:40" />
-				<departure time="12:00" comments="A" />
-				<departure time="12:20" />
-				<departure time="12:40" comments="A" />
-				<departure time="13:00" />
-				<departure time="13:20" comments="A" />
-				<departure time="13:40" />
-				<departure time="14:00" comments="A" />
-				<departure time="14:20" />
-				<departure time="14:40" comments="A" />
-				<departure time="15:00" />
-				<departure time="15:20" comments="A" />
-				<departure time="15:40" />
-				<departure time="16:00" comments="A" />
-				<departure time="16:20" />
-				<departure time="16:40" comments="A" />
-				<departure time="17:00" />
-				<departure time="17:20" comments="A" />
-				<departure time="17:40" />
-				<departure time="18:00" comments="A" />
-				<departure time="18:20" />
-				<departure time="18:40" comments="A" />
-				<departure time="19:00" />
-				<departure time="19:20" comments="A" />
-				<departure time="19:40" />
-				<departure time="20:00" comments="A" />
-				<departure time="20:20" />
-				<departure time="20:40" comments="A" />
-				<departure time="21:20" comments="A" />
-				<departure time="22:00" comments="A" />
-				<departure time="22:40" comments="A" />
-				<departure time="23:25" comments="A" />
+				<departure time="00:00" line="A" />
+				<departure time="00:40" line="A" />
+				<departure time="01:30" line="A" />
+				<departure time="02:30" line="A" />
+				<departure time="03:30" line="A" />
+				<departure time="04:30" line="A" />
+				<departure time="05:30" line="A" />
+				<departure time="06:00" line="A" />
+				<departure time="06:30" line="A" />
+				<departure time="07:00" line="A" />
+				<departure time="07:30" line="A" />
+				<departure time="08:00" line="A" />
+				<departure time="08:20" line="B" />
+				<departure time="08:40" line="A" />
+				<departure time="09:00" line="B" />
+				<departure time="09:20" line="A" />
+				<departure time="09:40" line="B" />
+				<departure time="10:00" line="A" />
+				<departure time="10:20" line="B" />
+				<departure time="10:40" line="A" />
+				<departure time="11:00" line="B" />
+				<departure time="11:20" line="A" />
+				<departure time="11:40" line="B" />
+				<departure time="12:00" line="A" />
+				<departure time="12:20" line="B" />
+				<departure time="12:40" line="A" />
+				<departure time="13:00" line="B" />
+				<departure time="13:20" line="A" />
+				<departure time="13:40" line="B" />
+				<departure time="14:00" line="A" />
+				<departure time="14:20" line="B" />
+				<departure time="14:40" line="A" />
+				<departure time="15:00" line="B" />
+				<departure time="15:20" line="A" />
+				<departure time="15:40" line="B" />
+				<departure time="16:00" line="A" />
+				<departure time="16:20" line="B" />
+				<departure time="16:40" line="A" />
+				<departure time="17:00" line="B" />
+				<departure time="17:20" line="A" />
+				<departure time="17:40" line="B" />
+				<departure time="18:00" line="A" />
+				<departure time="18:20" line="B" />
+				<departure time="18:40" line="A" />
+				<departure time="19:00" line="B" />
+				<departure time="19:20" line="A" />
+				<departure time="19:40" line="B" />
+				<departure time="20:00" line="A" />
+				<departure time="20:20" line="B" />
+				<departure time="20:40" line="A" />
+				<departure time="21:20" line="A" />
+				<departure time="22:00" line="A" />
+				<departure time="22:40" line="A" />
+				<departure time="23:25" line="A" />
 			</weekday>
 		</departurepoint>
 		<departurepoint location="Mannheller">
 			<weekday day="2,3,4,5,6" desc="Ukedager">
-				<departure time="00:20" comments="A" />
-				<departure time="01:00" comments="A" />
-				<departure time="02:00" comments="A" />
-				<departure time="03:00" comments="A" />
-				<departure time="04:00" comments="A" />
-				<departure time="05:00" comments="A" />
-				<departure time="05:45" comments="A" />
-				<departure time="06:15" comments="A" />
-				<departure time="06:45" comments="A" />
-				<departure time="07:15" comments="A" />
-				<departure time="07:45" comments="A" />
-				<departure time="08:00" />
-				<departure time="08:20" comments="A" />
-				<departure time="08:40" />
-				<departure time="09:00" comments="A" />
-				<departure time="09:20" />
-				<departure time="09:40" comments="A" />
-				<departure time="10:00" />
-				<departure time="10:20" comments="A" />
-				<departure time="10:40" />
-				<departure time="11:00" comments="A" />
-				<departure time="11:20" />
-				<departure time="11:40" comments="A" />
-				<departure time="12:00" />
-				<departure time="12:20" comments="A" />
-				<departure time="12:40" />
-				<departure time="13:00" comments="A" />
-				<departure time="13:20" />
-				<departure time="13:40" comments="A" />
-				<departure time="14:00" />
-				<departure time="14:20" comments="A" />
-				<departure time="14:40" />
-				<departure time="15:20" />
-				<departure time="15:40" comments="A" />
-				<departure time="16:00" />
-				<departure time="16:20" comments="A" />
-				<departure time="16:40" />
-				<departure time="17:00" comments="A" />
-				<departure time="17:20" />
-				<departure time="17:40" comments="A" />
-				<departure time="18:00" />
-				<departure time="18:20" comments="A" />
-				<departure time="18:40" />
-				<departure time="19:00" comments="A" />
-				<departure time="19:20" />
-				<departure time="19:40" comments="A" />
-				<departure time="20:00" />
-				<departure time="20:20" comments="A" />
-				<departure time="21:00" comments="A" />
-				<departure time="21:40" comments="A" />
-				<departure time="22:20" comments="A" />
-				<departure time="23:00" comments="A" />
-				<departure time="23:25" comments="A" />		
+				<departure time="00:20" line="A" />
+				<departure time="01:00" line="A" />
+				<departure time="02:00" line="A" />
+				<departure time="03:00" line="A" />
+				<departure time="04:00" line="A" />
+				<departure time="05:00" line="A" />
+				<departure time="05:45" line="A" />
+				<departure time="06:15" line="A" />
+				<departure time="06:45" line="A" />
+				<departure time="07:15" line="A" />
+				<departure time="07:45" line="A" />
+				<departure time="08:00" line="B" />
+				<departure time="08:20" line="A" />
+				<departure time="08:40" line="B" />
+				<departure time="09:00" line="A" />
+				<departure time="09:20" line="B" />
+				<departure time="09:40" line="A" />
+				<departure time="10:00" line="B" />
+				<departure time="10:20" line="A" />
+				<departure time="10:40" line="B" />
+				<departure time="11:00" line="A" />
+				<departure time="11:20" line="B" />
+				<departure time="11:40" line="A" />
+				<departure time="12:00" line="B" />
+				<departure time="12:20" line="A" />
+				<departure time="12:40" line="B" />
+				<departure time="13:00" line="A" />
+				<departure time="13:20" line="B" />
+				<departure time="13:40" line="A" />
+				<departure time="14:00" line="B" />
+				<departure time="14:20" line="A" />
+				<departure time="14:40" line="B" />
+				<departure time="15:20" line="B" />
+				<departure time="15:40" line="A" />
+				<departure time="16:00" line="B" />
+				<departure time="16:20" line="A" />
+				<departure time="16:40" line="B" />
+				<departure time="17:00" line="A" />
+				<departure time="17:20" line="B" />
+				<departure time="17:40" line="A" />
+				<departure time="18:00" line="B" />
+				<departure time="18:20" line="A" />
+				<departure time="18:40" line="B" />
+				<departure time="19:00" line="A" />
+				<departure time="19:20" line="B" />
+				<departure time="19:40" line="A" />
+				<departure time="20:00" line="B" />
+				<departure time="20:20" line="A" />
+				<departure time="21:00" line="A" />
+				<departure time="21:40" line="A" />
+				<departure time="22:20" line="A" />
+				<departure time="23:00" line="A" />
+				<departure time="23:25" line="A" />		
 			</weekday>
 			<weekday day="7" desc="Lørdag">
-				<departure time="00:20" comments="A" />
-				<departure time="01:00" comments="A" />
-				<departure time="02:00" comments="A" />
-				<departure time="03:00" comments="A" />
-				<departure time="04:00" comments="A" />
-				<departure time="05:00" comments="A" />
-				<departure time="05:45" comments="A" />
-				<departure time="06:15" comments="A" />
-				<departure time="06:45" comments="A" />
-				<departure time="07:15" comments="A" />
-				<departure time="07:45" comments="A" />
-				<departure time="08:00" />
-				<departure time="08:20" comments="A" />
-				<departure time="08:40" />
-				<departure time="09:00" comments="A" />
-				<departure time="09:20" />
-				<departure time="09:40" comments="A" />
-				<departure time="10:00" />
-				<departure time="10:20" comments="A" />
-				<departure time="10:40" />
-				<departure time="11:00" comments="A" />
-				<departure time="11:20" />
-				<departure time="11:40" comments="A" />
-				<departure time="12:00" />
-				<departure time="12:20" comments="A" />
-				<departure time="12:40" />
-				<departure time="13:00" comments="A" />
-				<departure time="13:20" />
-				<departure time="13:40" comments="A" />
-				<departure time="14:00" />
-				<departure time="14:20" comments="A" />
-				<departure time="14:40" />
-				<departure time="15:20" />
-				<departure time="15:40" comments="A" />
-				<departure time="16:00" />
-				<departure time="16:20" comments="A" />
-				<departure time="16:40" />
-				<departure time="17:00" comments="A" />
-				<departure time="17:20" />
-				<departure time="17:40" comments="A" />
-				<departure time="18:00" />
-				<departure time="18:20" comments="A" />
-				<departure time="18:40" />
-				<departure time="19:00" comments="A" />
-				<departure time="19:20" />
-				<departure time="19:40" comments="A" />
-				<departure time="20:00" />
-				<departure time="20:20" comments="A" />
-				<departure time="21:00" comments="A" />
-				<departure time="21:40" comments="A" />
-				<departure time="22:20" comments="A" />
-				<departure time="23:00" comments="A" />
-				<departure time="23:25" comments="A" />		
+				<departure time="00:20" line="A" />
+				<departure time="01:00" line="A" />
+				<departure time="02:00" line="A" />
+				<departure time="03:00" line="A" />
+				<departure time="04:00" line="A" />
+				<departure time="05:00" line="A" />
+				<departure time="05:45" line="A" />
+				<departure time="06:15" line="A" />
+				<departure time="06:45" line="A" />
+				<departure time="07:15" line="A" />
+				<departure time="07:45" line="A" />
+				<departure time="08:00" line="B" />
+				<departure time="08:20" line="A" />
+				<departure time="08:40" line="B" />
+				<departure time="09:00" line="A" />
+				<departure time="09:20" line="B" />
+				<departure time="09:40" line="A" />
+				<departure time="10:00" line="B" />
+				<departure time="10:20" line="A" />
+				<departure time="10:40" line="B" />
+				<departure time="11:00" line="A" />
+				<departure time="11:20" line="B" />
+				<departure time="11:40" line="A" />
+				<departure time="12:00" line="B" />
+				<departure time="12:20" line="A" />
+				<departure time="12:40" line="B" />
+				<departure time="13:00" line="A" />
+				<departure time="13:20" line="B" />
+				<departure time="13:40" line="A" />
+				<departure time="14:00" line="B" />
+				<departure time="14:20" line="A" />
+				<departure time="14:40" line="B" />
+				<departure time="15:20" line="B" />
+				<departure time="15:40" line="A" />
+				<departure time="16:00" line="B" />
+				<departure time="16:20" line="A" />
+				<departure time="16:40" line="B" />
+				<departure time="17:00" line="A" />
+				<departure time="17:20" line="B" />
+				<departure time="17:40" line="A" />
+				<departure time="18:00" line="B" />
+				<departure time="18:20" line="A" />
+				<departure time="18:40" line="B" />
+				<departure time="19:00" line="A" />
+				<departure time="19:20" line="B" />
+				<departure time="19:40" line="A" />
+				<departure time="20:00" line="B" />
+				<departure time="20:20" line="A" />
+				<departure time="21:00" line="A" />
+				<departure time="21:40" line="A" />
+				<departure time="22:20" line="A" />
+				<departure time="23:00" line="A" />
+				<departure time="23:25" line="A" />		
 			</weekday>
 			<weekday day="1" desc="Søndag">
-				<departure time="00:20" comments="A" />
-				<departure time="01:00" comments="A" />
-				<departure time="02:00" comments="A" />
-				<departure time="03:00" comments="A" />
-				<departure time="04:00" comments="A" />
-				<departure time="05:00" comments="A" />
-				<departure time="05:45" comments="A" />
-				<departure time="06:15" comments="A" />
-				<departure time="06:45" comments="A" />
-				<departure time="07:15" comments="A" />
-				<departure time="07:45" comments="A" />
-				<departure time="08:00" />
-				<departure time="08:20" comments="A" />
-				<departure time="08:40" />
-				<departure time="09:00" comments="A" />
-				<departure time="09:20" />
-				<departure time="09:40" comments="A" />
-				<departure time="10:00" />
-				<departure time="10:20" comments="A" />
-				<departure time="10:40" />
-				<departure time="11:00" comments="A" />
-				<departure time="11:20" />
-				<departure time="11:40" comments="A" />
-				<departure time="12:00" />
-				<departure time="12:20" comments="A" />
-				<departure time="12:40" />
-				<departure time="13:00" comments="A" />
-				<departure time="13:20" />
-				<departure time="13:40" comments="A" />
-				<departure time="14:00" />
-				<departure time="14:20" comments="A" />
-				<departure time="14:40" />
-				<departure time="15:20" />
-				<departure time="15:40" comments="A" />
-				<departure time="16:00" />
-				<departure time="16:20" comments="A" />
-				<departure time="16:40" />
-				<departure time="17:00" comments="A" />
-				<departure time="17:20" />
-				<departure time="17:40" comments="A" />
-				<departure time="18:00" />
-				<departure time="18:20" comments="A" />
-				<departure time="18:40" />
-				<departure time="19:00" comments="A" />
-				<departure time="19:20" />
-				<departure time="19:40" comments="A" />
-				<departure time="20:00" />
-				<departure time="20:20" comments="A" />
-				<departure time="21:00" comments="A" />
-				<departure time="21:40" comments="A" />
-				<departure time="22:20" comments="A" />
-				<departure time="23:00" comments="A" />
-				<departure time="23:25" comments="A" />
+				<departure time="00:20" line="A" />
+				<departure time="01:00" line="A" />
+				<departure time="02:00" line="A" />
+				<departure time="03:00" line="A" />
+				<departure time="04:00" line="A" />
+				<departure time="05:00" line="A" />
+				<departure time="05:45" line="A" />
+				<departure time="06:15" line="A" />
+				<departure time="06:45" line="A" />
+				<departure time="07:15" line="A" />
+				<departure time="07:45" line="A" />
+				<departure time="08:00" line="B" />
+				<departure time="08:20" line="A" />
+				<departure time="08:40" line="B" />
+				<departure time="09:00" line="A" />
+				<departure time="09:20" line="B" />
+				<departure time="09:40" line="A" />
+				<departure time="10:00" line="B" />
+				<departure time="10:20" line="A" />
+				<departure time="10:40" line="B" />
+				<departure time="11:00" line="A" />
+				<departure time="11:20" line="B" />
+				<departure time="11:40" line="A" />
+				<departure time="12:00" line="B" />
+				<departure time="12:20" line="A" />
+				<departure time="12:40" line="B" />
+				<departure time="13:00" line="A" />
+				<departure time="13:20" line="B" />
+				<departure time="13:40" line="A" />
+				<departure time="14:00" line="B" />
+				<departure time="14:20" line="A" />
+				<departure time="14:40" line="B" />
+				<departure time="15:20" line="B" />
+				<departure time="15:40" line="A" />
+				<departure time="16:00" line="B" />
+				<departure time="16:20" line="A" />
+				<departure time="16:40" line="B" />
+				<departure time="17:00" line="A" />
+				<departure time="17:20" line="B" />
+				<departure time="17:40" line="A" />
+				<departure time="18:00" line="B" />
+				<departure time="18:20" line="A" />
+				<departure time="18:40" line="B" />
+				<departure time="19:00" line="A" />
+				<departure time="19:20" line="B" />
+				<departure time="19:40" line="A" />
+				<departure time="20:00" line="B" />
+				<departure time="20:20" line="A" />
+				<departure time="21:00" line="A" />
+				<departure time="21:40" line="A" />
+				<departure time="22:20" line="A" />
+				<departure time="23:00" line="A" />
+				<departure time="23:25" line="A" />
 			</weekday>
 		</departurepoint>
 	</route>
+	
 	<route name="Utne-Kvanndal" location1="Utne" location2="Kvanndal"
 		validfrom="2014-01-01" validto="2014-12-31" serial="2014011801" time="15" ticketzone="6" operator="norled" routeid="1001" 
 		url="http://www.norled.no/uploads/documents/Ferjeruter/2014_Hordaland/Ferge_Vinterrute_Kinsarvik_Utne_Kvanndal_3siders.pdf" areaCode="Hordaland">
