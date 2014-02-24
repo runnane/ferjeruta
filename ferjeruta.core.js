@@ -10,17 +10,22 @@
  **/
 
 var coreFerjeruta = function () {
+	
+	// Global settings (used for automated builds)
+	this.Settings = { 
+		"NotificationLimit" : 10,
+		"OfflineMode" : 0,
+		"Published" : 0,
+	};
+
 	// Number of notifications to show
 	this.serviceList = new Array();
-	this.isLive = (location.hostname == "ferjeruta.no" || location.hostname == "www.ferjeruta.no");
+	this.isLive = (this.Settings.Published == 1);
 	var pobj = this;
 	this.RouteXMLSerial = 0;
 	this.LastNotificationSerial = 0;
 	this.Notifications = new Array();
 	
-	this.Settings = { 
-		"NotificationLimit"	: 10
-	};
 	
 	this.AutoRefreshData = {
 			"Routes": {
@@ -228,6 +233,14 @@ var coreFerjeruta = function () {
 	this.RefreshNotifications = function(oncomplete){
 		var pobj = this;
 		this.Log("[debug] coreFerjeruta::RefreshNotifications() triggering with serial " + pobj.LastNotificationSerial);
+		if(pobj.Settings.OfflineMode == 1){
+			pobj.Log("[debug] coreFerjeruta::RefreshNotifications() breaking due to offline mode active");
+			if(oncomplete != undefined){
+				oncomplete(false);
+			}
+			pobj.RedrawNotifications();
+			return false;	
+		}
 		$.ajax({
 			type: "POST",
 			url: "http://projects.runnane.no/rVarsel/poll.php",
@@ -260,9 +273,20 @@ var coreFerjeruta = function () {
 	
 	// Redraw notifications from internal object
 	this.RedrawNotifications = function(){
+		var pobj = this;
+
 		$("#notificationContainer")
 			.empty();
-		var pobj = this;
+		if(pobj.Settings.OfflineMode == 1){
+			$("#notificationContainer")
+				.append(
+					$("<div />")
+				.append($("<h2 />").text("Varsel ikke aktivert"))
+				.append($("<p />").html("I offline-modus er varsel ikke aktivert"))
+				.collapsible({ inset: false })
+			);
+			return false;	
+		}
 		$.each(pobj.Notifications, function(index, notice){
 			var notification = notice.message;
 			if(notice.title){
