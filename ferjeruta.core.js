@@ -17,6 +17,7 @@ var coreFerjeruta = function () {
 		"OfflineMode" : 0,
 		"Published" : 0,
 		"PiwikEnabled" : 0,
+		"HidingEnabled" : 0,
 	};
 
 	// Number of notifications to show
@@ -334,8 +335,10 @@ var coreFerjeruta = function () {
 			.each(function (i) {
 				var ferryline = this;
 				// Specific area hidden by setting
-				if(HiddenServices[ferryline.Name] != undefined){
-					return true;	
+				if(ferjeRutaMainObject.Settings.HidingEnabled == 1){
+					if(HiddenServices[ferryline.Name] != undefined){
+						return true;	
+					}
 				}
 				
 				// Entire area hidden by option
@@ -465,22 +468,23 @@ var coreFerjeruta = function () {
 				$("#lvLocations")
 					.append(litem);
 			});
-		
-			$("#lvLocations")
-				.append($("<li />")
-					.attr("data-icon","delete")
-					.append(
-						$("<a />")
-						.text("Skjul denne ruten")
-						.attr("href", "#")
-						.click(function (e) {
-							comfirmDlg("Skjul rute", "Er du sikker på at du vil skjule " + service.Name, "Ja", function() {
-							  // user has confirmed, do stuff
-							  service.Hide(true);
-							});
-						}) //click
-						
-				));
+			if(ferjeRutaMainObject.Settings.HidingEnabled == 1){
+				$("#lvLocations")
+					.append($("<li />")
+						.attr("data-icon","delete")
+						.append(
+							$("<a />")
+							.text("Skjul denne ruten")
+							.attr("href", "#")
+							.click(function (e) {
+								comfirmDlg("Skjul rute", "Er du sikker på at du vil skjule " + service.Name, "Ja", function() {
+								  // user has confirmed, do stuff
+								  service.Hide(true);
+								});
+							}) //click
+							
+					));
+			}
 
 		$("#lvLocations")
 			.listview("refresh");
