@@ -16,6 +16,7 @@ var coreFerjeruta = function () {
 		"NotificationLimit" : 10,
 		"OfflineMode" : 0,
 		"Published" : 0,
+		"PiwikEnabled" : 0,
 	};
 
 	// Number of notifications to show
@@ -25,7 +26,6 @@ var coreFerjeruta = function () {
 	this.RouteXMLSerial = 0;
 	this.LastNotificationSerial = 0;
 	this.Notifications = new Array();
-	
 	
 	this.AutoRefreshData = {
 			"Routes": {
