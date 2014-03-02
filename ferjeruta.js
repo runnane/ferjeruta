@@ -89,8 +89,8 @@ var CreateSimpleLi = function(str, header){
 };
 
 function comfirmDlg(text1, text2, button, callback) {
-  $("#confirmdlg .questionA").text(text1);
-  $("#confirmdlg .questionB").text(text2);
+  $("#confirmdlg .qA").text(text1);
+  $("#confirmdlg .qB").text(text2);
   $("#confirmdlg .btnA").text(button).unbind("click.confirm").on("click.confirm", function() {
     callback();
     $(this).off("click.confirm");
@@ -99,7 +99,7 @@ function comfirmDlg(text1, text2, button, callback) {
 }
 
 ////// Start webpage
-var ferjeRutaMainObject;
+var _fr;
 var _paq = _paq || [];
 
 _paq.push(["trackPageView"]);
@@ -113,9 +113,9 @@ $(document)
 		}
 	
 		// Set up page
-		ferjeRutaMainObject = new coreFerjeruta();
-		ferjeRutaMainObject.Initialize(true, function(){
-			ferjeRutaMainObject.RefreshNotifications(function(success){
+		_fr = new coreFerjeruta();
+		_fr.Initialize(true, function(){
+			_fr.RefreshNotifications(function(success){
 				var interval = setInterval(function(s){
 					$.mobile.loading('hide');
 					clearInterval(interval);
@@ -126,25 +126,25 @@ $(document)
 		// Init route refresh button
 		$("#btnRefresh")
 			.click(function (f) {
-				ferjeRutaMainObject.RefreshServices();
+				_fr.RefreshServices();
 			});
 			
 		// Init notification refresh button
 		$("#btnRefreshNotifications")
 			.click(function (f) {
-				ferjeRutaMainObject.RefreshNotifications();
+				_fr.RefreshNotifications();
 			});
 	
 		// Add refresh when showing main page
 		$( "#pageMainview" )
 			.on( "pagebeforeshow", function( event ) {
-				ferjeRutaMainObject.RefreshServices();
+				_fr.RefreshServices();
 			});
 
 		// Update count on settings page
 		$( "#pageSettings" )
 			.on( "pagebeforeshow", function( event ) {
-				var HiddenServices = ferjeRutaMainObject.GetSetting("HiddenServices");
+				var HiddenServices = _fr.GetSetting("HiddenServices");
 				var len = $.map(HiddenServices, function(n, i) { return i; }).length;
 				if(len > 0 ){
 					$("#btnResetHiddenServices").closest('.ui-btn').show();
@@ -152,27 +152,26 @@ $(document)
 					$("#btnResetHiddenServices").button("refresh");
 				}else{
 					$("#btnResetHiddenServices").closest('.ui-btn').hide();
-					//$("#btnResetHiddenServices").button("refresh");
 				}
 			});
 
 		
 		$("#btnResetHiddenServices").click(function(){
-			ferjeRutaMainObject.ResetHiddenServices();
+			_fr.ResetHiddenServices();
 		});
 		
 		// Set hooks and default values to usersettings elements
-		$.each(ferjeRutaMainObject.userSettings, function(settingName, settingOptions) {
+		$.each(_fr.userSettings, function(settingName, settingOptions) {
 			var el =  $("#s_" + settingName);
             		el.change(function (f) {
 				var val = (el.prop('checked') == true);
-				ferjeRutaMainObject.SetSetting(settingName, val);
+				_fr.SetSetting(settingName, val);
 			});
-			el.prop('checked', ferjeRutaMainObject.GetSetting(settingName)).checkboxradio('refresh');
+			el.prop('checked', _fr.GetSetting(settingName)).checkboxradio('refresh');
         });
 		
 		// Embed Piwik loading code (only for production site)
-		if(ferjeRutaMainObject.Settings.PiwikEnabled == 1){
+		if(_fr.Settings.PiwikEnabled == 1){
 			var u=(("https:" == document.location.protocol) ? "https" : "http") + "://projects.runnane.no/piwik/";
 			_paq.push(["setTrackerUrl", u+"piwik.php"]);
 			_paq.push(["setSiteId", "1"]);

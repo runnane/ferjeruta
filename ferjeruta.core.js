@@ -57,18 +57,18 @@ var coreFerjeruta = function () {
 		"AutoRefreshRoutes" : { type:"bool", defValue: false, 
 			onChange: function(val){ 
 				if(val==true){
-					ferjeRutaMainObject.StartAutoRefresh("Routes"); 
+					_fr.StartAutoRefresh("Routes"); 
 				}else{
-					ferjeRutaMainObject.StopAutoRefresh("Routes");	
+					_fr.StopAutoRefresh("Routes");	
 				}
 			} 
 		},
 		"AutoRefreshNotifications" : { type:"bool", defValue: false, 
 			onChange: function(val){ 
 				if(val==true){
-					ferjeRutaMainObject.StartAutoRefresh("Notifications"); 
+					_fr.StartAutoRefresh("Notifications"); 
 				}else{
-					ferjeRutaMainObject.StopAutoRefresh("Notifications");	
+					_fr.StopAutoRefresh("Notifications");	
 				}
 			} 
 		},
@@ -105,7 +105,7 @@ var coreFerjeruta = function () {
 		this.Log("[debug] coreFerjeruta::StartAutoRefresh("+subname+") starting");
 		if(this.AutoRefreshData[subname].ProcId == 0){
 			this.Log("[debug] coreFerjeruta::StartAutoRefres("+subname+") spawning new timer");
-			this.AutoRefreshData[subname].ProcId = setInterval(function(){ ferjeRutaMainObject.AutoRefreshTimer(subname,interval); }, interval);
+			this.AutoRefreshData[subname].ProcId = setInterval(function(){ _fr.AutoRefreshTimer(subname,interval); }, interval);
 		}else{
 			this.Log("[debug] coreFerjeruta::StartAutoRefresh("+subname+") timer already started ("+this.AutoRefreshData[subname].ProcId+")");
 		}
@@ -306,7 +306,7 @@ var coreFerjeruta = function () {
 	}
 
 	this.ResetHiddenServices = function(){
-		ferjeRutaMainObject.SetSetting("HiddenServices", {});
+		_fr.SetSetting("HiddenServices", {});
 		$.mobile.changePage("#pageMainview", {transition: "none"});
 	};
 	
@@ -326,7 +326,7 @@ var coreFerjeruta = function () {
 			"Rogaland": this.GetSetting("ShowRogaland"),
 			"Hordaland": this.GetSetting("ShowHordaland")
 			};
-		var HiddenServices = ferjeRutaMainObject.GetSetting("HiddenServices");
+		var HiddenServices = _fr.GetSetting("HiddenServices");
 
 		$(".daycontents")
 			.text(str);
@@ -335,7 +335,7 @@ var coreFerjeruta = function () {
 			.each(function (i) {
 				var ferryline = this;
 				// Specific area hidden by setting
-				if(ferjeRutaMainObject.Settings.HidingEnabled == 1){
+				if(_fr.Settings.HidingEnabled == 1){
 					if(HiddenServices[ferryline.Name] != undefined){
 						return true;	
 					}
@@ -468,7 +468,7 @@ var coreFerjeruta = function () {
 				$("#lvLocations")
 					.append(litem);
 			});
-			if(ferjeRutaMainObject.Settings.HidingEnabled == 1){
+			if(_fr.Settings.HidingEnabled == 1){
 				$("#lvLocations")
 					.append($("<li />")
 						.attr("data-icon","delete")

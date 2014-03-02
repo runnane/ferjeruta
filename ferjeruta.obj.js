@@ -56,9 +56,9 @@ FerryService.prototype.AddLine = function(xml){
 }
 
 FerryService.prototype.Hide = function(ret){
-	var set = ferjeRutaMainObject.GetSetting("HiddenServices");
+	var set = _fr.GetSetting("HiddenServices");
 	set[this.Name] = true;
-	ferjeRutaMainObject.SetSetting("HiddenServices", set);
+	_fr.SetSetting("HiddenServices", set);
 	if(ret != undefined && ret == true){
 		$.mobile.changePage("#pageMainview", {transition: "none"});
 	}
