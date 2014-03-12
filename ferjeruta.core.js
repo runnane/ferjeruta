@@ -18,6 +18,8 @@ var coreFerjeruta = function () {
 		"Published" : 0,
 		"PiwikEnabled" : 0,
 		"HidingEnabled" : 0,
+		"NotificationsUrl" : "http://projects.runnane.no/rVarsel/poll.php",
+		
 	};
 
 	// Number of notifications to show
@@ -244,7 +246,7 @@ var coreFerjeruta = function () {
 		}
 		$.ajax({
 			type: "POST",
-			url: "http://projects.runnane.no/rVarsel/poll.php",
+			url: pobj.Settings.NotificationsUrl,
 			data: {ls : pobj.LastNotificationSerial},
 			success: function (data, textStatus, jqXHR) {
 				pobj.LastNotificationSerial = data.currentserial;
@@ -293,7 +295,7 @@ var coreFerjeruta = function () {
 			if(notice.title){
 				notification = "<strong>" + notice.title + "</strong>" + "<br />" + notification;
 			}
-			var timenow = MakeDateFromDateTime(notice.time);
+			var timenow = new Date(notice.time_rfc);
 			var timestr = timenow.getDate() + "." + (timenow.getMonth()+1) + " " + strpad(timenow.getHours(),2) + ":" + strpad(timenow.getMinutes(),2);
 			$("#notificationContainer")
 				.append(
