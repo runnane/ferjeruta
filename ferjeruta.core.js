@@ -19,7 +19,7 @@ var coreFerjeruta = function () {
 		"PiwikEnabled" : 0,
 		"HidingEnabled" : 0,
 		"NotificationsUrl" : "http://projects.runnane.no/rVarsel/poll.php",
-		
+		"ScheduleUrl" : "schedule.xml",
 	};
 
 	// Number of notifications to show
@@ -35,9 +35,7 @@ var coreFerjeruta = function () {
 					Interval	: 60*1000, // 60 sec
 					ProcId		: 0,
 					onTimer : function(){
-							pobj.Log("[debug] coreFerjeruta::onTimer(Routes) firing");
 							if( $('#pageMainview').is(':hidden') ) {
-								pobj.Log("[debug] coreFerjeruta::onTimer(Routes) aborting, due to mainpanel not being active");
 								return;
 							}
 							pobj.RefreshServices();
@@ -47,7 +45,6 @@ var coreFerjeruta = function () {
 					Interval	: 5*60*1000, // 5 min
 					ProcId		: 0,
 					onTimer 	: function(){
-							pobj.Log("[debug] coreFerjeruta::onTimer(Notifications) firing");
 							pobj.RefreshNotifications();
 						}
 				}
@@ -104,47 +101,37 @@ var coreFerjeruta = function () {
 		if(interval == undefined){
 			interval = this.AutoRefreshData[subname].Interval;
 		}
-		this.Log("[debug] coreFerjeruta::StartAutoRefresh("+subname+") starting");
 		if(this.AutoRefreshData[subname].ProcId == 0){
-			this.Log("[debug] coreFerjeruta::StartAutoRefres("+subname+") spawning new timer");
 			this.AutoRefreshData[subname].ProcId = setInterval(function(){ _fr.AutoRefreshTimer(subname,interval); }, interval);
 		}else{
-			this.Log("[debug] coreFerjeruta::StartAutoRefresh("+subname+") timer already started ("+this.AutoRefreshData[subname].ProcId+")");
 		}
 		return this.AutoRefreshData[subname].ProcId;
 	}
 	
 	this.StopAutoRefresh = function(subname){
-		this.Log("[debug] coreFerjeruta::StopAutoRefresh("+subname+") starting");
 		if(this.AutoRefreshData[subname].ProcId != 0){
-			this.Log("[debug] coreFerjeruta::StopAutoRefresh("+subname+") killing timer ("+this.AutoRefreshData[subname].ProcId+")");
 			clearInterval(this.AutoRefreshData[subname].ProcId);
 			this.AutoRefreshData[subname].ProcId=0;
 		}else{
-			this.Log("[debug] coreFerjeruta::StopAutoRefresh("+subname+") failed, empty autorefresh proc id");
 		}
 	}
 	
 	this.AutoRefreshTimer = function(subname, timeoutval){
-		this.Log("[debug] coreFerjeruta::AutoRefreshTimer("+subname+") spawning, id="+this.AutoRefreshData[subname].ProcId);
 		var id = this.AutoRefreshData[subname].ProcId;
 		if(!this.GetSetting("AutoRefresh"+subname)){
-			this.Log("[debug] coreFerjeruta::AutoRefreshTimer("+subname+") stopping interval due to autorefresh disabled");
 			this.StopAutoRefresh(subname);
 			return;
 		}
 		if(this.AutoRefreshData[subname].ProcId<1){
-			this.Log("[debug] coreFerjeruta::AutoRefreshTimer("+subname+") stopping interval due to unknown procid");
 			this.StopAutoRefresh(subname);
 			return;
 		}
-		this.Log("[debug] coreFerjeruta::AutoRefreshTimer("+subname+") spawning onTimer()");
 		this.AutoRefreshData[subname].onTimer();
 	}
 	
 	// Logging (for debug)
 	this.Log = function (str){
-		// Don't debug if we are live on ferjeruta.no
+		// Don't debug if we are live
 		if(!this.isLive){
 			console.log(str);	
 		}
@@ -153,35 +140,31 @@ var coreFerjeruta = function () {
 	// Main init operation
 	this.Initialize = function (refreshWhenDone, onCompleteFunction) {
 		var pobj = this;
-		this.Log("[debug] coreFerjeruta::Initialize() starting");
-		$.get("schedule.xml", function (xml) {
-			pobj.Log("[debug] coreFerjeruta::Initialize() got xml");
-			
+		$.get(pobj.Settings.ScheduleUrl, function (xml) {
 			pobj.RouteXMLSerial = $("routes", xml).attr("serial");
 			$("route", xml)
-				.each(function (i) {
+				.each(function() {
 					var service = pobj.AddSamband(this);
-					$("flag", $(this)).each(function (i) {
+					$("flag", $(this)).each(function() {
 						service.AddFlag(this);
 					});
-					$("line", $(this)).each(function (i) {
+					$("line", $(this)).each(function() {
 						service.AddLine(this);
 					});
 					
 					$("departurepoint", this)
-						.each(function (j) {
+						.each(function() {
 							var dp = service.AddDeparturePoint(this);
 							$("weekday", this)
-								.each(function (k) {
+								.each(function() {
 									var weekdays = $(this).attr("day");
 									$("departure",this)
-										.each(function (l) {
+										.each(function() {
 												dp.AddAvgang(weekdays, this);
 											});// each departure
 								});// each weekday
 						}); //each departurepoint
 				}); // each route
-			pobj.Log("[debug] coreFerjeruta::Initialize() route table views populated");
 			
 			// Check if we want AutoRefreshRoutes and setInterval
 			if(pobj.GetSetting("AutoRefreshRoutes") == true){
@@ -235,9 +218,7 @@ var coreFerjeruta = function () {
 	// Get updated notifications from rVarsel subsystem
 	this.RefreshNotifications = function(oncomplete){
 		var pobj = this;
-		this.Log("[debug] coreFerjeruta::RefreshNotifications() triggering with serial " + pobj.LastNotificationSerial);
 		if(pobj.Settings.OfflineMode == 1){
-			pobj.Log("[debug] coreFerjeruta::RefreshNotifications() breaking due to offline mode active");
 			if(oncomplete != undefined){
 				oncomplete(false);
 			}
@@ -251,7 +232,6 @@ var coreFerjeruta = function () {
 			success: function (data, textStatus, jqXHR) {
 				pobj.LastNotificationSerial = data.currentserial;
 				if(data.messages.length>0){
-					pobj.Log("[debug] coreFerjeruta::RefreshNotifications() got new messages: " + data.messages.length);
 					pobj.Notifications = new Array().concat(data.messages, pobj.Notifications);
 					while(pobj.Notifications.length > pobj.Settings.NotificationLimit){
 						pobj.Notifications.pop();	
@@ -260,8 +240,6 @@ var coreFerjeruta = function () {
 					if(oncomplete != undefined){
 						oncomplete(true);
 					}
-				}else{
-					pobj.Log("[debug] coreFerjeruta::RefreshNotifications() no new messages");
 				}
 			},
 			error: function(jqXHR, textStatus, errorThrown){
@@ -313,8 +291,6 @@ var coreFerjeruta = function () {
 	};
 	
 	this.RefreshServices = function () {
-		this.Log("[debug] coreFerjeruta::RefreshServices() refreshing view");
-
 		$("#lvMainview")
 			.empty();
 		var pobj = this;
@@ -414,7 +390,6 @@ var coreFerjeruta = function () {
 	};
 
 	this.SelectService = function (service) {
-		this.Log("[debug] coreFerjeruta::SelectService()");
 		var pobj = this;
 		$.mobile.changePage("#pageLocations", {transition: "none"});
 		$("#lvLocations")
@@ -493,7 +468,6 @@ var coreFerjeruta = function () {
 	};
 
 	this.SelectDeparturepoint = function (departurepoint) {
-		this.Log("[debug] coreFerjeruta::SelectDeparturepoint()");
 		var pobj = this;
 		$.mobile.changePage("#pageDays", {transition: "none"});
 		$("#lvDays")
@@ -522,7 +496,6 @@ var coreFerjeruta = function () {
 	};
 
 	this.SelectDay = function (weekday) {
-		this.Log("[debug] coreFerjeruta::SelectDay()");
 		var pobj = this;
 		$.mobile.changePage("#pageDepartures", {transition: "none"});
 		$("#lvDepartures")

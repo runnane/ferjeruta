@@ -37,7 +37,7 @@ FerryService.prototype.AddDeparturePoint = function (departurep) {
 FerryService.prototype.GetDeparturePoint = function (name) {
 		var ret;
 		$(this.DeparturePoints)
-			.each(function (i) {
+			.each(function () {
 				if(this.Name == name) {
 					ret = this;
 					return false;
@@ -127,7 +127,7 @@ DeparturePoint.prototype.GetDay = function (day) {
 		return undefined;
 	}
 	$(this.DepartureDays)
-		.each(function (i) {
+		.each(function() {
 			if(this.DayOfWeek == day) {
 				ret = this;
 				return false;
@@ -144,7 +144,7 @@ DeparturePoint.prototype.AddAvgang = function (days, xml) {
 		var parts = days.split(",");
 		var tt = this;
 		$(parts)
-			.each(function (i) {
+			.each(function() {
 				tt.GetDay(this)
 					.AddAvgang(xml);
 			});
@@ -213,7 +213,7 @@ ServiceDay.prototype.GetNextDeparture = function (hour, minute) {
 
 		// Method 2, break after we found first. lighter, but only works reliable when departure times are sorted in xml.
 		$(this.Departures)
-			.each(function (i) {
+			.each(function () {
 				var departure = this;
 				if(departure.Hour == 0 &&
 					departure.Minute == 0) {
