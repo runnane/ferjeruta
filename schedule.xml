@@ -120,6 +120,7 @@
 		<departurepoint location="Tau">
 			<weekday day="2,3,4,5,6" desc="Ukedager">
 				<departure time="00:40" line="I" />
+				<departure time="02:00" line="I" />
 				<departure time="03:45" line="I" />
 				<departure time="05:15" line="I" />
 				<departure time="06:00" line="II" />
