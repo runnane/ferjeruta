@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes serial="2014020501">
+	<route name="Fogn-Jelsa (Nordrute)"
+		validfrom="2013-05-01" validto="2014-04-30" serial="2014020501" time="" ticketzone="" operator="norled" routeid="1025" 
+		url="http://norled.no/uploads/documents/Ferjeruter/2013_Rogaland/S1_Fogn_Judaberg_Nedstrand_Jelsa_2013_2014.pdf" areaCode="Rogaland" comments="Fogn Judaberg Halsnøy Eidsund Nord-Hidle Helgøy Nedstrand Hebnes Foldøy Jelsa">
+		
+		<lines>
+			<line id="I" name="M/F Sjernarøy" phonenumber="975 16 225" type="ferry" flags="" comments="" color="" />
+			<line id="II" name="M/F Foldøy" phonenumber="975 15 890" type="ferry" flags="" comments="" color="" />
+		</lines>
+		
+		<flags>
+			<flag code="B" comments="Bestillingsavgang" />
+			<flag code="R" comments="Anløp i motsatt rute" />
+		</flags>
+		
+		<departurepoint location="Fogn">
+			<weekday day="2,3,4,5,6" desc="Man-Fre">
+				<departure time="06:00" comments="Ju,Hel" />
+				<departure time="07:00" comments="Ju,Hal,E,NH,Hel" />
+				<departure time="08:00" comments="Ju,Hal,E,NH,Hel,NS,Heb,F,J" />
+				<departure time="10:25" comments="Ju,Hal,E,NH,Hel" />
+				<departure time="12:25" comments="Ju,Hal,E,Hel" />
+				<departure time="13:55" comments="Ju,Hel" />
+				<departure time="16:15" comments="Ju,Hel" />
+				<departure time="18:15" comments="Ju,Hal,E,NH,Hel" />
+				<departure time="20:15" comments="Ju,E" />
+				<departure time="22:45" comments="Ju," />
+				<departure time="23:15" comments="Ju,Hal(B),E(B),NH(B),Hel" />
+			</weekday>
+			<weekday day="7" desc="Lørdag">
+				<departure time="07:00" comments="Ju,Hal,E,NH,Hel" />
+				<departure time="08:00" comments="Ju,Hal,E,NH,Hel,NS,Heb,F,J" />
+				<departure time="10:25" comments="Ju,Hal,E,NH,Hel" />
+				<departure time="12:25" comments="Ju,Hal,E,Hel" />
+				<departure time="13:55" comments="Ju,Hel" />
+				<departure time="16:15" comments="Ju,Hel" />
+				<departure time="18:15" comments="Ju,Hal,E,NH,Hel" />
+				<departure time="20:15" comments="Ju,E" />
+				<departure time="22:45" comments="Ju" />
+				<departure time="23:30" comments="Ju,Hal(B),E(B),NH(B),Hel" />
+			</weekday>
+			<weekday day="1" desc="Søn">
+				<departure time="08:15" comments="Ju,Hal,E,NH(B),Hel" />
+				<departure time="09:20" comments="Ju,Hal,E,Hel,NS,Heb,F,J" />
+				<departure time="11:40" comments="Ju,Hal,E,NH,Hel" />
+				<departure time="13:50" comments="Ju,Hal,E,Hel" />
+				<departure time="15:05" comments="Ju,Hel" />
+				<departure time="15:50" comments="Ju,Hel" />
+				<departure time="18:20" comments="Ju,Hal,E" />
+				<departure time="20:05" comments="Ju,Hal,E,NH,Hel" />
+				<departure time="22:05" comments="Ju,Hal,E,Hel" />
+				<departure time="23:05" comments="Ju,Hal(B),E(B),NH(B),Hel" />
+			</weekday>
+		</departurepoint>
+
+		<departurepoint location="Judaberg">
+			<weekday day="2,3,4,5,6" desc="Man-Fre">
+				<departure time="06:15" comments="Hel" />
+				<departure time="07:20" comments="Hal,E,NH,Hel" />
+				<departure time="08:20" comments="Hal,E,NH,Hel,NS,Heb,F,J" />
+				<departure time="08:45" comments="til Helgøy" />
+				<departure time="10:45" comments="Hal,E,NH,Hel" />
+				<departure time="12:45" comments="Hal,E,Hel" />
+				<departure time="14:05" comments="Hal,E,NH,Hel" />
+				<departure time="14:15" comments="Hel" />
+				<departure time="15:45" comments="Hal,E,NH,Hel,NS,Heb,F,J" />
+				<departure time="16:35" comments="Hel" />
+				<departure time="18:35" comments="Hal,E,NH,Hel" />
+				<departure time="20:35" comments="til Eidsund" />
+				<departure time="21:30" comments="til Helgøy" />
+				<departure time="22:10" comments="Hal,E,NH(B),Hel" />
+				<departure time="23:30" comments="Hal(B),E(B),NH(B),Hel" />
+			</weekday>
+			<weekday day="7" desc="Lør">
+				<departure time="07:20" comments="Hal,E,NH,Hel" />
+				<departure time="08:20" comments="Hal,E,NH,Hel,NS,Heb,F,J" />
+				<departure time="08:45" comments="til Helgøy" />
+				<departure time="10:45" comments="Hal,E,NH,Hel" />
+				<departure time="12:45" comments="Hal,E,Hel" />
+				<departure time="14:05" comments="Hal,E,NH,Hel" />
+				<departure time="14:15" comments="Hel" />
+				<departure time="15:45" comments="Hal,E,NH,Hel,NS,Heb,F,J" />
+				<departure time="16:35" comments="Hel" />
+				<departure time="18:35" comments="Hal,E,NH,Hel" />
+				<departure time="20:35" comments="til Eidsund" />
+				<departure time="21:30" comments="til Helgøy" />
+				<departure time="22:10" comments="Hal,E,NH(B),Hel" />
+				<departure time="23:45" comments="Hal(B),E(B),NH(B),Hel" />
+			</weekday>
+			<weekday day="1" desc="Søn">
+				<departure time="08:30" comments="Hal,E,NH(B),Hel" />
+				<departure time="09:35" comments="Hal,E,NH,Hel,NS,Heb,F,J" />
+				<departure time="09:50" comments="NH,Hel" />
+				<departure time="12:00" comments="Hal,E,Hel" />
+				<departure time="14:10" comments="Hal,E,Hel" />
+				<departure time="15:25" comments="til Helgøy" />
+				<departure time="16:10" comments="Hal,E,NH,Hel,NS,Heb,F,J" />
+				<departure time="16:55" comments="NH,Hel" />
+				<departure time="18:40" comments="Hal,E" />
+				<departure time="20:25" comments="Hal,E,NH,Hel" />
+				<departure time="21:20" comments="til Helgøy" />
+				<departure time="22:30" comments="Hal,E,Hel" />
+				<departure time="23:25" comments="Hal(B),E(B),NH(B),Hel" />
+			</weekday>
+		</departurepoint>
+
+		<departurepoint location="Halsnøy">
+			<weekday day="2,3,4,5,6,7" desc="Man-Fre">
+				<departure time="07:40" comments="E,NH,Hel" />
+				<departure time="08:40" comments="E,NH,Hel,NS,Heb,F,J" />
+				<departure time="11:05" comments="E,NH,Hel" />
+				<departure time="13:05" comments="E,Hel" />
+				<departure time="14:25" comments="E,NH,Hel" />
+				<departure time="16:05" comments="E,NH,Hel,NS,Heb,F,J" />
+				<departure time="18:55" comments="E,NH,Hel" />
+				<departure time="22:30" comments="E,NH(B),Hel" />
+				<departure time="23:50" flags="B" comments="E(B),NH(B),Hel" />
+			</weekday>
+			<weekday day="7" desc="Lør">
+				<departure time="07:40" comments="E,NH,Hel" />
+				<departure time="08:40" comments="E,NH,Hel,NS,Heb,F,J" />
+				<departure time="11:05" comments="E,NH,Hel" />
+				<departure time="13:05" comments="E,Hel" />
+				<departure time="14:25" comments="E,NH,Hel" />
+				<departure time="16:05" comments="E,NH,Hel,NS,Heb,F,J" />
+				<departure time="18:55" comments="E,NH,Hel" />
+				<departure time="22:30" comments="E,NH(B),Hel" />
+				<departure time="23:59" flags="B" comments="E(B),NH(B),Hel" />
+			</weekday>
+			<weekday day="1" desc="Søn">
+				<departure time="08:45" comments="E,NH(B),Hel" />
+				<departure time="09:55" comments="E,NH,Hel,NS,Heb,F,J" />
+				<departure time="12:20" comments="E,NH,Hel" />
+				<departure time="14:30" comments="E,Hel" />
+				<departure time="16:30" comments="E,NH,Hel,NS,Heb,F,J" />
+				<departure time="19:00" comments="E" />
+				<departure time="20:45" comments="E,NH,Hel" />
+				<departure time="22:50" comments="E,Hel" />
+				<departure time="23:40" flags="B" comments="E(B),NH(B),Hel" />
+			</weekday>
+		</departurepoint>
+
+		<departurepoint location="Eidsund">
+			<weekday day="2,3,4,5,6,7" desc="Man-Lør">
+				<departure time="07:55" comments="NH,Hel" />
+				<departure time="08:55" comments="NH,Hel,NS,Heb,F,J" />
+				<departure time="11:20" comments="NH,Hel" />
+				<departure time="13:20" comments="Hel" />
+				<departure time="14:40" comments="NH,Hel" />
+				<departure time="16:20" comments="NH,Hel,NS,Heb,F,J" />
+				<departure time="19:10" comments="NH,Hel" />
+				<departure time="22:45" comments="NH(B),Hel" />
+				<departure time="23:59" flags="B" comments="NH(B),Hel" />
+			</weekday>
+			<weekday day="1" desc="Søn">
+				<departure time="09:00" comments="NH(B),Hel" />
+				<departure time="10:10" comments="NH,Hel,NS,Heb,F,J" />
+				<departure time="12:35" comments="NH,Hel" />
+				<departure time="14:45" comments="Hel" />
+				<departure time="16:45" comments="NH,Hel,NS,Heb,F,J" />
+				<departure time="23:05" comments="Hel" />
+				<departure time="23:59" flags="B" comments="NH(B),Hel" />
+			</weekday>
+		</departurepoint>
+
+		<departurepoint location="Nord-Hidle">
+			<weekday day="2,3,4,5,6,7" desc="Man-Lør">
+				<departure time="08:05" comments="Hel" />
+				<departure time="09:25" comments="NS,Heb,F,J" />
+				<departure time="11:30" comments="Hel" />
+				<departure time="14:55" comments="Hel" />
+				<departure time="16:50" comments="NS,Heb,F,J" />
+				<departure time="19:20" comments="Hel" />
+				<departure time="22:55" flags="B" comments="Hel" />
+				<departure time="23:59" flags="B" comments="Hel" />
+			</weekday>
+			<weekday day="1" desc="Søn">
+				<departure time="09:30" flags="B" comments="Hel" />
+				<departure time="10:40" comments="NS,Heb,F,J" />
+				<departure time="10:20" comments="Hel" />
+				<departure time="17:10" comments="NS,Heb,F,J" />
+				<departure time="17:20" comments="Hel" />
+				<departure time="21:10" comments="Hel" />
+				<departure time="23:59" flags="B" comments="Hel" />
+			</weekday>
+		</departurepoint>
+
+		<departurepoint location="Helgøy">
+			<weekday day="2,3,4,5,6,7" desc="Man-Lør">
+				<departure time="09:15" comments="NH,NS,Heb,F,J" />
+				<departure time="16:40" comments="NH,NS,Heb,F,J" />
+			</weekday>
+			<weekday day="1" desc="Søn">
+				<departure time="10:30" comments="NH,NS,Heb,F,J" />
+				<departure time="17:05" comments="NH,NS,Heb,F,J" />
+			</weekday>
+		</departurepoint>
+
+		<departurepoint location="Nedstrand">
+			<weekday day="2,3,4,5,6,7" desc="Man-Lør">
+				<departure time="10:05" comments="Heb,F,J" />
+				<departure time="17:30" comments="Heb,F,J" />
+			</weekday>
+			<weekday day="1" desc="Søn">
+				<departure time="11:15" comments="Heb,F,J" />
+				<departure time="17:50" comments="Heb,F,J" />
+			</weekday>
+		</departurepoint>
+
+		<departurepoint location="Hebnes">
+			<weekday day="2,3,4,5,6,7" desc="Man-Lør">
+				<departure time="10:30" comments="F,J" />
+				<departure time="17:55" comments="F,J" />
+			</weekday>
+			<weekday day="1" desc="Søn">
+				<departure time="10:40" comments="F,J" />
+				<departure time="18:15" comments="F,J" />
+			</weekday>
+		</departurepoint>
+
+		<departurepoint location="Foldøy">
+			<weekday day="2,3,4,5,6,7" desc="Man-Lør">
+				<departure time="10:40" comments="til Jelsa" />
+				<departure time="18:05" comments="til Jelsa" />
+			</weekday>
+			<weekday day="1" desc="Søn">
+				<departure time="10:50" comments="til Jelsa" />
+				<departure time="18:25" comments="til Jelsa" />
+			</weekday>
+		</departurepoint>
+	</route>
+</routes>

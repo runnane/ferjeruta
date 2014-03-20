@@ -14,12 +14,13 @@ var coreFerjeruta = function () {
 	// Global settings (used for automated builds)
 	this.Settings = { 
 		"NotificationLimit" : 10,
-		"OfflineMode" : 0,
-		"Published" : 0,
-		"PiwikEnabled" : 0,
-		"HidingEnabled" : 0,
-		"NotificationsUrl" : "http://projects.runnane.no/rVarsel/poll.php",
-		"ScheduleUrl" : "schedule.xml",
+		"OfflineMode" 		: 0,
+		"Published" 		: 0,
+		"PiwikEnabled" 		: 0,
+		"HidingEnabled" 	: 0,
+		"NotificationsUrl" 	: "http://projects.runnane.no/rVarsel/poll.php",
+		"ScheduleUrl" 		: "schedule.xml",
+		"ScheduleTestingUrl": "schedule-testing.xml",
 	};
 
 	// Number of notifications to show
@@ -74,6 +75,7 @@ var coreFerjeruta = function () {
 		"ShowRogaland" : { type:"bool", defValue: true },
 		"ShowHordaland" : { type:"bool", defValue: true },
 		"ShowTimeOfArrival" : { type:"bool", defValue: false },
+		"ShowTestingRoutes" : { type:"bool", defValue: false },
 		"HiddenServices" : { type:"obj", defValue: {} }
 	};
 
@@ -141,54 +143,87 @@ var coreFerjeruta = function () {
 	this.Initialize = function (refreshWhenDone, onCompleteFunction) {
 		var pobj = this;
 		$.get(pobj.Settings.ScheduleUrl, function (xml) {
+			
+			// get main routes
 			pobj.RouteXMLSerial = $("routes", xml).attr("serial");
-			$("route", xml)
-				.each(function() {
-					var service = pobj.AddSamband(this);
-					$("flag", $(this)).each(function() {
-						service.AddFlag(this);
-					});
-					$("line", $(this)).each(function() {
-						service.AddLine(this);
-					});
-					
-					$("departurepoint", this)
-						.each(function() {
-							var dp = service.AddDeparturePoint(this);
-							$("weekday", this)
-								.each(function() {
-									var weekdays = $(this).attr("day");
-									$("departure",this)
-										.each(function() {
-												dp.AddAvgang(weekdays, this);
-											});// each departure
-								});// each weekday
-						}); //each departurepoint
-				}); // each route
-			
-			// Check if we want AutoRefreshRoutes and setInterval
-			if(pobj.GetSetting("AutoRefreshRoutes") == true){
-				pobj.StartAutoRefresh("Routes");
-			}
-			
-			// Check if we want AutoRefreshNotifications and setInterval
-			if(pobj.GetSetting("AutoRefreshNotifications") == true){
-				pobj.StartAutoRefresh("Notifications");
-			}
-			
-			// Refresh
-			if(refreshWhenDone == true){
-				pobj.RefreshServices();
-			}
-			
+			pobj.ParseRouteXml(xml);
 			$("#txtScheduleVersion").html(pobj.RouteXMLSerial);
-			
-			if(onCompleteFunction != undefined){
-				onCompleteFunction();	
+
+			if(pobj.GetSetting("ShowTestingRoutes") == true){
+				$.get(pobj.Settings.ScheduleTestingUrl, function (xml) {
+					pobj.ParseRouteXml(xml);
+
+					// Check if we want AutoRefreshRoutes and setInterval
+					if(pobj.GetSetting("AutoRefreshRoutes") == true){
+						pobj.StartAutoRefresh("Routes");
+					}
+					
+					// Check if we want AutoRefreshNotifications and setInterval
+					if(pobj.GetSetting("AutoRefreshNotifications") == true){
+						pobj.StartAutoRefresh("Notifications");
+					}
+					
+					// Refresh
+					if(refreshWhenDone == true){
+						pobj.RefreshServices();
+					}
+					
+					// oncompletecommand
+					if(onCompleteFunction != undefined){
+						onCompleteFunction();	
+					}
+				});
+			}else{
+				
+				// Check if we want AutoRefreshRoutes and setInterval
+				if(pobj.GetSetting("AutoRefreshRoutes") == true){
+					pobj.StartAutoRefresh("Routes");
+				}
+				
+				// Check if we want AutoRefreshNotifications and setInterval
+				if(pobj.GetSetting("AutoRefreshNotifications") == true){
+					pobj.StartAutoRefresh("Notifications");
+				}
+				
+				// Refresh
+				if(refreshWhenDone == true){
+					pobj.RefreshServices();
+				}
+				
+				// oncompletecommand
+				if(onCompleteFunction != undefined){
+					onCompleteFunction();	
+				}
 			}
-			
 		}); // http get
 	}; // Initialize
+	
+	this.ParseRouteXml = function(routeXml){
+		var pobj = this;
+		$("route", routeXml)
+			.each(function() {
+				var service = pobj.AddSamband(this);
+				$("flag", $(this)).each(function() {
+					service.AddFlag(this);
+				});
+				$("line", $(this)).each(function() {
+					service.AddLine(this);
+				});
+				
+				$("departurepoint", this)
+					.each(function() {
+						var dp = service.AddDeparturePoint(this);
+						$("weekday", this)
+							.each(function() {
+								var weekdays = $(this).attr("day");
+								$("departure",this)
+									.each(function() {
+											dp.AddAvgang(weekdays, this);
+										});// each departure
+							});// each weekday
+					}); //each departurepoint
+			}); // each route
+	};
 
 	this.AddSamband = function (sambandXmlNode) {
 		var fr = new FerryService(sambandXmlNode);
