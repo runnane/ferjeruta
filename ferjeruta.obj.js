@@ -217,7 +217,7 @@ ServiceDay.prototype.GetNextDeparture = function (hour, minute) {
 				var departure = this;
 				if(departure.Hour == 0 &&
 					departure.Minute == 0) {
-					// skip it, if this is firs this day, we gonna have a bad time
+					// skip it, if this is first this day, we gonna have a bad time
 				} else if(isEarlier(hour, minute, departure.Hour, departure.Minute)) {
 					dep = departure;
 					return false;
