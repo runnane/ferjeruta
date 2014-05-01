@@ -21,6 +21,9 @@ var coreFerjeruta = function () {
 		"NotificationsUrl" 	: "http://projects.runnane.no/rVarsel/poll.php",
 		"ScheduleUrl" 		: "schedule.xml",
 		"ScheduleTestingUrl": "schedule-testing.xml",
+		"ShowWarning"		: 1,
+		"WarningText"		: "Nye ruter fra 1. mai er ikke på plass enda, vi er på saken :)",
+		
 	};
 
 	// Number of notifications to show
@@ -344,6 +347,12 @@ var coreFerjeruta = function () {
 		$(".daycontents")
 			.text(str);
 		var numberShown = 0;
+		
+		if(pobj.Settings.ShowWarning == 1){
+			$("#lvMainview")
+				.append(CreateSimpleLi(pobj.Settings.WarningText,"Viktig melding"));
+		}
+				
 		$(this.serviceList)
 			.each(function (i) {
 				var ferryline = this;
