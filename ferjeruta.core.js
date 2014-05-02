@@ -22,7 +22,7 @@ var coreFerjeruta = function () {
 		"ScheduleUrl" 		: "schedule.xml",
 		"ScheduleTestingUrl": "schedule-testing.xml",
 		"ShowWarning"		: 1,
-		"WarningText"		: "1 mai er som oftest søndagsruter, vennligst sjekk <br />rutene manuelt (<a href='http://norled.no/uploads/documents/Ferjeruter/2014_Rogaland/Ruteendringer_for_2014_2sider.pdf'>Fjord1 Rogaland</a>).<br />Fjord1 har noen nye ruter fra 1 mai, <br />men disse ligger ikke på nett enda. <br />Norled har kun en mindre endring på siste avg <br />Hjelmeland-Nesvik lørdager (10 min senere)",
+		"WarningText"		: "Fjord1 har noen nye ruter fra 1 mai, <br />men disse ligger ikke på nett enda. <br />Norled har kun en mindre endring på siste avg <br />Hjelmeland-Nesvik lørdager (10 min senere)",
 	};
 
 	// Number of notifications to show
