@@ -11,7 +11,7 @@
  *
  */
 -->
-<routes serial="2014050101">
+<routes serial="2014051401">
 	<route name="Tausambandet" location1="Stavanger" location2="Tau"
 		validfrom="2015-05-01" validto="2015-04-30" serial="2014050101" time="35" ticketzone="15" operator="norled" routeid="1022" url="http://norled.no/uploads/documents/Ferjeruter/2014_Rogaland/Stavanger_Tau_010514.pdf" areaCode="Rogaland" comments="">
 		
