@@ -21,8 +21,8 @@ var coreFerjeruta = function () {
 		"NotificationsUrl" 	: "http://projects.runnane.no/rVarsel/poll.php",
 		"ScheduleUrl" 		: "schedule.xml",
 		"ScheduleTestingUrl": "schedule-testing.xml",
-		"ShowWarning"		: 1,
-		"WarningText"		: "Fjord1 har noen nye ruter fra 1 mai, <br />men disse ligger ikke på nett enda. <br />Norled har kun en mindre endring på siste avg <br />Hjelmeland-Nesvik lørdager (10 min senere)",
+		"ShowWarning"		: 0,
+		"WarningText"		: "",
 	};
 
 	// Number of notifications to show

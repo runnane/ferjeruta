@@ -364,7 +364,7 @@
 	</route>
 
 	<route name="Mortavika-Arsvågen" location1="Mortavika" location2="Arsvågen"
-		validfrom="2013-05-01" validto="2014-04-30" serial="2014011801" time="25" ticketzone="95" operator="fjord1" routeid="1130" url="http://reise2.fjord1.no/Fjord1IISStaticTables/Tables/ruter/t/11-528.htm" areaCode="Rogaland">
+		validfrom="2014-05-01" validto="2015-04-30" serial="2014050101" time="25" ticketzone="95" operator="fjord1" routeid="1130" url="http://reise2.fjord1.no/Fjord1IISStaticTables/Tables/ruter/t/11-528.htm" areaCode="Rogaland">
 		
 		<rutes>
 			<rute id="1" name="MF Boknafjord" phonenumber="0" type="ferry" comments="" />
@@ -637,7 +637,7 @@
 	</route>
 	
 	<route name="Halhjemsambandet" location1="Sandvikvåg" location2="Halhjem"
-		validfrom="2013-05-01" validto="2014-04-30" serial="2014011801" time="40" ticketzone="96" operator="fjord1" routeid="1131" url="http://reise2.fjord1.no/Fjord1IISStaticTables/Tables/ruter/t/12-143.htm" areaCode="Hordaland">
+		validfrom="2014-05-01" validto="2015-04-30" serial="2014050101" time="40" ticketzone="96" operator="fjord1" routeid="1131" url="http://reise2.fjord1.no/Fjord1IISStaticTables/Tables/ruter/t/12-143.htm" areaCode="Hordaland">
 
 		<rutes>
 			<rute id="1" name="MF Bergensfjord" phonenumber="0" type="ferry" comments="" />
