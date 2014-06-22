@@ -5,7 +5,7 @@
  * Released under the GNU General Public License 2.0
  * See gpl-2.0.txt
  *
- * Project page: https://bitbucket.org/runnane/ferjeruta
+ * Project page: https://github.com/runnane/ferjeruta
  *
  **/
 
@@ -14,24 +14,24 @@ var coreFerjeruta = function () {
 	// Global settings (used for automated builds)
 	this.Settings = { 
 		"NotificationLimit" : 10,
-		"OfflineMode" 		: 0,
-		"Published" 		: 0,
-		"PiwikEnabled" 		: 0,
-		"HidingEnabled" 	: 0,
-		"NotificationsUrl" 	: "http://projects.runnane.no/rVarsel/poll.php",
-		"ScheduleUrl" 		: "schedule.xml",
+		"OfflineMode"		: 0,
+		"Published"         : 0,
+		"PiwikEnabled"		: 0,
+		"HidingEnabled"     : 0,
+		"NotificationsUrl"  : "http://projects.runnane.no/rVarsel/poll.php",
+		"ScheduleUrl"       : "schedule.xml",
 		"ScheduleTestingUrl": "schedule-testing.xml",
 		"ShowWarning"		: 0,
 		"WarningText"		: "",
 	};
 
 	// Number of notifications to show
-	this.serviceList = new Array();
+	this.serviceList = [];
 	this.isLive = (this.Settings.Published == 1);
 	var pobj = this;
 	this.RouteXMLSerial = 0;
 	this.LastNotificationSerial = 0;
-	this.Notifications = new Array();
+	this.Notifications = [];
 	
 	this.AutoRefreshData = {
 			"Routes": {
@@ -47,7 +47,7 @@ var coreFerjeruta = function () {
 			"Notifications": {
 					Interval	: 5*60*1000, // 5 min
 					ProcId		: 0,
-					onTimer 	: function(){
+					onTimer     : function(){
 							pobj.RefreshNotifications();
 						}
 				}
@@ -58,7 +58,7 @@ var coreFerjeruta = function () {
 	this.userSettings = {
 		"AutoRefreshRoutes" : { type:"bool", defValue: false, 
 			onChange: function(val){ 
-				if(val==true){
+				if(val === true){
 					_fr.StartAutoRefresh("Routes"); 
 				}else{
 					_fr.StopAutoRefresh("Routes");	
@@ -110,7 +110,7 @@ var coreFerjeruta = function () {
 		}else{
 		}
 		return this.AutoRefreshData[subname].ProcId;
-	}
+	};
 	
 	this.StopAutoRefresh = function(subname){
 		if(this.AutoRefreshData[subname].ProcId != 0){
@@ -118,10 +118,10 @@ var coreFerjeruta = function () {
 			this.AutoRefreshData[subname].ProcId=0;
 		}else{
 		}
-	}
+	};
 	
 	this.AutoRefreshTimer = function(subname, timeoutval){
-		var id = this.AutoRefreshData[subname].ProcId;
+		//var id = this.AutoRefreshData[subname].ProcId;
 		if(!this.GetSetting("AutoRefresh"+subname)){
 			this.StopAutoRefresh(subname);
 			return;
@@ -131,7 +131,7 @@ var coreFerjeruta = function () {
 			return;
 		}
 		this.AutoRefreshData[subname].onTimer();
-	}
+	};
 	
 	// Logging (for debug)
 	this.Log = function (str){
@@ -151,22 +151,22 @@ var coreFerjeruta = function () {
 			pobj.ParseRouteXml(xml);
 			$("#txtScheduleVersion").html(pobj.RouteXMLSerial);
 
-			if(pobj.GetSetting("ShowTestingRoutes") == true){
+			if(pobj.GetSetting("ShowTestingRoutes") === true){
 				$.get(pobj.Settings.ScheduleTestingUrl, function (xml) {
 					pobj.ParseRouteXml(xml);
 
 					// Check if we want AutoRefreshRoutes and setInterval
-					if(pobj.GetSetting("AutoRefreshRoutes") == true){
+					if(pobj.GetSetting("AutoRefreshRoutes") === true){
 						pobj.StartAutoRefresh("Routes");
 					}
 					
 					// Check if we want AutoRefreshNotifications and setInterval
-					if(pobj.GetSetting("AutoRefreshNotifications") == true){
+					if(pobj.GetSetting("AutoRefreshNotifications") === true){
 						pobj.StartAutoRefresh("Notifications");
 					}
 					
 					// Refresh
-					if(refreshWhenDone == true){
+					if(refreshWhenDone === true){
 						pobj.RefreshServices();
 					}
 					
@@ -178,17 +178,17 @@ var coreFerjeruta = function () {
 			}else{
 				
 				// Check if we want AutoRefreshRoutes and setInterval
-				if(pobj.GetSetting("AutoRefreshRoutes") == true){
+				if(pobj.GetSetting("AutoRefreshRoutes") === true){
 					pobj.StartAutoRefresh("Routes");
 				}
 				
 				// Check if we want AutoRefreshNotifications and setInterval
-				if(pobj.GetSetting("AutoRefreshNotifications") == true){
+				if(pobj.GetSetting("AutoRefreshNotifications") === true){
 					pobj.StartAutoRefresh("Notifications");
 				}
 				
 				// Refresh
-				if(refreshWhenDone == true){
+				if(refreshWhenDone === true){
 					pobj.RefreshServices();
 				}
 				
@@ -320,7 +320,7 @@ var coreFerjeruta = function () {
 				.collapsible({ inset: false })
 			);
 		});
-	}
+	};
 
 	this.ResetHiddenServices = function(){
 		_fr.SetSetting("HiddenServices", {});
@@ -378,12 +378,12 @@ var coreFerjeruta = function () {
 						var cls;
 
 						if(minstodep <= 5) {
-							cls = "Red"
+							cls = "Red";
 						} else if(minstodep <=
 							30) {
-							cls = "Green"
+							cls = "Green";
 						} else {
-							cls = "Orange"
+							cls = "Orange";
 						}
 						var minutestodeptxt = $(
 							"<span />")
@@ -498,7 +498,7 @@ var coreFerjeruta = function () {
 							.attr("href", "#")
 							.click(function (e) {
 								comfirmDlg("Skjul rute", "Er du sikker på at du vil skjule " + service.Name, "Ja", function() {
-								  // user has confirmed, do stuff
+                                // user has confirmed, do stuff
 								  service.Hide(true);
 								});
 							}) //click
@@ -526,7 +526,7 @@ var coreFerjeruta = function () {
 							pobj.SelectDay(weekday);
 						}); //click
 				if(weekday.DayOfWeek == pobj.Today){
-					daylink.addClass("textOrange")
+					daylink.addClass("textOrange");
 				}
 				var litem = $("<li />")
 					.append(daylink);
