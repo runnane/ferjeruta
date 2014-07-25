@@ -497,10 +497,7 @@ var coreFerjeruta = function () {
 							.text("Skjul denne ruten")
 							.attr("href", "#")
 							.click(function (e) {
-								comfirmDlg("Skjul rute", "Er du sikker på at du vil skjule " + service.Name, "Ja", function() {
-                                // user has confirmed, do stuff
-								  service.Hide(true);
-								});
+								service.Hide(true);
 							}) //click
 							
 					));

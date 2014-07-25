@@ -83,16 +83,6 @@ var CreateSimpleLi = function(str, header){
 	return li
 };
 
-function comfirmDlg(text1, text2, button, callback) {
-  $("#confirmdlg .qA").text(text1);
-  $("#confirmdlg .qB").text(text2);
-  $("#confirmdlg .btnA").text(button).unbind("click.confirm").on("click.confirm", function() {
-    callback();
-    $(this).off("click.confirm");
-  });
-  $.mobile.changePage("#confirmdlg");
-}
-
 ////// Start webpage
 var _fr;
 var _paq = _paq || [];
