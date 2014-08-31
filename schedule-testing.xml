@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * ferjeruta.no 
+ * routes.xml - additional route information
+ * (c) 2014 Jon Tungland (jon@tungland.org) - http://runnane.no/
+ * Released under the GNU General Public License 2.0
+ * See gpl-2.0.txt
+ *
+ * Project page: https://github.com/runnane/ferjeruta
+ *
+ */
+-->
 <routes serial="2014020501">
 	<route name="Fogn-Jelsa (Nordrute)"
 		validfrom="2013-05-01" validto="2014-04-30" serial="2014020501" time="" ticketzone="" operator="norled" routeid="1025" 
