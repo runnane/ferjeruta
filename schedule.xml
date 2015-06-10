@@ -13,7 +13,7 @@
 -->
 <routes serial="2015061001">
 	<route name="Tausambandet" location1="Stavanger" location2="Tau"
-		validfrom="2015-05-01" validto="2015-04-30" serial="2014050101" time="35" ticketzone="15" operator="norled" routeid="1022" url="http://norled.no/uploads/documents/Ferjeruter/2014_Rogaland/Stavanger_Tau_010514.pdf" areaCode="Rogaland" comments="">
+		validfrom="2015-05-01" validto="2015-04-30" serial="2014050101" time="35" ticketzone="15" operator="norled" routeid="1022" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/stavanger-tau.pdf" areaCode="Rogaland" comments="">
 		
 		<lines>
 			<line id="I" name="Hardanger" phonenumber="0" type="ferry" flags="" comments="" color="" />
@@ -208,7 +208,7 @@
 	</route>
 
 	<route name="Høgsfjordsambandet" location1="Lauvik" location2="Oanes"
-		validfrom="2014-05-01" validto="2015-04-30" serial="2014050101" time="10" ticketzone="3" operator="norled" routeid="1024" url="http://norled.no/uploads/documents/Ferjeruter/2014_Rogaland/Oanes_Lauvvik_010514.pdf" areaCode="Rogaland">
+		validfrom="2014-05-01" validto="2015-04-30" serial="2014050101" time="10" ticketzone="3" operator="norled" routeid="1024" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/oanes-lauvvik.pdf" areaCode="Rogaland">
 		<lines>
 			<line id="I" name="MF Finnøy" phonenumber="0" type="ferry" flags="" comments="" color="" />
 		</lines>
@@ -956,7 +956,7 @@
 	</route>
 	
 	<route name="Sand-Ropeid" location1="Sand" location2="Ropeid" 
-		validfrom="2014-05-01" validto="2015-04-30" serial="2014011801" time="10" ticketzone="3" operator="norled" routeid="1026" url="http://norled.no/uploads/documents/Ferjeruter/2014_Rogaland/Sand_Ropeid_010514.pdf" areaCode="Rogaland">
+		validfrom="2014-05-01" validto="2015-04-30" serial="2014011801" time="10" ticketzone="3" operator="norled" routeid="1026" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/sand-ropeid.pdf" areaCode="Rogaland">
 		<departurepoint location="Sand">
 			<weekday day="2,3,4,5,6" desc="Ukedager">
 				<departure time="00:15" />
@@ -1167,7 +1167,7 @@
 	</route>
 	
 	<route name="Hjelmeland-Nesvik" location1="Hjelmeland" location2="Nesvik" 
-		validfrom="2014-05-01" validto="2015-04-30" serial="2015061001" time="15" ticketzone="3" operator="norled" routeid="1027" url="http://norled.no/uploads/documents/Ferjeruter/2014_Rogaland/Hjelmeland_Nesvik_Ombo_010514.pdf" areaCode="Rogaland">
+		validfrom="2014-05-01" validto="2015-04-30" serial="2015061001" time="15" ticketzone="3" operator="norled" routeid="1027" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/hjelmeland-nesvik-ombo.pdf" areaCode="Rogaland">
 		<departurepoint location="Hjelmeland">
 			<weekday day="2,3,4,5,6" desc="Ukedager">
 				<departure time="00:30" />
@@ -1339,7 +1339,7 @@
 	</route>
 	
 	<route name="Mekjarvik-Kvitsøy" location1="Mekjarvik" location2="Kvitsøy" 
-		validfrom="2014-05-12" validto="2015-04-30" serial="2014051401" time="40" ticketzone="14" operator="norled" routeid="1023" url="http://norled.no/uploads/documents/Ferjeruter/2014_Rogaland/Kvistoy_Mekjarvik.pdf" areaCode="Rogaland">
+		validfrom="2014-05-12" validto="2015-04-30" serial="2014051401" time="40" ticketzone="14" operator="norled" routeid="1023" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/mekjarvik-kvitsoy.pdf" areaCode="Rogaland">
 	
 		<departurepoint location="Mekjarvik">
 			<weekday day="2,3,4,5,6" desc="Ukedager">
@@ -1410,9 +1410,10 @@
 			</weekday>
 		</departurepoint>
 	</route>
+	
 	<route name="Utåker-Matre-Skånevik" location1="Utåker" location2="Skånevik"
 		validfrom="2014-01-01" validto="2014-12-31" serial="2014011601" time="20, 50 om Matre" ticketzone="4/6/8" operator="norled" routeid="1005" 
-		url="http://norled.no/uploads/documents/Ferjeruter/2014_Hordaland/Ferge_Skanevik_Matre_Utaker_2siders.pdf" areaCode="Hordaland">
+		url="https://www.norled.no/contentassets/8bd3dbc65f654da8a746d67b64763712/skaanevik_matre_utaaker.pdf" areaCode="Hordaland">
 		<departurepoint location="Utåker">
 			<weekday day="2,3,4,5,6" desc="Ukedager">
 				<departure time="05:45" />
@@ -1512,6 +1513,7 @@
 			</weekday>
 		</departurepoint>
 	</route>
+	
 	<route name="Fodnes-Mannheller" location1="Fodnes" location2="Mannheller"
 		validfrom="2013-05-01" validto="2014-04-16" serial="2014022401" time="15" ticketzone="4" operator="fjord1" routeid="1102" 
 		url="http://reise2.fjord1.no/Fjord1IISStaticTables/Tables/ruter/t/14-107.htm" areaCode="Hordaland">
