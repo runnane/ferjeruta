@@ -11,7 +11,7 @@
  *
  */
 -->
-<routes serial="2014051401">
+<routes serial="2015061001">
 	<route name="Tausambandet" location1="Stavanger" location2="Tau"
 		validfrom="2015-05-01" validto="2015-04-30" serial="2014050101" time="35" ticketzone="15" operator="norled" routeid="1022" url="http://norled.no/uploads/documents/Ferjeruter/2014_Rogaland/Stavanger_Tau_010514.pdf" areaCode="Rogaland" comments="">
 		
@@ -1167,7 +1167,7 @@
 	</route>
 	
 	<route name="Hjelmeland-Nesvik" location1="Hjelmeland" location2="Nesvik" 
-		validfrom="2014-05-01" validto="2015-04-30" serial="2014050101" time="15" ticketzone="3" operator="norled" routeid="1027" url="http://norled.no/uploads/documents/Ferjeruter/2014_Rogaland/Hjelmeland_Nesvik_Ombo_010514.pdf" areaCode="Rogaland">
+		validfrom="2014-05-01" validto="2015-04-30" serial="2015061001" time="15" ticketzone="3" operator="norled" routeid="1027" url="http://norled.no/uploads/documents/Ferjeruter/2014_Rogaland/Hjelmeland_Nesvik_Ombo_010514.pdf" areaCode="Rogaland">
 		<departurepoint location="Hjelmeland">
 			<weekday day="2,3,4,5,6" desc="Ukedager">
 				<departure time="00:30" />
@@ -1262,8 +1262,8 @@
 				<departure time="10:45" />
 				<departure time="11:15" />
 				<departure time="11:45" />
-				<departure time="12:15" comments="T/R Ombo" />
-				<departure time="12:45" />
+				<departure time="12:15" />
+				<departure time="12:45" comments="T/R Ombo" />
 				<departure time="13:20" />
 				<departure time="14:30" />
 				<departure time="15:00" />
@@ -1292,8 +1292,8 @@
 				<departure time="10:45" />
 				<departure time="11:15" />
 				<departure time="11:45" />
-				<departure time="12:15" comments="T/R Ombo" />
-				<departure time="12:45" />
+				<departure time="12:15" />
+				<departure time="12:45" comments="T/R Ombo" />
 				<departure time="13:20" />
 				<departure time="14:30" />
 				<departure time="15:00" />
