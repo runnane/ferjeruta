@@ -242,4 +242,183 @@
 			</weekday>
 		</departurepoint>
 	</route>
+	<!--
+	<route name="Utne-Kvanndal" location1="Utne" location2="Kvanndal"
+		validfrom="2014-01-01" validto="2014-12-31" serial="2014011801" time="15" ticketzone="6" operator="norled" routeid="1001" 
+		url="http://reise2.fjord1.no/Fjord1IISStaticTables/Tables/ruter/t/14-107.htm" areaCode="Hordaland">
+		<departurepoint location="Utne">
+			<weekday day="2,3,4,5" desc="mandag, tirsdag, onsdag, torsdag">
+				<departure time="06:25" />
+				<departure time="07:10" />
+				<departure time="08:00" />
+				<departure time="09:30" />
+				<departure time="10:00" />
+				<departure time="10:30" />
+				<departure time="11:30" />
+				<departure time="11:50" />
+				<departure time="12:30" />
+				<departure time="13:30" />
+				<departure time="14:30" />
+				<departure time="15:30" />
+				<departure time="16:10" />
+				<departure time="16:30" />
+				<departure time="17:30" />
+				<departure time="18:00" />
+				<departure time="18:30" />
+				<departure time="19:30" />
+				<departure time="20:10" />
+				<departure time="20:30" />
+				<departure time="21:50" />
+				<departure time="22:45" />
+			</weekday>
+			<weekday day="6" desc="Fredag">
+				<departure time="06:25" />
+				<departure time="07:10" />
+				<departure time="08:00" />
+				<departure time="09:30" />
+				<departure time="10:00" />
+				<departure time="10:30" />
+				<departure time="11:30" />
+				<departure time="11:50" />
+				<departure time="12:30" />
+				<departure time="13:30" />
+				<departure time="14:30" />
+				<departure time="15:30" />
+				<departure time="16:10" />
+				<departure time="16:30" />
+				<departure time="17:30" />
+				<departure time="18:00" />
+				<departure time="18:30" />
+				<departure time="19:30" />
+				<departure time="20:10" />
+				<departure time="20:30" />
+				<departure time="21:50" />
+				<departure time="22:00" />
+				<departure time="22:45" />
+			</weekday>
+			<weekday day="7" desc="Lørdag">
+				<departure time="06:25" />
+				<departure time="07:10" />
+				<departure time="08:30" />
+				<departure time="09:30" />
+				<departure time="10:00" />
+				<departure time="10:30" />
+				<departure time="11:30" />
+				<departure time="11:50" />
+				<departure time="12:30" />
+				<departure time="13:30" />
+				<departure time="14:30" />
+				<departure time="15:30" />
+				<departure time="16:10" />
+				<departure time="16:30" />
+				<departure time="17:30" />
+				<departure time="18:00" />
+				<departure time="18:30" />
+				<departure time="19:35" />
+				<departure time="20:05" />
+				<departure time="21:00" />
+				<departure time="22:00" />
+			</weekday>
+			<weekday day="1" desc="Søndag">
+				<departure time="08:10" />
+				<departure time="09:30" />
+				<departure time="10:00" />
+				<departure time="10:30" />
+				<departure time="11:30" />
+				<departure time="11:50" />
+				<departure time="12:30" />
+				<departure time="13:30" />
+				<departure time="14:05" />
+				<departure time="14:30" />
+				<departure time="15:30" />
+				<departure time="16:10" />
+				<departure time="16:30" />
+				<departure time="17:30" />
+				<departure time="18:00" />
+				<departure time="18:30" />
+				<departure time="19:30" />
+				<departure time="20:10" />
+				<departure time="20:30" />
+				<departure time="21:30" />
+				<departure time="22:30" />
+				<departure time="23:10" />
+			</weekday>
+		</departurepoint>
+		<departurepoint location="Kvanndal">
+			<weekday day="2,3,4,5,6" desc="Ukedager">
+				<departure time="06:00" />
+				<departure time="06:45" />
+				<departure time="07:35" />
+				<departure time="09:00" />
+				<departure time="10:00" />
+				<departure time="10:25" />
+				<departure time="11:00" />
+				<departure time="12:00" />
+				<departure time="12:15" />
+				<departure time="13:00" />
+				<departure time="14:00" />
+				<departure time="15:00" />
+				<departure time="16:00" />
+				<departure time="16:35" />
+				<departure time="17:00" />
+				<departure time="18:00" />
+				<departure time="18:30" />
+				<departure time="19:00" />
+				<departure time="20:00" />
+				<departure time="20:35" />
+				<departure time="21:25" />
+				<departure time="22:25" />
+			</weekday>
+			<weekday day="7" desc="Lørdag">
+				<departure time="06:00" />
+				<departure time="06:45" />
+				<departure time="07:30" />
+				<departure time="08:00" />
+				<departure time="09:00" />
+				<departure time="10:00" />
+				<departure time="10:25" />
+				<departure time="11:00" />
+				<departure time="12:00" />
+				<departure time="12:15" />
+				<departure time="13:00" />
+				<departure time="14:00" />
+				<departure time="15:00" />
+				<departure time="16:00" />
+				<departure time="16:35" />
+				<departure time="17:00" />
+				<departure time="18:00" />
+				<departure time="18:30" />
+				<departure time="19:10" />
+				<departure time="20:30" />
+				<departure time="21:30" />		
+			</weekday>
+			<weekday day="1" desc="Søndag">
+				<departure time="07:45" />
+				<departure time="08:30" />
+				<departure time="09:00" />
+				<departure time="10:00" />
+				<departure time="10:25" />
+				<departure time="11:00" />
+				<departure time="12:00" />
+				<departure time="12:15" />
+				<departure time="13:00" />
+				<departure time="14:00" />
+				<departure time="14:40" />
+				<departure time="15:00" />
+				<departure time="16:00" />
+				<departure time="16:35" />
+				<departure time="17:00" />
+				<departure time="18:00" />
+				<departure time="18:30" />
+				<departure time="19:00" />
+				<departure time="20:00" />
+				<departure time="20:35" />
+				<departure time="21:00" />
+				<departure time="22:00" />
+				<departure time="22:50" />
+			</weekday>
+		</departurepoint>
+	</route>
+	-->	
+	
 </routes>
