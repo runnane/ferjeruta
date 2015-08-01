@@ -11,7 +11,7 @@
  *
  */
 -->
-<routes serial="2015062901">
+<routes serial="2015080101">
 	<route name="Tausambandet" location1="Stavanger" location2="Tau"
 		validfrom="2014-05-01" validto="2016-04-30" serial="2014050101" time="35" ticketzone="15" operator="norled" routeid="1022" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/stavanger-tau.pdf" areaCode="Rogaland" comments="">
 		
@@ -1167,10 +1167,10 @@
 	</route>
 	
 	<route name="Hjelmeland-Nesvik" location1="Hjelmeland" location2="Nesvik" 
-		validfrom="2014-05-01" validto="2016-04-30" serial="2014051001" time="15" ticketzone="3" operator="norled" routeid="1027" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/hjelmeland-nesvik-ombo.pdf" areaCode="Rogaland">
+		validfrom="2014-05-01" validto="2016-04-30" serial="2015080101" time="15" ticketzone="3" operator="norled" routeid="1027" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/hjelmeland-nesvik-ombo.pdf" areaCode="Rogaland">
 		<departurepoint location="Hjelmeland">
-			<weekday day="2,3,4,5,6" desc="Ukedager">
-				<departure time="00:30" />
+			<weekday day="2,3,4,5,6,7" desc="Mandag-Lørdag">
+				<departure time="00:30" comments="Ombo etter Nesvik v/ bestilling" />
 				<departure time="05:50" />
 				<departure time="06:20" comments="Ombo etter Nesvik" />
 				<departure time="07:20" />
@@ -1195,33 +1195,6 @@
 				<departure time="21:30" />
 				<departure time="22:15" comments="Ombo etter Nesvik" />
 				<departure time="23:15" />
-			</weekday>
-			<weekday day="7" desc="Lørdag">
-				<departure time="00:30" />
-				<departure time="05:50" />
-				<departure time="06:20" comments="Ombo etter Nesvik" />
-				<departure time="07:20" />
-				<departure time="07:55" comments="Ombo etter Nesvik" />
-				<departure time="09:00" />
-				<departure time="09:30" comments="Ombo etter Nesvik" />
-				<departure time="10:30" />
-				<departure time="11:00" />
-				<departure time="11:30" />
-				<departure time="12:00" />
-				<departure time="12:30" comments="Ombo etter Nesvik" />
-				<departure time="13:45" />
-				<departure time="14:45" comments="Ombo etter Nesvik" />
-				<departure time="15:45" />
-				<departure time="16:15" comments="Ombo etter Nesvik" />
-				<departure time="17:15" />
-				<departure time="17:45" comments="Ombo etter Nesvik" />
-				<departure time="18:45" />
-				<departure time="19:15" />
-				<departure time="20:00" comments="Ombo etter Nesvik" />
-				<departure time="21:00" />
-				<departure time="21:30" />
-				<departure time="22:15" comments="Ombo etter Nesvik" />
-				<departure time="23:25" />
 			</weekday>
 			<weekday day="1" desc="Søndag">
 				<departure time="00:30" comments="Ombo etter Nesvik v/ bestilling" />
@@ -1249,8 +1222,8 @@
 			</weekday>
 		</departurepoint>
 		<departurepoint location="Nesvik">
-			<weekday day="2,3,4,5,6,7" desc="Ukedager">
-				<departure time="00:45" />
+			<weekday day="2,3,4,5,6,7" desc="Mandag-Lørdag">
+				<departure time="00:45" comments="Via Ombo v/ bestilling" />
 				<departure time="06:05" />
 				<departure time="06:30" comments="T/R Ombo" />
 				<departure time="07:05" />
@@ -1258,7 +1231,7 @@
 				<departure time="08:05" comments="T/R Ombo" />
 				<departure time="08:40" />
 				<departure time="09:15" />
-				<departure time="09:45" />
+				<departure time="09:45" comments="Via Ombo til Hjelmeland" />
 				<departure time="10:45" />
 				<departure time="11:15" />
 				<departure time="11:45" />
@@ -1266,51 +1239,21 @@
 				<departure time="12:45" comments="T/R Ombo" />
 				<departure time="13:20" />
 				<departure time="14:30" />
-				<departure time="15:00" />
+				<departure time="15:00" comments="Via Ombo til Hjelmeland" />
 				<departure time="16:00" />
-				<departure time="16:30" />
+				<departure time="16:30" comments="Via Ombo til Hjelmeland" />
 				<departure time="17:30" />
-				<departure time="18:00" />
+				<departure time="18:00" comments="Via Ombo til Hjelmeland" />
 				<departure time="19:00" />
 				<departure time="19:30" />
-				<departure time="20:15" />
+				<departure time="20:15" comments="Via Ombo til Hjelmeland" />
 				<departure time="21:15" />
 				<departure time="21:45" />
-				<departure time="22:30" />
+				<departure time="22:30" comments="Via Ombo til Hjelmeland" />
 				<departure time="23:30" />			
 			</weekday>
-			<weekday day="7" desc="Lørdag">
-				<departure time="00:45" />
-				<departure time="06:05" />
-				<departure time="06:30" comments="T/R Ombo" />
-				<departure time="07:05" />
-				<departure time="07:35" />
-				<departure time="08:05" comments="T/R Ombo" />
-				<departure time="08:40" />
-				<departure time="09:15" />
-				<departure time="09:45" />
-				<departure time="10:45" />
-				<departure time="11:15" />
-				<departure time="11:45" />
-				<departure time="12:15" />
-				<departure time="12:45" comments="T/R Ombo" />
-				<departure time="13:20" />
-				<departure time="14:30" />
-				<departure time="15:00" />
-				<departure time="16:00" />
-				<departure time="16:30" />
-				<departure time="17:30" />
-				<departure time="18:00" />
-				<departure time="19:00" />
-				<departure time="19:30" />
-				<departure time="20:15" />
-				<departure time="21:15" />
-				<departure time="21:45" />
-				<departure time="22:30" />
-				<departure time="23:40" />			
-			</weekday>
 			<weekday day="1" desc="Søndag">
-				<departure time="00:45" />
+				<departure time="00:45" comments="Via Ombo v/ bestilling" />
 				<departure time="07:35" />
 				<departure time="08:05" comments="T/R Ombo" />
 				<departure time="08:40" />
@@ -1329,9 +1272,9 @@
 				<departure time="18:15" />
 				<departure time="18:45" />
 				<departure time="19:45" />
-				<departure time="20:15" />
+				<departure time="20:15" comments="Via Ombo til Hjelmeland" />
 				<departure time="21:15" />
-				<departure time="21:45" />
+				<departure time="21:45" comments="Via Ombo til Hjelmeland" />
 				<departure time="22:30" />
 				<departure time="23:30" />			
 			</weekday>

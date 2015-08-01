@@ -11,7 +11,7 @@
  *
  */
 -->
-<routes serial="2015062901">
+<routes serial="2015070901">
 	<route name="Fogn-Jelsa (Nordrute)"
 		validfrom="2013-05-01" validto="2014-04-30" serial="2014020501" time="" ticketzone="" operator="norled" routeid="1025" 
 		url="http://norled.no/uploads/documents/Ferjeruter/2013_Rogaland/S1_Fogn_Judaberg_Nedstrand_Jelsa_2013_2014.pdf" areaCode="Rogaland" comments="Fogn Judaberg Halsnøy Eidsund Nord-Hidle Helgøy Nedstrand Hebnes Foldøy Jelsa">
