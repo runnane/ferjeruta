@@ -22,7 +22,7 @@ var coreFerjeruta = function(){
 		"ScheduleUrl"       : "schedule.xml",
 		"ScheduleTestingUrl": "schedule-testing.xml",
 		"ShowWarning"				: 1,
-		"WarningText"				: "Nytt 2016: Lauvvik-Oanes flere avganger, Sand-Ropeid <br>	nedlagt, tre ferjer Hjelmeland <br>(OBS: Ruter ikke oppdatert for Hjelmeland)",
+		"WarningText"				: "Nytt 2016: Lauvvik-Oanes flere avganger, Sand-Ropeid <br>	nedlagt, to ferjer Hjelmeland <br>(OBS: Ruter ikke oppdatert for Hjelmeland)",
 	};
 
 	// Number of notifications to show
