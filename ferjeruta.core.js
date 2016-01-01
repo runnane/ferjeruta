@@ -1,5 +1,5 @@
 /**
- * ferjeruta.no 
+ * ferjeruta.no
  * ferjeruta.core.js - Core object for ferjeruta
  * (c) 2014 Jon Tungland (jon@tungland.org) - http://runnane.no/
  * Released under the GNU General Public License 2.0
@@ -9,30 +9,30 @@
  *
  **/
 
-var coreFerjeruta = function () {
-	
+var coreFerjeruta = function(){
+
 	// Global settings (used for automated builds)
-	this.Settings = { 
+	this.Settings = {
 		"NotificationLimit" : 10,
-		"OfflineMode"		: 0,
+		"OfflineMode"				: 0,
 		"Published"         : 0,
-		"PiwikEnabled"		: 0,
+		"PiwikEnabled"			: 0,
 		"HidingEnabled"     : 0,
 		"NotificationsUrl"  : "http://projects.runnane.no/rVarsel/poll.php",
 		"ScheduleUrl"       : "schedule.xml",
 		"ScheduleTestingUrl": "schedule-testing.xml",
-		"ShowWarning"		: 0,
-		"WarningText"		: "",
+		"ShowWarning"				: 1,
+		"WarningText"				: "Nytt 2016: Lauvvik-Oanes flere avganger, Sand-Nesvik nedlagt, tre ferjer Hjelmeland (OBS: tabell ikke oppdatert for Hjelmeland)",
 	};
 
 	// Number of notifications to show
-	this.serviceList = [];
-	this.isLive = (this.Settings.Published == 1);
-	var pobj = this;
-	this.RouteXMLSerial = 0;
+	this.serviceList 						= [];
+	this.isLive 								= (this.Settings.Published == 1);
+	var pobj 										= this;
+	this.RouteXMLSerial 				= 0;
 	this.LastNotificationSerial = 0;
-	this.Notifications = [];
-	
+	this.Notifications 					= [];
+
 	this.AutoRefreshData = {
 			"Routes": {
 					Interval	: 60*1000, // 60 sec
@@ -51,28 +51,28 @@ var coreFerjeruta = function () {
 							pobj.RefreshNotifications();
 						}
 				}
-		
+
 		};
-	
-	// Settings object w/ defaults 
+
+	// Settings object w/ defaults
 	this.userSettings = {
-		"AutoRefreshRoutes" : { type:"bool", defValue: false, 
-			onChange: function(val){ 
+		"AutoRefreshRoutes" : { type:"bool", defValue: false,
+			onChange: function(val){
 				if(val === true){
-					_fr.StartAutoRefresh("Routes"); 
+					_fr.StartAutoRefresh("Routes");
 				}else{
-					_fr.StopAutoRefresh("Routes");	
+					_fr.StopAutoRefresh("Routes");
 				}
-			} 
+			}
 		},
-		"AutoRefreshNotifications" : { type:"bool", defValue: false, 
-			onChange: function(val){ 
+		"AutoRefreshNotifications" : { type:"bool", defValue: false,
+			onChange: function(val){
 				if(val==true){
-					_fr.StartAutoRefresh("Notifications"); 
+					_fr.StartAutoRefresh("Notifications");
 				}else{
-					_fr.StopAutoRefresh("Notifications");	
+					_fr.StopAutoRefresh("Notifications");
 				}
-			} 
+			}
 		},
 		"ShowRogaland" : { type:"bool", defValue: true },
 		"ShowHordaland" : { type:"bool", defValue: true },
@@ -85,18 +85,18 @@ var coreFerjeruta = function () {
 	this.GetSetting = function(settingName){
 		return $.jStorage.get(settingName, this.userSettings[settingName].defValue);
 	};
-	
+
 	this.SetSetting = function(settingName, value){
 		// Only set if different to previous value
 		var origval = this.GetSetting(settingName);
 		if(origval != value){
 			if(this.userSettings[settingName].onChange != undefined){
 				this.userSettings[settingName].onChange(value);
-			}	
+			}
 		}
 		return $.jStorage.set(settingName, value);
 	};
-	
+
 	// AutoRefreshRoutes handlers
 	this.StartAutoRefresh = function(subname, interval){
 		if(subname == undefined){
@@ -111,7 +111,7 @@ var coreFerjeruta = function () {
 		}
 		return this.AutoRefreshData[subname].ProcId;
 	};
-	
+
 	this.StopAutoRefresh = function(subname){
 		if(this.AutoRefreshData[subname].ProcId != 0){
 			clearInterval(this.AutoRefreshData[subname].ProcId);
@@ -119,7 +119,7 @@ var coreFerjeruta = function () {
 		}else{
 		}
 	};
-	
+
 	this.AutoRefreshTimer = function(subname, timeoutval){
 		//var id = this.AutoRefreshData[subname].ProcId;
 		if(!this.GetSetting("AutoRefresh"+subname)){
@@ -132,20 +132,20 @@ var coreFerjeruta = function () {
 		}
 		this.AutoRefreshData[subname].onTimer();
 	};
-	
+
 	// Logging (for debug)
 	this.Log = function (str){
 		// Don't debug if we are live
 		if(!this.isLive){
-			console.log(str);	
+			console.log(str);
 		}
 	}; //Log
-	
+
 	// Main init operation
 	this.Initialize = function (refreshWhenDone, onCompleteFunction) {
 		var pobj = this;
 		$.get(pobj.Settings.ScheduleUrl, function (xml) {
-			
+
 			// get main routes
 			pobj.RouteXMLSerial = $("routes", xml).attr("serial");
 			pobj.ParseRouteXml(xml);
@@ -159,47 +159,47 @@ var coreFerjeruta = function () {
 					if(pobj.GetSetting("AutoRefreshRoutes") === true){
 						pobj.StartAutoRefresh("Routes");
 					}
-					
+
 					// Check if we want AutoRefreshNotifications and setInterval
 					if(pobj.GetSetting("AutoRefreshNotifications") === true){
 						pobj.StartAutoRefresh("Notifications");
 					}
-					
+
 					// Refresh
 					if(refreshWhenDone === true){
 						pobj.RefreshServices();
 					}
-					
+
 					// oncompletecommand
 					if(onCompleteFunction != undefined){
-						onCompleteFunction();	
+						onCompleteFunction();
 					}
 				});
 			}else{
-				
+
 				// Check if we want AutoRefreshRoutes and setInterval
 				if(pobj.GetSetting("AutoRefreshRoutes") === true){
 					pobj.StartAutoRefresh("Routes");
 				}
-				
+
 				// Check if we want AutoRefreshNotifications and setInterval
 				if(pobj.GetSetting("AutoRefreshNotifications") === true){
 					pobj.StartAutoRefresh("Notifications");
 				}
-				
+
 				// Refresh
 				if(refreshWhenDone === true){
 					pobj.RefreshServices();
 				}
-				
+
 				// oncompletecommand
 				if(onCompleteFunction != undefined){
-					onCompleteFunction();	
+					onCompleteFunction();
 				}
 			}
 		}); // http get
 	}; // Initialize
-	
+
 	this.ParseRouteXml = function(routeXml){
 		var pobj = this;
 		$("route", routeXml)
@@ -211,7 +211,7 @@ var coreFerjeruta = function () {
 				$("line", $(this)).each(function() {
 					service.AddLine(this);
 				});
-				
+
 				$("departurepoint", this)
 					.each(function() {
 						var dp = service.AddDeparturePoint(this);
@@ -260,7 +260,7 @@ var coreFerjeruta = function () {
 				oncomplete(false);
 			}
 			pobj.RedrawNotifications();
-			return false;	
+			return false;
 		}
 		$.ajax({
 			type: "POST",
@@ -271,7 +271,7 @@ var coreFerjeruta = function () {
 				if(data.messages.length>0){
 					pobj.Notifications = new Array().concat(data.messages, pobj.Notifications);
 					while(pobj.Notifications.length > pobj.Settings.NotificationLimit){
-						pobj.Notifications.pop();	
+						pobj.Notifications.pop();
 					}
 					pobj.RedrawNotifications();
 					if(oncomplete != undefined){
@@ -288,7 +288,7 @@ var coreFerjeruta = function () {
 			dataType: "json"
 		});
 	};
-	
+
 	// Redraw notifications from internal object
 	this.RedrawNotifications = function(){
 		var pobj = this;
@@ -303,7 +303,7 @@ var coreFerjeruta = function () {
 				.append($("<p />").html("I offline-modus er varsel ikke aktivert"))
 				.collapsible({ inset: false })
 			);
-			return false;	
+			return false;
 		}
 		$.each(pobj.Notifications, function(index, notice){
 			var notification = notice.message;
@@ -326,14 +326,14 @@ var coreFerjeruta = function () {
 		_fr.SetSetting("HiddenServices", {});
 		$.mobile.changePage("#pageMainview", {transition: "none"});
 	};
-	
+
 	this.RefreshServices = function () {
 		$("#lvMainview")
 			.empty();
 		var pobj = this;
 		var now = new Date();
-		var str = GetDayName(now.getDay(),1) 
-			+ " " + strpad(now.getHours(),2) 
+		var str = GetDayName(now.getDay(),1)
+			+ " " + strpad(now.getHours(),2)
 			+ ":" + strpad(now.getMinutes(),2);
 		this.Today = now.getDay()+1;
 
@@ -346,25 +346,25 @@ var coreFerjeruta = function () {
 		$(".daycontents")
 			.text(str);
 		var numberShown = 0;
-		
+
 		if(pobj.Settings.ShowWarning == 1){
 			$("#lvMainview")
 				.append(CreateSimpleLi(pobj.Settings.WarningText,"Viktig melding"));
 		}
-				
+
 		$(this.serviceList)
 			.each(function (i) {
 				var ferryline = this;
 				// Specific area hidden by setting
 				if(_fr.Settings.HidingEnabled == 1){
 					if(HiddenServices[ferryline.Name] != undefined){
-						return true;	
+						return true;
 					}
 				}
-				
+
 				// Entire area hidden by option
 				if(!show[ferryline.AreaCode]){
-					return true;	
+					return true;
 				}
 				var slink = $("<a />");
 				slink.text(ferryline.Name)
@@ -439,7 +439,7 @@ var coreFerjeruta = function () {
 			.empty();
 		var datefrom = new Date(service.ValidFrom);
 		var dateto = new Date(service.ValidTo);
-					
+
 		var headerLvitem = $("<li />")
 			.append($("<h1 />")
 				.text(service.Name))
@@ -458,8 +458,8 @@ var coreFerjeruta = function () {
 					.append($("<p />")
 						.text(service.Comments));
 			}
-		
-		// link to pdf			
+
+		// link to pdf
 		if(service.Url){
 			var pdflink = $("<span />")
 				.addClass("ui-li-aside")
@@ -499,7 +499,7 @@ var coreFerjeruta = function () {
 							.click(function (e) {
 								service.Hide(true);
 							}) //click
-							
+
 					));
 			}
 
@@ -530,7 +530,7 @@ var coreFerjeruta = function () {
 				$("#lvDays")
 					.append(litem);
 			});
-			
+
 		$("#lvDays")
 			.listview("refresh");
 	};
@@ -540,9 +540,9 @@ var coreFerjeruta = function () {
 		$.mobile.changePage("#pageDepartures", {transition: "none"});
 		$("#lvDepartures")
 			.empty();
-		
+
 		$("#lvDepartures").append(CreateSimpleLi(" fra " + weekday.ParentDeparturePoint.Name + ", " + GetDayName(weekday.DayOfWeek).toLowerCase() + "<br />Se forklaring til fotnoter under.", weekday.ParentDeparturePoint.ParentService.Name ));
-		
+
 		// Back/next navbar
 		var bfbuttons = $('<li />')
 			.addClass("ui-body ui-body-b")
@@ -556,8 +556,8 @@ var coreFerjeruta = function () {
 								$("<button />")
 									.addClass("ui-btn ui-corner-all ui-btn-a ui-mini")
 									.text('< ' + weekday.PreviousDay().DayName())
-									.click(function(e) { 
-										pobj.SelectDay( weekday.PreviousDay() ); 
+									.click(function(e) {
+										pobj.SelectDay( weekday.PreviousDay() );
 									})
 							)
 					)
@@ -568,28 +568,28 @@ var coreFerjeruta = function () {
 								$("<button />")
 									.addClass("ui-btn ui-corner-all ui-btn-a ui-mini")
 									.text(weekday.NextDay().DayName() + ' >')
-									.click(function(e) { 
-										pobj.SelectDay( weekday.NextDay() ); 
+									.click(function(e) {
+										pobj.SelectDay( weekday.NextDay() );
 									})
 							)
 					)
 			);
-			
+
 		$("#lvDepartures")
 			.append(bfbuttons);
-		
+
 		$(weekday.Departures)
 			.each(function (l) {
 				var departure = this;
 				var litem = $("<li />");
 				var str = $("<strong>")
 					.text(departure.TimeOfDay);
-					
+
 				if(departure.Line && departure.Line.Color){
 					str.css("color",departure.Line.Color);
 				}
 				litem.append(str);
-				
+
 				// Show time of arrival if we have this setting enabled
 				if(pobj.GetSetting('ShowTimeOfArrival') == true){
 					var tript = departure.ParentDay.ParentDeparturePoint.ParentService.TripTime;
@@ -604,8 +604,8 @@ var coreFerjeruta = function () {
 							.text(strpad(arrivaltime.getHours(),2) + ":" + strpad(arrivaltime.getMinutes(),2))
 						);
 					}
-				}		
-						
+				}
+
 				if(departure.Line) {
 					litem.append(" [");
 					litem.append($("<strong />").text(departure.Line.Id));
@@ -614,22 +614,22 @@ var coreFerjeruta = function () {
 				var flags = 0;
 				$.each(departure.Flags, function(idx, val){
 					if(this.Code == undefined){
-						return false;	
+						return false;
 					}
 					flags++;
 					litem.append(" " + this.Code + " ");
 				});
-				
+
 				if(departure.Line){
 					$.each(departure.Line.Flags, function(idx, val){
 						if(this.Code == undefined){
-							return false;	
+							return false;
 						}
 						flags++;
 						litem.append(" " + this.Code + " ");
 					});
 				}
-				
+
 				if(departure.Comments != undefined) {
 					if(flags > 0){
 						litem.append(" // ");
@@ -639,17 +639,17 @@ var coreFerjeruta = function () {
 				if(departure.Line && departure.Line.Comments) {
 					litem.append(" " + departure.Line.Comments + " ");
 				}
-				
+
 				$("#lvDepartures")
 					.append(litem);
-					
+
 			}); //each departure
-		
+
 		// flags
 		var flagtext = "<h1>Fotnoter</h1>";
 		$.each(weekday.ParentDeparturePoint.ParentService.ServiceFlags, function(idx, val){
 			if(this.Code == undefined){
-				return false;	
+				return false;
 			}
 			flagtext += " " + this.Code + "=" + this.Comments + "<br />";
 		});
@@ -658,7 +658,7 @@ var coreFerjeruta = function () {
 		var ferrytext = "<h1>Ferjer</h1>";
 		$.each(weekday.ParentDeparturePoint.ParentService.ServiceLines, function(idx, val){
 			if(this.Id == undefined){
-				return false;	
+				return false;
 			}
 			ferrytext += " " + this.Id + " = " + this.Name + "<br />";
 		});
@@ -666,7 +666,7 @@ var coreFerjeruta = function () {
 
 		// CLone the top navbar and add to bottom
 		$("#lvDepartures").append(bfbuttons.clone(true));
-		
+
 		$("#lvDepartures")
 			.listview("refresh");
 		$(window).scrollTop( 0 );
