@@ -11,7 +11,7 @@
  *
  */
 -->
-<routes serial="2016010301">
+<routes serial="2016050901">
     <route name="Tausambandet" location1="Stavanger" location2="Tau"
         validfrom="2014-05-01" validto="2016-04-30" serial="2014050101" time="35" ticketzone="15" operator="norled" routeid="1022" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/stavanger-tau.pdf" areaCode="Rogaland" comments="">
 
@@ -978,22 +978,8 @@
         </departurepoint>
     </route>
 
-    <route name="Sand-Ropeid" location1="Sand" location2="Ropeid"
-        validfrom="2016-01-01" validto="2016-01-01" serial="2016010101" time="10" ticketzone="3" operator="norled" routeid="1026" areaCode="Rogaland">
-        <departurepoint location="Sand">
-            <weekday day="1,2,3,4,5,6,7" desc="Alle dager">
-                <departure time="00:00" comments="Nedlagt 1.1.2016" />
-            </weekday>
-        </departurepoint>
-        <departurepoint location="Ropeid">
-            <weekday day="1,2,3,4,5,6,7" desc="Alle dager">
-                <departure time="00:30" comments="Nedlagt 1.1.2016" />
-            </weekday>
-        </departurepoint>
-    </route>
-
     <route name="Hjelmeland-Nesvik" location1="Hjelmeland" location2="Nesvik"
-        validfrom="2016-01-01" validto="2016-12-31" serial="2016010301" time="11" ticketzone="3" operator="norled" routeid="1027" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/hjelmeland---nesvik---skipavik-gyldig-fra-1.-januar-2016.pdf" areaCode="Rogaland">
+        validfrom="2016-01-01" validto="2016-12-31" serial="2016050901" time="11" ticketzone="3" operator="norled" routeid="1027" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/hjelmeland---nesvik---skipavik-gyldig-fra-1.-januar-2016.pdf" areaCode="Rogaland">
         <departurepoint location="Hjelmeland">
             <weekday day="1" desc="Søndag">
                 <departure time="00:30" line="I" comments="Skipavik e. Nesvik v/ bestilling" />
@@ -1215,7 +1201,7 @@
                 <departure time="15:15" line="I" />
                 <departure time="15:45" line="I" />
                 <departure time="16:00" line="II" />
-                <departure time="15:15" line="I" />
+                <departure time="16:15" line="I" />
                 <departure time="16:30" line="II" comments="Om Skipavik" />
                 <departure time="16:45" line="I" />
                 <departure time="17:15" line="I" />

@@ -18,11 +18,11 @@ var coreFerjeruta = function(){
 		"Published"         : 0,
 		"PiwikEnabled"			: 0,
 		"HidingEnabled"     : 0,
-		"NotificationsUrl"  : "http://projects.runnane.no/rVarsel/poll.php",
+		"NotificationsUrl"  : "http://dev.runnane.no/rVarsel/poll.php",
 		"ScheduleUrl"       : "schedule.xml",
 		"ScheduleTestingUrl": "schedule-testing.xml",
-		"ShowWarning"				: 1,
-		"WarningText"				: "Nytt 2016: Lauvvik-Oanes flere avganger, Sand-Ropeid <br>	nedlagt, to ferjer Hjelmeland",
+		"ShowWarning"				: 0,
+		"WarningText"				: "",
 	};
 
 	// Number of notifications to show
