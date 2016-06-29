@@ -11,7 +11,7 @@
  *
  */
 -->
-<routes serial="2016050901">
+<routes serial="2016062901">
     <route name="Tausambandet" location1="Stavanger" location2="Tau"
         validfrom="2014-05-01" validto="2016-04-30" serial="2014050101" time="35" ticketzone="15" operator="norled" routeid="1022" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/stavanger-tau.pdf" areaCode="Rogaland" comments="">
 
@@ -208,7 +208,7 @@
     </route>
 
     <route name="Høgsfjordsambandet" location1="Lauvvik" location2="Oanes"
-        validfrom="2016-01-01" validto="2016-12-31" serial="2016010101" time="11" ticketzone="3" operator="norled" routeid="1024" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/oanes---lauvvik-gyldig-fra-1.-januar-2016.pdf" areaCode="Rogaland">
+        validfrom="2016-01-01" validto="2016-12-31" serial="2016062901" time="11" ticketzone="3" operator="norled" routeid="1024" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/oanes---lauvvik-gyldig-fra-1.-januar-2016.pdf" areaCode="Rogaland">
         <lines>
             <line id="I" name="MF Finnøy" phonenumber="97516008" type="ferry" flags="" comments="" color="" />
         </lines>
@@ -303,7 +303,6 @@
                 <departure time="00:00" />
                 <departure time="01:00" />
                 <departure time="02:00" />
-                <departure time="04:00" />
                 <departure time="04:30" />
                 <departure time="05:30" />
                 <departure time="06:00" />

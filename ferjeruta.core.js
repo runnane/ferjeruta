@@ -13,24 +13,24 @@ var coreFerjeruta = function(){
 
 	// Global settings (used for automated builds)
 	this.Settings = {
-		"NotificationLimit" : 10,
-		"OfflineMode"				: 0,
-		"Published"         : 0,
+		"NotificationLimit" 	: 10,
+		"OfflineMode"			: 0,
+		"Published"         	: 0,
 		"PiwikEnabled"			: 0,
-		"HidingEnabled"     : 0,
-		"NotificationsUrl"  : "http://dev.runnane.no/rVarsel/poll.php",
-		"ScheduleUrl"       : "schedule.xml",
-		"ScheduleTestingUrl": "schedule-testing.xml",
-		"ShowWarning"				: 0,
-		"WarningText"				: "",
+		"HidingEnabled"     	: 0,
+		"NotificationsUrl"  	: "http://dev.runnane.no/rVarsel/poll.php",
+		"ScheduleUrl"       	: "schedule.xml",
+		"ScheduleTestingUrl"	: "schedule-testing.xml",
+		"ShowWarning"			: 0,
+		"WarningText"			: "",
 	};
 
 	// Number of notifications to show
-	this.serviceList 						= [];
-	this.isLive 								= (this.Settings.Published == 1);
-	var pobj 										= this;
+	this.serviceList 					= [];
+	this.isLive 						= (this.Settings.Published == 1);
+	var pobj 							= this;
 	this.RouteXMLSerial 				= 0;
-	this.LastNotificationSerial = 0;
+	this.LastNotificationSerial 		= 0;
 	this.Notifications 					= [];
 
 	this.AutoRefreshData = {
@@ -73,11 +73,11 @@ var coreFerjeruta = function(){
 				}
 			}
 		},
-		"ShowRogaland" : { type:"bool", defValue: true },
-		"ShowHordaland" : { type:"bool", defValue: true },
-		"ShowTimeOfArrival" : { type:"bool", defValue: false },
-		"ShowTestingRoutes" : { type:"bool", defValue: false },
-		"HiddenServices" : { type:"obj", defValue: {} }
+		"ShowRogaland"		: { type:"bool",	defValue: true	},
+		"ShowHordaland" 	: { type:"bool",	defValue: true	},
+		"ShowTimeOfArrival" : { type:"bool",	defValue: false },
+		"ShowTestingRoutes" : { type:"bool",	defValue: false },
+		"HiddenServices"	: { type:"obj", 	defValue: {}	}
 	};
 
 	// Setting related functions
