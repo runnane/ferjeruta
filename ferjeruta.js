@@ -157,7 +157,7 @@ $(document)
 		
 		// Embed Piwik loading code (only for production site)
 		if(_fr.Settings.PiwikEnabled == 1){
-			var u=(("https:" == document.location.protocol) ? "https" : "http") + "://projects.runnane.no/piwik/";
+			var u=(("https:" == document.location.protocol) ? "https" : "http") + "://dev.runnane.no/piwik/";
 			_paq.push(["setTrackerUrl", u+"piwik.php"]);
 			_paq.push(["setSiteId", "1"]);
 			var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
