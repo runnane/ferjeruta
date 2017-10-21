@@ -11,14 +11,14 @@
  *
  */
 -->
-<routes serial="2016062901">
-    <route name="Tausambandet" location1="Stavanger" location2="Tau"
-        validfrom="2014-05-01" validto="2016-04-30" serial="2014050101" time="35" ticketzone="15" operator="norled" routeid="1022" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/stavanger-tau.pdf" areaCode="Rogaland" comments="">
+<routes serial="2017102101">
+    <route name="Tausambandet" location1="Stavanger" location2="Tau" 
+        validfrom="2016-05-01" validto="2017-12-31" serial="2016050101" time="35" ticketzone="15" operator="norled" routeid="1022" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/stavanger---tau-2017.pdf" areaCode="Rogaland" comments="">
 
         <lines>
-            <line id="I" name="Hardanger" phonenumber="0" type="ferry" flags="" comments="" color="" />
-            <line id="II" name="Ryfylke" phonenumber="0" type="ferry" flags="" comments="" color="" />
-            <line id="III" name="Stord" phonenumber="0" type="ferry" flags="S" comments="" color="#FF6600" />
+            <line id="I" name="MF Hardanger" phonenumber="91681177" type="ferry" flags="" comments="" color="" />
+            <line id="II" name="MF Ryfylke" phonenumber="91681176" type="ferry" flags="" comments="" color="" />
+            <line id="III" name="MF Stord" phonenumber="91681125" type="ferry" flags="S" comments="" color="#FF6600" />
         </lines>
 
         <flags>
@@ -208,7 +208,7 @@
     </route>
 
     <route name="Høgsfjordsambandet" location1="Lauvvik" location2="Oanes"
-        validfrom="2016-01-01" validto="2016-12-31" serial="2016062901" time="11" ticketzone="3" operator="norled" routeid="1024" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/oanes---lauvvik-gyldig-fra-1.-januar-2016.pdf" areaCode="Rogaland">
+        validfrom="2017-01-01" validto="2017-12-31" serial="2017010101" time="11" ticketzone="3" operator="norled" routeid="1024" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/oanes---lauvvik-gyldig-fra-1.-januar-2016.pdf" areaCode="Rogaland">
         <lines>
             <line id="I" name="MF Finnøy" phonenumber="97516008" type="ferry" flags="" comments="" color="" />
         </lines>
@@ -386,7 +386,7 @@
     </route>
 
     <route name="Mortavika-Arsvågen" location1="Mortavika" location2="Arsvågen"
-        validfrom="2015-06-25" validto="2016-04-30" serial="2015062501" time="25" ticketzone="95" operator="fjord1" routeid="1130" url="http://reise2.fjord1.no/Fjord1IISStaticTables/Tables/ruter/t/11-528.htm" areaCode="Rogaland">
+        validfrom="2017-09-11" validto="2017-12-31" serial="2017091101" time="25" ticketzone="95" operator="fjord1" routeid="1130" url="http://www.fjord1.no/content/download/323/1740482/version/1525/file/Mortavika-Arsv%C3%A5gen2017.pdf" areaCode="Rogaland">
 
         <rutes>
             <rute id="1" name="MF Boknafjord" phonenumber="0" type="ferry" comments="" />
@@ -530,7 +530,7 @@
                 <departure time="00:15" />
                 <departure time="01:10" />
                 <departure time="02:05" />
-                <departure time="03:45" />
+                <departure time="03:30" />
                 <departure time="05:20" />
                 <departure time="06:30" />
                 <departure time="06:00" />
@@ -978,8 +978,16 @@
     </route>
 
     <route name="Hjelmeland-Nesvik" location1="Hjelmeland" location2="Nesvik"
-        validfrom="2016-01-01" validto="2016-12-31" serial="2016050901" time="11" ticketzone="3" operator="norled" routeid="1027" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/hjelmeland---nesvik---skipavik-gyldig-fra-1.-januar-2016.pdf" areaCode="Rogaland">
-        <departurepoint location="Hjelmeland">
+        validfrom="2017-01-01" validto="2017-12-31" serial="2017010101" time="11" ticketzone="3" operator="norled" routeid="1027" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/hjelmeland---nesvik---skipavik-gyldig-fra-1.-januar-2016.pdf" areaCode="Rogaland">
+     
+     
+     
+        <lines>
+            <line id="I" name="MF Hjelmeland" phonenumber="91553642" type="ferry" flags="" comments="" color="" />
+            <line id="II" name="MF Sigrid" phonenumber="91681106" type="ferry" flags="" comments="" color="" />
+        </lines>
+        
+     <departurepoint location="Hjelmeland">
             <weekday day="1" desc="Søndag">
                 <departure time="00:30" line="I" comments="Skipavik e. Nesvik v/ bestilling" />
                 <departure time="01:30" line="I" />
