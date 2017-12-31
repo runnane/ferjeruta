@@ -21,8 +21,8 @@ var coreFerjeruta = function(){
 		"NotificationsUrl"  	: "http://dev.runnane.no/rVarsel/poll.php",
 		"ScheduleUrl"       	: "schedule.xml",
 		"ScheduleTestingUrl"	: "schedule-testing.xml",
-		"ShowWarning"			: 0,
-		"WarningText"			: "",
+		"ShowWarning"			: 1,
+		"WarningText"			: "Ruter er oppdatert for 2018, men vennligst meld ifra om feil! Godt nyttår!",
 	};
 
 	// Number of notifications to show
