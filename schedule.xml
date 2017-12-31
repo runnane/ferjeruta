@@ -915,13 +915,11 @@
     </route>
 
     <route name="Hjelmeland-Nesvik" location1="Hjelmeland" location2="Nesvik"
-        validfrom="2017-01-01" validto="2017-12-31" serial="2017010101" time="11" ticketzone="3" operator="norled" routeid="1027" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/hjelmeland---nesvik---skipavik-gyldig-fra-1.-januar-2016.pdf" areaCode="Rogaland">
-     
-     
+        validfrom="2018-01-01" validto="2019-12-31" serial="2018010101" time="11" ticketzone="3" operator="norled" routeid="1027" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/hjelmeland---nesvik---skipavik-gyldig-fra-01.01.2018.pdf" areaCode="Rogaland">
      
         <lines>
             <line id="I" name="MF Hjelmeland" phonenumber="91553642" type="ferry" flags="" comments="" color="" />
-            <line id="II" name="MF Sigrid" phonenumber="91681106" type="ferry" flags="" comments="" color="" />
+            <line id="II" name="MF Vannes" phonenumber="48017225" type="ferry" flags="" comments="" color="" />
         </lines>
         
      <departurepoint location="Hjelmeland">
