@@ -213,7 +213,7 @@
     </route>
 
     <route name="Høgsfjordsambandet" location1="Lauvvik" location2="Oanes"
-        validfrom="2017-01-01" validto="2017-12-31" serial="2017010101" time="11" ticketzone="3" operator="norled" routeid="1024" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/oanes---lauvvik-gyldig-fra-1.-januar-2016.pdf" areaCode="Rogaland">
+        validfrom="2018-01-01" validto="2019-12-31" serial="2018010101" time="11" ticketzone="3" operator="norled" routeid="1024" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/oanes---lauvvik-1024-norled_inkl.--helligdager.pdf" areaCode="Rogaland">
         <lines>
             <line id="I" name="MF Finnøy" phonenumber="97516008" type="ferry" flags="" comments="" color="" />
         </lines>
@@ -223,7 +223,7 @@
                 <departure time="00:15" />
                 <departure time="01:15" />
                 <departure time="02:15" />
-                <departure time="04:15" />
+                <departure time="04:45" />
                 <departure time="05:45" />
                 <departure time="06:15" />
                 <departure time="06:45" />
