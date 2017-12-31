@@ -11,9 +11,9 @@
  *
  */
 -->
-<routes serial="2017102101">
+<routes serial="2018010101">
     <route name="Tausambandet" location1="Stavanger" location2="Tau" 
-        validfrom="2016-05-01" validto="2017-12-31" serial="2016050101" time="35" ticketzone="15" operator="norled" routeid="1022" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/stavanger---tau-2017.pdf" areaCode="Rogaland" comments="">
+        validfrom="2018-01-01" validto="2019-12-31" serial="2018010101" time="40" ticketzone="15" operator="norled" routeid="1022" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/stavanger---tau-gyldig-fra-01.01.2018.pdf" areaCode="Rogaland" comments="">
 
         <lines>
             <line id="I" name="MF Hardanger" phonenumber="91681177" type="ferry" flags="" comments="" color="" />
@@ -32,129 +32,132 @@
         <departurepoint location="Stavanger" comments="">
             <weekday day="2,3,4,5,6" desc="Ukedager">
                 <departure time="00:00" line="I" flags="" />
-                <departure time="01:20" line="I" flags="" />
+                <departure time="01:30" line="I" flags="" />
                 <departure time="03:00" line="I" flags="" />
-                <departure time="04:30" line="I" flags="B,F" comments="Buss går 05:40" />
+                <departure time="04:30" line="I" flags="" />
                 <departure time="05:15" line="II" flags="" />
-                <departure time="06:00" line="I" flags="B,T" />
-                <departure time="06:40" line="II" flags="B,T" />
-                <departure time="07:20" line="I" flags="B" />
-                <departure time="07:40" line="III" flags="B" />
-                <departure time="08:00" line="II" flags="B,T" />
-                <departure time="08:40" line="I" flags="B" />
-                <departure time="09:20" line="II" flags="B,T" />
-                <departure time="10:00" line="I" flags="B" />
-                <departure time="10:40" line="II" flags="B,T" />
-                <departure time="11:20" line="I" flags="B" />
-                <departure time="12:00" line="II" flags="B,F,T" />
-                <departure time="12:40" line="I" flags="B,F" />
-                <departure time="13:20" line="II" flags="B,F,T" />
-                <departure time="14:00" line="I" flags="B,F" />
-                <departure time="14:15" line="III" flags="B,F" />
-                <departure time="14:40" line="II" flags="B,F,T" />
-                <departure time="15:20" line="I" flags="B,F,T" />
-                <departure time="15:45" line="III" flags="B,F" comments="Buss går 16:37*" />
-                <departure time="16:00" line="II" flags="B,F,T" />
-                <departure time="16:40" line="I" flags="B,F,T" />
-                <departure time="17:20" line="II" flags="B,F,T" />
-                <departure time="18:00" line="I" flags="B,F,T" />
-                <departure time="18:40" line="II" flags="B,F" />
-                <departure time="19:20" line="I" flags="B,F" />
-                <departure time="20:00" line="I" flags="B,F,T" />
-                <departure time="21:20" line="I" flags="B,F" />
-                <departure time="22:40" line="I" flags="B,F,T" />
+                <departure time="06:00" line="I" flags="" />
+                <departure time="06:15" line="III" flags="" />
+                <departure time="06:45" line="II" flags="" />
+                <departure time="07:30" line="I" flags="" />
+                <departure time="07:45" line="III" flags="" />
+                <departure time="08:15" line="II" flags="" />
+                <departure time="09:00" line="I" flags="" />
+                <departure time="09:45" line="II" flags="" />
+                <departure time="10:30" line="I" flags="" />
+                <departure time="11:15" line="II" flags="" />
+                <departure time="12:00" line="I" flags="" />
+                <departure time="12:45" line="II" flags="" />
+                <departure time="13:30" line="I" flags="" />
+                <departure time="14:15" line="II" flags="" />
+                <departure time="14:30" line="III" flags="" />
+                <departure time="15:00" line="I" flags="" />
+                <departure time="15:45" line="II" flags="" />
+                <departure time="16:00" line="III" flags="" />
+                <departure time="16:30" line="I" flags="" />
+                <departure time="17:15" line="II" flags="" />
+                <departure time="17:30" line="III" flags="" />
+                <departure time="18:00" line="I" flags="" />
+                <departure time="18:45" line="II" flags="" />
+                <departure time="19:30" line="I" flags="" />
+                <departure time="20:15" line="II" flags="" />
+                <departure time="21:00" line="I" flags="" />
+                <departure time="22:30" line="I" flags="" />
             </weekday>
+            
             <weekday day="7" desc="Lørdag">
-                <departure time="00:00" line="I" flags="B,F,T" />
-                <departure time="01:20" line="I" flags="B,F,B,N" />
+                <departure time="00:00" line="I" flags="" />
+                <departure time="01:30" line="I" flags="" />
                 <departure time="03:00" line="I" flags="" />
                 <departure time="06:00" line="I" flags="" />
                 <departure time="06:45" line="II" flags="" />
                 <departure time="07:30" line="I" flags="" />
-                <departure time="08:15" line="II" flags="B,T" />
+                <departure time="08:15" line="II" flags="" />
                 <departure time="09:00" line="I" flags="" />
-                <departure time="09:45" line="II" flags="B" />
+                <departure time="09:45" line="II" flags="" />
                 <departure time="10:30" line="I" flags="" />
-                <departure time="11:15" line="II" flags="B,T" />
+                <departure time="11:15" line="II" flags="" />
                 <departure time="12:00" line="I" flags="" />
-                <departure time="12:45" line="II" flags="B,F" />
+                <departure time="12:45" line="II" flags="" />
                 <departure time="13:30" line="I" flags="" />
-                <departure time="14:15" line="II" flags="B,F,T" />
+                <departure time="14:15" line="II" flags="" />
                 <departure time="15:00" line="I" flags="" />
-                <departure time="15:45" line="II" flags="B,F" />
+                <departure time="15:45" line="II" flags="" />
                 <departure time="16:30" line="I" flags="" />
-                <departure time="17:15" line="II" flags="B,F,T" />
+                <departure time="17:15" line="II" flags="" />
                 <departure time="18:00" line="I" flags="" />
                 <departure time="18:45" line="II" flags="" />
-                <departure time="19:20" line="I" flags="B,F,T" />
-                <departure time="20:40" line="I" flags="B" />
-                <departure time="22:00" line="I" flags="B,F,T" />
+                <departure time="19:30" line="I" flags="" />
+                <departure time="21:00" line="I" flags="" />
+                <departure time="22:30" line="I" flags="" />
             </weekday>
             <weekday day="1" desc="Søndag">
-                <departure time="00:00" line="I" flags="B,F" />
-                <departure time="01:20" line="I" flags="B,F,B,N" />
+                <departure time="00:00" line="I" flags="" />
+                <departure time="01:30" line="I" flags="" />
                 <departure time="03:00" line="I" flags="" />
                 <departure time="06:00" line="I" flags="" />
                 <departure time="07:30" line="I" flags="" />
-                <departure time="09:00" line="I" flags="B,T" />
-                <departure time="10:00" line="II" flags="" />
-                <departure time="10:40" line="I" flags="B" />
-                <departure time="11:20" line="II" flags="" />
-                <departure time="12:00" line="I" flags="B,F,T" />
-                <departure time="12:40" line="II" flags="" />
-                <departure time="13:20" line="I" flags="B,F" />
-                <departure time="14:00" line="II" flags="" />
-                <departure time="14:40" line="I" flags="B,F,T" />
-                <departure time="15:20" line="II" flags="" />
-                <departure time="16:00" line="I" flags="B,F" />
-                <departure time="16:40" line="II" flags="" />
-                <departure time="17:20" line="I" flags="B,F,T" />
-                <departure time="18:00" line="II" flags="" />
-                <departure time="18:40" line="I" flags="B,F" />
-                <departure time="19:20" line="II" flags="" />
-                <departure time="20:00" line="I" flags="B,F,T" />
-                <departure time="21:20" line="I" flags="B,F" />
-                <departure time="22:40" line="I" flags="B,F,T" />
+                <departure time="09:00" line="I" flags="" />
+                <departure time="09:45" line="II" flags="" />
+                <departure time="10:30" line="I" flags="" />
+                <departure time="11:15" line="II" flags="" />
+                <departure time="12:00" line="I" flags="" />
+                <departure time="12:45" line="II" flags="" />
+                <departure time="13:30" line="I" flags="" />
+                <departure time="14:15" line="II" flags="" />
+                <departure time="15:00" line="I" flags="" />
+                <departure time="15:15" line="III" flags="" />                
+                <departure time="15:45" line="II" flags="" />
+                <departure time="16:30" line="I" flags="" />
+                <departure time="16:45" line="III" flags="" />                   
+                <departure time="17:15" line="II" flags="" />
+                <departure time="18:00" line="I" flags="" />
+                <departure time="18:15" line="III" flags="" />
+                <departure time="18:45" line="II" flags="" />
+                <departure time="19:30" line="I" flags="" />
+                <departure time="20:15" line="II" flags="" />
+                <departure time="21:00" line="I" flags="" />
+                <departure time="22:30" line="I" flags="" />
             </weekday>
         </departurepoint>
         <departurepoint location="Tau">
             <weekday day="2,3,4,5,6" desc="Ukedager">
-                <departure time="00:40" line="I" />
-                <departure time="02:00" line="I" />
+                <departure time="00:45" line="I" />
+                <departure time="02:15" line="I" />
                 <departure time="03:45" line="I" />
                 <departure time="05:15" line="I" />
                 <departure time="06:00" line="II" />
-                <departure time="06:40" line="I" />
-                <departure time="06:55" line="III" />
-                <departure time="07:20" line="II" />
-                <departure time="08:00" line="I" />
-                <departure time="08:20" line="III" />
-                <departure time="08:40" line="II" />
-                <departure time="09:20" line="I" />
-                <departure time="10:00" line="II" />
-                <departure time="10:40" line="I" />
-                <departure time="11:20" line="II" />
-                <departure time="12:00" line="I" />
-                <departure time="12:40" line="II" />
-                <departure time="13:20" line="I" />
-                <departure time="14:00" line="II" />
-                <departure time="14:40" line="I" />
-                <departure time="15:00" line="III" />
-                <departure time="15:20" line="II" />
-                <departure time="16:00" line="I" />
-                <departure time="16:40" line="II" />
-                <departure time="17:20" line="I" />
+                <departure time="06:45" line="I" />
+                <departure time="07:00" line="III" />
+                <departure time="07:30" line="II" />
+                <departure time="08:15" line="I" />
+                <departure time="08:30" line="III" />
+                <departure time="09:00" line="II" />
+                <departure time="09:45" line="I" />
+                <departure time="10:30" line="II" />
+                <departure time="11:15" line="I" />
+                <departure time="12:00" line="II" />
+                <departure time="12:45" line="I" />
+                <departure time="13:30" line="II" />
+                <departure time="14:15" line="I" />
+                <departure time="15:00" line="II" />
+                <departure time="15:15" line="III" />
+                <departure time="15:45" line="I" />
+                <departure time="16:30" line="II" />
+                <departure time="16:45" line="III" />
+                <departure time="17:15" line="I" />
                 <departure time="18:00" line="II" />
-                <departure time="18:40" line="I" />
-                <departure time="19:20" line="II" />
-                <departure time="20:00" line="I" />
-                <departure time="20:40" line="I" />
-                <departure time="22:00" line="I" />
-                <departure time="23:20" line="I" />
+                <departure time="18:15" line="III" />
+                <departure time="18:45" line="I" />
+                <departure time="19:30" line="II" />
+                <departure time="20:15" line="I" />
+                <departure time="21:00" line="II" />
+                <departure time="21:45" line="I" />
+                <departure time="23:15" line="I" />
             </weekday>
             <weekday day="7" desc="Lørdag">
-                <departure time="00:40" line="I" />
-                <departure time="02:00" line="I" />
+                <departure time="00:45" line="I" />
+                <departure time="02:15" line="I" />
                 <departure time="05:15" line="I" />
                 <departure time="06:45" line="I" />
                 <departure time="07:30" line="II" />
@@ -172,37 +175,39 @@
                 <departure time="16:30" line="II" />
                 <departure time="17:15" line="I" />
                 <departure time="18:00" line="II" />
-                <departure time="18:40" line="I" />
+                <departure time="18:45" line="I" />
                 <departure time="19:30" line="II" />
-                <departure time="20:00" line="I" />
-                <departure time="21:20" line="I" />
-                <departure time="22:40" line="I" />
+                <departure time="20:15" line="I" />>
+                <departure time="21:45" line="I" />
+                <departure time="23:15" line="I" />
             </weekday>
             <weekday day="1" desc="Søndag">
-                <departure time="00:40" line="I" />
-                <departure time="02:00" line="I" />
+                <departure time="00:45" line="I" />
+                <departure time="02:15" line="I" />
                 <departure time="05:15" line="I" />
                 <departure time="06:45" line="I" />
                 <departure time="08:15" line="I" />
                 <departure time="09:45" line="I" />
-                <departure time="10:40" line="II" />
-                <departure time="11:20" line="I" />
+                <departure time="10:30" line="II" />
+                <departure time="11:15" line="I" />
                 <departure time="12:00" line="II" />
-                <departure time="12:40" line="I" />
-                <departure time="13:20" line="II" />
-                <departure time="14:00" line="I" />
-                <departure time="14:40" line="II" />
-                <departure time="15:20" line="I" />
-                <departure time="16:00" line="II" />
-                <departure time="16:40" line="I" />
-                <departure time="17:20" line="II" />
-                <departure time="18:00" line="I" />
-                <departure time="18:40" line="II" />
-                <departure time="19:20" line="I" />
-                <departure time="20:00" line="II" />
-                <departure time="20:40" line="I" />
-                <departure time="22:00" line="I" />
-                <departure time="23:20" line="I" />
+                <departure time="12:45" line="I" />
+                <departure time="13:30" line="II" />
+                <departure time="14:15" line="I" />
+                <departure time="15:00" line="II" />
+                <departure time="15:45" line="I" />
+                <departure time="16:00" line="III" />               
+                <departure time="16:30" line="II" />
+                <departure time="17:15" line="I" />
+                <departure time="17:30" line="III" />   
+                <departure time="18:00" line="II" />
+                <departure time="18:45" line="I" />
+                <departure time="19:00" line="III" />   
+                <departure time="19:30" line="II" />
+                <departure time="20:15" line="I" />>
+                <departure time="21:00" line="II" />
+                <departure time="21:45" line="I" />
+                <departure time="23:15" line="I" />
             </weekday>
         </departurepoint>
     </route>
