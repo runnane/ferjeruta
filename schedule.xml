@@ -1297,11 +1297,11 @@
     </route>
 
     <route name="Mekjarvik-Kvitsøy" location1="Mekjarvik" location2="Kvitsøy"
-        validfrom="2014-05-12" validto="2016-04-30" serial="2014051401" time="40" ticketzone="14" operator="norled" routeid="1023" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/mekjarvik-kvitsoy.pdf" areaCode="Rogaland">
+        validfrom="2016-10-17" validto="2018-04-30" serial="2016101701" time="40" ticketzone="14" operator="norled" routeid="1023" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/mekjarvik---kvitsoy-2017.pdf" areaCode="Rogaland">
 
         <departurepoint location="Mekjarvik">
             <weekday day="2,3,4,5,6" desc="Ukedager">
-                <departure time="07:35" />
+                <departure time="07:25" />
                 <departure time="08:55" />
                 <departure time="10:45" />
                 <departure time="14:00" />
@@ -1313,20 +1313,20 @@
                 <departure time="22:45" />
             </weekday>
             <weekday day="7" desc="Lørdag">
-                <departure time="07:35" />
+                <departure time="07:45" />
                 <departure time="10:30" />
                 <departure time="13:00" />
-                <departure time="15:30" />
-                <departure time="16:50" />
-                <departure time="18:20" />
+                <departure time="15:00" />
+                <departure time="16:45" />
+                <departure time="18:45" />
                 <departure time="21:00" />
                 <departure time="23:00" />
             </weekday>
             <weekday day="1" desc="Søndag">
                 <departure time="09:00" />
-                <departure time="10:45" />
-                <departure time="13:15" />
-                <departure time="15:15" />
+                <departure time="10:30" />
+                <departure time="13:00" />
+                <departure time="15:00" />
                 <departure time="16:45" />
                 <departure time="18:45" />
                 <departure time="21:00" />
@@ -1350,9 +1350,9 @@
                 <departure time="07:00" />
                 <departure time="09:00" />
                 <departure time="11:30" />
-                <departure time="14:30" />
+                <departure time="14:00" />
                 <departure time="16:10" />
-                <departure time="17:30" />
+                <departure time="17:00" />
                 <departure time="20:00" />
                 <departure time="22:15" />
             </weekday>
@@ -1360,7 +1360,7 @@
                 <departure time="08:15" />
                 <departure time="09:45" />
                 <departure time="12:30" />
-                <departure time="14:30" />
+                <departure time="14:00" />
                 <departure time="16:00" />
                 <departure time="18:00" />
                 <departure time="20:00" />
