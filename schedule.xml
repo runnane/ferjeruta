@@ -921,7 +921,7 @@
             <line id="I" name="MF Hjelmeland" phonenumber="91553642" type="ferry" flags="" comments="" color="" />
             <line id="II" name="MF Vannes" phonenumber="48017225" type="ferry" flags="" comments="" color="" />
         </lines>
-        
+
      <departurepoint location="Hjelmeland">
             <weekday day="1" desc="Søndag">
                 <departure time="00:30" line="I" comments="Skipavik e. Nesvik v/ bestilling" />
@@ -1293,10 +1293,7 @@
             </weekday>
         </departurepoint>
 
-        <lines>
-            <line id="I" name="Hjelmeland" phonenumber="91553642" type="ferry" flags="" comments="" color="" />
-            <line id="II" name="Petter Dass" phonenumber="91681106" type="ferry" flags="" comments="" color="" />
-        </lines>
+        
     </route>
 
     <route name="Mekjarvik-Kvitsøy" location1="Mekjarvik" location2="Kvitsøy"
