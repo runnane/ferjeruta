@@ -664,7 +664,7 @@
     </route>
 
     <route name="Halhjemsambandet" location1="Sandvikvåg" location2="Halhjem"
-        validfrom="2015-06-25" validto="2016-04-30" serial="2015062501" time="40" ticketzone="96" operator="fjord1" routeid="1131" url="http://reise2.fjord1.no/Fjord1IISStaticTables/Tables/ruter/t/12-143.htm" areaCode="Hordaland">
+        validfrom="2018-01-01" validto="2018-12-30" serial="2018010101" time="40" ticketzone="96" operator="fjord1" routeid="1131" url="http://www.fjord1.no/content/download/324/1740516/version/2771/file/Halhjem-Sandvikv%C3%A5g.pdf " areaCode="Hordaland">
 
         <rutes>
             <rute id="1" name="MF Bergensfjord" phonenumber="0" type="ferry" comments="" />
@@ -673,7 +673,7 @@
         </rutes>
 
         <departurepoint location="Sandvikvåg">
-            <weekday day="2" desc="Mandag">
+            <weekday day="2,3,4,5" desc="Mandag-Torsdag">
                 <departure time="00:15" />
                 <departure time="02:00" />
                 <departure time="04:40" />
@@ -681,7 +681,8 @@
                 <departure time="06:15" />
                 <departure time="07:00" />
                 <departure time="07:45" />
-                <departure time="08:30" />
+                <departure time="08:15" />
+                <departure time="08:45" />
                 <departure time="09:15" />
                 <departure time="09:45" />
                 <departure time="10:15" />
@@ -706,19 +707,20 @@
                 <departure time="19:45" />
                 <departure time="20:15" />
                 <departure time="20:45" />
-                <departure time="21:15" />
-                <departure time="22:00" />
+                <departure time="21:45" />
                 <departure time="22:45" />
                 <departure time="23:30" />
             </weekday>
-            <weekday day="3,4,5,6" desc="Tirsdag-Fredag">
+            <weekday day="6" desc="Fredag">
                 <departure time="00:15" />
                 <departure time="02:00" />
                 <departure time="04:40" />
+                <departure time="05:10" />
                 <departure time="06:15" />
                 <departure time="07:00" />
                 <departure time="07:45" />
-                <departure time="08:30" />
+                <departure time="08:15" />
+                <departure time="08:45" />
                 <departure time="09:15" />
                 <departure time="09:45" />
                 <departure time="10:15" />
@@ -744,7 +746,7 @@
                 <departure time="20:15" />
                 <departure time="20:45" />
                 <departure time="21:15" />
-                <departure time="22:00" />
+                <departure time="21:00" />
                 <departure time="22:45" />
                 <departure time="23:30" />
             </weekday>
@@ -784,9 +786,9 @@
                 <departure time="08:30" />
                 <departure time="09:15" />
                 <departure time="10:00" />
-                <departure time="10:45" />
+                <departure time="10:50" />
                 <departure time="11:30" />
-                <departure time="12:15" />
+                <departure time="12:25" />
                 <departure time="13:00" />
                 <departure time="13:45" />
                 <departure time="14:15" />
@@ -810,7 +812,7 @@
             </weekday>
         </departurepoint>
         <departurepoint location="Halhjem">
-            <weekday day="2" desc="Mandag">
+            <weekday day="2,3,4,5,6" desc="Mandag-Fredag">
                 <departure time="01:05" />
                 <departure time="02:50" />
                 <departure time="05:30" />
@@ -818,6 +820,7 @@
                 <departure time="07:00" />
                 <departure time="07:45" />
                 <departure time="08:30" />
+                <departure time="09:00" />
                 <departure time="09:30" />
                 <departure time="09:00" />
                 <departure time="10:00" />
@@ -846,79 +849,7 @@
                 <departure time="22:45" />
                 <departure time="23:30" />
             </weekday>
-            <weekday day="3" desc="Tirsdag">
-                <departure time="00:15" />
-                <departure time="01:05" />
-                <departure time="02:50" />
-                <departure time="05:30" />
-                <departure time="06:00" />
-                <departure time="07:00" />
-                <departure time="07:45" />
-                <departure time="08:30" />
-                <departure time="09:30" />
-                <departure time="09:00" />
-                <departure time="10:00" />
-                <departure time="10:30" />
-                <departure time="11:00" />
-                <departure time="12:00" />
-                <departure time="12:30" />
-                <departure time="13:00" />
-                <departure time="13:30" />
-                <departure time="14:00" />
-                <departure time="14:30" />
-                <departure time="15:00" />
-                <departure time="15:30" />
-                <departure time="16:00" />
-                <departure time="16:30" />
-                <departure time="17:00" />
-                <departure time="17:30" />
-                <departure time="18:00" />
-                <departure time="18:30" />
-                <departure time="19:00" />
-                <departure time="19:30" />
-                <departure time="20:00" />
-                <departure time="20:30" />
-                <departure time="21:00" />
-                <departure time="21:45" />
-                <departure time="22:45" />
-                <departure time="23:30" />
-            </weekday>
-            <weekday day="4,5,6" desc="Onsdag, Torsdag, Fredag">
-                <departure time="01:05" />
-                <departure time="02:50" />
-                <departure time="05:30" />
-                <departure time="06:00" />
-                <departure time="07:00" />
-                <departure time="07:45" />
-                <departure time="08:30" />
-                <departure time="09:30" />
-                <departure time="09:00" />
-                <departure time="10:00" />
-                <departure time="10:30" />
-                <departure time="11:00" />
-                <departure time="12:00" />
-                <departure time="12:30" />
-                <departure time="13:00" />
-                <departure time="13:30" />
-                <departure time="14:00" />
-                <departure time="14:30" />
-                <departure time="15:00" />
-                <departure time="15:30" />
-                <departure time="16:00" />
-                <departure time="16:30" />
-                <departure time="17:00" />
-                <departure time="17:30" />
-                <departure time="18:00" />
-                <departure time="18:30" />
-                <departure time="19:00" />
-                <departure time="19:30" />
-                <departure time="20:00" />
-                <departure time="20:30" />
-                <departure time="21:00" />
-                <departure time="21:45" />
-                <departure time="22:45" />
-                <departure time="23:30" />
-            </weekday>
+         
             <weekday day="7" desc="Lørdag">
                 <departure time="01:05" />
                 <departure time="02:50" />
@@ -956,11 +887,11 @@
                 <departure time="09:15" />
                 <departure time="10:00" />
                 <departure time="10:45" />
-                <departure time="11:30" />
+                <departure time="11:40" />
                 <departure time="12:15" />
                 <departure time="13:00" />
-                <departure time="14:00" />
                 <departure time="13:30" />
+                <departure time="14:00" />>
                 <departure time="14:30" />
                 <departure time="15:00" />
                 <departure time="15:30" />
@@ -975,7 +906,8 @@
                 <departure time="20:00" />
                 <departure time="20:30" />
                 <departure time="21:00" />
-                <departure time="21:45" />
+                <departure time="21:30" />
+                <departure time="22:00" />
                 <departure time="22:45" />
                 <departure time="23:30" />
             </weekday>
