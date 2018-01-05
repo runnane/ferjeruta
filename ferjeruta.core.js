@@ -22,7 +22,7 @@ var coreFerjeruta = function(){
 		"ScheduleUrl"       	: "schedule.xml",
 		"ScheduleTestingUrl"	: "schedule-testing.xml",
 		"ShowWarning"			: 1,
-		"WarningText"			: "Ruter er oppdatert for 2018, men vennligst meld ifra om feil! Godt nyttår!",
+		"WarningText"			: "Ruter er oppdatert for 2018, vennligst meld ifra om feil!",
 	};
 
 	// Number of notifications to show

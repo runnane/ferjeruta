@@ -84,6 +84,10 @@ var CreateSimpleLi = function(str, header){
 };
 
 ////// Start webpage
+
+$.ajaxSetup({ cache: false });
+
+
 var _fr;
 var _paq = _paq || [];
 
