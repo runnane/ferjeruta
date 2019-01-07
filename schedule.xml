@@ -397,9 +397,9 @@
         areaCode="Rogaland">
 
         <rutes>
-            <rute id="1" name="MF Boknafjord" phonenumber="0" type="ferry" comments="" />
-            <rute id="2" name="MF Mastrafjord" phonenumber="0" type="ferry" comments="" />
-            <rute id="3" name="MF Stavangerfjord" phonenumber="0" type="ferry" comments="" />
+            <rute id="1" name="MF Boknafjord" phonenumber="415 36 358" type="ferry" comments="" />
+            <rute id="2" name="MF Mastrafjord" phonenumber="415 36 357" type="ferry" comments="" />
+            <rute id="3" name="MF Stavangerfjord" phonenumber="415 36 356" type="ferry" comments="" />
         </rutes>
 
         <departurepoint location="Mortavika">
