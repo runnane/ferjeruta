@@ -1827,7 +1827,7 @@
     </route>
 
 
-    <route name="Hufthamar-Krokeide" location1="Hufthamar" location2="Krokeide" validfrom="2018-07-15" validto="2018-12-31" serial="2018071501"
+    <route name="Hufthamar-Krokeide" location1="Hufthamar" location2="Krokeide" validfrom="2019-01-01" validto="2019-12-31" serial="2019010101"
         time="35" ticketzone="96" operator="fjord1" routeid="720" url="https://www.fjord1.no/Ruteoversikt/Hordaland/Hufthamar-Krokeide"
         areaCode="Hordaland">
 
@@ -1844,54 +1844,50 @@
                 <departure time="08:10" line="B" />
                 <departure time="08:55" line="A" />
                 <departure time="09:40" line="B" />
-                <departure time="10:15" line="A" />
+                <departure time="10:25" line="A" />
                 <departure time="11:10" line="B" />
-                <departure time="11:35" line="A" />
-                <departure time="12:55" line="A" />
-                <departure time="13:20" line="B" />
-                <departure time="14:15" line="A" />
-                <departure time="14:55" line="B" />
-                <departure time="15:35" line="A" />
+                <departure time="11:55" line="A" />
+                <departure time="12:40" line="B" />
+                <departure time="13:25" line="A" />
+                <departure time="14:10" line="B" />
+                <departure time="14:55" line="A" />
+                <departure time="15:40" line="B" />
                 <departure time="16:25" line="B" />
-                <departure time="17:00" line="A" />
+                <departure time="17:10" line="B" />
                 <departure time="17:55" line="B" />
-                <departure time="18:20" line="A" />
-                <departure time="19:40" line="A" />
-                <departure time="21:00" line="A" />
-                <departure time="22:40" line="A" />
+                <departure time="18:40" line="B" />
+                <departure time="20:55" line="A" />
+                <departure time="22:35" line="A" />
+
             </weekday>
             <weekday day="7" desc="Lørdag">
-                <departure time="05:55" line="A" />
-                <departure time="07:25" line="A" />
-                <departure time="08:55" line="A" />
-                <departure time="10:15" line="A" />
-                <departure time="11:35" line="A" />
-                <departure time="12:55" line="A" />
-                <departure time="14:15" line="A" />
-                <departure time="15:35" line="A" />
-                <departure time="17:00" line="A" />
-                <departure time="18:20" line="A" />
-                <departure time="19:40" line="A" />
-                <departure time="21:00" line="A" />
-                <departure time="22:40" line="A" />
+                <departure time="05:55" />
+                <departure time="07:25" />
+                 <departure time="08:55" />
+                 <departure time="10:25" />
+                 <departure time="11:55" />
+                 <departure time="13:25" />
+                 <departure time="14:55" />
+                 <departure time="16:25" />
+                 <departure time="17:55" />
+                 <departure time="19:25" />
+                 <departure time="20:55" />
+                 <departure time="22:35" />
+
             </weekday>
             <weekday day="1" desc="Søndag">
-                <departure time="07:25" line="A" />
-                <departure time="08:55" line="A" />
-                <departure time="10:15" line="A" />
-                <departure time="11:35" line="A" />
-                <departure time="12:55" line="A" />
-                <departure time="14:15" line="A" />
-                <departure time="14:55" line="B" />
-                <departure time="15:35" line="A" />
-                <departure time="16:25" line="B" />
-                <departure time="17:00" line="A" />
-                <departure time="17:55" line="B" />
-                <departure time="18:20" line="A" />
-                <departure time="19:25" line="B" />
-                <departure time="19:40" line="A" />
-                <departure time="21:00" line="A" />
-                <departure time="22:40" line="A" />
+                 <departure time="07:25" />
+                 <departure time="08:55" />
+                 <departure time="10:25" />
+                 <departure time="11:55" />
+                 <departure time="13:25" />
+                 <departure time="14:55" />
+                 <departure time="16:25" />
+                 <departure time="17:55" />
+                 <departure time="19:25" />
+                 <departure time="20:55" />
+                 <departure time="22:35" />
+
             </weekday>
         </departurepoint>
         <departurepoint location="Krokeide">
