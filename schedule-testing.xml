@@ -14,7 +14,7 @@
 <routes serial="2015070901">
 	<route name="Fogn-Jelsa (Nordrute)"
 		validfrom="2013-05-01" validto="2014-04-30" serial="2014020501" time="" ticketzone="" operator="norled" routeid="1025" 
-		url="http://norled.no/uploads/documents/Ferjeruter/2013_Rogaland/S1_Fogn_Judaberg_Nedstrand_Jelsa_2013_2014.pdf" areaCode="Rogaland" comments="Fogn Judaberg Halsnøy Eidsund Nord-Hidle Helgøy Nedstrand Hebnes Foldøy Jelsa">
+		url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/fogn-judaberg---nedstrand---jelsa-gyldig-fra-01.01.18.pdf" areaCode="Rogaland" comments="Fogn Judaberg Halsnøy Eidsund Nord-Hidle Helgøy Nedstrand Hebnes Foldøy Jelsa">
 		
 		<lines>
 			<line id="I" name="M/F Sjernarøy" phonenumber="975 16 225" type="ferry" flags="" comments="" color="" />
