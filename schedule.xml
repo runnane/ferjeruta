@@ -11,219 +11,19 @@
  *
  */
 -->
-<routes serial="2019010701">
-    <route name="Tausambandet" location1="Stavanger" location2="Tau" validfrom="2018-01-01" validto="2019-12-31" serial="2018010101"
-        time="40" ticketzone="15" operator="norled" routeid="1022" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/stavanger---tau-gyldig-fra-01.01.2018.pdf"
-        areaCode="Rogaland" comments="">
+<routes serial="2020010401">
 
-        <lines>
-            <line id="I" name="MF Hardanger" phonenumber="91681177" type="ferry" flags="" comments="" color="" />
-            <line id="II" name="MF Ryfylke" phonenumber="91681176" type="ferry" flags="" comments="" color="" />
-            <line id="III" name="MF Stord" phonenumber="91681125" type="ferry" flags="S" comments="" color="#FF6600" />
-        </lines>
-
-        <flags>
-            <flag code="B" comments="Buss til Jørpeland" />
-            <flag code="N" comments="Nattbuss" />
-            <flag code="F" comments="Buss om Førland" />
-            <flag code="T" comments="Buss om Tungland" />
-            <flag code="S" comments="Ingen servering ombord" />
-        </flags>
-
-        <departurepoint location="Stavanger" comments="">
-            <weekday day="2,3,4,5,6" desc="Ukedager">
-                <departure time="00:00" line="I" flags="" />
-                <departure time="01:30" line="I" flags="" />
-                <departure time="03:00" line="I" flags="" />
-                <departure time="04:30" line="I" flags="" />
-                <departure time="05:15" line="II" flags="" />
-                <departure time="06:00" line="I" flags="" />
-                <departure time="06:15" line="III" flags="" />
-                <departure time="06:45" line="II" flags="" />
-                <departure time="07:30" line="I" flags="" />
-                <departure time="07:45" line="III" flags="" />
-                <departure time="08:15" line="II" flags="" />
-                <departure time="09:00" line="I" flags="" />
-                <departure time="09:45" line="II" flags="" />
-                <departure time="10:30" line="I" flags="" />
-                <departure time="11:15" line="II" flags="" />
-                <departure time="12:00" line="I" flags="" />
-                <departure time="12:45" line="II" flags="" />
-                <departure time="13:30" line="I" flags="" />
-                <departure time="14:15" line="II" flags="" />
-                <departure time="14:30" line="III" flags="" />
-                <departure time="15:00" line="I" flags="" />
-                <departure time="15:45" line="II" flags="" />
-                <departure time="16:00" line="III" flags="" />
-                <departure time="16:30" line="I" flags="" />
-                <departure time="17:15" line="II" flags="" />
-                <departure time="17:30" line="III" flags="" />
-                <departure time="18:00" line="I" flags="" />
-                <departure time="18:45" line="II" flags="" />
-                <departure time="19:30" line="I" flags="" />
-                <departure time="20:15" line="II" flags="" />
-                <departure time="21:00" line="I" flags="" />
-                <departure time="22:30" line="I" flags="" />
-            </weekday>
-
-            <weekday day="7" desc="Lørdag">
-                <departure time="00:00" line="I" flags="" />
-                <departure time="01:30" line="I" flags="" />
-                <departure time="03:00" line="I" flags="" />
-                <departure time="06:00" line="I" flags="" />
-                <departure time="06:45" line="II" flags="" />
-                <departure time="07:30" line="I" flags="" />
-                <departure time="08:15" line="II" flags="" />
-                <departure time="09:00" line="I" flags="" />
-                <departure time="09:45" line="II" flags="" />
-                <departure time="10:30" line="I" flags="" />
-                <departure time="11:15" line="II" flags="" />
-                <departure time="12:00" line="I" flags="" />
-                <departure time="12:45" line="II" flags="" />
-                <departure time="13:30" line="I" flags="" />
-                <departure time="14:15" line="II" flags="" />
-                <departure time="15:00" line="I" flags="" />
-                <departure time="15:45" line="II" flags="" />
-                <departure time="16:30" line="I" flags="" />
-                <departure time="17:15" line="II" flags="" />
-                <departure time="18:00" line="I" flags="" />
-                <departure time="18:45" line="II" flags="" />
-                <departure time="19:30" line="I" flags="" />
-                <departure time="21:00" line="I" flags="" />
-                <departure time="22:30" line="I" flags="" />
-            </weekday>
-            <weekday day="1" desc="Søndag">
-                <departure time="00:00" line="I" flags="" />
-                <departure time="01:30" line="I" flags="" />
-                <departure time="03:00" line="I" flags="" />
-                <departure time="06:00" line="I" flags="" />
-                <departure time="07:30" line="I" flags="" />
-                <departure time="09:00" line="I" flags="" />
-                <departure time="09:45" line="II" flags="" />
-                <departure time="10:30" line="I" flags="" />
-                <departure time="11:15" line="II" flags="" />
-                <departure time="12:00" line="I" flags="" />
-                <departure time="12:45" line="II" flags="" />
-                <departure time="13:30" line="I" flags="" />
-                <departure time="14:15" line="II" flags="" />
-                <departure time="15:00" line="I" flags="" />
-                <departure time="15:15" line="III" flags="" />
-                <departure time="15:45" line="II" flags="" />
-                <departure time="16:30" line="I" flags="" />
-                <departure time="16:45" line="III" flags="" />
-                <departure time="17:15" line="II" flags="" />
-                <departure time="18:00" line="I" flags="" />
-                <departure time="18:15" line="III" flags="" />
-                <departure time="18:45" line="II" flags="" />
-                <departure time="19:30" line="I" flags="" />
-                <departure time="20:15" line="II" flags="" />
-                <departure time="21:00" line="I" flags="" />
-                <departure time="22:30" line="I" flags="" />
-            </weekday>
-        </departurepoint>
-        <departurepoint location="Tau">
-            <weekday day="2,3,4,5,6" desc="Ukedager">
-                <departure time="00:45" line="I" />
-                <departure time="02:15" line="I" />
-                <departure time="03:45" line="I" />
-                <departure time="05:15" line="I" />
-                <departure time="06:00" line="II" />
-                <departure time="06:45" line="I" />
-                <departure time="07:00" line="III" />
-                <departure time="07:30" line="II" />
-                <departure time="08:15" line="I" />
-                <departure time="08:30" line="III" />
-                <departure time="09:00" line="II" />
-                <departure time="09:45" line="I" />
-                <departure time="10:30" line="II" />
-                <departure time="11:15" line="I" />
-                <departure time="12:00" line="II" />
-                <departure time="12:45" line="I" />
-                <departure time="13:30" line="II" />
-                <departure time="14:15" line="I" />
-                <departure time="15:00" line="II" />
-                <departure time="15:15" line="III" />
-                <departure time="15:45" line="I" />
-                <departure time="16:30" line="II" />
-                <departure time="16:45" line="III" />
-                <departure time="17:15" line="I" />
-                <departure time="18:00" line="II" />
-                <departure time="18:15" line="III" />
-                <departure time="18:45" line="I" />
-                <departure time="19:30" line="II" />
-                <departure time="20:15" line="I" />
-                <departure time="21:00" line="II" />
-                <departure time="21:45" line="I" />
-                <departure time="23:15" line="I" />
-            </weekday>
-            <weekday day="7" desc="Lørdag">
-                <departure time="00:45" line="I" />
-                <departure time="02:15" line="I" />
-                <departure time="05:15" line="I" />
-                <departure time="06:45" line="I" />
-                <departure time="07:30" line="II" />
-                <departure time="08:15" line="I" />
-                <departure time="09:00" line="II" />
-                <departure time="09:45" line="I" />
-                <departure time="10:30" line="II" />
-                <departure time="11:15" line="I" />
-                <departure time="12:00" line="II" />
-                <departure time="12:45" line="I" />
-                <departure time="13:30" line="II" />
-                <departure time="14:15" line="I" />
-                <departure time="15:00" line="II" />
-                <departure time="15:45" line="I" />
-                <departure time="16:30" line="II" />
-                <departure time="17:15" line="I" />
-                <departure time="18:00" line="II" />
-                <departure time="18:45" line="I" />
-                <departure time="19:30" line="II" />
-                <departure time="20:15" line="I" />>
-                <departure time="21:45" line="I" />
-                <departure time="23:15" line="I" />
-            </weekday>
-            <weekday day="1" desc="Søndag">
-                <departure time="00:45" line="I" />
-                <departure time="02:15" line="I" />
-                <departure time="05:15" line="I" />
-                <departure time="06:45" line="I" />
-                <departure time="08:15" line="I" />
-                <departure time="09:45" line="I" />
-                <departure time="10:30" line="II" />
-                <departure time="11:15" line="I" />
-                <departure time="12:00" line="II" />
-                <departure time="12:45" line="I" />
-                <departure time="13:30" line="II" />
-                <departure time="14:15" line="I" />
-                <departure time="15:00" line="II" />
-                <departure time="15:45" line="I" />
-                <departure time="16:00" line="III" />
-                <departure time="16:30" line="II" />
-                <departure time="17:15" line="I" />
-                <departure time="17:30" line="III" />
-                <departure time="18:00" line="II" />
-                <departure time="18:45" line="I" />
-                <departure time="19:00" line="III" />
-                <departure time="19:30" line="II" />
-                <departure time="20:15" line="I" />>
-                <departure time="21:00" line="II" />
-                <departure time="21:45" line="I" />
-                <departure time="23:15" line="I" />
-            </weekday>
-        </departurepoint>
-    </route>
-
-    <route name="Høgsfjordsambandet" location1="Lauvvik" location2="Oanes" validfrom="2018-01-01" validto="2019-12-31" serial="2018010101"
-        time="11" ticketzone="3" operator="norled" routeid="1024" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/oanes---lauvvik-1024-norled_inkl.--helligdager.pdf"
+    <route name="Høgsfjordsambandet" location1="Lauvvik" location2="Oanes" validfrom="2020-01-01" validto="2020-12-31" serial="2020010101"
+        time="11" ticketzone="3" operator="boreal" routeid="1024" url="https://www.boreal.no/getfile.php/1318727-1577798180/Internett/Filer/Rutetider/Helgelandske/Ferjeruter/Lauvvik-Oanes%20fra%2031.12.19.pdf"
         areaCode="Rogaland">
         <lines>
-            <line id="I" name="MF Finnøy" phonenumber="97516008" type="ferry" flags="" comments="" color="" />
+            <line id="I" name="MF Preikestolen" phonenumber="" type="ferry" flags="" comments="" color="" />
         </lines>
 
         <departurepoint location="Lauvvik">
             <weekday day="2,3,4,5,6" desc="Ukedager">
                 <departure time="00:15" />
-                <departure time="01:15" />
+                <departure time="01:45" />
                 <departure time="02:15" />
                 <departure time="04:45" />
                 <departure time="05:45" />
@@ -266,6 +66,7 @@
             </weekday>
             <weekday day="7,1" desc="Lørdag, Søndag">
                 <departure time="00:15" />
+                <departure time="00:45" />
                 <departure time="01:15" />
                 <departure time="02:15" />
                 <departure time="06:45" />
@@ -351,6 +152,7 @@
             </weekday>
             <weekday day="7,1" desc="Lørdag, Søndag">
                 <departure time="00:00" />
+                <departure time="00:30" />
                 <departure time="01:00" />
                 <departure time="02:00" />
                 <departure time="06:30" />
@@ -2033,7 +1835,6 @@
             </weekday>
         </departurepoint>
     </route>
-
 
     <route name="Hufthamar-Krokeide" location1="Hufthamar" location2="Krokeide" validfrom="2019-01-01" validto="2019-12-31" serial="2019010101"
         time="35" ticketzone="96" operator="fjord1" routeid="720" url="https://www.fjord1.no/Ruteoversikt/Hordaland/Hufthamar-Krokeide"
