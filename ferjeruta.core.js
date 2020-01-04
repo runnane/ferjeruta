@@ -18,11 +18,11 @@ var coreFerjeruta = function(){
 		"Published"         	: 0,
 		"PiwikEnabled"			: 0,
 		"HidingEnabled"     	: 0,
-		"NotificationsUrl"  	: "http://dev.runnane.no/rVarsel/poll.php",
+		"NotificationsUrl"  	: "https://dev.runnane.no/rVarsel/poll.php",
 		"ScheduleUrl"       	: "schedule.xml",
 		"ScheduleTestingUrl"	: "schedule-testing.xml",
 		"ShowWarning"			: 1,
-		"WarningText"			: "Merk at ruter ikke er oppdaterte for 01.01.2020 enda!",
+		"WarningText"			: "Merk at ruter ikke er verifiserte for 2020 enda!",
 	};
 
 	// Number of notifications to show
