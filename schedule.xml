@@ -13,7 +13,7 @@
 -->
 <routes serial="2020010401">
 
-    <route name="Høgsfjordsambandet" location1="Lauvvik" location2="Oanes" validfrom="2020-01-01" validto="2020-12-31" serial="2020010101"
+    <route name="Lauvvik-Oanes (Boreal)" location1="Lauvvik" location2="Oanes" validfrom="2020-01-01" validto="2020-12-31" serial="2020010101"
         time="11" ticketzone="3" operator="boreal" routeid="1024" url="https://www.boreal.no/getfile.php/1318727-1577798180/Internett/Filer/Rutetider/Helgelandske/Ferjeruter/Lauvvik-Oanes%20fra%2031.12.19.pdf"
         areaCode="Rogaland">
         <lines>
