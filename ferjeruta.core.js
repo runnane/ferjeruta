@@ -21,8 +21,8 @@ var coreFerjeruta = function(){
 		"NotificationsUrl"  	: "http://dev.runnane.no/rVarsel/poll.php",
 		"ScheduleUrl"       	: "schedule.xml",
 		"ScheduleTestingUrl"	: "schedule-testing.xml",
-		"ShowWarning"			: 0,
-		"WarningText"			: "",
+		"ShowWarning"			: 1,
+		"WarningText"			: "Merk at ruter ikke er oppdaterte for 01.01.2020 enda!",
 	};
 
 	// Number of notifications to show
