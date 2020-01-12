@@ -8,9 +8,18 @@
  * Project page: https://github.com/runnane/ferjeruta
  *
  */
- 
-////// Helper functions
-var TimeBetweenTwoTimes = function (fm,	fs, lm, ls) {
+
+/**
+ *
+ * @param fm
+ * @param fs
+ * @param lm
+ * @param ls
+ * @returns {number}
+ * @constructor
+ */
+var TimeBetweenTwoTimes = function(fm,	fs, lm, ls) {
+	"use strict";
 	var date1 = new Date(2000, 0, 1, fm, fs);
 	var date2 = new Date(2000, 0, 1, lm, ls);
 	if(date2 < date1) {
@@ -20,7 +29,14 @@ var TimeBetweenTwoTimes = function (fm,	fs, lm, ls) {
 	return(diff / 60000);
 };
 
-var SecsToString = function (secs) {
+/**
+ *
+ * @param secs
+ * @returns {string}
+ * @constructor
+ */
+var SecsToString = function(secs) {
+	"use strict";
 	var hours = Math.floor(secs / 60 / 60);
 	secs -= hours * 60 * 60;
 	var minutes = Math.floor(secs / 60);
@@ -29,7 +45,14 @@ var SecsToString = function (secs) {
 	return hours + " t, " + minutes + " m, " + seconds + " s";
 };
 
-var MinsToString = function (minutes) {
+/**
+ *
+ * @param minutes
+ * @returns {string}
+ * @constructor
+ */
+var MinsToString = function(minutes) {
+	"use strict";
 	var hours = Math.floor(minutes / 60);
 	minutes -= hours * 60;
 	if(hours >= 1) {
@@ -39,7 +62,15 @@ var MinsToString = function (minutes) {
 	}
 };
 
-var GetDayName = function (num, isjsdate) {
+/**
+ * Get weekday name by dayOfWeek int
+ * @param dayOfWeek
+ * @param isjsdate
+ * @returns {any}
+ * @constructor
+ */
+var GetDayName = function (dayOfWeek, isjsdate) {
+	"use strict";
 	var weekday = new Array(7);
 	weekday[0] = "Søndag";
 	weekday[1] = "Mandag";
@@ -49,31 +80,57 @@ var GetDayName = function (num, isjsdate) {
 	weekday[5] = "Fredag";
 	weekday[6] = "Lørdag";
 	if(isjsdate != 1) {
-		num--;
+		dayOfWeek--;
 	}
-	return weekday[num];
+	return weekday[dayOfWeek];
 };
 
-var strpad = function (str, maxm) {
-	str = str.toString();
-	return str.length < maxm ? strpad("0" + str, maxm) : str;
+/**
+ *
+ * @param str
+ * @param maxCharacters
+ * @returns {string}
+ */
+var strpad = function (str, maxCharacters) {
+	"use strict";
+	var outStr = str.toString();
+	return outStr.length < maxCharacters ? strpad("0" + outStr, maxCharacters) : outStr;
 }
 
-// Compare times
+/**
+ *
+ * @param h1
+ * @param m1
+ * @param h2
+ * @param m2
+ * @returns {boolean}
+ */
 var isEarlier = function (h1, m1, h2, m2) {
+	"use strict";
 	if(h1 < h2 || (h1 == h2 && m1 < m2)) {
 		return true;
 	}
 	return false;
 };
 
-// Extend internal date object
+/**
+ * Extend internal date object
+ * @returns {string}
+ */
 Date.prototype.toNorwString = function () {
+	"use strict";
 	return this.getDate() + "." + (this.getMonth() + 1) + "." + this.getFullYear();
 };
 
-// Helper function for creating headers, breadcrumbs etc
+/**
+ * Helper function for creating headers, breadcrumbs etc
+ * @param str
+ * @param header
+ * @returns {jQuery|HTMLElement|*|Promise<string>|string}
+ * @constructor
+ */
 var CreateSimpleLi = function(str, header){
+	"use strict";
 	if(header == undefined){
 		return $('<li />').text(str);
 	}
@@ -87,7 +144,6 @@ var CreateSimpleLi = function(str, header){
 
 $.ajaxSetup({ cache: false });
 
-
 var _fr;
 var _paq = _paq || [];
 
@@ -96,6 +152,7 @@ _paq.push(["enableLinkTracking"]);
 
 $(document)
 	.ready(function (e) {
+		"use strict";
 		// Load main page if hash is set when loading page (cannot refresh inactive page)
 		if(window.location.hash){
 			$.mobile.changePage("#pageMainview", {transition: "none"});
@@ -171,7 +228,8 @@ $(document)
 		
 });
 	
-$(document).on('pagebeforecreate', '#pageMainview', function(){     
+$(document).on('pagebeforecreate', '#pageMainview', function(){
+	"use strict";
    var interval = setInterval(function(){
         $.mobile.loading('show', {
             text: 'Laster ferjeruta',
