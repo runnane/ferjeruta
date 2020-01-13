@@ -95,7 +95,7 @@ var strpad = function (str, maxCharacters) {
 	"use strict";
 	var outStr = str.toString();
 	return outStr.length < maxCharacters ? strpad("0" + outStr, maxCharacters) : outStr;
-}
+};
 
 /**
  *

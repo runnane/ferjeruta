@@ -8,113 +8,104 @@
  * Project page: https://github.com/runnane/ferjeruta
  *
  **/
-/*jshint esversion:6 */
 
-class coreFerjeruta {
+var coreFerjeruta = function(){
+	'use strict';
+	// Global settings (used for automated builds)
+	this.Settings = {
+		"NotificationLimit" 	: 10,
+		"OfflineMode"			: 0,
+		"Published"         	: 0,
+		"PiwikEnabled"			: 0,
+		"HidingEnabled"     	: 0,
+		"NotificationsUrl"  	: "https://dev.runnane.no/rVarsel/poll.php",
+		"ScheduleUrl"       	: "schedule.xml",
+		"ScheduleTestingUrl"	: "schedule-testing.xml",
+		"ShowWarning"			: 1,
+		"WarningText"			: "Merk at ikke alle ruter verifiserte for 2020 enda!",
+	};
 
-	constructor() {
-		// Global settings (used for automated builds)
-		this.Settings = {
-			"NotificationLimit": 10,
-			"OfflineMode": 0,
-			"Published": 0,
-			"PiwikEnabled": 0,
-			"HidingEnabled": 0,
-			"NotificationsUrl": "https://dev.runnane.no/rVarsel/poll.php",
-			"ScheduleUrl": "schedule.xml",
-			"ScheduleTestingUrl": "schedule-testing.xml",
-			"ShowWarning": 1,
-			"WarningText": "Merk at ruter ikke er verifiserte for 2020 enda!",
-		};
+	// Number of notifications to show
+	this.serviceList 					= [];
+	this.isLive 						= (this.Settings.Published == 1);
+	var pobj 							= this;
+	this.RouteXMLSerial 				= 0;
+	this.LastNotificationSerial 		= 0;
+	this.Notifications 					= [];
 
-		// Number of notifications to show
-		this.serviceList = [];
-		this.isLive = (this.Settings.Published === 1);
-		var pobj = this;
-		this.RouteXMLSerial = 0;
-		this.LastNotificationSerial = 0;
-		this.Notifications = [];
-
-		this.AutoRefreshData = {
-			"Routes": {
-				Interval: 60 * 1000, // 60 sec
-				ProcId: 0,
-				onTimer: function () {
-					if ($("#pageMainview").is(":hidden")) {
-						return;
-					}
-					pobj.RefreshServices();
+	this.AutoRefreshData = {
+		"Routes": {
+			Interval	: 60*1000, // 60 sec
+			ProcId		: 0,
+			onTimer : function(){
+				if( $('#pageMainview').is(':hidden') ) {
+					return;
 				}
-			},
-			"Notifications": {
-				Interval: 5 * 60 * 1000, // 5 min
-				ProcId: 0,
-				onTimer: function () {
-					pobj.RefreshNotifications();
+				pobj.RefreshServices();
+			}
+		},
+		"Notifications": {
+			Interval	: 5*60*1000, // 5 min
+			ProcId		: 0,
+			onTimer     : function(){
+				pobj.RefreshNotifications();
+			}
+		}
+	};
+
+	// Settings object w/ defaults
+	this.userSettings = {
+		"AutoRefreshRoutes" : { type:"bool", defValue: false,
+			onChange: function(val){
+				if(val === true){
+					_fr.StartAutoRefresh("Routes");
+				}else{
+					_fr.StopAutoRefresh("Routes");
 				}
 			}
-		};
-
-		// Settings object w/ defaults
-		this.userSettings = {
-			"AutoRefreshRoutes": {
-				type: "bool",
-				defValue: false,
-				onChange: function (val) {
-					if (val === true) {
-						_fr.StartAutoRefresh("Routes");
-					} else {
-						_fr.StopAutoRefresh("Routes");
-					}
+		},
+		"AutoRefreshNotifications" : { type:"bool", defValue: false,
+			onChange: function(val){
+				if(val==true){
+					_fr.StartAutoRefresh("Notifications");
+				}else{
+					_fr.StopAutoRefresh("Notifications");
 				}
-			},
-			"AutoRefreshNotifications": {
-				type: "bool",
-				defValue: false,
-				onChange: function (val) {
-					if (val == true) {
-						_fr.StartAutoRefresh("Notifications");
-					} else {
-						_fr.StopAutoRefresh("Notifications");
-					}
-				}
-			},
-			"ShowRogaland": {type: "bool", defValue: true},
-		//	"ShowHordaland": {type: "bool", defValue: true},
-			"ShowVestland": {type: "bool", defValue: true},
-			"ShowTimeOfArrival": {type: "bool", defValue: false},
-			"ShowTestingRoutes": {type: "bool", defValue: false},
-			"HiddenServices": {type: "obj", defValue: {}}
-		};
-	}
+			}
+		},
+		"ShowRogaland"		: { type:"bool",	defValue: true	},
+		"ShowVestland" 	: { type:"bool",	defValue: true	},
+		"ShowTimeOfArrival" : { type:"bool",	defValue: false },
+		"ShowTestingRoutes" : { type:"bool",	defValue: false },
+		"HiddenServices"	: { type:"obj", 	defValue: {}	}
+	};
 
 	/**
-	 * Setting related functions
+	 *
 	 * @param settingName
-	 * @returns {ActiveX.IXMLDOMNode | Promise<any> | any | string | IDBRequest<any | undefined> | FormDataEntryValue | Function | Promise<Credential | null>}
+	 * @returns {IDBRequest<any | undefined> | string | any | ActiveX.IXMLDOMNode | Promise<any> | Function | FormDataEntryValue}
 	 * @constructor
 	 */
-	GetSetting(settingName) {
+	this.GetSetting = function(settingName){
 		return $.jStorage.get(settingName, this.userSettings[settingName].defValue);
-	}
+	};
 
 	/**
 	 *
 	 * @param settingName
 	 * @param value
-	 * @returns {*}
 	 * @constructor
 	 */
-	SetSetting(settingName, value) {
+	this.SetSetting = function(settingName, value){
 		// Only set if different to previous value
 		var origval = this.GetSetting(settingName);
-		if (origval != value) {
-			if (this.userSettings[settingName].onChange != undefined) {
+		if(origval != value){
+			if(this.userSettings[settingName].onChange != undefined){
 				this.userSettings[settingName].onChange(value);
 			}
 		}
 		return $.jStorage.set(settingName, value);
-	}
+	};
 
 	/**
 	 * AutoRefreshRoutes handlers
@@ -123,33 +114,32 @@ class coreFerjeruta {
 	 * @returns {number}
 	 * @constructor
 	 */
-	StartAutoRefresh(subname, interval) {
-		if (subname == undefined) {
+	this.StartAutoRefresh = function(subname, interval){
+		if(subname == undefined){
 			subname = "Routes";
 		}
-		if (interval == undefined) {
+		if(interval == undefined){
 			interval = this.AutoRefreshData[subname].Interval;
 		}
-		if (this.AutoRefreshData[subname].ProcId == 0) {
-			this.AutoRefreshData[subname].ProcId = setInterval(function () {
-				_fr.AutoRefreshTimer(subname, interval);
-			}, interval);
-		} else {
+		if(this.AutoRefreshData[subname].ProcId == 0){
+			this.AutoRefreshData[subname].ProcId = setInterval(function(){ _fr.AutoRefreshTimer(subname,interval); }, interval);
+		}else{
 		}
 		return this.AutoRefreshData[subname].ProcId;
-	}
+	};
 
 	/**
 	 *
 	 * @param subname
 	 * @constructor
 	 */
-	StopAutoRefresh(subname) {
-		if (this.AutoRefreshData[subname].ProcId != 0) {
+	this.StopAutoRefresh = function(subname){
+		if(this.AutoRefreshData[subname].ProcId != 0){
 			clearInterval(this.AutoRefreshData[subname].ProcId);
-			this.AutoRefreshData[subname].ProcId = 0;
+			this.AutoRefreshData[subname].ProcId=0;
+		}else{
 		}
-	}
+	};
 
 	/**
 	 *
@@ -157,30 +147,30 @@ class coreFerjeruta {
 	 * @param timeoutval
 	 * @constructor
 	 */
-	AutoRefreshTimer(subname, timeoutval) {
+	this.AutoRefreshTimer = function(subname, timeoutval){
 		//var id = this.AutoRefreshData[subname].ProcId;
-		if (!this.GetSetting("AutoRefresh" + subname)) {
+		if(!this.GetSetting("AutoRefresh"+subname)){
 			this.StopAutoRefresh(subname);
 			return;
 		}
-		if (this.AutoRefreshData[subname].ProcId < 1) {
+		if(this.AutoRefreshData[subname].ProcId<1){
 			this.StopAutoRefresh(subname);
 			return;
 		}
 		this.AutoRefreshData[subname].onTimer();
-	}
+	};
 
 	/**
 	 * Logging (for debug)
 	 * @param str
 	 * @constructor
 	 */
-	Log(str) {
+	this.Log = function (str){
 		// Don't debug if we are live
-		if (!this.isLive) {
+		if(!this.isLive){
 			console.log(str);
 		}
-	}
+	}; //Log
 
 	/**
 	 * Main init operation
@@ -188,7 +178,7 @@ class coreFerjeruta {
 	 * @param onCompleteFunction
 	 * @constructor
 	 */
-	Initialize(refreshWhenDone, onCompleteFunction) {
+	this.Initialize = function (refreshWhenDone, onCompleteFunction) {
 		var pobj = this;
 		$.get(pobj.Settings.ScheduleUrl, function (xml) {
 
@@ -197,86 +187,86 @@ class coreFerjeruta {
 			pobj.ParseRouteXml(xml);
 			$("#txtScheduleVersion").html(pobj.RouteXMLSerial);
 
-			if (pobj.GetSetting("ShowTestingRoutes") === true) {
+			if(pobj.GetSetting("ShowTestingRoutes") === true){
 				$.get(pobj.Settings.ScheduleTestingUrl, function (xml) {
 					pobj.ParseRouteXml(xml);
 
 					// Check if we want AutoRefreshRoutes and setInterval
-					if (pobj.GetSetting("AutoRefreshRoutes") === true) {
+					if(pobj.GetSetting("AutoRefreshRoutes") === true){
 						pobj.StartAutoRefresh("Routes");
 					}
 
 					// Check if we want AutoRefreshNotifications and setInterval
-					if (pobj.GetSetting("AutoRefreshNotifications") === true) {
+					if(pobj.GetSetting("AutoRefreshNotifications") === true){
 						pobj.StartAutoRefresh("Notifications");
 					}
 
 					// Refresh
-					if (refreshWhenDone === true) {
+					if(refreshWhenDone === true){
 						pobj.RefreshServices();
 					}
 
 					// oncompletecommand
-					if (onCompleteFunction != undefined) {
+					if(onCompleteFunction != undefined){
 						onCompleteFunction();
 					}
 				});
-			} else {
+			}else{
 
 				// Check if we want AutoRefreshRoutes and setInterval
-				if (pobj.GetSetting("AutoRefreshRoutes") === true) {
+				if(pobj.GetSetting("AutoRefreshRoutes") === true){
 					pobj.StartAutoRefresh("Routes");
 				}
 
 				// Check if we want AutoRefreshNotifications and setInterval
-				if (pobj.GetSetting("AutoRefreshNotifications") === true) {
+				if(pobj.GetSetting("AutoRefreshNotifications") === true){
 					pobj.StartAutoRefresh("Notifications");
 				}
 
 				// Refresh
-				if (refreshWhenDone === true) {
+				if(refreshWhenDone === true){
 					pobj.RefreshServices();
 				}
 
 				// oncompletecommand
-				if (onCompleteFunction != undefined) {
+				if(onCompleteFunction != undefined){
 					onCompleteFunction();
 				}
 			}
 		}); // http get
-	} // Initialize
+	}; // Initialize
 
 	/**
 	 *
 	 * @param routeXml
 	 * @constructor
 	 */
-	ParseRouteXml(routeXml) {
+	this.ParseRouteXml = function(routeXml){
 		var pobj = this;
 		$("route", routeXml)
-			.each(function () {
+			.each(function() {
 				var service = pobj.AddSamband(this);
-				$("flag", $(this)).each(function () {
+				$("flag", $(this)).each(function() {
 					service.AddFlag(this);
 				});
-				$("line", $(this)).each(function () {
+				$("line", $(this)).each(function() {
 					service.AddLine(this);
 				});
 
 				$("departurepoint", this)
-					.each(function () {
+					.each(function() {
 						var dp = service.AddDeparturePoint(this);
 						$("weekday", this)
-							.each(function () {
+							.each(function() {
 								var weekdays = $(this).attr("day");
-								$("departure", this)
-									.each(function () {
+								$("departure",this)
+									.each(function() {
 										dp.AddAvgang(weekdays, this);
 									});// each departure
 							});// each weekday
 					}); //each departurepoint
 			}); // each route
-	}
+	};
 
 	/**
 	 *
@@ -284,11 +274,11 @@ class coreFerjeruta {
 	 * @returns {FerryService}
 	 * @constructor
 	 */
-	AddSamband(sambandXmlNode) {
+	this.AddSamband = function (sambandXmlNode) {
 		var fr = new FerryService(sambandXmlNode);
 		this.serviceList.push(fr);
 		return fr;
-	}
+	};
 
 	/**
 	 *
@@ -296,17 +286,17 @@ class coreFerjeruta {
 	 * @returns {*}
 	 * @constructor
 	 */
-	GetSamband(name) {
+	this.GetSamband = function (name) {
 		var ret;
 		$(this.serviceList)
 			.each(function (i) {
-				if (this.Name == name) {
+				if(this.Name == name) {
 					ret = this;
 					return false;
 				}
 			});
 		return ret;
-	}
+	};
 
 	/**
 	 *
@@ -318,12 +308,12 @@ class coreFerjeruta {
 	 * @returns {*}
 	 * @constructor
 	 */
-	GetNext(ferryline, departurepoint, dayofweek, hour, minute) {
+	this.GetNext = function (ferryline, departurepoint, dayofweek, hour, minute) {
 		return this.GetSamband(ferryline)
 			.GetDeparturePoint(departurepoint)
 			.GetDay(dayofweek)
 			.GetNextDeparture(hour, minute);
-	}
+	};
 
 	/**
 	 * Get updated notifications from rVarsel subsystem
@@ -331,10 +321,10 @@ class coreFerjeruta {
 	 * @returns {boolean}
 	 * @constructor
 	 */
-	RefreshNotifications(oncomplete) {
+	this.RefreshNotifications = function(oncomplete){
 		var pobj = this;
-		if (pobj.Settings.OfflineMode == 1) {
-			if (oncomplete != undefined) {
+		if(pobj.Settings.OfflineMode == 1){
+			if(oncomplete != undefined){
 				oncomplete(false);
 			}
 			pobj.RedrawNotifications();
@@ -343,93 +333,91 @@ class coreFerjeruta {
 		$.ajax({
 			type: "POST",
 			url: pobj.Settings.NotificationsUrl,
-			data: {ls: pobj.LastNotificationSerial},
+			data: {ls : pobj.LastNotificationSerial},
 			success: function (data, textStatus, jqXHR) {
 				pobj.LastNotificationSerial = data.currentserial;
-				if (data.messages.length > 0) {
+				if(data.messages.length>0){
 					pobj.Notifications = new Array().concat(data.messages, pobj.Notifications);
-					while (pobj.Notifications.length > pobj.Settings.NotificationLimit) {
+					while(pobj.Notifications.length > pobj.Settings.NotificationLimit){
 						pobj.Notifications.pop();
 					}
 					pobj.RedrawNotifications();
-					if (oncomplete != undefined) {
+					if(oncomplete != undefined){
 						oncomplete(true);
 					}
 				}
 			},
-			error: function (jqXHR, textStatus, errorThrown) {
+			error: function(jqXHR, textStatus, errorThrown){
 				// Todo: handle unable to fetch notifications (no service etc..)
-				if (oncomplete != undefined) {
+				if(oncomplete != undefined){
 					oncomplete(false);
 				}
 			},
 			dataType: "json"
 		});
-	}
+	};
 
 	/**
 	 * Redraw notifications from internal object
 	 * @returns {boolean}
 	 * @constructor
 	 */
-	RedrawNotifications() {
+	this.RedrawNotifications = function(){
 		var pobj = this;
 
 		$("#notificationContainer")
 			.empty();
-		if (pobj.Settings.OfflineMode == 1) {
+		if(pobj.Settings.OfflineMode == 1){
 			$("#notificationContainer")
 				.append(
 					$("<div />")
 						.append($("<h2 />").text("Varsel ikke aktivert"))
 						.append($("<p />").html("I offline-modus er varsel ikke aktivert"))
-						.collapsible({inset: false})
+						.collapsible({ inset: false })
 				);
 			return false;
 		}
-		$.each(pobj.Notifications, function (index, notice) {
+		$.each(pobj.Notifications, function(index, notice){
 			var notification = notice.message;
-			if (notice.title) {
+			if(notice.title){
 				notification = "<strong>" + notice.title + "</strong>" + "<br />" + notification;
 			}
 			var timenow = new Date(notice.time_rfc);
-			var timestr = timenow.getDate() + "." + (timenow.getMonth() + 1) + " " + strpad(timenow.getHours(), 2) + ":" + strpad(timenow.getMinutes(), 2);
+			var timestr = timenow.getDate() + "." + (timenow.getMonth()+1) + " " + strpad(timenow.getHours(),2) + ":" + strpad(timenow.getMinutes(),2);
 			$("#notificationContainer")
 				.append(
 					$("<div />")
 						.append($("<h2 />").text(timestr + " " + notice.service.name))
 						.append($("<p />").html(notification))
-						.collapsible({inset: false})
+						.collapsible({ inset: false })
 				);
 		});
-	}
+	};
 
 	/**
 	 *
 	 * @constructor
 	 */
-	ResetHiddenServices() {
+	this.ResetHiddenServices = function(){
 		_fr.SetSetting("HiddenServices", {});
 		$.mobile.changePage("#pageMainview", {transition: "none"});
-	}
+	};
 
 	/**
 	 *
 	 * @constructor
 	 */
-	RefreshServices() {
-		$("#lvMainview")
-			.empty();
+	this.RefreshServices = function () {
+		$("#lvMainview").empty();
 		var pobj = this;
 		var now = new Date();
-		var str = GetDayName(now.getDay(), 1) +
-			" " + strpad(now.getHours(), 2) +
-			":" + strpad(now.getMinutes(), 2);
-		this.Today = now.getDay() + 1;
+		var str = GetDayName(now.getDay(),1) +
+			" " + strpad(now.getHours(),2)+
+			":" + strpad(now.getMinutes(),2);
+		this.Today = now.getDay()+1;
 
 		var show = {
 			"Rogaland": this.GetSetting("ShowRogaland"),
-		//	"Hordaland": this.GetSetting("ShowHordaland"),
 			"Vestland": this.GetSetting("ShowVestland")
 		};
 		var HiddenServices = _fr.GetSetting("HiddenServices");
@@ -438,23 +426,23 @@ class coreFerjeruta {
 			.text(str);
 		var numberShown = 0;
 
-		if (pobj.Settings.ShowWarning == 1) {
+		if(pobj.Settings.ShowWarning == 1){
 			$("#lvMainview")
-				.append(CreateSimpleLi(pobj.Settings.WarningText, "Viktig melding"));
+				.append(CreateSimpleLi(pobj.Settings.WarningText,"Viktig melding"));
 		}
 
 		$(this.serviceList)
 			.each(function (i) {
 				var ferryline = this;
 				// Specific area hidden by setting
-				if (_fr.Settings.HidingEnabled == 1) {
-					if (HiddenServices[ferryline.Name] != undefined) {
+				if(_fr.Settings.HidingEnabled == 1){
+					if(HiddenServices[ferryline.Name] != undefined){
 						return true;
 					}
 				}
 
 				// Entire area hidden by option
-				if (!show[ferryline.AreaCode]) {
+				if(!show[ferryline.AreaCode]){
 					return true;
 				}
 				var slink = $("<a />");
@@ -468,9 +456,9 @@ class coreFerjeruta {
 						var minstodep = parseInt(next.MinutesUntil(), 10);
 						var cls;
 
-						if (minstodep <= 5) {
+						if(minstodep <= 5) {
 							cls = "Red";
-						} else if (minstodep <=
+						} else if(minstodep <=
 							30) {
 							cls = "Green";
 						} else {
@@ -515,20 +503,20 @@ class coreFerjeruta {
 					.append(listview1Row);
 				numberShown++;
 			}); // each servicelist
-		if (numberShown == 0) {
+		if(numberShown == 0){
 			$("#lvMainview")
-				.append(CreateSimpleLi("Har du fjernet alle i innstillinger under?", "Ingen ruter aktive :'("));
+				.append(CreateSimpleLi("Har du fjernet alle i innstillinger under?","Ingen ruter aktive :'("));
 		}
 		$("#lvMainview")
 			.listview("refresh");
-	}
+	};
 
 	/**
 	 *
 	 * @param service
 	 * @constructor
 	 */
-	SelectService(service) {
+	this.SelectService = function (service) {
 		var pobj = this;
 		$.mobile.changePage("#pageLocations", {transition: "none"});
 		$("#lvLocations")
@@ -549,19 +537,19 @@ class coreFerjeruta {
 					datefrom.toNorwString() +
 					" til " +
 					dateto.toNorwString()));
-		if (service.Comments != undefined && service.Comments.length > 0) {
+		if(service.Comments != undefined && service.Comments.length > 0){
 			headerLvitem
 				.append($("<p />")
 					.text(service.Comments));
 		}
 
 		// link to pdf
-		if (service.Url) {
+		if(service.Url){
 			var pdflink = $("<span />")
 				.addClass("ui-li-aside")
 				.addClass("fl-custom-image-dl")
-				.click(function (e) {
-					window.location = service.Url;
+				.click(function(e) {
+					window.location=service.Url;
 				});
 			headerLvitem.append(pdflink);
 		}
@@ -584,10 +572,10 @@ class coreFerjeruta {
 				$("#lvLocations")
 					.append(litem);
 			});
-		if (_fr.Settings.HidingEnabled == 1) {
+		if(_fr.Settings.HidingEnabled == 1){
 			$("#lvLocations")
 				.append($("<li />")
-					.attr("data-icon", "delete")
+					.attr("data-icon","delete")
 					.append(
 						$("<a />")
 							.text("Skjul denne ruten")
@@ -601,14 +589,14 @@ class coreFerjeruta {
 
 		$("#lvLocations")
 			.listview("refresh");
-	}
+	};
 
 	/**
 	 *
 	 * @param departurepoint
 	 * @constructor
 	 */
-	SelectDeparturepoint(departurepoint) {
+	this.SelectDeparturepoint = function (departurepoint) {
 		var pobj = this;
 		$.mobile.changePage("#pageDays", {transition: "none"});
 		$("#lvDays")
@@ -623,7 +611,7 @@ class coreFerjeruta {
 					.click(function (e) {
 						pobj.SelectDay(weekday);
 					}); //click
-				if (weekday.DayOfWeek == pobj.Today) {
+				if(weekday.DayOfWeek == pobj.Today){
 					daylink.addClass("textOrange");
 				}
 				var litem = $("<li />")
@@ -634,20 +622,26 @@ class coreFerjeruta {
 
 		$("#lvDays")
 			.listview("refresh");
-	}
+	};
 
 	/**
 	 *
 	 * @param weekday
 	 * @constructor
 	 */
-	SelectDay(weekday) {
+	this.SelectDay = function (weekday) {
 		var pobj = this;
 		$.mobile.changePage("#pageDepartures", {transition: "none"});
 		$("#lvDepartures")
 			.empty();
 
-		$("#lvDepartures").append(CreateSimpleLi(" fra " + weekday.ParentDeparturePoint.Name + ", " + GetDayName(weekday.DayOfWeek).toLowerCase() + "<br />Se forklaring til fotnoter under.", weekday.ParentDeparturePoint.ParentService.Name));
+		$("#lvDepartures").append(
+			CreateSimpleLi(" fra " +
+				weekday.ParentDeparturePoint.Name + ", " +
+				GetDayName(weekday.DayOfWeek).toLowerCase() +
+				"<br />Se forklaring til fotnoter under.", weekday.ParentDeparturePoint.ParentService.Name
+			)
+		);
 
 		// Back/next navbar
 		var bfbuttons = $('<li />')
@@ -662,8 +656,8 @@ class coreFerjeruta {
 								$("<button />")
 									.addClass("ui-btn ui-corner-all ui-btn-a ui-mini")
 									.text('< ' + weekday.PreviousDay().DayName())
-									.click(function (e) {
-										pobj.SelectDay(weekday.PreviousDay());
+									.click(function(e) {
+										pobj.SelectDay( weekday.PreviousDay() );
 									})
 							)
 					)
@@ -674,8 +668,8 @@ class coreFerjeruta {
 								$("<button />")
 									.addClass("ui-btn ui-corner-all ui-btn-a ui-mini")
 									.text(weekday.NextDay().DayName() + ' >')
-									.click(function (e) {
-										pobj.SelectDay(weekday.NextDay());
+									.click(function(e) {
+										pobj.SelectDay( weekday.NextDay() );
 									})
 							)
 					)
@@ -691,50 +685,44 @@ class coreFerjeruta {
 				var str = $("<strong>")
 					.text(departure.TimeOfDay);
 
-				if (departure.Line && departure.Line.Color) {
-					str.css("color", departure.Line.Color);
+				if(departure.Line && departure.Line.Color){
+					str.css("color",departure.Line.Color);
 				}
 				litem.append(str);
 
 				// Show time of arrival if we have this setting enabled
-				if (pobj.GetSetting('ShowTimeOfArrival') == true) {
+				if(pobj.GetSetting('ShowTimeOfArrival') == true){
 					var tript = departure.ParentDay.ParentDeparturePoint.ParentService.TripTime;
-					if (tript != undefined && tript != "") {
+					if(tript != undefined && tript != ""){
 						// TODO: this needs to be un-hacked. Use UTC??
-						var d = spacetime('January 6 2020', 'Europe/Oslo'); // Generic Monday
-						d = d.time(departure.TimeOfDay);
-						d = d.add(tript, 'minutes');
-
-						//var timestr = "2010-01-01T" + departure.TimeOfDay + ":00"; // this is 1 hr off
-						//var deptime = new Date(timestr);
-						//var arrivaltime = new Date(deptime.getTime() - (60*60000) + (tript * 60000));
-						var arrivaltime = d.unixFmt('HH:mm');
+						var timestr = "2010-01-01T" + departure.TimeOfDay + ":00"; // this is 1 hr off
+						var deptime = new Date(timestr);
+						var arrivaltime = new Date(deptime.getTime() - (60*60000) + (tript * 60000));
 						//litem.append($("<div />").addClass("ui-icon-location").addClass("ui-btn-icon-notext").css("display","inline"));
 						litem.append($("<span />")
-								.addClass("fl-custom-image-arrival")
-								.text(arrivaltime)
-							//.text(strpad(arrivaltime.getHours(),2) + ":" + strpad(arrivaltime.getMinutes(),2))
+							.addClass("fl-custom-image-arrival")
+							.text(strpad(arrivaltime.getHours(),2) + ":" + strpad(arrivaltime.getMinutes(),2))
 						);
 					}
 				}
 
-				if (departure.Line) {
+				if(departure.Line) {
 					litem.append(" [");
 					litem.append($("<strong />").text(departure.Line.Id));
 					litem.append("] ");
 				}
 				var flags = 0;
-				$.each(departure.Flags, function (idx, val) {
-					if (this.Code == undefined) {
+				$.each(departure.Flags, function(idx, val){
+					if(this.Code == undefined){
 						return false;
 					}
 					flags++;
 					litem.append(" " + this.Code + " ");
 				});
 
-				if (departure.Line) {
-					$.each(departure.Line.Flags, function (idx, val) {
-						if (this.Code == undefined) {
+				if(departure.Line){
+					$.each(departure.Line.Flags, function(idx, val){
+						if(this.Code == undefined){
 							return false;
 						}
 						flags++;
@@ -742,13 +730,13 @@ class coreFerjeruta {
 					});
 				}
 
-				if (departure.Comments != undefined) {
-					if (flags > 0) {
+				if(departure.Comments != undefined) {
+					if(flags > 0){
 						litem.append(" // ");
 					}
 					litem.append(" " + departure.Comments + " ");
 				}
-				if (departure.Line && departure.Line.Comments) {
+				if(departure.Line && departure.Line.Comments) {
 					litem.append(" " + departure.Line.Comments + " ");
 				}
 
@@ -759,8 +747,8 @@ class coreFerjeruta {
 
 		// flags
 		var flagtext = "<h1>Fotnoter</h1>";
-		$.each(weekday.ParentDeparturePoint.ParentService.ServiceFlags, function (idx, val) {
-			if (this.Code == undefined) {
+		$.each(weekday.ParentDeparturePoint.ParentService.ServiceFlags, function(idx, val){
+			if(this.Code == undefined){
 				return false;
 			}
 			flagtext += " " + this.Code + "=" + this.Comments + "<br />";
@@ -768,19 +756,19 @@ class coreFerjeruta {
 		$("#lvDepartures").append($('<li />').html(flagtext));
 		// lines
 		var ferrytext = "<h1>Ferjer</h1>";
-		$.each(weekday.ParentDeparturePoint.ParentService.ServiceLines, function (idx, val) {
-			if (this.Id == undefined) {
+		$.each(weekday.ParentDeparturePoint.ParentService.ServiceLines, function(idx, val){
+			if(this.Id == undefined){
 				return false;
 			}
 			ferrytext += " " + this.Id + " = " + this.Name + "<br />";
 		});
 		$("#lvDepartures").append($('<li />').html(ferrytext));
 
-		// Clone the top navbar and add to bottom
+		// CLone the top navbar and add to bottom
 		$("#lvDepartures").append(bfbuttons.clone(true));
 
 		$("#lvDepartures")
 			.listview("refresh");
-		$(window).scrollTop(0);
-	}
-}
+		$(window).scrollTop( 0 );
+	};
+};
