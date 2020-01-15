@@ -104,7 +104,10 @@ var ServiceLine = function (xml, parent){
 	var mObj = this;
 	if(mObj.rawFlags != undefined){
 		$.each(mObj.rawFlags.split(","),function(index, val){
-			mObj.Flags[val] = mObj.ParentService.ServiceFlags[val];
+			if(val){
+				mObj.Flags[val] = mObj.ParentService.ServiceFlags[val];
+			}
+
 		});
 	}
 
