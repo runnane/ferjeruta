@@ -652,13 +652,13 @@
         time="40" ticketzone="96" operator="torghattennord" routeid="1131" url="http://ruteinfo.thn.no/bm/default.aspx?rnr=139"
         areaCode="Vestland">
 
-        <rutes>
-            <rute id="1" name="MF Flatøy" phonenumber="90846788" type="ferry" comments="" />
-            <rute id="2" name="MF Lysøy" phonenumber="90850733" type="ferry" comments="" />
-            <rute id="3" name="MF Huftarøy" phonenumber="90856669" type="ferry" comments="" />
-            <rute id="4" name="MF Samnøy" phonenumber="90857441" type="ferry" comments="" />
-            <rute id="5" name="MF Færøy" phonenumber="90843381" type="ferry" comments="" />
-        </rutes>
+        <lines>
+            <line id="1" name="MF Flatøy" phonenumber="90846788" type="ferry" comments="" />
+            <line id="2" name="MF Lysøy" phonenumber="90850733" type="ferry" comments="" />
+            <line id="3" name="MF Huftarøy" phonenumber="90856669" type="ferry" comments="" />
+            <line id="4" name="MF Samnøy" phonenumber="90857441" type="ferry" comments="" />
+            <line id="5" name="MF Færøy" phonenumber="90843381" type="ferry" comments="" />
+        </lines>
 
         <departurepoint location="Sandvikvåg">
             <weekday day="2,3,4,5,6" desc="Mandag-Fredag">
