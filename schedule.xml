@@ -13,20 +13,15 @@
 -->
 <routes serial="2020011201">
 
-    <route name="Lauvvik-Oanes (Boreal)" location1="Lauvvik" location2="Oanes" validfrom="2020-01-01" validto="2020-12-31" serial="2020010101"
-        time="11" ticketzone="3" operator="boreal" routeid="1024" url="https://www.boreal.no/getfile.php/1318727-1577798180/Internett/Filer/Rutetider/Helgelandske/Ferjeruter/Lauvvik-Oanes%20fra%2031.12.19.pdf"
+    <route name="Lauvvik-Oanes (Boreal)" location1="Lauvvik" location2="Oanes" validfrom="2020-05-01" validto="2020-12-31" serial="2020050101"
+        time="11" ticketzone="3" operator="boreal" routeid="1024" url="https://www.boreal.no/getfile.php/1319135-1592944335/Internett/Filer/Rutetider/Rutetabell%20Lauvvik-Oanes%2026.06.20.pdf"
         areaCode="Rogaland">
         <lines>
-            <line id="I" name="MF Preikestolen" phonenumber="" type="ferry" flags="" comments="" color="" />
+            <line id="I" name="MF Petter Dass" phonenumber="" type="ferry" flags="" comments="" color="" />
         </lines>
 
         <departurepoint location="Lauvvik">
             <weekday day="2,3,4,5,6" desc="Ukedager">
-                <departure time="00:15" />
-                <departure time="01:45" />
-                <departure time="02:15" />
-                <departure time="04:45" />
-                <departure time="05:45" />
                 <departure time="06:15" />
                 <departure time="06:45" />
                 <departure time="07:15" />
@@ -52,28 +47,8 @@
                 <departure time="17:15" />
                 <departure time="17:45" />
                 <departure time="18:15" />
-                <departure time="18:45" />
-                <departure time="19:15" />
-                <departure time="19:45" />
-                <departure time="20:15" />
-                <departure time="20:45" />
-                <departure time="21:15" />
-                <departure time="21:45" />
-                <departure time="22:15" />
-                <departure time="22:45" />
-                <departure time="23:15" />
-                <departure time="23:45" />
             </weekday>
             <weekday day="7,1" desc="Lørdag, Søndag">
-                <departure time="00:15" />
-                <departure time="00:45" />
-                <departure time="01:15" />
-                <departure time="02:15" />
-                <departure time="06:45" />
-                <departure time="07:15" />
-                <departure time="07:45" />
-                <departure time="08:15" />
-                <departure time="08:45" />
                 <departure time="09:15" />
                 <departure time="09:45" />
                 <departure time="10:15" />
@@ -93,26 +68,10 @@
                 <departure time="17:15" />
                 <departure time="17:45" />
                 <departure time="18:15" />
-                <departure time="18:45" />
-                <departure time="19:15" />
-                <departure time="19:45" />
-                <departure time="20:15" />
-                <departure time="20:45" />
-                <departure time="21:15" />
-                <departure time="21:45" />
-                <departure time="22:15" />
-                <departure time="22:45" />
-                <departure time="23:15" />
-                <departure time="23:45" />
             </weekday>
         </departurepoint>
         <departurepoint location="Oanes">
             <weekday day="2,3,4,5,6" desc="Ukedager">
-                <departure time="00:00" />
-                <departure time="01:00" />
-                <departure time="02:00" />
-                <departure time="04:30" />
-                <departure time="05:30" />
                 <departure time="06:00" />
                 <departure time="06:30" />
                 <departure time="07:00" />
@@ -138,28 +97,8 @@
                 <departure time="17:00" />
                 <departure time="17:30" />
                 <departure time="18:00" />
-                <departure time="18:30" />
-                <departure time="19:00" />
-                <departure time="19:30" />
-                <departure time="20:00" />
-                <departure time="20:30" />
-                <departure time="21:00" />
-                <departure time="21:30" />
-                <departure time="22:00" />
-                <departure time="22:30" />
-                <departure time="23:00" />
-                <departure time="23:30" />
             </weekday>
             <weekday day="7,1" desc="Lørdag, Søndag">
-                <departure time="00:00" />
-                <departure time="00:30" />
-                <departure time="01:00" />
-                <departure time="02:00" />
-                <departure time="06:30" />
-                <departure time="07:00" />
-                <departure time="07:30" />
-                <departure time="08:00" />
-                <departure time="08:30" />
                 <departure time="09:00" />
                 <departure time="09:30" />
                 <departure time="10:00" />
@@ -179,17 +118,6 @@
                 <departure time="17:00" />
                 <departure time="17:30" />
                 <departure time="18:00" />
-                <departure time="18:30" />
-                <departure time="19:00" />
-                <departure time="19:30" />
-                <departure time="20:00" />
-                <departure time="20:30" />
-                <departure time="21:00" />
-                <departure time="21:30" />
-                <departure time="22:00" />
-                <departure time="22:30" />
-                <departure time="23:00" />
-                <departure time="23:30" />
             </weekday>
         </departurepoint>
     </route>
