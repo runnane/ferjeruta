@@ -22,7 +22,7 @@ var coreFerjeruta = function(){
 		"ScheduleUrl"       	: "schedule.xml",
 		"ScheduleTestingUrl"	: "schedule-testing.xml",
 		"ShowWarning"			: 1,
-		"WarningText"			: "Merk at ikke alle ruter verifiserte for 2020 enda!",
+		"WarningText"			: "Merk at Lauvvik-Oanes ikke går pr mai 2021",
 	};
 
 	// Number of notifications to show

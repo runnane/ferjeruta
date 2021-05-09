@@ -840,383 +840,314 @@
         </departurepoint>
     </route>
 
-    <route name="Hjelmeland-Nesvik" location1="Hjelmeland" location2="Nesvik" validfrom="2018-01-01" validto="2019-12-31" serial="2018010101"
-        time="11" ticketzone="3" operator="norled" routeid="1027" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/hjelmeland---nesvik---skipavik-gyldig-fra-01.01.2018.pdf"
+    <route name="Hjelmeland-Nesvik" location1="Hjelmeland" location2="Nesvik" validfrom="2021-04-01" validto="2022-04-01" serial="2021040101"
+        time="11" ticketzone="3" operator="norled" routeid="1027" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/hjelmeland---nesvik---skipavik-oppdatert--gyldig-fra-15.-april-2021.pdf"
         areaCode="Rogaland">
 
         <lines>
             <line id="I" name="MF Hjelmeland" phonenumber="91553642" type="ferry" flags="" comments="" color="" />
-            <line id="II" name="MF Vannes" phonenumber="48017225" type="ferry" flags="" comments="" color="" />
+            <line id="II" name="MF Nesvik" phonenumber="91681193" type="ferry" flags="" comments="" color="" />
         </lines>
 
         <departurepoint location="Hjelmeland">
             <weekday day="1" desc="Søndag">
-                <departure time="00:30" line="I" comments="Skipavik e. Nesvik v/ bestilling" />
-                <departure time="01:30" line="I" />
+                <departure time="00:05" line="I" />
+                <departure time="00:45" line="I" comments="Skipavik e. Nesvik v/ bestilling" />
+                <departure time="01:50" line="I" />
                 <departure time="07:00" line="I" />
-                <departure time="07:30" line="I" />
-                <departure time="07:45" line="II" comments="OBS: til Skipavik" />
-                <departure time="08:00" line="I" />
-                <departure time="08:30" line="I" />
-                <departure time="08:45" line="II" />
+                <departure time="07:40" line="I" />
+                <departure time="08:00" line="II" comments="OBS: til Skipavik" />
+                <departure time="08:20" line="I" />
+                <departure time="08:40" line="II" />
                 <departure time="09:00" line="I" />
-                <departure time="09:15" line="II" comments="Skipavik etter Nesvik" />
-                <departure time="09:30" line="I" />
-                <departure time="10:00" line="I" />
-                <departure time="10:15" line="II" />
-                <departure time="10:30" line="I" />
-                <departure time="10:45" line="II" />
+                <departure time="09:20" line="II" comments="Skipavik etter Nesvik" />
+                <departure time="09:40" line="I" />
+                <departure time="10:20" line="I" />
+                <departure time="10:40" line="II" />
                 <departure time="11:00" line="I" />
-                <departure time="11:15" line="II" />
-                <departure time="11:30" line="I" />
-                <departure time="11:45" line="II" />
-                <departure time="12:00" line="I" />
-                <departure time="12:15" line="II" comments="Skipavik etter Nesvik" />
-                <departure time="12:30" line="I" />
+                <departure time="11:20" line="II" />
+                <departure time="11:40" line="I" />
+                <departure time="12:00" line="II" />
+                <departure time="12:20" line="I" />
+                <departure time="12:50" line="II" comments="Skipavik etter Nesvik" />
                 <departure time="13:00" line="I" />
-                <departure time="13:15" line="II" />
-                <departure time="13:30" line="I" />
-                <departure time="13:45" line="II" />
-                <departure time="14:00" line="I" />
-                <departure time="14:15" line="II" />
-                <departure time="14:30" line="I" />
-                <departure time="14:45" line="II" comments="Skipavik etter Nesvik" />
+                <departure time="13:40" line="I" />
+                <departure time="14:00" line="II" />
+                <departure time="14:20" line="I" />
+                <departure time="14:40" line="II" comments="Skipavik etter Nesvik" />
                 <departure time="15:00" line="I" />
-                <departure time="15:30" line="I" />
-                <departure time="15:45" line="II" />
-                <departure time="16:00" line="I" />
-                <departure time="16:15" line="II" comments="Skipavik etter Nesvik" />
-                <departure time="16:30" line="I" />
+                <departure time="15:40" line="I" />
+                <departure time="16:00" line="II" comments="Skipavik etter Nesvik" />
+                <departure time="16:20" line="I" />
                 <departure time="17:00" line="I" />
-                <departure time="17:15" line="II" />
-                <departure time="17:30" line="I" />
-                <departure time="17:45" line="II" comments="Skipavik etter Nesvik" />
-                <departure time="18:00" line="I" />
-                <departure time="18:30" line="I" />
-                <departure time="18:45" line="II" />
+                <departure time="17:20" line="II" comments="Skipavik etter Nesvik" />
+                <departure time="17:40" line="I" />
+                <departure time="18:20" line="I" />
+                <departure time="18:40" line="II" />
                 <departure time="19:00" line="I" />
-                <departure time="19:15" line="II" />
-                <departure time="19:30" line="I" />
-                <departure time="19:45" line="II" comments="Skipavik etter Nesvik" />
-                <departure time="20:00" line="I" />
-                <departure time="20:30" line="I" />
-                <departure time="20:45" line="II" />
+                <departure time="19:20" line="II" comments="Skipavik etter Nesvik" />
+                <departure time="19:40" line="I" />
+                <departure time="20:20" line="I" />
+                <departure time="20:40" line="II" comments="Skipavik etter Nesvik" />
                 <departure time="21:00" line="I" />
-                <departure time="21:15" line="II" />
-                <departure time="21:30" line="I" />
-                <departure time="22:15" line="I" comments="Skipavik etter Nesvik" />
-                <departure time="23:15" line="I" />
-                <departure time="23:45" line="I" />
+                <departure time="21:40" line="I" />
+                <departure time="22:20" line="I" comments="Skipavik etter Nesvik" />
+                <departure time="23:25" line="I" />
             </weekday>
             <weekday day="2,3,4,5,6" desc="Ukedager">
-                <departure time="00:30" line="I" comments="Skipavik e. Nesvik v/ bestilling" />
-                <departure time="01:30" line="I" />
-                <departure time="04:40" line="I" />
-                <departure time="05:30" line="I" />
-                <departure time="06:00" line="I" />
-                <departure time="06:30" line="I" />
+                <departure time="00:05" line="I" />
+                <departure time="00:45" line="I" comments="Skipavik e. Nesvik v/ bestilling" />
+                <departure time="01:50" line="I" />
+                <departure time="04:20" line="I" />
+                <departure time="05:00" line="I" />
+                <departure time="05:40" line="I" />
+                <departure time="06:20" line="I" />
                 <departure time="06:45" line="II" comments="Skipavik etter Nesvik" />
                 <departure time="07:00" line="I" />
-                <departure time="07:30" line="I" />
-                <departure time="07:45" line="II" comments="OBS: til Skipavik" />
-                <departure time="08:00" line="I" />
-                <departure time="08:30" line="I" />
-                <departure time="08:45" line="II" />
+                <departure time="07:40" line="I" />
+                <departure time="08:00" line="II" comments="OBS: til Skipavik" />
+                <departure time="08:20" line="I" />
+                <departure time="08:40" line="II" />
                 <departure time="09:00" line="I" />
-                <departure time="09:15" line="II" comments="Skipavik etter Nesvik" />
-                <departure time="09:30" line="I" />
-                <departure time="10:00" line="I" />
-                <departure time="10:15" line="II" />
-                <departure time="10:30" line="I" />
-                <departure time="10:45" line="II" />
+                <departure time="09:20" line="II" comments="Skipavik etter Nesvik" />
+                <departure time="09:40" line="I" />
+                <departure time="10:20" line="I" />
+                <departure time="10:40" line="II" />
                 <departure time="11:00" line="I" />
-                <departure time="11:15" line="II" />
-                <departure time="11:30" line="I" />
-                <departure time="11:45" line="II" />
-                <departure time="12:00" line="I" />
-                <departure time="12:15" line="II" comments="Skipavik etter Nesvik" />
-                <departure time="12:30" line="I" />
+                <departure time="11:20" line="II" />
+                <departure time="11:40" line="I" />
+                <departure time="12:00" line="II" />
+                <departure time="12:20" line="I" />
+                <departure time="12:50" line="II" comments="Skipavik etter Nesvik" />
                 <departure time="13:00" line="I" />
-                <departure time="13:15" line="II" />
-                <departure time="13:30" line="I" />
-                <departure time="13:45" line="II" />
-                <departure time="14:00" line="I" />
-                <departure time="14:15" line="II" />
-                <departure time="14:30" line="I" />
-                <departure time="14:45" line="II" comments="Skipavik etter Nesvik" />
+                <departure time="13:40" line="I" />
+                <departure time="14:00" line="II" />
+                <departure time="14:20" line="I" />
+                <departure time="14:40" line="II" comments="Skipavik etter Nesvik" />
                 <departure time="15:00" line="I" />
-                <departure time="15:30" line="I" />
-                <departure time="15:45" line="II" />
-                <departure time="16:00" line="I" />
-                <departure time="16:15" line="II" comments="Skipavik etter Nesvik" />
-                <departure time="16:30" line="I" />
+                <departure time="15:40" line="I" />
+                <departure time="16:00" line="II" comments="Skipavik etter Nesvik" />
+                <departure time="16:20" line="I" />
                 <departure time="17:00" line="I" />
-                <departure time="17:15" line="II" />
-                <departure time="17:30" line="I" />
-                <departure time="17:45" line="II" comments="Skipavik etter Nesvik" />
-                <departure time="18:00" line="I" />
-                <departure time="18:30" line="I" />
-                <departure time="18:45" line="II" />
+                <departure time="17:20" line="II" comments="Skipavik etter Nesvik" />
+                <departure time="17:40" line="I" />
+                <departure time="18:20" line="I" />
+                <departure time="18:40" line="II" />
                 <departure time="19:00" line="I" />
-                <departure time="19:15" line="II" />
-                <departure time="19:30" line="I" />
-                <departure time="19:45" line="II" comments="Skipavik etter Nesvik" />
-                <departure time="20:00" line="I" />
-                <departure time="20:30" line="I" />
-                <departure time="20:45" line="II" />
+                <departure time="19:20" line="II" comments="Skipavik etter Nesvik" />
+                <departure time="19:40" line="I" />
+                <departure time="20:20" line="I" />
+                <departure time="20:40" line="II" comments="Skipavik etter Nesvik" />
                 <departure time="21:00" line="I" />
-                <departure time="21:15" line="II" />
-                <departure time="21:30" line="I" />
-                <departure time="22:15" line="I" comments="Skipavik etter Nesvik" />
-                <departure time="23:15" line="I" />
-                <departure time="23:45" line="I" />
+                <departure time="21:40" line="I" />
+                <departure time="22:20" line="I" comments="Skipavik etter Nesvik" />
+                <departure time="23:25" line="I" />
             </weekday>
             <weekday day="7" desc="Lørdag">
-                <departure time="00:30" line="I" comments="Skipavik e. Nesvik v/ bestilling" />
-                <departure time="01:30" line="I" />
-                <departure time="05:30" line="I" />
-                <departure time="06:00" line="I" />
-                <departure time="06:30" line="I" />
+                <departure time="00:05" line="I" />
+                <departure time="00:45" line="I" comments="Skipavik e. Nesvik v/ bestilling" />
+                <departure time="01:50" line="I" />
+                <departure time="05:00" line="I" />
+                <departure time="05:40" line="I" />
+                <departure time="06:20" line="I" />
                 <departure time="06:45" line="II" comments="Skipavik etter Nesvik" />
                 <departure time="07:00" line="I" />
-                <departure time="07:30" line="I" />
-                <departure time="07:45" line="II" comments="OBS: til Skipavik" />
-                <departure time="08:00" line="I" />
-                <departure time="08:30" line="I" />
-                <departure time="08:45" line="II" />
+                <departure time="07:40" line="I" />
+                <departure time="08:00" line="II" comments="OBS: til Skipavik" />
+                <departure time="08:20" line="I" />
+                <departure time="08:40" line="II" />
                 <departure time="09:00" line="I" />
-                <departure time="09:15" line="II" comments="Skipavik etter Nesvik" />
-                <departure time="09:30" line="I" />
-                <departure time="10:00" line="I" />
-                <departure time="10:15" line="II" />
-                <departure time="10:30" line="I" />
-                <departure time="10:45" line="II" />
+                <departure time="09:20" line="II" comments="Skipavik etter Nesvik" />
+                <departure time="09:40" line="I" />
+                <departure time="10:20" line="I" />
+                <departure time="10:40" line="II" />
                 <departure time="11:00" line="I" />
-                <departure time="11:15" line="II" />
-                <departure time="11:30" line="I" />
-                <departure time="11:45" line="II" />
-                <departure time="12:00" line="I" />
-                <departure time="12:15" line="II" comments="Skipavik etter Nesvik" />
-                <departure time="12:30" line="I" />
+                <departure time="11:20" line="II" />
+                <departure time="11:40" line="I" />
+                <departure time="12:00" line="II" />
+                <departure time="12:20" line="I" />
+                <departure time="12:50" line="II" comments="Skipavik etter Nesvik" />
                 <departure time="13:00" line="I" />
-                <departure time="13:15" line="II" />
-                <departure time="13:30" line="I" />
-                <departure time="13:45" line="II" />
-                <departure time="14:00" line="I" />
-                <departure time="14:15" line="II" />
-                <departure time="14:30" line="I" />
-                <departure time="14:45" line="II" comments="Skipavik etter Nesvik" />
+                <departure time="13:40" line="I" />
+                <departure time="14:00" line="II" />
+                <departure time="14:20" line="I" />
+                <departure time="14:40" line="II" comments="Skipavik etter Nesvik" />
                 <departure time="15:00" line="I" />
-                <departure time="15:30" line="I" />
-                <departure time="15:45" line="II" />
-                <departure time="16:00" line="I" />
-                <departure time="16:15" line="II" comments="Skipavik etter Nesvik" />
-                <departure time="16:30" line="I" />
+                <departure time="15:40" line="I" />
+                <departure time="16:00" line="II" comments="Skipavik etter Nesvik" />
+                <departure time="16:20" line="I" />
                 <departure time="17:00" line="I" />
-                <departure time="17:15" line="II" />
-                <departure time="17:30" line="I" />
-                <departure time="17:45" line="II" comments="Skipavik etter Nesvik" />
-                <departure time="18:00" line="I" />
-                <departure time="18:30" line="I" />
-                <departure time="18:45" line="II" />
+                <departure time="17:20" line="II" comments="Skipavik etter Nesvik" />
+                <departure time="17:40" line="I" />
+                <departure time="18:20" line="I" />
+                <departure time="18:40" line="II" />
                 <departure time="19:00" line="I" />
-                <departure time="19:15" line="II" />
-                <departure time="19:30" line="I" />
-                <departure time="19:45" line="II" comments="Skipavik etter Nesvik" />
-                <departure time="20:00" line="I" />
-                <departure time="20:30" line="I" />
-                <departure time="20:45" line="II" />
+                <departure time="19:20" line="II" comments="Skipavik etter Nesvik" />
+                <departure time="19:40" line="I" />
+                <departure time="20:20" line="I" />
+                <departure time="20:40" line="II" comments="Skipavik etter Nesvik" />
                 <departure time="21:00" line="I" />
-                <departure time="21:15" line="II" />
-                <departure time="21:30" line="I" />
-                <departure time="22:15" line="I" comments="Skipavik etter Nesvik" />
-                <departure time="23:15" line="I" />
-                <departure time="23:45" line="I" />
+                <departure time="21:40" line="I" />
+                <departure time="22:20" line="I" comments="Skipavik etter Nesvik" />
+                <departure time="23:25" line="I" />
             </weekday>
         </departurepoint>
         <departurepoint location="Nesvik">
             <weekday day="1" desc="Søndag">
-                <departure time="00:00" line="I" comments="Om Skipavik v/ bestilling" />
-                <departure time="00:45" line="I" />
-                <departure time="01:45" line="I" />
-                <departure time="07:15" line="I" />
-                <departure time="07:45" line="I" />
-                <departure time="08:15" line="I" />
-                <departure time="08:30" line="II" />
-                <departure time="08:45" line="I" />
+                <departure time="00:25" line="I" />
+                <departure time="01:05" line="I" comments="Om Skipavik v/ bestilling" />
+                <departure time="02:10" line="I" />
+                <departure time="07:20" line="I" />
+                <departure time="08:00" line="I" />
+                <departure time="08:40" line="I" />
                 <departure time="09:00" line="II" />
-                <departure time="09:15" line="I" />
-                <departure time="09:30" line="II" comments="Om Skipavik" />
-                <departure time="09:45" line="I" />
-                <departure time="10:15" line="I" />
-                <departure time="10:30" line="II" />
-                <departure time="10:45" line="I" />
+                <departure time="09:20" line="I" />
+                <departure time="09:40" line="II" comments="Om Skipavik" />
+                <departure time="10:00" line="I" />
+                <departure time="10:20" line="II" />
+                <departure time="10:40" line="I" />
                 <departure time="11:00" line="II" />
-                <departure time="11:15" line="I" />
-                <departure time="11:30" line="II" />
-                <departure time="11:45" line="I" />
-                <departure time="12:00" line="II" />
-                <departure time="12:15" line="I" />
-                <departure time="12:30" line="II" comments="Om Skipavik" />
-                <departure time="12:45" line="I" />
-                <departure time="13:15" line="I" />
-                <departure time="13:30" line="II" />
-                <departure time="13:45" line="I" />
-                <departure time="14:00" line="II" />
-                <departure time="14:15" line="I" />
-                <departure time="14:30" line="II" />
-                <departure time="14:45" line="I" />
+                <departure time="11:20" line="I" />
+                <departure time="11:40" line="II" />
+                <departure time="12:00" line="I" />
+                <departure time="12:20" line="II" />
+                <departure time="12:40" line="I" />
+                <departure time="13:10" line="II" comments="Om Skipavik" />
+                <departure time="13:20" line="I" />
+                <departure time="14:00" line="I" />
+                <departure time="14:20" line="II" />
+                <departure time="14:40" line="I" />
                 <departure time="15:00" line="II" comments="Om Skipavik" />
-                <departure time="15:15" line="I" />
-                <departure time="15:45" line="I" />
-                <departure time="16:00" line="II" />
-                <departure time="16:15" line="I" />
-                <departure time="16:30" line="II" comments="Om Skipavik" />
-                <departure time="16:45" line="I" />
-                <departure time="17:15" line="I" />
-                <departure time="17:30" line="II" />
-                <departure time="17:45" line="I" />
-                <departure time="18:00" line="II" comments="Om Skipavik" />
-                <departure time="18:15" line="I" />
-                <departure time="18:45" line="I" />
+                <departure time="15:20" line="I" />
+                <departure time="15:40" line="II" />
+                <departure time="16:00" line="I" />
+                <departure time="16:20" line="II" comments="Om Skipavik" />
+                <departure time="16:40" line="I" />
+                <departure time="17:00" line="II" />
+                <departure time="17:20" line="I" />
+                <departure time="17:40" line="II" comments="Om Skipavik" />
+                <departure time="18:00" line="I" />
+                <departure time="18:20" line="II" />
+                <departure time="18:40" line="I" />
                 <departure time="19:00" line="II" />
-                <departure time="19:15" line="I" />
-                <departure time="19:30" line="II" />
-                <departure time="19:45" line="I" />
-                <departure time="20:00" line="II" comments="Om Skipavik" />
-                <departure time="20:15" line="I" />
-                <departure time="20:45" line="I" />
-                <departure time="21:00" line="II" />
-                <departure time="21:15" line="I" />
-                <departure time="21:30" line="II" />
-                <departure time="21:45" line="I" />
-                <departure time="22:30" line="I" comments="Om Skipavik" />
-                <departure time="23:30" line="I" />
+                <departure time="19:20" line="I" />
+                <departure time="19:40" line="II" comments="Om Skipavik" />
+                <departure time="20:00" line="I" />
+                <departure time="20:20" line="II" />
+                <departure time="20:40" line="I" />
+                <departure time="21:00" line="II" comments="Om Skipavik" />
+                <departure time="21:20" line="I" />
+                <departure time="21:40" line="II" />
+                <departure time="22:00" line="I" />
+                <departure time="22:40" line="I" comments="Om Skipavik" />
+                <departure time="23:45" line="I" />
             </weekday>
             <weekday day="2,3,4,5,6" desc="Ukedager">
-                <departure time="00:00" line="I" comments="Om Skipavik v/ bestilling" />
-                <departure time="00:45" line="I" />
-                <departure time="01:45" line="I" />
-                <departure time="04:55" line="I" />
-                <departure time="05:45" line="I" />
-                <departure time="06:15" line="I" />
-                <departure time="06:45" line="I" />
-                <departure time="07:00" line="II" />
-                <departure time="07:15" line="I" />
-                <departure time="07:45" line="I" />
-                <departure time="08:15" line="I" />
-                <departure time="08:30" line="II" />
-                <departure time="08:45" line="I" />
+                <departure time="00:25" line="I" />
+                <departure time="01:05" line="I" comments="Om Skipavik v/ bestilling" />
+                <departure time="02:10" line="I" />
+                <departure time="04:40" line="I" />
+                <departure time="05:20" line="I" />
+                <departure time="06:00" line="I" />
+                <departure time="06:40" line="I" />
+                <departure time="07:05" line="II" comments="Om Skipavik" />
+                <departure time="07:20" line="I" />
+                <departure time="08:00" line="I" />
+                <departure time="08:40" line="I" />
                 <departure time="09:00" line="II" />
-                <departure time="09:15" line="I" />
-                <departure time="09:30" line="II" comments="Om Skipavik" />
-                <departure time="09:45" line="I" />
-                <departure time="10:15" line="I" />
-                <departure time="10:30" line="II" />
-                <departure time="10:45" line="I" />
+                <departure time="09:20" line="I" />
+                <departure time="09:40" line="II" comments="Om Skipavik" />
+                <departure time="10:00" line="I" />
+                <departure time="10:20" line="II" />
+                <departure time="10:40" line="I" />
                 <departure time="11:00" line="II" />
-                <departure time="11:15" line="I" />
-                <departure time="11:30" line="II" />
-                <departure time="11:45" line="I" />
-                <departure time="12:00" line="II" />
-                <departure time="12:15" line="I" />
-                <departure time="12:30" line="II" comments="Om Skipavik" />
-                <departure time="12:45" line="I" />
-                <departure time="13:15" line="I" />
-                <departure time="13:30" line="II" />
-                <departure time="13:45" line="I" />
-                <departure time="14:00" line="II" />
-                <departure time="14:15" line="I" />
-                <departure time="14:30" line="II" />
-                <departure time="14:45" line="I" />
+                <departure time="11:20" line="I" />
+                <departure time="11:40" line="II" />
+                <departure time="12:00" line="I" />
+                <departure time="12:20" line="II" />
+                <departure time="12:40" line="I" />
+                <departure time="13:10" line="II" comments="Om Skipavik" />
+                <departure time="13:20" line="I" />
+                <departure time="14:00" line="I" />
+                <departure time="14:20" line="II" />
+                <departure time="14:40" line="I" />
                 <departure time="15:00" line="II" comments="Om Skipavik" />
-                <departure time="15:15" line="I" />
-                <departure time="15:45" line="I" />
-                <departure time="16:00" line="II" />
-                <departure time="15:15" line="I" />
-                <departure time="16:30" line="II" comments="Om Skipavik" />
-                <departure time="16:45" line="I" />
-                <departure time="17:15" line="I" />
-                <departure time="17:30" line="II" />
-                <departure time="17:45" line="I" />
-                <departure time="18:00" line="II" comments="Om Skipavik" />
-                <departure time="18:15" line="I" />
-                <departure time="18:45" line="I" />
+                <departure time="15:20" line="I" />
+                <departure time="15:40" line="II" />
+                <departure time="16:00" line="I" />
+                <departure time="16:20" line="II" comments="Om Skipavik" />
+                <departure time="16:40" line="I" />
+                <departure time="17:00" line="II" />
+                <departure time="17:20" line="I" />
+                <departure time="17:40" line="II" comments="Om Skipavik" />
+                <departure time="18:00" line="I" />
+                <departure time="18:20" line="II" />
+                <departure time="18:40" line="I" />
                 <departure time="19:00" line="II" />
-                <departure time="19:15" line="I" />
-                <departure time="19:30" line="II" />
-                <departure time="19:45" line="I" />
-                <departure time="20:00" line="II" comments="Om Skipavik" />
-                <departure time="20:15" line="I" />
-                <departure time="20:45" line="I" />
-                <departure time="21:00" line="II" />
-                <departure time="21:15" line="I" />
-                <departure time="21:30" line="II" />
-                <departure time="21:45" line="I" />
-                <departure time="22:30" line="I" comments="Om Skipavik" />
-                <departure time="23:30" line="I" />
+                <departure time="19:20" line="I" />
+                <departure time="19:40" line="II" comments="Om Skipavik" />
+                <departure time="20:00" line="I" />
+                <departure time="20:20" line="II" />
+                <departure time="20:40" line="I" />
+                <departure time="21:00" line="II" comments="Om Skipavik" />
+                <departure time="21:20" line="I" />
+                <departure time="21:40" line="II" />
+                <departure time="22:00" line="I" />
+                <departure time="22:40" line="I" comments="Om Skipavik" />
+                <departure time="23:45" line="I" />
             </weekday>
             <weekday day="7" desc="Lørdag">
-                <departure time="00:00" line="I" comments="Om Skipavik v/ bestilling" />
-                <departure time="00:45" line="I" />
-                <departure time="01:45" line="I" />
-                <departure time="05:45" line="I" />
-                <departure time="06:15" line="I" />
-                <departure time="06:45" line="I" />
-                <departure time="07:00" line="II" />
-                <departure time="07:15" line="I" />
-                <departure time="07:45" line="I" />
-                <departure time="08:15" line="I" />
-                <departure time="08:30" line="II" />
-                <departure time="08:45" line="I" />
+                <departure time="00:25" line="I" />
+                <departure time="01:05" line="I" comments="Om Skipavik v/ bestilling" />
+                <departure time="02:10" line="I" />
+                <departure time="05:20" line="I" />
+                <departure time="06:00" line="I" />
+                <departure time="06:40" line="I" />
+                <departure time="07:05" line="II" comments="Om Skipavik" />
+                <departure time="07:20" line="I" />
+                <departure time="08:00" line="I" />
+                <departure time="08:40" line="I" />
                 <departure time="09:00" line="II" />
-                <departure time="09:15" line="I" />
-                <departure time="09:30" line="II" comments="Om Skipavik" />
-                <departure time="09:45" line="I" />
-                <departure time="10:15" line="I" />
-                <departure time="10:30" line="II" />
-                <departure time="10:45" line="I" />
+                <departure time="09:20" line="I" />
+                <departure time="09:40" line="II" comments="Om Skipavik" />
+                <departure time="10:00" line="I" />
+                <departure time="10:20" line="II" />
+                <departure time="10:40" line="I" />
                 <departure time="11:00" line="II" />
-                <departure time="11:15" line="I" />
-                <departure time="11:30" line="II" />
-                <departure time="11:45" line="I" />
-                <departure time="12:00" line="II" />
-                <departure time="12:15" line="I" />
-                <departure time="12:30" line="II" comments="Om Skipavik" />
-                <departure time="12:45" line="I" />
-                <departure time="13:15" line="I" />
-                <departure time="13:30" line="II" />
-                <departure time="13:45" line="I" />
-                <departure time="14:00" line="II" />
-                <departure time="14:15" line="I" />
-                <departure time="14:30" line="II" />
-                <departure time="14:45" line="I" />
+                <departure time="11:20" line="I" />
+                <departure time="11:40" line="II" />
+                <departure time="12:00" line="I" />
+                <departure time="12:20" line="II" />
+                <departure time="12:40" line="I" />
+                <departure time="13:10" line="II" comments="Om Skipavik" />
+                <departure time="13:20" line="I" />
+                <departure time="14:00" line="I" />
+                <departure time="14:20" line="II" />
+                <departure time="14:40" line="I" />
                 <departure time="15:00" line="II" comments="Om Skipavik" />
-                <departure time="15:15" line="I" />
-                <departure time="15:45" line="I" />
-                <departure time="16:00" line="II" />
-                <departure time="15:15" line="I" />
-                <departure time="16:30" line="II" comments="Om Skipavik" />
-                <departure time="16:45" line="I" />
-                <departure time="17:15" line="I" />
-                <departure time="17:30" line="II" />
-                <departure time="17:45" line="I" />
-                <departure time="18:00" line="II" comments="Om Skipavik" />
-                <departure time="18:15" line="I" />
-                <departure time="18:45" line="I" />
+                <departure time="15:20" line="I" />
+                <departure time="15:40" line="II" />
+                <departure time="16:00" line="I" />
+                <departure time="16:20" line="II" comments="Om Skipavik" />
+                <departure time="16:40" line="I" />
+                <departure time="17:00" line="II" />
+                <departure time="17:20" line="I" />
+                <departure time="17:40" line="II" comments="Om Skipavik" />
+                <departure time="18:00" line="I" />
+                <departure time="18:20" line="II" />
+                <departure time="18:40" line="I" />
                 <departure time="19:00" line="II" />
-                <departure time="19:15" line="I" />
-                <departure time="19:30" line="II" />
-                <departure time="19:45" line="I" />
-                <departure time="20:00" line="II" comments="Om Skipavik" />
-                <departure time="20:15" line="I" />
-                <departure time="20:45" line="I" />
-                <departure time="21:00" line="II" />
-                <departure time="21:15" line="I" />
-                <departure time="21:30" line="II" />
-                <departure time="21:45" line="I" />
-                <departure time="22:30" line="I" comments="Om Skipavik" />
-                <departure time="23:30" line="I" />
+                <departure time="19:20" line="I" />
+                <departure time="19:40" line="II" comments="Om Skipavik" />
+                <departure time="20:00" line="I" />
+                <departure time="20:20" line="II" />
+                <departure time="20:40" line="I" />
+                <departure time="21:00" line="II" comments="Om Skipavik" />
+                <departure time="21:20" line="I" />
+                <departure time="21:40" line="II" />
+                <departure time="22:00" line="I" />
+                <departure time="22:40" line="I" comments="Om Skipavik" />
+                <departure time="23:45" line="I" />
             </weekday>
         </departurepoint>
 
