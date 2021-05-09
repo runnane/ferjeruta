@@ -22,7 +22,7 @@ var coreFerjeruta = function(){
 		"ScheduleUrl"       	: "schedule.xml",
 		"ScheduleTestingUrl"	: "schedule-testing.xml",
 		"ShowWarning"			: 1,
-		"WarningText"			: "Merk at Lauvvik-Oanes ikke går pr mai 2021",
+		"WarningText"			: "Hjelmeland-Nesvik oppdatert, gi beskjed om feil. Merk at Lauvvik-Oanes er ute av drift pr mai 2021",
 	};
 
 	// Number of notifications to show
