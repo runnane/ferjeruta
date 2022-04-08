@@ -11,7 +11,7 @@
  *
  */
 -->
-<routes serial="2023040401">
+<routes serial="2023040402">
 
     <route name="Lauvvik-Oanes" location1="Lauvvik" location2="Oanes" validfrom="2020-05-01" validto="2020-12-31" serial="2020050101"
         time="11" ticketzone="3" operator="boreal" routeid="1024" url="https://www.boreal.no/getfile.php/1319135-1592944335/Internett/Filer/Rutetider/Rutetabell%20Lauvvik-Oanes%2026.06.20.pdf"
@@ -576,8 +576,8 @@
         </departurepoint>
     </route>
 
-    <route name="Halhjemsambandet" location1="Sandvikvåg" location2="Halhjem" validfrom="2021-01-01" validto="2021-12-30" serial="2021071101"
-        time="40" ticketzone="96" operator="torghattennord" routeid="1131" url="http://ruteinfo.thn.no/bm/default.aspx?rnr=139"
+    <route name="Halhjemsambandet" location1="Sandvikvåg" location2="Halhjem" validfrom="2022-03-07" validto="2022-12-31" serial="2023040402"
+        time="40" ticketzone="96" operator="torghattennord" routeid="1131" url="http://ruteinfo.thn.no/filer/1294_no.pdf    "
         areaCode="Vestland">
 
         <lines>
@@ -603,7 +603,7 @@
                 <departure time="07:10" />
                 <departure time="07:35" />
                 <departure time="08:00" />
-                <departure time="08:25" />
+                <departure time="08:30" />
                 <departure time="08:50" />
                 <departure time="09:10" />
                 <departure time="09:30" />
@@ -625,6 +625,17 @@
                 <departure time="14:50" />
                 <departure time="15:10" />
                 <departure time="15:30" />
+                <departure time="15:50" />
+                <departure time="16:10" />
+                <departure time="16:30" />
+                <departure time="16:50" />
+                <departure time="17:10" />
+                <departure time="17:30" />
+                <departure time="17:50" />
+                <departure time="18:10" />
+                <departure time="18:30" />
+                <departure time="18:50" />
+                <departure time="19:20" />
                 <departure time="19:50" />
                 <departure time="20:10" />
                 <departure time="20:40" />
@@ -637,6 +648,7 @@
            
             <weekday day="7" desc="Lørdag">
                 <departure time="00:00" />
+                <departure time="00:50" />
                 <departure time="01:40" />
                 <departure time="02:40" />
                 <departure time="03:40" />
@@ -743,7 +755,7 @@
                 <departure time="06:20" />
                 <departure time="06:45" />
                 <departure time="07:10" />
-                <departure time="07:35" />
+                <departure time="07:40" />
                 <departure time="08:00" />
                 <departure time="08:20" />
                 <departure time="08:40" />
@@ -790,6 +802,7 @@
 
             <weekday day="7" desc="Lørdag">
                 <departure time="00:00" />
+                <departure time="00:50" />
                 <departure time="01:40" />
                 <departure time="02:40" />
                 <departure time="03:40" />
@@ -856,6 +869,17 @@
                 <departure time="13:20" />
                 <departure time="13:40" />
                 <departure time="14:00" />
+                <departure time="14:20" />
+                <departure time="14:40" />
+                <departure time="15:00" />
+                <departure time="15:20" />
+                <departure time="15:40" />
+                <departure time="16:00" />
+                <departure time="16:20" />
+                <departure time="16:40" />
+                <departure time="17:00" />
+                <departure time="17:20" />
+                <departure time="17:40" />
                 <departure time="18:00" />
                 <departure time="18:20" />
                 <departure time="18:40" />
