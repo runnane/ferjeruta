@@ -16,7 +16,6 @@ var coreFerjeruta = function(){
 		"NotificationLimit" 	: 10,
 		"OfflineMode"			: 0,
 		"Published"         	: 0,
-		"PiwikEnabled"			: 0,
 		"HidingEnabled"     	: 0,
 		"NotificationsUrl"  	: "https://dev.runnane.no/rVarsel/poll.php",
 		"ScheduleUrl"       	: "schedule.xml",
