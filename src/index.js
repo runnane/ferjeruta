@@ -38,10 +38,7 @@ async function handleApiRequest(url, request, env) {
 async function handleScheduleRequest(request, env) {
   try {
     // Fetch the schedule.xml from static assets
-    const origin = new URL(request.url).origin;
-    const xmlResponse = env?.ASSETS 
-      ? await env.ASSETS.fetch(new Request(`${origin}/schedule.xml`))
-      : await fetch(`${origin}/schedule.xml`);
+    const xmlResponse = await env.ASSETS.fetch(new Request(new URL('/schedule.xml', request.url)));
     
     if (!xmlResponse.ok) {
       return Response.json(
