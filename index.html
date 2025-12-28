@@ -45,6 +45,13 @@
 
   <div data-role="content">
     <ul id="lvMainview" data-role="listview"></ul>
+    
+    <!-- Popup for avgangsinformasjon -->
+    <div data-role="popup" id="departureInfoPopup" class="ui-content" data-overlay-theme="b" data-dismissible="true">
+      <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Lukk</a>
+      <h3 id="departureInfoTitle"></h3>
+      <p id="departureInfoText"></p>
+    </div>
   </div>
 
   <div data-role="footer" data-tap-toggle="false" data-id="panelMainNavBar" data-position="fixed">
@@ -189,5 +196,6 @@
     </div>
   </div>
 </div>
+
 </body>
 </html>

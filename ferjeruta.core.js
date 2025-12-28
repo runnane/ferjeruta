@@ -448,6 +448,20 @@ var coreFerjeruta = function(){
 				slink.text(ferryline.Name)
 					.attr("href", "#");
 
+				// Check if route is expired
+				var isExpired = false;
+				if(ferryline.ValidTo) {
+					var validToDate = new Date(ferryline.ValidTo);
+					var today = new Date();
+					today.setHours(0, 0, 0, 0);
+					if(validToDate < today) {
+						isExpired = true;
+						slink.append($("<p />")
+							.addClass("route-expired-text")
+							.text("⚠ Ruten kan være utløpt! Gyldighet utløp " + validToDate.toNorwString()));
+					}
+				}
+
 				$(ferryline.DeparturePoints)
 					.each(function (j) {
 						var location = this;
@@ -476,20 +490,25 @@ var coreFerjeruta = function(){
 						var next4 = next3.Next();
 						var next5 = next4.Next();
 
-						var string2 = next.Output() +
-							spacer + next2.Output() +
-							spacer + next3.Output() +
-							spacer + next4.Output() +
-							spacer + next5.Output();
+						var spacerText = " - ";
+						var departureLine = $("<p />");
+						departureLine.append(next.OutputElement());
+						departureLine.append(spacerText);
+						departureLine.append(next2.OutputElement());
+						departureLine.append(spacerText);
+						departureLine.append(next3.OutputElement());
+						departureLine.append(spacerText);
+						departureLine.append(next4.OutputElement());
+						departureLine.append(spacerText);
+						departureLine.append(next5.OutputElement());
 
 						slink
-							.append($("<p />")
-								.append($("<strong />")
+							.append($('<p />')
+								.append($('<strong />')
 									.text(string1))
 								.append(
 									minutestodeptxt))
-							.append($("<p />")
-								.text(string2));
+							.append(departureLine);
 					});
 
 				var listview1Row = $("<li />")
@@ -498,6 +517,9 @@ var coreFerjeruta = function(){
 							pobj.SelectService(ferryline);
 						}) // click on page1
 					); // listview1row
+				if(isExpired) {
+					listview1Row.addClass("route-expired-warning");
+				}
 				$("#lvMainview")
 					.append(listview1Row);
 				numberShown++;

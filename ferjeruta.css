@@ -38,3 +38,27 @@
 	margin-left:4px;
 	opacity:0.6;
 }
+
+.departure-with-comment {
+	cursor: pointer;
+	text-decoration: underline;
+	text-decoration-style: dotted;
+}
+
+.departure-asterisk {
+	color: #cc0000;
+	font-weight: bold;
+	font-size: 1.2em;
+	margin-left: 1px;
+}
+
+.route-expired-warning {
+	background-color: #fff3cd !important;
+	border-left: 4px solid #cc0000 !important;
+}
+
+.route-expired-text {
+	color: #cc0000;
+	font-weight: bold;
+	font-size: 0.9em;
+}

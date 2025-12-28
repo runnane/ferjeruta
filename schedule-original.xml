@@ -11,47 +11,23 @@
  *
  */
 -->
-<routes serial="2025122801">
-    <!-- Oppdatert 2025-12-28: 5 av 10 ruter oppdatert med nye URL-er og gyldighetsperioder -->
+<routes serial="2023040402">
 
-    <route name="Lauvvik-Oanes" location1="Lauvvik" location2="Oanes" validfrom="2025-10-01" validto="2026-05-31" serial="2025122801"
-        time="11" ticketzone="3" operator="fartoeysdrift" routeid="1024" url="https://www.hogsfjordferja.no/"
+    <route name="Lauvvik-Oanes" location1="Lauvvik" location2="Oanes" validfrom="2020-05-01" validto="2020-12-31" serial="2020050101"
+        time="11" ticketzone="3" operator="boreal" routeid="1024" url="https://www.boreal.no/getfile.php/1319135-1592944335/Internett/Filer/Rutetider/Rutetabell%20Lauvvik-Oanes%2026.06.20.pdf"
         areaCode="Rogaland">
-        <!-- OPPDATERT 2025-12-28: Vinterrute 1. oktober 2025 - 31. mai 2026. Operatør: Fartøysdrift AS -->
         <lines>
-            <line id="I" name="M/F Svelviksund" phonenumber="91900617" type="ferry" flags="" comments="" color="" />
+            <line id="I" name="MF Petter Dass" phonenumber="" type="ferry" flags="" comments="" color="" />
         </lines>
 
         <departurepoint location="Lauvvik">
             <weekday day="2,3,4,5,6" desc="Ukedager">
-                <!-- Hver halvtime fra 06:15 til 18:15, unntatt 12:15 og 12:45. Ekstratur 18:45 -->
                 <departure time="06:15" />
                 <departure time="06:45" />
                 <departure time="07:15" />
                 <departure time="07:45" />
                 <departure time="08:15" />
                 <departure time="08:45" />
-                <departure time="09:15" />
-                <departure time="09:45" />
-                <departure time="10:15" />
-                <departure time="10:45" />
-                <departure time="11:15" />
-                <departure time="11:45" />
-                <departure time="13:15" />
-                <departure time="13:45" />
-                <departure time="14:15" />
-                <departure time="14:45" />
-                <departure time="15:15" />
-                <departure time="15:45" />
-                <departure time="16:15" />
-                <departure time="16:45" />
-                <departure time="17:15" />
-                <departure time="17:45" />
-                <departure time="18:15" />
-                <departure time="18:45" comments="Dersom gjenstående biler" />
-            </weekday>
-            <weekday day="7,1" desc="Lørdag, Søndag">
-                <!-- Hver halvtime fra 09:15 til 18:15 -->
                 <departure time="09:15" />
                 <departure time="09:45" />
                 <departure time="10:15" />
@@ -70,39 +46,38 @@
                 <departure time="16:45" />
                 <departure time="17:15" />
                 <departure time="17:45" />
-                <departure time="18:15" comments="Dersom gjenstående biler" />
+                <departure time="18:15" />
+            </weekday>
+            <weekday day="7,1" desc="Lørdag, Søndag">
+                <departure time="09:15" />
+                <departure time="09:45" />
+                <departure time="10:15" />
+                <departure time="10:45" />
+                <departure time="11:15" />
+                <departure time="11:45" />
+                <departure time="12:15" />
+                <departure time="12:45" />
+                <departure time="13:15" />
+                <departure time="13:45" />
+                <departure time="14:15" />
+                <departure time="14:45" />
+                <departure time="15:15" />
+                <departure time="15:45" />
+                <departure time="16:15" />
+                <departure time="16:45" />
+                <departure time="17:15" />
+                <departure time="17:45" />
+                <departure time="18:15" />
             </weekday>
         </departurepoint>
         <departurepoint location="Oanes">
             <weekday day="2,3,4,5,6" desc="Ukedager">
-                <!-- Hver halvtime fra 06:00 til 18:00, unntatt 12:00 og 12:30. Ekstratur 18:30 -->
                 <departure time="06:00" />
                 <departure time="06:30" />
                 <departure time="07:00" />
                 <departure time="07:30" />
                 <departure time="08:00" />
                 <departure time="08:30" />
-                <departure time="09:00" />
-                <departure time="09:30" />
-                <departure time="10:00" />
-                <departure time="10:30" />
-                <departure time="11:00" />
-                <departure time="11:30" />
-                <departure time="13:00" />
-                <departure time="13:30" />
-                <departure time="14:00" />
-                <departure time="14:30" />
-                <departure time="15:00" />
-                <departure time="15:30" />
-                <departure time="16:00" />
-                <departure time="16:30" />
-                <departure time="17:00" />
-                <departure time="17:30" />
-                <departure time="18:00" />
-                <departure time="18:30" comments="Dersom gjenstående biler" />
-            </weekday>
-            <weekday day="7,1" desc="Lørdag, Søndag">
-                <!-- Hver halvtime fra 09:00 til 18:00 -->
                 <departure time="09:00" />
                 <departure time="09:30" />
                 <departure time="10:00" />
@@ -121,15 +96,35 @@
                 <departure time="16:30" />
                 <departure time="17:00" />
                 <departure time="17:30" />
-                <departure time="18:00" comments="Dersom gjenstående biler" />
+                <departure time="18:00" />
+            </weekday>
+            <weekday day="7,1" desc="Lørdag, Søndag">
+                <departure time="09:00" />
+                <departure time="09:30" />
+                <departure time="10:00" />
+                <departure time="10:30" />
+                <departure time="11:00" />
+                <departure time="11:30" />
+                <departure time="12:00" />
+                <departure time="12:30" />
+                <departure time="13:00" />
+                <departure time="13:30" />
+                <departure time="14:00" />
+                <departure time="14:30" />
+                <departure time="15:00" />
+                <departure time="15:30" />
+                <departure time="16:00" />
+                <departure time="16:30" />
+                <departure time="17:00" />
+                <departure time="17:30" />
+                <departure time="18:00" />
             </weekday>
         </departurepoint>
     </route>
 
-    <route name="Mortavika-Arsvågen" location1="Mortavika" location2="Arsvågen" validfrom="2023-04-01" validto="2025-12-31" serial="2025122801"
-        time="24" ticketzone="95" operator="fjord1" routeid="1130" url="https://www.fjord1.no/ruteoversikt/Rogaland/mortavika-arsvaagen"
+    <route name="Mortavika-Arsvågen" location1="Mortavika" location2="Arsvågen" validfrom="2019-01-01" validto="2019-12-31" serial="2019010101"
+        time="25" ticketzone="95" operator="fjord1" routeid="1130" url="https://www.fjord1.no/Ruteoversikt/Rogaland/Mortavika-Arsvaagen"
         areaCode="Rogaland">
-        <!-- OPPDATERT 2025-12-28: Nye rutetider fra 01.04.2023. PDF: https://res.cloudinary.com/fjord1-asa/image/upload/v1717757637/Boknafjorden_ruter_fra_01_04_23_2_hqgzlg7ihn.pdf -->
 
         <rutes>
             <rute id="1" name="MF Boknafjord" phonenumber="415 36 358" type="ferry" comments="" />
@@ -903,287 +898,393 @@
         </departurepoint>
     </route>
 
-    <route name="Hjelmeland-Nesvik-Skipavik" location1="Hjelmeland" location2="Nesvik" validfrom="2025-04-01" validto="2025-12-31" serial="2025122802"
-        time="13" ticketzone="3" operator="norled" routeid="1054" url="https://www.norled.no/wp-content/uploads/2025/05/2025_v4_-Hjelmeland-Nesvik.pdf"
+    <route name="Hjelmeland-Nesvik" location1="Hjelmeland" location2="Nesvik" validfrom="2022-04-04" validto="2023-04-01" serial="2023040401"
+        time="11" ticketzone="3" operator="norled" routeid="1027" url="https://www.norled.no/globalassets/ferje-ruter-og-priser-2022/2022-hjelmelandsruten-fra-04.04.22_1.pdf"
         areaCode="Rogaland">
-        <!-- 
-            OPPDATERT 2025-12-28: Fra 2025_v4_-Hjelmeland-Nesvik.pdf (gyldig fra april 2025)
-            VIKTIG: Dette er en TREKANTRUTE. Noen avganger går bare til Nesvik, andre fortsetter til Skipavik!
-            - Overfartstid Hjelmeland-Nesvik: 13 min
-            - Overfartstid Nesvik-Skipavik: 17 min  
-            - Overfartstid Hjelmeland-Skipavik: 17 min
-            - * = Bestillingstur
-            
-            Dager-koder: D=Daglig, Dx7=Daglig unntatt søndag, Dx67=Daglig unntatt lør/søn
-        -->
 
         <lines>
-            <line id="I" name="M/F Hydra" phonenumber="91681192" type="ferry" flags="" comments="" color="" />
-            <line id="II" name="M/F Nesvik" phonenumber="91681193" type="ferry" flags="" comments="" color="" />
+            <line id="I" name="MF Hydra" phonenumber="91681192" type="ferry" flags="" comments="" color="" />
+            <line id="II" name="MF Nesvik" phonenumber="91681193" type="ferry" flags="" comments="" color="" />
+            <line id="III" name="MF Hjelmeland" phonenumber="91553642" type="ferry" flags="" comments="" color="" />
         </lines>
 
-        <!-- ==================== FRA HJELMELAND ==================== -->
         <departurepoint location="Hjelmeland">
-            <!-- Daglig (D) - alle dager -->
-            <weekday day="1,2,3,4,5,6,7" desc="Daglig">
-                <!-- Nattavganger -->
+            <weekday day="1" desc="Søndag">
                 <departure time="00:00" line="I" />
-                <departure time="00:40" line="I" comments="Går til Skipavik etterpå (Bestillingstur)" />
+                <departure time="00:40" line="I" comments="Skipavik e. Nesvik v/ bestilling" />
                 <departure time="01:40" line="I" />
-                
-                <!-- Morgenavganger - daglig -->
-                <departure time="07:00" line="I" comments="Går til Skipavik etterpå" />
+                <departure time="07:00" line="I" comments="OBS: til Skipavik" />
                 <departure time="07:20" line="II" />
                 <departure time="07:40" line="I" />
-                <departure time="08:00" line="II" comments="Går til Skipavik etterpå" />
+                <departure time="08:00" line="II" comments="OBS: til Skipavik" />
                 <departure time="08:20" line="I" />
                 <departure time="08:40" line="II" />
                 <departure time="09:00" line="I" />
                 <departure time="09:20" line="II" />
                 <departure time="09:40" line="I" />
-                <departure time="10:00" line="II" comments="Går til Skipavik etterpå" />
+                <departure time="10:00" line="II" comments="OBS: til Skipavik" />
                 <departure time="10:20" line="I" />
                 <departure time="10:40" line="II" />
                 <departure time="11:00" line="I" />
-                <departure time="11:20" line="II" comments="Går til Skipavik etterpå" />
+                <departure time="11:20" line="II" comments="OBS: til Skipavik" />
                 <departure time="11:40" line="I" />
                 <departure time="12:00" line="II" />
                 <departure time="12:20" line="I" />
                 <departure time="12:40" line="II" />
                 <departure time="13:00" line="I" />
-                <departure time="13:20" line="II" comments="Går til Skipavik etterpå" />
+                <departure time="13:20" line="II" comments="OBS: til Skipavik" />
                 <departure time="13:40" line="I" />
                 <departure time="14:00" line="II" />
                 <departure time="14:20" line="I" />
                 <departure time="14:45" line="II" />
-                <departure time="15:00" line="I" comments="Går til Skipavik etterpå" />
+                <departure time="15:00" line="I" comments="OBS: til Skipavik" />
                 <departure time="15:20" line="II" />
                 <departure time="15:40" line="I" />
-                <departure time="16:00" line="II" comments="Går til Skipavik etterpå" />
+                <departure time="16:00" line="II" comments="OBS: til Skipavik" />
                 <departure time="16:20" line="I" />
-                <departure time="16:40" line="II" />
                 <departure time="17:00" line="I" />
-                <departure time="17:20" line="II" />
+                <departure time="17:20" line="II"  />
                 <departure time="17:40" line="I" />
-                <departure time="18:00" line="II" comments="Går til Skipavik etterpå" />
+                <departure time="18:00" line="II" comments="OBS: til Skipavik" />
                 <departure time="18:20" line="I" />
                 <departure time="18:40" line="II" />
                 <departure time="19:00" line="I" />
-                <departure time="19:20" line="II" comments="Går til Skipavik etterpå" />
+                <departure time="19:20" line="II" comments="OBS: til Skipavik"  />
                 <departure time="19:40" line="I" />
                 <departure time="20:00" line="II" />
                 <departure time="20:20" line="I" />
-                <departure time="20:40" line="II" comments="Går til Skipavik etterpå" />
+                <departure time="20:40" line="II" comments="OBS: til Skipavik"  />
                 <departure time="21:00" line="I" />
                 <departure time="21:20" line="II" />
                 <departure time="21:40" line="I" />
-                <!-- II-rute slutt -->
-                <departure time="22:20" line="I" comments="Går til Skipavik etterpå" />
+                <departure time="22:20" line="I" comments="Til Skipavik e. Nesvik"/>
                 <departure time="23:20" line="I" />
             </weekday>
-            
-            <!-- Ekstra morgenavganger - kun ukedager (Dx67 = man-fre) -->
-            <weekday day="2,3,4,5,6" desc="Ukedager (man-fre)">
+            <weekday day="2,3,4,5,6" desc="Ukedager">
+                <departure time="00:00" line="I" />
+                <departure time="00:40" line="I" comments="Skipavik e. Nesvik v/ bestilling" />
+                <departure time="01:40" line="I" />
                 <departure time="04:20" line="I" />
-            </weekday>
-            
-            <!-- Ekstra morgenavganger - kun hverdager (Dx7 = man-lør) -->
-            <weekday day="2,3,4,5,6,7" desc="Hverdager (man-lør)">
                 <departure time="05:00" line="I" />
                 <departure time="05:40" line="I" />
-                <departure time="06:00" line="II" comments="Går til Skipavik etterpå" />
+                <departure time="06:00" line="II" comments="OBS: til Skipavik" />
                 <departure time="06:20" line="I" />
                 <departure time="06:40" line="II" />
+                <departure time="07:00" line="I" comments="OBS: til Skipavik" />
+                <departure time="07:20" line="II" />
+                <departure time="07:40" line="I" />
+                <departure time="08:00" line="II" comments="OBS: til Skipavik" />
+                <departure time="08:20" line="I" />
+                <departure time="08:40" line="II" />
+                <departure time="09:00" line="I" />
+                <departure time="09:20" line="II" />
+                <departure time="09:40" line="I" />
+                <departure time="10:00" line="II" comments="OBS: til Skipavik" />
+                <departure time="10:20" line="I" />
+                <departure time="10:40" line="II" />
+                <departure time="11:00" line="I" />
+                <departure time="11:20" line="II" comments="OBS: til Skipavik" />
+                <departure time="11:40" line="I" />
+                <departure time="12:00" line="II" />
+                <departure time="12:20" line="I" />
+                <departure time="12:40" line="II" />
+                <departure time="13:00" line="I" />
+                <departure time="13:20" line="II" comments="OBS: til Skipavik" />
+                <departure time="13:40" line="I" />
+                <departure time="14:00" line="II" />
+                <departure time="14:20" line="I" />
+                <departure time="14:45" line="II" />
+                <departure time="15:00" line="I" comments="OBS: til Skipavik" />
+                <departure time="15:20" line="II" />
+                <departure time="15:40" line="I" />
+                <departure time="16:00" line="II" comments="OBS: til Skipavik" />
+                <departure time="16:20" line="I" />
+                <departure time="17:00" line="I" />
+                <departure time="17:20" line="II"  />
+                <departure time="17:40" line="I" />
+                <departure time="18:00" line="II" comments="OBS: til Skipavik" />
+                <departure time="18:20" line="I" />
+                <departure time="18:40" line="II" />
+                <departure time="19:00" line="I" />
+                <departure time="19:20" line="II" comments="OBS: til Skipavik"  />
+                <departure time="19:40" line="I" />
+                <departure time="20:00" line="II" />
+                <departure time="20:20" line="I" />
+                <departure time="20:40" line="II" comments="OBS: til Skipavik"  />
+                <departure time="21:00" line="I" />
+                <departure time="21:20" line="II" />
+                <departure time="21:40" line="I" />
+                <departure time="22:20" line="I" comments="Til Skipavik e. Nesvik"/>
+                <departure time="23:20" line="I" />
+            </weekday>
+            <weekday day="7" desc="Lørdag">
+                <departure time="00:00" line="I" />
+                <departure time="00:40" line="I" comments="Skipavik e. Nesvik v/ bestilling" />
+                <departure time="01:40" line="I" />
+                <departure time="05:00" line="I" />
+                <departure time="05:40" line="I" />
+                <departure time="06:00" line="II" comments="OBS: til Skipavik" />
+                <departure time="06:20" line="I" />
+                <departure time="06:40" line="II" />
+                <departure time="07:00" line="I" comments="OBS: til Skipavik" />
+                <departure time="07:20" line="II" />
+                <departure time="07:40" line="I" />
+                <departure time="08:00" line="II" comments="OBS: til Skipavik" />
+                <departure time="08:20" line="I" />
+                <departure time="08:40" line="II" />
+                <departure time="09:00" line="I" />
+                <departure time="09:20" line="II" />
+                <departure time="09:40" line="I" />
+                <departure time="10:00" line="II" comments="OBS: til Skipavik" />
+                <departure time="10:20" line="I" />
+                <departure time="10:40" line="II" />
+                <departure time="11:00" line="I" />
+                <departure time="11:20" line="II" comments="OBS: til Skipavik" />
+                <departure time="11:40" line="I" />
+                <departure time="12:00" line="II" />
+                <departure time="12:20" line="I" />
+                <departure time="12:40" line="II" />
+                <departure time="13:00" line="I" />
+                <departure time="13:20" line="II" comments="OBS: til Skipavik" />
+                <departure time="13:40" line="I" />
+                <departure time="14:00" line="II" />
+                <departure time="14:20" line="I" />
+                <departure time="14:45" line="II" />
+                <departure time="15:00" line="I" comments="OBS: til Skipavik" />
+                <departure time="15:20" line="II" />
+                <departure time="15:40" line="I" />
+                <departure time="16:00" line="II" comments="OBS: til Skipavik" />
+                <departure time="16:20" line="I" />
+                <departure time="17:00" line="I" />
+                <departure time="17:20" line="II"  />
+                <departure time="17:40" line="I" />
+                <departure time="18:00" line="II" comments="OBS: til Skipavik" />
+                <departure time="18:20" line="I" />
+                <departure time="18:40" line="II" />
+                <departure time="19:00" line="I" />
+                <departure time="19:20" line="II" comments="OBS: til Skipavik"  />
+                <departure time="19:40" line="I" />
+                <departure time="20:00" line="II" />
+                <departure time="20:20" line="I" />
+                <departure time="20:40" line="II" comments="OBS: til Skipavik"  />
+                <departure time="21:00" line="I" />
+                <departure time="21:20" line="II" />
+                <departure time="21:40" line="I" />
+                <departure time="22:20" line="I" comments="Til Skipavik e. Nesvik"/>
+                <departure time="23:20" line="I" />
             </weekday>
         </departurepoint>
-
-        <!-- ==================== FRA NESVIK ==================== -->
         <departurepoint location="Nesvik">
-            <!-- Daglig (D) - alle dager -->
-            <weekday day="1,2,3,4,5,6,7" desc="Daglig">
-                <!-- Nattavganger -->
-                <departure time="00:20" line="I" comments="Skipavik: Bytt i Hjelmeland kl 00:40 (Bestillingstur)" />
-                <departure time="01:00" line="I" comments="Går til Skipavik etterpå (Bestillingstur)" />
+            <weekday day="1" desc="Søndag">
+                <departure time="00:20" line="I" />
+                <departure time="01:00" line="I" comments="Om Skipavik v/ bestilling" />
                 <departure time="02:00" line="I" />
-                
-                <!-- Morgenavganger - daglig -->
-                <departure time="07:40" line="II" comments="Skipavik: Bytt i Hjelmeland kl 08:00" />
+                <departure time="07:40" line="I" />
                 <departure time="08:00" line="I" />
                 <departure time="08:35" line="I" />
                 <departure time="09:00" line="II" />
                 <departure time="09:20" line="I" />
-                <departure time="09:40" line="II" comments="Skipavik: Bytt i Hjelmeland kl 10:00" />
+                <departure time="09:40" line="II"/>
                 <departure time="10:00" line="I" />
                 <departure time="10:40" line="I" />
-                <departure time="11:00" line="II" comments="Skipavik: Bytt i Hjelmeland kl 11:20" />
+                <departure time="11:00" line="II" />
                 <departure time="11:20" line="I" />
                 <departure time="12:00" line="I" />
                 <departure time="12:20" line="II" />
                 <departure time="12:40" line="I" />
-                <departure time="13:00" line="II" comments="Skipavik: Bytt i Hjelmeland kl 13:20" />
+                <departure time="13:00" line="II" />
                 <departure time="13:20" line="I" />
                 <departure time="14:00" line="I" />
                 <departure time="14:20" line="II" />
-                <departure time="14:40" line="I" comments="Skipavik: Bytt i Hjelmeland kl 15:00" />
+                <departure time="14:40" line="I" />
                 <departure time="15:00" line="II" />
-                <departure time="15:40" line="II" comments="Skipavik: Bytt i Hjelmeland kl 16:00" />
+                <departure time="15:40" line="II" />
                 <departure time="16:00" line="I" />
                 <departure time="16:40" line="I" />
                 <departure time="17:00" line="II" />
                 <departure time="17:20" line="I" />
-                <departure time="17:40" line="II" comments="Skipavik: Bytt i Hjelmeland kl 18:00" />
+                <departure time="17:40" line="II" />
                 <departure time="18:00" line="I" />
                 <departure time="18:40" line="I" />
-                <departure time="19:00" line="II" comments="Skipavik: Bytt i Hjelmeland kl 19:20" />
+                <departure time="19:00" line="II" />
                 <departure time="19:20" line="I" />
                 <departure time="20:00" line="I" />
-                <departure time="20:20" line="II" comments="Skipavik: Bytt i Hjelmeland kl 20:40" />
+                <departure time="20:20" line="II" />
                 <departure time="20:40" line="I" />
-                <departure time="21:00" line="II" />
                 <departure time="21:20" line="I" />
                 <departure time="21:40" line="II" />
-                <!-- II-rute slutt -->
-                <departure time="22:00" line="I" comments="Skipavik: Bytt i Hjelmeland kl 22:20" />
-                <departure time="22:40" line="I" />
-                <departure time="23:20" line="I" />
+                <departure time="22:00" line="I" />
+                <departure time="22:40" line="I" comments="Om Skipavik v/ bestilling" />
                 <departure time="23:40" line="I" />
             </weekday>
-            
-            <!-- Ekstra morgenavganger - kun ukedager -->
-            <weekday day="2,3,4,5,6" desc="Ukedager (man-fre)">
+            <weekday day="2,3,4,5,6" desc="Ukedager">
+                <departure time="00:20" line="I" />
+                <departure time="01:00" line="I" comments="Om Skipavik v/ bestilling" />
+                <departure time="02:00" line="I" />
                 <departure time="04:40" line="I" />
-            </weekday>
-            
-            <!-- Ekstra morgenavganger - kun hverdager (Dx7) -->
-            <weekday day="2,3,4,5,6,7" desc="Hverdager (man-lør)">
-                <departure time="05:00" line="I" />
                 <departure time="05:20" line="I" />
-                <departure time="06:40" line="I" comments="Skipavik: Bytt i Hjelmeland kl 07:00" />
+                <departure time="06:00" line="I" />
+                <departure time="06:40" line="I" />
                 <departure time="07:00" line="II" />
+                <departure time="07:40" line="I" />
+                <departure time="08:00" line="I" />
+                <departure time="08:35" line="I" />
+                <departure time="09:00" line="II" />
+                <departure time="09:20" line="I" />
+                <departure time="09:40" line="II"/>
+                <departure time="10:00" line="I" />
+                <departure time="10:40" line="I" />
+                <departure time="11:00" line="II" />
+                <departure time="11:20" line="I" />
+                <departure time="12:00" line="I" />
+                <departure time="12:20" line="II" />
+                <departure time="12:40" line="I" />
+                <departure time="13:00" line="II" />
+                <departure time="13:20" line="I" />
+                <departure time="14:00" line="I" />
+                <departure time="14:20" line="II" />
+                <departure time="14:40" line="I" />
+                <departure time="15:00" line="II" />
+                <departure time="15:40" line="II" />
+                <departure time="16:00" line="I" />
+                <departure time="16:40" line="I" />
+                <departure time="17:00" line="II" />
+                <departure time="17:20" line="I" />
+                <departure time="17:40" line="II" />
+                <departure time="18:00" line="I" />
+                <departure time="18:40" line="I" />
+                <departure time="19:00" line="II" />
+                <departure time="19:20" line="I" />
+                <departure time="20:00" line="I" />
+                <departure time="20:20" line="II" />
+                <departure time="20:40" line="I" />
+                <departure time="21:20" line="I" />
+                <departure time="21:40" line="II" />
+                <departure time="22:00" line="I" />
+                <departure time="22:40" line="I" comments="Om Skipavik v/ bestilling" />
+                <departure time="23:40" line="I" />
+            </weekday>
+            <weekday day="7" desc="Lørdag">
+                <departure time="00:20" line="I" />
+                <departure time="01:00" line="I" comments="Om Skipavik v/ bestilling" />
+                <departure time="02:00" line="I" />
+                <departure time="05:20" line="I" />
+                <departure time="06:00" line="I" />
+                <departure time="06:40" line="I" />
+                <departure time="07:00" line="II" />
+                <departure time="07:40" line="I" />
+                <departure time="08:00" line="I" />
+                <departure time="08:35" line="I" />
+                <departure time="09:00" line="II" />
+                <departure time="09:20" line="I" />
+                <departure time="09:40" line="II"/>
+                <departure time="10:00" line="I" />
+                <departure time="10:40" line="I" />
+                <departure time="11:00" line="II" />
+                <departure time="11:20" line="I" />
+                <departure time="12:00" line="I" />
+                <departure time="12:20" line="II" />
+                <departure time="12:40" line="I" />
+                <departure time="13:00" line="II" />
+                <departure time="13:20" line="I" />
+                <departure time="14:00" line="I" />
+                <departure time="14:20" line="II" />
+                <departure time="14:40" line="I" />
+                <departure time="15:00" line="II" />
+                <departure time="15:40" line="II" />
+                <departure time="16:00" line="I" />
+                <departure time="16:40" line="I" />
+                <departure time="17:00" line="II" />
+                <departure time="17:20" line="I" />
+                <departure time="17:40" line="II" />
+                <departure time="18:00" line="I" />
+                <departure time="18:40" line="I" />
+                <departure time="19:00" line="II" />
+                <departure time="19:20" line="I" />
+                <departure time="20:00" line="I" />
+                <departure time="20:20" line="II" />
+                <departure time="20:40" line="I" />
+                <departure time="21:20" line="I" />
+                <departure time="21:40" line="II" />
+                <departure time="22:00" line="I" />
+                <departure time="22:40" line="I" comments="Om Skipavik v/ bestilling" />
+                <departure time="23:40" line="I" />
             </weekday>
         </departurepoint>
 
-        <!-- ==================== FRA SKIPAVIK (Ombo) ==================== -->
-        <departurepoint location="Skipavik">
-            <!-- Daglig (D) - alle dager -->
-            <weekday day="1,2,3,4,5,6,7" desc="Daglig">
-                <departure time="07:15" line="I" />
-                <departure time="08:15" line="II" />
-                <departure time="10:15" line="II" />
-                <departure time="11:35" line="II" />
-                <departure time="13:35" line="II" />
-                <departure time="15:15" line="I" />
-                <departure time="16:15" line="II" />
-                <departure time="18:15" line="II" />
-                <departure time="19:35" line="II" />
-                <departure time="20:55" line="II" />
-                <departure time="22:55" line="I" />
-            </weekday>
-            
-            <!-- Bestillingstur natt -->
-            <weekday day="1,2,3,4,5,6,7" desc="Daglig - bestillingstur">
-                <departure time="01:15" line="I" comments="Bestillingstur" />
-            </weekday>
-            
-            <!-- Ekstra morgenavganger - kun hverdager -->
-            <weekday day="2,3,4,5,6,7" desc="Hverdager (man-lør)">
-                <departure time="06:20" line="II" />
-            </weekday>
-        </departurepoint>
 
     </route>
 
-    <route name="Mekjarvik-Kvitsøy" location1="Mekjarvik" location2="Kvitsøy" validfrom="2021-01-01" validto="2025-12-31" serial="2025122801"
-        time="40" ticketzone="14" operator="kolumbus" routeid="1023" url="https://www.kolumbus.no/globalassets/ruter/baatruter/2021_kvitsoyferjen.pdf"
+    <route name="Mekjarvik-Kvitsøy" location1="Mekjarvik" location2="Kvitsøy" validfrom="2016-10-17" validto="2018-04-30" serial="2016101701"
+        time="40" ticketzone="14" operator="norled" routeid="1023" url="https://www.norled.no/contentassets/d1245a01950648a880b65194e17c7834/mekjarvik---kvitsoy-2017.pdf"
         areaCode="Rogaland">
-        <!-- OPPDATERT 2025-12-28: Ruten drives nå av Kolumbus. Bestilling: billetter.kolumbus.no -->
 
         <departurepoint location="Mekjarvik">
-            <!-- Oppdatert 2025-12-28: Nye rutetider fra 15.08.2022 -->
             <weekday day="2,3,4,5,6" desc="Ukedager">
-                <departure time="06:05" />
                 <departure time="07:25" />
-                <departure time="08:50" />
-                <departure time="10:10" />
-                <departure time="11:40" />
-                <departure time="13:00" />
-                <departure time="14:20" />
-                <departure time="15:40" />
-                <departure time="17:00" />
-                <departure time="18:30" />
-                <departure time="20:00" />
-                <departure time="21:20" />
+                <departure time="08:55" />
+                <departure time="10:45" />
+                <departure time="14:00" />
+                <departure time="15:30" />
+                <departure time="16:50" />
+                <departure time="18:20" />
+                <departure time="19:50" />
+                <departure time="21:15" />
                 <departure time="22:45" />
             </weekday>
             <weekday day="7" desc="Lørdag">
-                <departure time="07:25" />
-                <departure time="08:50" />
-                <departure time="10:10" />
-                <departure time="11:40" />
-                <departure time="14:20" />
-                <departure time="15:40" />
-                <departure time="17:00" />
-                <departure time="18:30" />
-                <departure time="20:00" />
-                <departure time="21:20" />
+                <departure time="07:45" />
+                <departure time="10:30" />
+                <departure time="13:00" />
+                <departure time="15:00" />
+                <departure time="16:45" />
+                <departure time="18:45" />
+                <departure time="21:00" />
                 <departure time="23:00" />
             </weekday>
             <weekday day="1" desc="Søndag">
-                <departure time="08:50" />
-                <departure time="10:10" />
-                <departure time="11:40" />
+                <departure time="09:00" />
+                <departure time="10:30" />
                 <departure time="13:00" />
-                <departure time="14:20" />
-                <departure time="15:40" />
-                <departure time="17:00" />
-                <departure time="18:30" />
-                <departure time="20:00" />
-                <departure time="21:20" />
-                <departure time="22:45" />
+                <departure time="15:00" />
+                <departure time="16:45" />
+                <departure time="18:45" />
+                <departure time="21:00" />
+                <departure time="22:40" />
             </weekday>
         </departurepoint>
         <departurepoint location="Kvitsøy">
-            <!-- Oppdatert 2025-12-28: Nye rutetider fra 15.08.2022 -->
             <weekday day="2,3,4,5,6" desc="Ukedager">
-                <departure time="05:25" />
                 <departure time="06:45" />
                 <departure time="08:10" />
-                <departure time="09:30" />
-                <departure time="10:50" />
-                <departure time="12:20" />
-                <departure time="13:40" />
-                <departure time="15:00" />
-                <departure time="16:20" />
-                <departure time="17:40" />
-                <departure time="19:10" />
-                <departure time="20:40" />
-                <departure time="22:05" />
+                <departure time="09:40" />
+                <departure time="11:40" />
+                <departure time="14:45" />
+                <departure time="16:10" />
+                <departure time="17:35" />
+                <departure time="19:05" />
+                <departure time="20:35" />
+                <departure time="22:00" />
             </weekday>
             <weekday day="7" desc="Lørdag">
-                <departure time="06:45" />
-                <departure time="08:10" />
-                <departure time="09:30" />
-                <departure time="10:50" />
-                <departure time="12:20" />
-                <departure time="15:00" />
-                <departure time="16:20" />
-                <departure time="17:40" />
-                <departure time="19:10" />
-                <departure time="20:40" />
-                <departure time="22:20" />
+                <departure time="07:00" />
+                <departure time="09:00" />
+                <departure time="11:30" />
+                <departure time="14:00" />
+                <departure time="16:10" />
+                <departure time="17:00" />
+                <departure time="20:00" />
+                <departure time="22:15" />
             </weekday>
             <weekday day="1" desc="Søndag">
-                <departure time="08:10" />
-                <departure time="09:30" />
-                <departure time="10:50" />
-                <departure time="12:20" />
-                <departure time="13:40" />
-                <departure time="15:00" />
-                <departure time="16:20" />
-                <departure time="17:40" />
-                <departure time="19:10" />
-                <departure time="20:40" />
-                <departure time="22:05" />
+                <departure time="08:15" />
+                <departure time="09:45" />
+                <departure time="12:30" />
+                <departure time="14:00" />
+                <departure time="16:00" />
+                <departure time="18:00" />
+                <departure time="20:00" />
+                <departure time="21:55" />
             </weekday>
         </departurepoint>
     </route>
@@ -1292,10 +1393,9 @@
         </departurepoint>
     </route>
 
-    <route name="Fodnes-Mannheller" location1="Fodnes" location2="Mannheller" validfrom="2025-06-01" validto="2025-12-31" serial="2025122801"
-        time="15" ticketzone="4" operator="norled" routeid="1102" url="https://www.norled.no/wp-content/uploads/2025/06/Rutetabell-ordinaer-Mannheller-Fodnes2025.pdf"
+    <route name="Fodnes-Mannheller" location1="Fodnes" location2="Mannheller" validfrom="2019-01-01" validto="2019-12-31" serial="2019010101"
+        time="15" ticketzone="4" operator="fjord1" routeid="1102" url="https://www.fjord1.no/Ruteoversikt/Sogn-og-Fjordane/Fodnes-Mannheller"
         areaCode="Vestland">
-        <!-- OPPDATERT 2025-12-28: Ruten drives nå av Norled. Kriserute tilgjengelig ved behov. -->
 
         <lines>
             <line id="A" name="M/F Årdal" phonenumber="415 36 362" type="ferry" flags="" comments="" color="" />
@@ -1303,129 +1403,356 @@
         </lines>
 
         <departurepoint location="Fodnes">
-            <!-- Oppdatert 2025-12-28: Nye rutetider 2025 - daglig rute (samme alle dager) -->
-            <weekday day="1,2,3,4,5,6,7" desc="Daglig">
-                <departure time="00:30" line="A" />
-                <departure time="01:30" line="A" />
-                <departure time="02:30" line="A" />
-                <departure time="03:30" line="A" />
-                <departure time="04:30" line="A" />
-                <departure time="05:30" line="A" />
-                <departure time="06:00" line="B" />
-                <departure time="06:20" line="A" />
-                <departure time="06:40" line="B" />
-                <departure time="07:00" line="A" />
-                <departure time="07:20" line="B" />
-                <departure time="07:40" line="A" />
-                <departure time="08:00" line="B" />
-                <departure time="08:20" line="A" />
-                <departure time="08:40" line="B" />
-                <departure time="09:00" line="A" />
-                <departure time="09:20" line="B" />
-                <departure time="09:40" line="A" />
-                <departure time="10:00" line="B" />
-                <departure time="10:20" line="A" />
-                <departure time="10:40" line="B" />
-                <departure time="11:00" line="A" />
-                <departure time="11:20" line="B" />
-                <departure time="11:40" line="A" />
-                <departure time="12:00" line="B" />
-                <departure time="12:20" line="A" />
-                <departure time="12:40" line="B" />
-                <departure time="13:00" line="A" />
-                <departure time="13:20" line="B" />
-                <departure time="13:40" line="A" />
-                <departure time="14:00" line="B" />
-                <departure time="14:20" line="A" />
-                <departure time="14:40" line="B" />
-                <departure time="15:00" line="A" />
-                <departure time="15:20" line="B" />
-                <departure time="15:40" line="A" />
-                <departure time="16:00" line="B" />
-                <departure time="16:20" line="A" />
-                <departure time="16:40" line="B" />
-                <departure time="17:00" line="A" />
-                <departure time="17:20" line="B" />
-                <departure time="17:40" line="A" />
-                <departure time="18:00" line="B" />
-                <departure time="18:20" line="A" />
-                <departure time="18:40" line="B" />
-                <departure time="19:00" line="A" />
-                <departure time="19:20" line="B" />
-                <departure time="19:40" line="A" />
-                <departure time="20:00" line="B" />
-                <departure time="20:20" line="A" />
-                <departure time="20:40" line="B" />
-                <departure time="21:00" line="A" />
-                <departure time="21:20" line="B" />
-                <departure time="21:40" line="A" />
-                <departure time="22:00" line="B" />
-                <departure time="22:20" line="A" />
-                <departure time="22:40" line="B" />
-                <departure time="23:30" line="A" />
+            <weekday day="2,3,4,5,6" desc="Ukedager">
+                <departure time="00:30" />
+                <departure time="01:00" />
+                <departure time="02:30" />
+                <departure time="03:30" />
+                <departure time="04:30" />
+                <departure time="05:30" />
+                <departure time="06:00" />
+                <departure time="06:30" />
+                <departure time="07:00" />
+                <departure time="07:20" />
+                <departure time="07:40" />
+                <departure time="08:00" />
+                <departure time="08:20" />
+                <departure time="08:40" />
+                <departure time="09:00" />
+                <departure time="09:20" />
+                <departure time="09:40" />
+                <departure time="10:00" />
+                <departure time="10:20" />
+                <departure time="10:40" />
+                <departure time="11:00" />
+                <departure time="11:20" />
+                <departure time="11:40" />
+                <departure time="12:00" />
+                <departure time="12:20" />
+                <departure time="12:40" />
+                <departure time="13:00" />
+                <departure time="13:20" />
+                <departure time="13:40" />
+                <departure time="14:00" />
+                <departure time="14:20" />
+                <departure time="14:40" />
+                <departure time="15:00" />
+                <departure time="15:20" />
+                <departure time="15:40" />
+                <departure time="16:00" />
+                <departure time="16:20" />
+                <departure time="16:40" />
+                <departure time="17:00" />
+                <departure time="17:20" />
+                <departure time="17:40" />
+                <departure time="18:00" />
+                <departure time="18:20" />
+                <departure time="18:40" />
+                <departure time="19:00" />
+                <departure time="19:20" />
+                <departure time="19:40" />
+                <departure time="20:00" />
+                <departure time="20:20" />
+                <departure time="20:40" />
+                <departure time="21:00" />
+                <departure time="21:20" />
+                <departure time="21:40" />
+                <departure time="22:00" />
+                <departure time="22:30" />
+                <departure time="23:30" />
+            </weekday>
+            <weekday day="7" desc="Lørdag">
+                <departure time="00:30" />
+                <departure time="01:00" />
+                <departure time="02:30" />
+                <departure time="03:30" />
+                <departure time="04:30" />
+                <departure time="05:30" />
+                <departure time="06:00" />
+                <departure time="06:30" />
+                <departure time="07:00" />
+                <departure time="07:20" />
+                <departure time="07:40" />
+                <departure time="08:00" />
+                <departure time="08:20" />
+                <departure time="08:40" />
+                <departure time="09:00" />
+                <departure time="09:20" />
+                <departure time="09:40" />
+                <departure time="10:00" />
+                <departure time="10:20" />
+                <departure time="10:40" />
+                <departure time="11:00" />
+                <departure time="11:20" />
+                <departure time="11:40" />
+                <departure time="12:00" />
+                <departure time="12:20" />
+                <departure time="12:40" />
+                <departure time="13:00" />
+                <departure time="13:20" />
+                <departure time="13:40" />
+                <departure time="14:00" />
+                <departure time="14:20" />
+                <departure time="14:40" />
+                <departure time="15:00" />
+                <departure time="15:20" />
+                <departure time="15:40" />
+                <departure time="16:00" />
+                <departure time="16:20" />
+                <departure time="16:40" />
+                <departure time="17:00" />
+                <departure time="17:20" />
+                <departure time="17:40" />
+                <departure time="18:00" />
+                <departure time="18:20" />
+                <departure time="18:40" />
+                <departure time="19:00" />
+                <departure time="19:20" />
+                <departure time="19:40" />
+                <departure time="20:00" />
+                <departure time="20:20" />
+                <departure time="20:40" />
+                <departure time="21:00" />
+                <departure time="21:20" />
+                <departure time="21:40" />
+                <departure time="22:00" />
+                <departure time="22:30" />
+                <departure time="23:30" />
+            </weekday>
+            <weekday day="1" desc="Søndag">
+                <departure time="00:30" />
+                <departure time="01:00" />
+                <departure time="01:30" />
+                <departure time="02:30" />
+                <departure time="03:30" />
+                <departure time="04:30" />
+                <departure time="05:30" />
+                <departure time="06:00" />
+                <departure time="06:30" />
+                <departure time="07:00" />
+                <departure time="07:20" />
+                <departure time="07:40" />
+                <departure time="08:00" />
+                <departure time="08:20" />
+                <departure time="08:40" />
+                <departure time="09:00" />
+                <departure time="09:20" />
+                <departure time="09:40" />
+                <departure time="10:00" />
+                <departure time="10:20" />
+                <departure time="10:40" />
+                <departure time="11:00" />
+                <departure time="11:20" />
+                <departure time="11:40" />
+                <departure time="12:00" />
+                <departure time="12:20" />
+                <departure time="12:40" />
+                <departure time="13:00" />
+                <departure time="13:20" />
+                <departure time="13:40" />
+                <departure time="14:00" />
+                <departure time="14:20" />
+                <departure time="14:40" />
+                <departure time="15:00" />
+                <departure time="15:20" />
+                <departure time="15:40" />
+                <departure time="16:00" />
+                <departure time="16:20" />
+                <departure time="16:40" />
+                <departure time="17:00" />
+                <departure time="17:20" />
+                <departure time="17:40" />
+                <departure time="18:00" />
+                <departure time="18:20" />
+                <departure time="18:40" />
+                <departure time="19:00" />
+                <departure time="19:20" />
+                <departure time="19:40" />
+                <departure time="20:00" />
+                <departure time="20:20" />
+                <departure time="20:40" />
+                <departure time="21:00" />
+                <departure time="21:20" />
+                <departure time="21:40" />
+                <departure time="22:00" />
+                <departure time="22:30" />
+                <departure time="23:30" />
             </weekday>
         </departurepoint>
         <departurepoint location="Mannheller">
-            <!-- Oppdatert 2025-12-28: Nye rutetider 2025 - daglig rute (samme alle dager) -->
-            <weekday day="1,2,3,4,5,6,7" desc="Daglig">
-                <departure time="00:00" line="A" />
-                <departure time="01:00" line="A" />
-                <departure time="02:00" line="A" />
-                <departure time="03:00" line="A" />
-                <departure time="04:00" line="A" />
-                <departure time="05:00" line="A" />
-                <departure time="05:40" line="B" />
-                <departure time="06:00" line="A" />
-                <departure time="06:20" line="B" />
-                <departure time="06:40" line="A" />
-                <departure time="07:00" line="B" />
-                <departure time="07:20" line="A" />
-                <departure time="07:40" line="B" />
-                <departure time="08:00" line="A" />
-                <departure time="08:20" line="B" />
-                <departure time="08:40" line="A" />
-                <departure time="09:00" line="B" />
-                <departure time="09:20" line="A" />
-                <departure time="09:40" line="B" />
-                <departure time="10:00" line="A" />
-                <departure time="10:20" line="B" />
-                <departure time="10:40" line="A" />
-                <departure time="11:00" line="B" />
-                <departure time="11:20" line="A" />
-                <departure time="11:40" line="B" />
-                <departure time="12:00" line="A" />
-                <departure time="12:20" line="B" />
-                <departure time="12:40" line="A" />
-                <departure time="13:00" line="B" />
-                <departure time="13:20" line="A" />
-                <departure time="13:40" line="B" />
-                <departure time="14:00" line="A" />
-                <departure time="14:20" line="B" />
-                <departure time="14:40" line="A" />
-                <departure time="15:00" line="B" />
-                <departure time="15:20" line="A" />
-                <departure time="15:40" line="B" />
-                <departure time="16:00" line="A" />
-                <departure time="16:20" line="B" />
-                <departure time="16:40" line="A" />
-                <departure time="17:00" line="B" />
-                <departure time="17:20" line="A" />
-                <departure time="17:40" line="B" />
-                <departure time="18:00" line="A" />
-                <departure time="18:20" line="B" />
-                <departure time="18:40" line="A" />
-                <departure time="19:00" line="B" />
-                <departure time="19:20" line="A" />
-                <departure time="19:40" line="B" />
-                <departure time="20:00" line="A" />
-                <departure time="20:20" line="B" />
-                <departure time="20:40" line="A" />
-                <departure time="21:00" line="B" />
-                <departure time="21:20" line="A" />
-                <departure time="21:40" line="B" />
-                <departure time="22:00" line="A" />
-                <departure time="22:20" line="B" />
-                <departure time="23:00" line="A" />
+            <weekday day="2,3,4,5,6" desc="Ukedager">
+                <departure time="00:00" />
+                <departure time="01:00" />
+                <departure time="02:00" />
+                <departure time="03:00" />
+                <departure time="04:00" />
+                <departure time="05:00" />
+                <departure time="05:45" />
+                <departure time="06:15" />
+                <departure time="06:45" />
+                <departure time="07:00" />
+                <departure time="07:20" />
+                <departure time="07:40" />
+                <departure time="08:00" />
+                <departure time="08:20" />
+                <departure time="08:40" />
+                <departure time="09:00" />
+                <departure time="09:20" />
+                <departure time="09:40" />
+                <departure time="10:00" />
+                <departure time="10:20" />
+                <departure time="10:40" />
+                <departure time="11:00" />
+                <departure time="11:20" />
+                <departure time="11:40" />
+                <departure time="12:00" />
+                <departure time="12:20" />
+                <departure time="12:40" />
+                <departure time="13:00" />
+                <departure time="13:20" />
+                <departure time="13:40" />
+                <departure time="14:00" />
+                <departure time="14:20" />
+                <departure time="14:40" />
+                <departure time="15:00" />
+                <departure time="15:20" />
+                <departure time="15:40" />
+                <departure time="16:00" />
+                <departure time="16:20" />
+                <departure time="16:40" />
+                <departure time="17:00" />
+                <departure time="17:20" />
+                <departure time="17:40" />
+                <departure time="18:00" />
+                <departure time="18:20" />
+                <departure time="18:40" />
+                <departure time="19:00" />
+                <departure time="19:20" />
+                <departure time="19:40" />
+                <departure time="20:00" />
+                <departure time="20:20" />
+                <departure time="20:40" />
+                <departure time="21:00" />
+                <departure time="21:20" />
+                <departure time="21:40" />
+                <departure time="22:00" />
+                <departure time="23:00" />
+            </weekday>
+            <weekday day="7" desc="Lørdag">
+                <departure time="00:00" />
+                <departure time="01:00" />
+                <departure time="02:00" />
+                <departure time="03:00" />
+                <departure time="04:00" />
+                <departure time="05:00" />
+                <departure time="05:45" />
+                <departure time="06:15" />
+                <departure time="06:45" />
+                <departure time="07:00" />
+                <departure time="07:20" />
+                <departure time="07:40" />
+                <departure time="08:00" />
+                <departure time="08:20" />
+                <departure time="08:40" />
+                <departure time="09:00" />
+                <departure time="09:20" />
+                <departure time="09:40" />
+                <departure time="10:00" />
+                <departure time="10:20" />
+                <departure time="10:40" />
+                <departure time="11:00" />
+                <departure time="11:20" />
+                <departure time="11:40" />
+                <departure time="12:00" />
+                <departure time="12:20" />
+                <departure time="12:40" />
+                <departure time="13:00" />
+                <departure time="13:20" />
+                <departure time="13:40" />
+                <departure time="14:00" />
+                <departure time="14:20" />
+                <departure time="14:40" />
+                <departure time="15:00" />
+                <departure time="15:20" />
+                <departure time="15:40" />
+                <departure time="16:00" />
+                <departure time="16:20" />
+                <departure time="16:40" />
+                <departure time="17:00" />
+                <departure time="17:20" />
+                <departure time="17:40" />
+                <departure time="18:00" />
+                <departure time="18:20" />
+                <departure time="18:40" />
+                <departure time="19:00" />
+                <departure time="19:20" />
+                <departure time="19:40" />
+                <departure time="20:00" />
+                <departure time="20:20" />
+                <departure time="20:40" />
+                <departure time="21:00" />
+                <departure time="21:20" />
+                <departure time="21:40" />
+                <departure time="22:00" />
+                <departure time="23:00" />
+            </weekday>
+            <weekday day="1" desc="Søndag">
+                <departure time="00:00" />
+                <departure time="01:00" />
+                <departure time="02:00" />
+                <departure time="03:00" />
+                <departure time="04:00" />
+                <departure time="05:00" />
+                <departure time="05:45" />
+                <departure time="06:15" />
+                <departure time="06:45" />
+                <departure time="07:00" />
+                <departure time="07:20" />
+                <departure time="07:40" />
+                <departure time="08:00" />
+                <departure time="08:20" />
+                <departure time="08:40" />
+                <departure time="09:00" />
+                <departure time="09:20" />
+                <departure time="09:40" />
+                <departure time="10:00" />
+                <departure time="10:20" />
+                <departure time="10:40" />
+                <departure time="11:00" />
+                <departure time="11:20" />
+                <departure time="11:40" />
+                <departure time="12:00" />
+                <departure time="12:20" />
+                <departure time="12:40" />
+                <departure time="13:00" />
+                <departure time="13:20" />
+                <departure time="13:40" />
+                <departure time="14:00" />
+                <departure time="14:20" />
+                <departure time="14:40" />
+                <departure time="15:00" />
+                <departure time="15:20" />
+                <departure time="15:40" />
+                <departure time="16:00" />
+                <departure time="16:20" />
+                <departure time="16:40" />
+                <departure time="17:00" />
+                <departure time="17:20" />
+                <departure time="17:40" />
+                <departure time="18:00" />
+                <departure time="18:20" />
+                <departure time="18:40" />
+                <departure time="19:00" />
+                <departure time="19:20" />
+                <departure time="19:40" />
+                <departure time="20:00" />
+                <departure time="20:20" />
+                <departure time="20:40" />
+                <departure time="21:00" />
+                <departure time="21:20" />
+                <departure time="21:40" />
+                <departure time="22:00" />
+                <departure time="23:00" />
             </weekday>
         </departurepoint>
     </route>
@@ -1647,10 +1974,9 @@
         </departurepoint>
     </route>
 
-    <route name="Lavik-Oppedal" location1="Oppedal" location2="Lavik" validfrom="2024-11-01" validto="2025-12-31" serial="2025122801"
-           time="20" ticketzone="6" operator="norled" routeid="1046" url="https://norled.no/wp-content/uploads/2024/11/10c8bdab-34f3-4ceb-b19f-3f4a24185f1f.pdf"
+    <route name="Lavik-Oppedal" location1="Oppedal" location2="Lavik" validfrom="2020-01-01" validto="2020-12-31" serial="2020010101"
+           time="20" ticketzone="6" operator="norled" routeid="1046" url="https://www.norled.no/contentassets/a4aa7bd2b2304c6d8aaf5df4c97a4d94/lavik-oppedal_rute1046_k3-2019-3.pdf"
            areaCode="Vestland">
-        <!-- OPPDATERT 2025-12-28: Nye rutetider. Ekstra avganger: https://norled.no/wp-content/uploads/2024/11/09749141-f06a-46e1-ad31-35cced218f97.pdf -->
 
         <lines>
             <line id="A" name="MF Oppedal" phonenumber="91681170" type="ferry" flags="" comments="" color="" />

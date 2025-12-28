@@ -312,10 +312,38 @@ Departure.prototype.Previous = function () {
 
 Departure.prototype.Output = function (verbose) {
 	'use strict';
+	var asterisk = (this.Comments && this.Comments.length > 0) ? "*" : "";
 	if(verbose) {
-		return this.TimeOfDay + " (om " + MinsToString(this.MinutesUntil()) + ")";
+		return this.TimeOfDay + asterisk + " (om " + MinsToString(this.MinutesUntil()) + ")";
 	} else {
-		return this.TimeOfDay;
+		return this.TimeOfDay + asterisk;
+	}
+};
+
+Departure.prototype.OutputElement = function () {
+	'use strict';
+	var departure = this;
+	var hasComment = (this.Comments && this.Comments.length > 0);
+	
+	if (hasComment) {
+		var elem = $("<span />")
+			.addClass("departure-with-comment")
+			.text(this.TimeOfDay)
+			.append($("<span />").addClass("departure-asterisk").text("*"))
+			.attr("title", this.Comments)
+			.click(function(e) {
+				e.stopPropagation();
+				e.preventDefault();
+				$("#departureInfoTitle").text("Avgang " + departure.TimeOfDay);
+				$("#departureInfoText").text(departure.Comments);
+				$("#departureInfoPopup").popup("open", {
+					positionTo: "window",
+					transition: "pop"
+				});
+			});
+		return elem;
+	} else {
+		return $("<span />").text(this.TimeOfDay);
 	}
 };
 
