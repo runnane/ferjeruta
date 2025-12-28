@@ -1,0 +1,29 @@
+{
+    "$schema": "node_modules/wrangler/config-schema.json",
+    "name": "ferjeruta",
+    "main": "src/index.js",
+    "account_id": "f784724f9883f1ad4669699a4f25e778",
+    "compatibility_date": "2024-12-28",
+    // Static assets configuration
+    "assets": {
+        "directory": "./public"
+    },
+    // Custom domains
+    "routes": [
+        {
+            "pattern": "ferjeruta.no",
+            "custom_domain": true
+        },
+        {
+            "pattern": "www.ferjeruta.no",
+            "custom_domain": true
+        },
+        {
+            "pattern": "cf.ferjeruta.no",
+            "custom_domain": true
+        }
+    ],
+    "observability": {
+        "enabled": false
+    }
+}

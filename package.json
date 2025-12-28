@@ -1,0 +1,14 @@
+{
+  "name": "ferjeruta",
+  "version": "1.0.0",
+  "description": "Ferjeruta - Norwegian ferry schedule viewer",
+  "private": true,
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev --ip 0.0.0.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.54.0"
+  },
+  "license": "GPL-2.0"
+}

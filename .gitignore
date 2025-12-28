@@ -1,2 +1,18 @@
-.vscode/launch.json
-.idea
+# IDE
+.vscode/
+.idea/
+
+# Dependencies
+node_modules/
+
+# Cloudflare
+.wrangler/
+.dev.vars
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
