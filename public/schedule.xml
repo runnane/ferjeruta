@@ -928,57 +928,57 @@
             <weekday day="1,2,3,4,5,6,7" desc="Daglig">
                 <!-- Nattavganger -->
                 <departure time="00:00" line="I" />
-                <departure time="00:40" line="I" comments="Går til Skipavik etterpå (Bestillingstur)" />
+                <departure time="00:40" line="I" comments="Går til Skipavik etter Nesvik (Bestillingstur)" />
                 <departure time="01:40" line="I" />
                 
                 <!-- Morgenavganger - daglig -->
-                <departure time="07:00" line="I" comments="Går til Skipavik etterpå" />
+                <departure time="07:00" line="I" comments="Går til Skipavik" />
                 <departure time="07:20" line="II" />
                 <departure time="07:40" line="I" />
-                <departure time="08:00" line="II" comments="Går til Skipavik etterpå" />
+                <departure time="08:00" line="II" comments="Går til Skipavik" />
                 <departure time="08:20" line="I" />
                 <departure time="08:40" line="II" />
                 <departure time="09:00" line="I" />
                 <departure time="09:20" line="II" />
                 <departure time="09:40" line="I" />
-                <departure time="10:00" line="II" comments="Går til Skipavik etterpå" />
+                <departure time="10:00" line="II" comments="Går til Skipavik" />
                 <departure time="10:20" line="I" />
                 <departure time="10:40" line="II" />
                 <departure time="11:00" line="I" />
-                <departure time="11:20" line="II" comments="Går til Skipavik etterpå" />
+                <departure time="11:20" line="II" comments="Går til Skipavik" />
                 <departure time="11:40" line="I" />
                 <departure time="12:00" line="II" />
                 <departure time="12:20" line="I" />
                 <departure time="12:40" line="II" />
                 <departure time="13:00" line="I" />
-                <departure time="13:20" line="II" comments="Går til Skipavik etterpå" />
+                <departure time="13:20" line="II" comments="Går til Skipavik" />
                 <departure time="13:40" line="I" />
                 <departure time="14:00" line="II" />
                 <departure time="14:20" line="I" />
                 <departure time="14:45" line="II" />
-                <departure time="15:00" line="I" comments="Går til Skipavik etterpå" />
+                <departure time="15:00" line="I" comments="Går til Skipavik" />
                 <departure time="15:20" line="II" />
                 <departure time="15:40" line="I" />
-                <departure time="16:00" line="II" comments="Går til Skipavik etterpå" />
+                <departure time="16:00" line="II" comments="Går til Skipavik" />
                 <departure time="16:20" line="I" />
                 <departure time="16:40" line="II" />
                 <departure time="17:00" line="I" />
                 <departure time="17:20" line="II" />
                 <departure time="17:40" line="I" />
-                <departure time="18:00" line="II" comments="Går til Skipavik etterpå" />
+                <departure time="18:00" line="II" comments="Går til Skipavik" />
                 <departure time="18:20" line="I" />
                 <departure time="18:40" line="II" />
                 <departure time="19:00" line="I" />
-                <departure time="19:20" line="II" comments="Går til Skipavik etterpå" />
+                <departure time="19:20" line="II" comments="Går til Skipavik" />
                 <departure time="19:40" line="I" />
                 <departure time="20:00" line="II" />
                 <departure time="20:20" line="I" />
-                <departure time="20:40" line="II" comments="Går til Skipavik etterpå" />
+                <departure time="20:40" line="II" comments="Går til Skipavik" />
                 <departure time="21:00" line="I" />
                 <departure time="21:20" line="II" />
                 <departure time="21:40" line="I" />
                 <!-- II-rute slutt -->
-                <departure time="22:20" line="I" comments="Går til Skipavik etterpå" />
+                <departure time="22:20" line="I" comments="Går til Skipavik etter Nesvik" />
                 <departure time="23:20" line="I" />
             </weekday>
             
@@ -991,7 +991,7 @@
             <weekday day="2,3,4,5,6,7" desc="Hverdager (man-lør)">
                 <departure time="05:00" line="I" />
                 <departure time="05:40" line="I" />
-                <departure time="06:00" line="II" comments="Går til Skipavik etterpå" />
+                <departure time="06:00" line="II" comments="Går til Skipavik" />
                 <departure time="06:20" line="I" />
                 <departure time="06:40" line="II" />
             </weekday>
@@ -1002,49 +1002,49 @@
             <!-- Daglig (D) - alle dager -->
             <weekday day="1,2,3,4,5,6,7" desc="Daglig">
                 <!-- Nattavganger -->
-                <departure time="00:20" line="I" comments="Skipavik: Bytt i Hjelmeland kl 00:40 (Bestillingstur)" />
-                <departure time="01:00" line="I" comments="Går til Skipavik etterpå (Bestillingstur)" />
+                <departure time="00:20" line="I"/>
+                <departure time="01:00" line="I" comments="Går til Skipavik før Hjelmeland (v/ Bestilling)" />
                 <departure time="02:00" line="I" />
                 
                 <!-- Morgenavganger - daglig -->
-                <departure time="07:40" line="II" comments="Skipavik: Bytt i Hjelmeland kl 08:00" />
+                <departure time="07:40" line="II" comments="til Skipavik: via Hjelmeland kl 08:00" />
                 <departure time="08:00" line="I" />
                 <departure time="08:35" line="I" />
                 <departure time="09:00" line="II" />
                 <departure time="09:20" line="I" />
-                <departure time="09:40" line="II" comments="Skipavik: Bytt i Hjelmeland kl 10:00" />
+                <departure time="09:40" line="II" comments="til Skipavik: via Hjelmeland kl 10:00" />
                 <departure time="10:00" line="I" />
                 <departure time="10:40" line="I" />
-                <departure time="11:00" line="II" comments="Skipavik: Bytt i Hjelmeland kl 11:20" />
+                <departure time="11:00" line="II" comments="til Skipavik: via Hjelmeland kl 11:20" />
                 <departure time="11:20" line="I" />
                 <departure time="12:00" line="I" />
                 <departure time="12:20" line="II" />
                 <departure time="12:40" line="I" />
-                <departure time="13:00" line="II" comments="Skipavik: Bytt i Hjelmeland kl 13:20" />
+                <departure time="13:00" line="II" comments="til Skipavik: via Hjelmeland kl 13:20" />
                 <departure time="13:20" line="I" />
                 <departure time="14:00" line="I" />
                 <departure time="14:20" line="II" />
-                <departure time="14:40" line="I" comments="Skipavik: Bytt i Hjelmeland kl 15:00" />
+                <departure time="14:40" line="I" comments="til Skipavik: via Hjelmeland kl 15:00" />
                 <departure time="15:00" line="II" />
-                <departure time="15:40" line="II" comments="Skipavik: Bytt i Hjelmeland kl 16:00" />
+                <departure time="15:40" line="II" comments="til Skipavik: via Hjelmeland kl 16:00" />
                 <departure time="16:00" line="I" />
                 <departure time="16:40" line="I" />
                 <departure time="17:00" line="II" />
                 <departure time="17:20" line="I" />
-                <departure time="17:40" line="II" comments="Skipavik: Bytt i Hjelmeland kl 18:00" />
+                <departure time="17:40" line="II" comments="til Skipavik: via Hjelmeland kl 18:00" />
                 <departure time="18:00" line="I" />
                 <departure time="18:40" line="I" />
-                <departure time="19:00" line="II" comments="Skipavik: Bytt i Hjelmeland kl 19:20" />
+                <departure time="19:00" line="II" comments="til Skipavik: via Hjelmeland kl 19:20" />
                 <departure time="19:20" line="I" />
                 <departure time="20:00" line="I" />
-                <departure time="20:20" line="II" comments="Skipavik: Bytt i Hjelmeland kl 20:40" />
+                <departure time="20:20" line="II" comments="til Skipavik: via Hjelmeland kl 20:40" />
                 <departure time="20:40" line="I" />
                 <departure time="21:00" line="II" />
                 <departure time="21:20" line="I" />
                 <departure time="21:40" line="II" />
                 <!-- II-rute slutt -->
-                <departure time="22:00" line="I" comments="Skipavik: Bytt i Hjelmeland kl 22:20" />
-                <departure time="22:40" line="I" />
+                <departure time="22:00" line="I"  />
+                <departure time="22:40" line="I" comments="Går til Skipavik før Hjelmeland"/>
                 <departure time="23:20" line="I" />
                 <departure time="23:40" line="I" />
             </weekday>
