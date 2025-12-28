@@ -1,3 +1,5 @@
+import { XMLParser } from 'fast-xml-parser';
+
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
@@ -23,7 +25,7 @@ async function handleApiRequest(url, request, env) {
 
   // Schedule as JSON
   if (url.pathname === '/api/schedule') {
-    return handleScheduleRequest(env);
+    return handleScheduleRequest(request, env);
   }
 
   // 404 for unknown API routes
@@ -33,10 +35,13 @@ async function handleApiRequest(url, request, env) {
   );
 }
 
-async function handleScheduleRequest(env) {
+async function handleScheduleRequest(request, env) {
   try {
     // Fetch the schedule.xml from static assets
-    const xmlResponse = await env.ASSETS.fetch(new Request('https://dummy/schedule.xml'));
+    const origin = new URL(request.url).origin;
+    const xmlResponse = env?.ASSETS 
+      ? await env.ASSETS.fetch(new Request(`${origin}/schedule.xml`))
+      : await fetch(`${origin}/schedule.xml`);
     
     if (!xmlResponse.ok) {
       return Response.json(
@@ -62,118 +67,73 @@ async function handleScheduleRequest(env) {
 }
 
 function parseScheduleXml(xmlText) {
-  // Simple XML parser for the schedule format
-  const routes = [];
-  
-  // Extract serial from routes element
-  const routesSerialMatch = xmlText.match(/<routes\s+serial="([^"]+)"/);
-  const serial = routesSerialMatch ? routesSerialMatch[1] : null;
+  const parser = new XMLParser({
+    ignoreAttributes: false,
+    attributeNamePrefix: '',
+    isArray: (name) => ['route', 'departurepoint', 'weekday', 'departure'].includes(name),
+  });
 
-  // Match all route elements
-  const routeRegex = /<route\s+([^>]+)>([\s\S]*?)<\/route>/g;
-  let routeMatch;
+  const parsed = parser.parse(xmlText);
+  const routesData = parsed.routes;
 
-  while ((routeMatch = routeRegex.exec(xmlText)) !== null) {
-    const routeAttrs = routeMatch[1];
-    const routeContent = routeMatch[2];
-
-    const route = {
-      name: extractAttr(routeAttrs, 'name'),
-      location1: extractAttr(routeAttrs, 'location1'),
-      location2: extractAttr(routeAttrs, 'location2'),
-      validfrom: extractAttr(routeAttrs, 'validfrom'),
-      validto: extractAttr(routeAttrs, 'validto'),
-      serial: extractAttr(routeAttrs, 'serial'),
-      time: extractAttr(routeAttrs, 'time'),
-      ticketzone: extractAttr(routeAttrs, 'ticketzone'),
-      operator: extractAttr(routeAttrs, 'operator'),
-      routeid: extractAttr(routeAttrs, 'routeid'),
-      url: extractAttr(routeAttrs, 'url'),
-      areaCode: extractAttr(routeAttrs, 'areaCode'),
-      lines: parseLines(routeContent),
-      departurepoints: parseDeparturePoints(routeContent),
-    };
-
-    routes.push(route);
-  }
+  // Transform to cleaner JSON structure
+  const routes = (routesData.route || []).map((route) => ({
+    name: route.name,
+    location1: route.location1,
+    location2: route.location2,
+    validfrom: route.validfrom,
+    validto: route.validto,
+    serial: route.serial,
+    time: route.time,
+    ticketzone: route.ticketzone,
+    operator: route.operator,
+    routeid: route.routeid,
+    url: route.url,
+    areaCode: route.areaCode,
+    lines: parseLines(route),
+    departurepoints: parseDeparturePoints(route),
+  }));
 
   return {
-    serial,
+    serial: routesData.serial,
     routes,
   };
 }
 
-function extractAttr(attrString, attrName) {
-  const regex = new RegExp(`${attrName}="([^"]*)"`);
-  const match = attrString.match(regex);
-  return match ? match[1] : null;
+function parseLines(route) {
+  // Handle both <lines><line/></lines> and <rutes><rute/></rutes>
+  let linesData = route.lines?.line || route.rutes?.rute || [];
+  
+  // Ensure it's always an array
+  if (!Array.isArray(linesData)) {
+    linesData = [linesData];
+  }
+  
+  return linesData.map((line) => ({
+    id: line.id,
+    name: line.name,
+    phonenumber: line.phonenumber,
+    type: line.type,
+    flags: line.flags || null,
+    comments: line.comments || null,
+    color: line.color || null,
+  }));
 }
 
-function parseLines(content) {
-  const lines = [];
+function parseDeparturePoints(route) {
+  const departurePoints = route.departurepoint || [];
   
-  // Check for both <lines> and <rutes> elements
-  const linesMatch = content.match(/<lines>([\s\S]*?)<\/lines>/) || 
-                     content.match(/<rutes>([\s\S]*?)<\/rutes>/);
-  
-  if (linesMatch) {
-    const lineRegex = /<(?:line|rute)\s+([^>\/]+)\/?>/g;
-    let lineMatch;
-
-    while ((lineMatch = lineRegex.exec(linesMatch[1])) !== null) {
-      const lineAttrs = lineMatch[1];
-      lines.push({
-        id: extractAttr(lineAttrs, 'id'),
-        name: extractAttr(lineAttrs, 'name'),
-        phonenumber: extractAttr(lineAttrs, 'phonenumber'),
-        type: extractAttr(lineAttrs, 'type'),
-        flags: extractAttr(lineAttrs, 'flags'),
-        comments: extractAttr(lineAttrs, 'comments'),
-        color: extractAttr(lineAttrs, 'color'),
-      });
-    }
-  }
-
-  return lines;
-}
-
-function parseDeparturePoints(content) {
-  const departurePoints = [];
-  const dpRegex = /<departurepoint\s+location="([^"]+)">([\s\S]*?)<\/departurepoint>/g;
-  let dpMatch;
-
-  while ((dpMatch = dpRegex.exec(content)) !== null) {
-    const location = dpMatch[1];
-    const dpContent = dpMatch[2];
-    
-    const weekdays = [];
-    const weekdayRegex = /<weekday\s+day="([^"]+)"\s+desc="([^"]+)">([\s\S]*?)<\/weekday>/g;
-    let wdMatch;
-
-    while ((wdMatch = weekdayRegex.exec(dpContent)) !== null) {
-      const departures = [];
-      const depRegex = /<departure\s+time="([^"]+)"(?:\s+comments="([^"]*)")?(?:\s+line="([^"]*)")?\s*\/>/g;
-      let depMatch;
-
-      while ((depMatch = depRegex.exec(wdMatch[3])) !== null) {
-        const departure = { time: depMatch[1] };
-        if (depMatch[2]) departure.comments = depMatch[2];
-        if (depMatch[3]) departure.line = depMatch[3];
-        departures.push(departure);
-      }
-
-      weekdays.push({
-        days: wdMatch[1],
-        description: wdMatch[2],
-        departures,
-      });
-    }
-
-    departurePoints.push({
-      location,
-      weekdays,
-    });
-  }
-
-  return departurePoints;
+  return departurePoints.map((dp) => ({
+    location: dp.location,
+    weekdays: (dp.weekday || []).map((wd) => ({
+      days: wd.day,
+      description: wd.desc,
+      departures: (wd.departure || []).map((dep) => {
+        const departure = { time: dep.time };
+        if (dep.line) departure.line = dep.line;
+        if (dep.comments) departure.comments = dep.comments;
+        return departure;
+      }),
+    })),
+  }));
 }

@@ -10,5 +10,8 @@
   "devDependencies": {
     "wrangler": "^4.54.0"
   },
-  "license": "GPL-2.0"
+  "license": "GPL-2.0",
+  "dependencies": {
+    "fast-xml-parser": "^5.3.3"
+  }
 }
