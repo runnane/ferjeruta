@@ -8,7 +8,7 @@
     "dev": "wrangler dev --ip 0.0.0.0"
   },
   "devDependencies": {
-    "wrangler": "^4.54.0"
+    "wrangler": "^4.59.1"
   },
   "license": "GPL-2.0",
   "dependencies": {
